@@ -1,0 +1,465 @@
+{
+  "films": [
+    {
+      "film_id": 324892,
+      "imdb_id": 15239678,
+      "imdb_title_id": "tt15239678",
+      "film_name": "Dune: Part II",
+      "other_titles": null,
+      "release_dates": [
+        {
+          "release_date": "2024-03-01",
+          "notes": "GBR"
+        }
+      ],
+      "age_rating": [
+        {
+          "rating": "12A ",
+          "age_rating_image": "https://assets.movieglu.com/age_rating_logos/uk/12a.png",
+          "age_advisory": "moderate violence, bloody images, threat"
+        }
+      ],
+      "film_trailer": "https://trailer.movieglu.com/324892_high_V3.mp4",
+      "synopsis_long": "\"Dune: Part Two\" will explore the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.",
+      "images": {
+        "poster": {
+          "1": {
+            "image_orientation": "portrait",
+            "region": "UK",
+            "medium": {
+              "film_image": "https://image.movieglu.com/324892/GBR_324892h0.jpg",
+              "width": 202,
+              "height": 300
+            }
+          }
+        },
+        "still": {
+          "1": {
+            "image_orientation": "landscape",
+            "medium": {
+              "film_image": "https://image.movieglu.com/324892/324892h2.jpg",
+              "width": 300,
+              "height": 200
+            }
+          }
+        }
+      }
+    },
+    {
+      "film_id": 349463,
+      "imdb_id": 20234774,
+      "imdb_title_id": "tt20234774",
+      "film_name": "Wicked Little Letters",
+      "other_titles": null,
+      "release_dates": [
+        {
+          "release_date": "2024-02-23",
+          "notes": "GBR"
+        }
+      ],
+      "age_rating": [
+        {
+          "rating": "15 ",
+          "age_rating_image": "https://assets.movieglu.com/age_rating_logos/uk/15.png",
+          "age_advisory": "very strong language, strong sex references, domestic abuse"
+        }
+      ],
+      "film_trailer": "https://trailer.movieglu.com/349463_high.mp4",
+      "synopsis_long": "A 1920s English seaside town bears witness to a farcical and occasionally sinister scandal in this riotous mystery comedy. Based on a stranger than fiction true story, WICKED LITTLE LETTERS follows two neighbours: deeply conservative local Edith Swan (Olivia Colman) and rowdy Irish migrant Rose Gooding (Jessie Buckley). When Edith and fellow residents begin to receive wicked letters full of unintentionally hilarious profanities, foul-mouthed Rose is charged with the crime. The anonymous letters prompt a national uproar, and a trial ensues. However, as the town's women - led by Police Officer Gladys Moss (Anjana Vasan) - begin to investigate the crime themselves, they suspect that something is amiss, and Rose may not be the culprit after all.",
+      "images": {
+        "poster": {
+          "1": {
+            "image_orientation": "portrait",
+            "region": "UK",
+            "medium": {
+              "film_image": "https://image.movieglu.com/349463/GBR_349463h0.jpg",
+              "width": 198,
+              "height": 300
+            }
+          }
+        },
+        "still": {
+          "1": {
+            "image_orientation": "landscape",
+            "medium": {
+              "film_image": "https://image.movieglu.com/349463/349463h2.jpg",
+              "width": 300,
+              "height": 200
+            }
+          }
+        }
+      }
+    },
+    {
+      "film_id": 346924,
+      "imdb_id": 8521778,
+      "imdb_title_id": "tt8521778",
+      "film_name": "Bob Marley: One Love",
+      "other_titles": null,
+      "release_dates": [
+        {
+          "release_date": "2024-02-16",
+          "notes": "GBR"
+        }
+      ],
+      "age_rating": [
+        {
+          "rating": "12A ",
+          "age_rating_image": "https://assets.movieglu.com/age_rating_logos/uk/12a.png",
+          "age_advisory": "drug use, moderate violence, infrequent strong language"
+        }
+      ],
+      "film_trailer": "https://trailer.movieglu.com/346924_high_V2.mp4",
+      "synopsis_long": "BOB MARLEY: ONE LOVE celebrates the life and music of an icon who inspired generations through his message of love and unity. On the big screen for the first time, discover Bob's powerful story of overcoming adversity and the journey behind his revolutionary music.",
+      "images": {
+        "poster": {
+          "1": {
+            "image_orientation": "portrait",
+            "region": "UK",
+            "medium": {
+              "film_image": "https://image.movieglu.com/346924/GBR_346924h0.jpg",
+              "width": 240,
+              "height": 300
+            }
+          }
+        },
+        "still": {
+          "1": {
+            "image_orientation": "landscape",
+            "medium": {
+              "film_image": "https://image.movieglu.com/346924/346924h2.jpg",
+              "width": 300,
+              "height": 200
+            }
+          }
+        }
+      }
+    },
+    {
+      "film_id": 347015,
+      "imdb_id": 26658104,
+      "imdb_title_id": "tt26658104",
+      "film_name": "Imaginary",
+      "other_titles": null,
+      "release_dates": [
+        {
+          "release_date": "2024-03-08",
+          "notes": "GBR"
+        }
+      ],
+      "age_rating": [
+        {
+          "rating": "15 ",
+          "age_rating_image": "https://assets.movieglu.com/age_rating_logos/uk/15.png",
+          "age_advisory": "strong threat"
+        }
+      ],
+      "film_trailer": "https://trailer.movieglu.com/347015_high_V2.mp4",
+      "synopsis_long": "When Jessica (DeWanda Wise) moves back into her childhood home with her family, her youngest stepdaughter Alice (Pyper Braun) develops an eerie attachment to a stuffed bear named Chauncey she finds in the basement. Alice starts playing games with Chauncey that begin playful and become increasingly sinister. As Alice's behavior becomes more and more concerning, Jessica intervenes only to realize Chauncey is much more than the stuffed toy bear she believed him to be.",
+      "images": {
+        "poster": {
+          "1": {
+            "image_orientation": "portrait",
+            "region": "UK",
+            "medium": {
+              "film_image": "https://image.movieglu.com/347015/GBR_347015h0.jpg",
+              "width": 203,
+              "height": 300
+            }
+          }
+        },
+        "still": {
+          "1": {
+            "image_orientation": "landscape",
+            "medium": {
+              "film_image": "https://image.movieglu.com/347015/347015h2.jpg",
+              "width": 300,
+              "height": 200
+            }
+          }
+        }
+      }
+    },
+    {
+      "film_id": 329314,
+      "imdb_id": 6495056,
+      "imdb_title_id": "tt6495056",
+      "film_name": "Migration",
+      "other_titles": null,
+      "release_dates": [
+        {
+          "release_date": "2024-02-02",
+          "notes": "GBR"
+        }
+      ],
+      "age_rating": [
+        {
+          "rating": "U ",
+          "age_rating_image": "https://assets.movieglu.com/age_rating_logos/uk/u.png",
+          "age_advisory": "very mild threat, violence, rude humour"
+        }
+      ],
+      "film_trailer": "https://trailer.movieglu.com/329314_high_V3.mp4",
+      "synopsis_long": "The Mallard family is in a bit of rut. While dad Mack is content to keep his family safe paddling around their New England pond forever, mom Pam is eager to shake things up and show their kids - teen son Dax and duckling daughter Gwen - the whole wide world. After a migrating duck family alights on their pond with thrilling tales of far-flung places, Pam persuades Mack to embark on a family trip, via New York City, to tropical Jamaica.  As the Mallards make their way South for the winter, their well-laid plans quickly go awry. The experience will inspire them to expand their horizons, open themselves up to new friends and accomplish more than they ever thought possible, while teaching them more about each other - and themselves - than they ever imagined.",
+      "images": {
+        "poster": {
+          "1": {
+            "image_orientation": "portrait",
+            "region": "UK",
+            "medium": {
+              "film_image": "https://image.movieglu.com/329314/GBR_329314h0.jpg",
+              "width": 189,
+              "height": 300
+            }
+          }
+        },
+        "still": {
+          "1": {
+            "image_orientation": "landscape",
+            "medium": {
+              "film_image": "https://image.movieglu.com/329314/329314h2.jpg",
+              "width": 300,
+              "height": 200
+            }
+          }
+        }
+      }
+    },
+    {
+      "film_id": 331703,
+      "imdb_id": 11057302,
+      "imdb_title_id": "tt11057302",
+      "film_name": "Madame Web",
+      "other_titles": null,
+      "release_dates": [
+        {
+          "release_date": "2024-02-14",
+          "notes": "GBR"
+        }
+      ],
+      "age_rating": [
+        {
+          "rating": "12A ",
+          "age_rating_image": "https://assets.movieglu.com/age_rating_logos/uk/12a.png",
+          "age_advisory": "moderate violence, threat, language, brief bloody images"
+        }
+      ],
+      "film_trailer": "https://trailer.movieglu.com/331703_high.mp4",
+      "synopsis_long": "In a switch from the typical genre, Madame Web tells the standalone origin story of one of Marvel publishing's most enigmatic heroines. The suspense-driven thriller stars Dakota Johnson as Cassandra Webb, a paramedic in Manhattan who develops the power to see the future... and realizes she can use that insight to change it. Forced to confront revelations about her past, she forges a relationship with three young women bound for powerful destinies...if they can all survive a deadly present.",
+      "images": {
+        "poster": {
+          "1": {
+            "image_orientation": "portrait",
+            "region": "UK",
+            "medium": {
+              "film_image": "https://image.movieglu.com/331703/GBR_331703h0.jpg",
+              "width": 202,
+              "height": 300
+            }
+          }
+        },
+        "still": {
+          "1": {
+            "image_orientation": "landscape",
+            "medium": {
+              "film_image": "https://image.movieglu.com/331703/331703h2.jpg",
+              "width": 300,
+              "height": 200
+            }
+          }
+        }
+      }
+    },
+    {
+      "film_id": 346010,
+      "imdb_id": 7160372,
+      "imdb_title_id": "tt7160372",
+      "film_name": "The Zone of Interest",
+      "other_titles": null,
+      "release_dates": [
+        {
+          "release_date": "2024-02-02",
+          "notes": "GBR"
+        }
+      ],
+      "age_rating": [
+        {
+          "rating": "12A ",
+          "age_rating_image": "https://assets.movieglu.com/age_rating_logos/uk/12a.png",
+          "age_advisory": "Holocaust theme, disturbing scenes, racism, moderate sex references"
+        }
+      ],
+      "film_trailer": "https://trailer.movieglu.com/346010_high_V2.mp4",
+      "synopsis_long": "The commandant of Auschwitz, Rudolf Höss, and his wife Hedwig, strive to build a dream life for their family in a house and garden next to the camp.",
+      "images": {
+        "poster": {
+          "1": {
+            "image_orientation": "portrait",
+            "region": "UK",
+            "medium": {
+              "film_image": "https://image.movieglu.com/346010/GBR_346010h0.jpg",
+              "width": 203,
+              "height": 300
+            }
+          }
+        },
+        "still": {
+          "1": {
+            "image_orientation": "landscape",
+            "medium": {
+              "film_image": "https://image.movieglu.com/346010/346010h2.jpg",
+              "width": 300,
+              "height": 200
+            }
+          }
+        }
+      }
+    },
+    {
+      "film_id": 315920,
+      "imdb_id": 6166392,
+      "imdb_title_id": "tt6166392",
+      "film_name": "Wonka",
+      "other_titles": null,
+      "release_dates": [
+        {
+          "release_date": "2023-12-08",
+          "notes": "GBR"
+        }
+      ],
+      "age_rating": [
+        {
+          "rating": "PG ",
+          "age_rating_image": "https://assets.movieglu.com/age_rating_logos/uk/pg.png",
+          "age_advisory": "mild threat, violence, implied bad language"
+        }
+      ],
+      "film_trailer": "https://trailer.movieglu.com/315920_high_V2.mp4",
+      "synopsis_long": "An origin story that explores the vivid, mythical beginnings of the imaginative young inventor before he becomes the renowned scrumdiddlyumptious Mozart of chocolate",
+      "images": {
+        "poster": {
+          "1": {
+            "image_orientation": "portrait",
+            "region": "UK",
+            "medium": {
+              "film_image": "https://image.movieglu.com/315920/GBR_315920h0.jpg",
+              "width": 202,
+              "height": 300
+            }
+          }
+        },
+        "still": {
+          "1": {
+            "image_orientation": "landscape",
+            "medium": {
+              "film_image": "https://image.movieglu.com/315920/315920h2.jpg",
+              "width": 300,
+              "height": 200
+            }
+          }
+        }
+      }
+    },
+    {
+      "film_id": 323982,
+      "imdb_id": 15398776,
+      "imdb_title_id": "tt15398776",
+      "film_name": "Oppenheimer",
+      "other_titles": null,
+      "release_dates": [
+        {
+          "release_date": "2023-07-21",
+          "notes": "GBR"
+        }
+      ],
+      "age_rating": [
+        {
+          "rating": "15 ",
+          "age_rating_image": "https://assets.movieglu.com/age_rating_logos/uk/15.png",
+          "age_advisory": "strong language, sex"
+        }
+      ],
+      "film_trailer": "https://trailer.movieglu.com/323982_high_V2.mp4",
+      "synopsis_long": "Written and directed by Christopher Nolan, Oppenheimer is an IMAX®-shot epic thriller that thrusts audiences into the pulse-pounding paradox of the enigmatic man who must risk destroying the world in order to save it.",
+      "images": {
+        "poster": {
+          "1": {
+            "image_orientation": "portrait",
+            "region": "UK",
+            "medium": {
+              "film_image": "https://image.movieglu.com/323982/GBR_323982h0.jpg",
+              "width": 240,
+              "height": 300
+            }
+          }
+        },
+        "still": {
+          "1": {
+            "image_orientation": "landscape",
+            "medium": {
+              "film_image": "https://image.movieglu.com/323982/323982h2.jpg",
+              "width": 300,
+              "height": 200
+            }
+          }
+        }
+      }
+    },
+    {
+      "film_id": 346777,
+      "imdb_id": 26047818,
+      "imdb_title_id": "tt26047818",
+      "film_name": "Anyone But You",
+      "other_titles": null,
+      "release_dates": [
+        {
+          "release_date": "2023-12-26",
+          "notes": "GBR"
+        }
+      ],
+      "age_rating": [
+        {
+          "rating": "15 ",
+          "age_rating_image": "https://assets.movieglu.com/age_rating_logos/uk/15.png",
+          "age_advisory": "very strong language"
+        }
+      ],
+      "film_trailer": "https://trailer.movieglu.com/346777_high.mp4",
+      "synopsis_long": "In the edgy comedy Anyone But You, Bea (Sydney Sweeney) and Ben (Glen Powell) look like the perfect couple, but after an amazing first date something happens that turns their fiery hot attraction ice cold - until they find themselves unexpectedly thrust together at a destination wedding in Australia. So they do what any two mature adults would do: pretend to be a couple.",
+      "images": {
+        "poster": {
+          "1": {
+            "image_orientation": "portrait",
+            "region": "UK",
+            "medium": {
+              "film_image": "https://image.movieglu.com/346777/GBR_346777h0.jpg",
+              "width": 200,
+              "height": 300
+            }
+          }
+        },
+        "still": {
+          "1": {
+            "image_orientation": "landscape",
+            "medium": {
+              "film_image": "https://image.movieglu.com/346777/346777h2.jpg",
+              "width": 300,
+              "height": 200
+            }
+          }
+        }
+      }
+    }
+  ],
+  "status": {
+    "count": 10,
+    "state": "OK",
+    "method": "filmsNowShowing",
+    "message": null,
+    "request_method": "GET",
+    "version": "PINEv200",
+    "territory": "UK",
+    "device_datetime_sent": "2024-03-13T08:13:29.524Z",
+    "device_datetime_used": "2024-03-13 08:13:29"
+  }
+}
