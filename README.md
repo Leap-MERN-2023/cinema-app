@@ -1,6 +1,6 @@
 # cinema-app
 
-TEAM - Code Roaster
+## TEAM - Code Roaster
 
 ERD - https://lucid.app/lucidchart/399d1a28-e08b-400b-82ad-d9741d61390a/edit?view_items=A_Ii3OyjKU0Z&invitationId=inv_616f36d9-a593-4c80-b174-b1ae260ea96b
 
