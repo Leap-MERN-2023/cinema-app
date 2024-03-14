@@ -1,6 +1,6 @@
 export const cards = [
   {
-    title: "Barbie",
+    title: "Oppenheimer",
     describtion:
       "come on barbie, let's go party! Take a look at Margot Robbie, Ryan Gosling, and more stars set to play Barbie and Ken in the ...",
     casting: [
@@ -22,11 +22,11 @@ export const cards = [
     ],
     cinema:
       "https://cdn6.aptoide.com/imgs/a/d/5/ad5233230d9d687e709b49db53d452dd_icon.png",
-    movieImages: "https://m.media-amazon.com/images/I/61rlHO9hPDL._AC_UF894,1000_QL80_.jpg",
+    movieImages: "https://www.tbsnews.net/sites/default/files/styles/infograph/public/images/2022/07/23/oppenheimer.jpg",
     date: "07/20/23",
   },
   {
-    title: "Barbie",
+    title: "Dune II",
     describtion:
       "come on barbie, let's go party! Take a look at Margot Robbie, Ryan Gosling, and more stars set to play Barbie and Ken in the ...",
     casting: [
@@ -48,8 +48,8 @@ export const cards = [
     ],
     cinema:
       "https://cdn6.aptoide.com/imgs/a/d/5/ad5233230d9d687e709b49db53d452dd_icon.png",
-    movieImages: "https://m.media-amazon.com/images/I/61rlHO9hPDL._AC_UF894,1000_QL80_.jpg",
-    date: "07/20/23",
+    movieImages: "https://dunenewsnet.com/wp-content/uploads/2023/05/Dune-Part-Two-Movie-Poster-819x1024.jpg",
+    date: "03/01/24",
   },
   {
     title: "Barbie",

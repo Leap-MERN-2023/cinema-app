@@ -33,7 +33,7 @@ export default function CarouselCard() {
   };
 
   return (
-    <div className="w-full h-screen pt-12 lg:max-w-5xl mx-auto">
+    <div className="w-full pt-12 lg:max-w-5xl mx-auto">
       <Carousel className="relative">
         <CarouselContent
           style={{
