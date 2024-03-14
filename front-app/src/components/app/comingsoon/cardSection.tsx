@@ -11,7 +11,7 @@ export const CardSection = (props: Props) => {
         <Card className="w-[300px] h-[500px] rounded-lg bg-slate-500" key={i}>
           <img
             src={card.movieImages}
-            className="h-[380px] rounded-t-lg relative"
+            className="h-[380px] w-[300px] rounded-t-lg relative"
           />
           <Badge variant="secondary" className="absolute mb-4">
             {card.date}
