@@ -17,10 +17,7 @@ type Props = {};
 
 export const MovieCard = (props: Props) => {
   return (
-    <div className="mt-10 flex justify-evenly">
-      {cards.map((card: any, i) => {
-        return (
-          <div
+        <div
             className="w-[300px] h-[500px] rounded-lg border-1 overflow-hidden flex justify-center items-center border-2 border-rose-200"
             key={i}
           >
