@@ -19,9 +19,9 @@ const cinemaTypeOptions: readonly CinemaTypeOption[] = [
 ];
 
 const controlStyles = {
-  base: "border rounded-[5px] bg-[#020000] hover:cursor-pointer py-1 min-w-[250px] min-h-[40px]",
-  focus: "border-primary-600 ",
-  nonFocus: "border-gray-300 hover:border-gray-400 py-1",
+  base: "border rounded-[5px] bg-[#020000] hover:cursor-pointer py-1 min-w-[300px] min-h-[40px]",
+  focus: "border-primary-400 ",
+  nonFocus: "border-gray-800 hover:border-gray-400 py-1",
 };
 const placeholderStyles = "text-[#adadad]  pl-2 py-1 font-normal ";
 const selectInputStyles = "pl-1 py-0.5";
