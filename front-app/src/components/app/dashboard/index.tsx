@@ -2,7 +2,6 @@ import React from "react";
 
 import FilterSection from "./filterSection";
 import EventsBanner from "./eventbanner";
-
 import CarouselCard from "../../carousel";
 import { MovieCard } from "@/components";
 
