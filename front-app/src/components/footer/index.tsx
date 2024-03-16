@@ -10,7 +10,7 @@ type Props = {};
 
 export const Footer = (props: Props) => {
   return (
-    <div className="mt-[-40px]">
+    <div>
       <div className="flex items-center justify-center w-full bg-[#262330] h-[400px] text-[#d3cfe6] relative ">
         <div className="flex justify-center flex-col gap-4">
           <div className="text-2xl">Central Cinema</div>
