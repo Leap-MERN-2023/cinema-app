@@ -27,9 +27,9 @@ export function DialogOpen({ card }: ICardProps) {
           Дэлгэрэнгүй
         </Button>
       </DialogTrigger>
-      <DialogContent className="p-0 bg-slate-700 max-h-[800px] min-w-[1200px] border-none overflow-scroll">
-        <div className="overflow-hidden">
-          <div className="flex backdrop-blur-xl p-6 gap-40">
+      <DialogContent className="p-0 bg-slate-700 max-h-[800px] min-w-[1200px] border-none overflow-auto">
+        <div className="">
+          <div className="flex backdrop-blur-md p-6 gap-40">
             <section className="flex justify-center gap-4 z-10">
               <div className="rounded-lg overflow-hidden w-[400px] flex justify-center items-center">
                 <img src={card.movieImages} alt={card.title + " image"} />
@@ -56,7 +56,7 @@ export function DialogOpen({ card }: ICardProps) {
           <div className="absolute -z-10 top-0">
             <img src={card.horizontalPoster} alt="" width="1500px" />
           </div>
-          <div className="bg-gradient-to-b from-gray-900 to-slate-900 text-white m-0 pl-10 pt-10">
+          <div className="bg-gradient-to-b from-black to-zinc-600 text-white m-0 pl-10 pt-10">
             <p className="text-4xl font-bold">Тухай: </p>
             <div className="text-3xl font-light mt-4">{card.description}</div>
             <p className="text-4xl font-bold mt-4">Дүрүүдэд: </p>
