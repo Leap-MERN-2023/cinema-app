@@ -1,6 +1,7 @@
 import React from "react";
 import { cards } from "./cards";
 import { Badge, Button, Card, CardFooter } from "@/components";
+import { ComingModal } from "./comingModal";
 
 type Props = {};
 
@@ -19,7 +20,7 @@ export const CardSection = (props: Props) => {
 
           <CardFooter className="bg-slate-500 flex items-center flex-col mt-4 gap-2 rounded-b-lg">
             <p className="text-white font-bold text-2xl">Barbie</p>
-            <Button className="px-10 hover:opacity-1">Дэлгэрэнгүй</Button>
+            <ComingModal card={card} />
           </CardFooter>
         </Card>
       ))}
