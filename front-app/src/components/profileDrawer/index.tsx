@@ -31,7 +31,7 @@ export function ProfileDrawer() {
           Profile
         </a>
       </SheetTrigger>
-      <SheetContent className="pt-[300px] px-14 bg-[#000000] bg-opacity-50 border-none">
+      <SheetContent className="flex justify-center items-center px-14 bg-[#000000] bg-opacity-50 border-none">
         {showSignIn && (
           <div>
             <SheetHeader>

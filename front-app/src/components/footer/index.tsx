@@ -10,15 +10,15 @@ type Props = {};
 
 export const Footer = (props: Props) => {
   return (
-    <div>
-      <div className="flex items-center justify-center w-full bg-[#262330] h-[400px] text-[#d3cfe6] relative ">
-        <div className="flex justify-center flex-col gap-4">
+    <div className="bg-[#262330]">
+      <div className="flex items-center justify-center mx-auto container w-full  h-[400px] text-[#d3cfe6] relative ">
+        <div className="flex flex-col gap-4 justify-start">
           <div className="text-2xl">Central Cinema</div>
           <div className="">Бүх кино театарыг нэг доороос!</div>
-          <div className="flex items-center gap-8 ml-12">
-            <FaFacebookF className="size-6" />
-            <FaInstagram className="size-7" />
-            <FaTwitter className="size-6" />
+          <div className="flex items-center gap-5">
+            <FaFacebookF className="size-6 hover:bg-blue-700 " />
+            <FaInstagram className="size-7 hover:text-red-400" />
+            <FaTwitter className="size-6 hover:text-blue-400" />
           </div>
         </div>
 
@@ -42,20 +42,21 @@ export const Footer = (props: Props) => {
           </div>
           <div className="ml-6">Copyright © 2024 | EYECANDY</div>
         </div>
+        <div className="flex items-center gap-14">
+          <div>
+            <img src="./qr/Untitled.svg" className="size-48 ml-[160px]" />
+          </div>
 
-        <div>
-          <img src="./qr/Untitled.svg" className="size-48 ml-[160px]" />
-        </div>
-
-        <div className="flex items-center justify-center flex-col ml-[40px]">
-          <img
-            src="https://www.svgrepo.com/show/303128/download-on-the-app-store-apple-logo.svg"
-            className="size-64 "
-          />
-          <img
-            src="https://www.svgrepo.com/show/303139/google-play-badge-logo.svg"
-            className="size-64 mt-[-160px]"
-          />
+          <div className="flex items-center justify-center flex-col ml-[40px]">
+            <img
+              src="https://www.svgrepo.com/show/303128/download-on-the-app-store-apple-logo.svg"
+              className="size-64 "
+            />
+            <img
+              src="https://www.svgrepo.com/show/303139/google-play-badge-logo.svg"
+              className="size-64 mt-[-160px]"
+            />
+          </div>
         </div>
       </div>
     </div>
