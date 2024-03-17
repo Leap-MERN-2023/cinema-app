@@ -9,7 +9,7 @@ import { ImLocation } from "react-icons/im";
 const FilterSection = () => {
   return (
     <div className="flex justify-center items-center mx-auto gap-4 mt-10">
-      <p className="text-lg  text-[#e5e7eb]">Filter by:</p>
+      <p className="text-lg text-[#e5e7eb] whitespace-nowrap">Filter by:</p>
       <div>
         <ImLocation className="p-3 bg-[#0089d0] w-10 h-10 text-white rounded-[5px]" />
       </div>
