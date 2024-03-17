@@ -1,8 +1,8 @@
 export const cards = [
   {
     title: "Oppenheimer",
-    describtion:
-      "come on barbie, let's go party! Take a look at Margot Robbie, Ryan Gosling, and more stars set to play Barbie and Ken in the ...",
+    description:
+      "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
     casting: [
       {
         image:
@@ -22,13 +22,17 @@ export const cards = [
     ],
     cinema:
       "https://cdn6.aptoide.com/imgs/a/d/5/ad5233230d9d687e709b49db53d452dd_icon.png",
-    movieImages: "https://www.tbsnews.net/sites/default/files/styles/infograph/public/images/2022/07/23/oppenheimer.jpg",
+    movieImages:
+      "https://www.tbsnews.net/sites/default/files/styles/infograph/public/images/2022/07/23/oppenheimer.jpg",
+    horizontalPoster:
+      "https://assets-global.website-files.com/630d4d1c4a462569dd189855/64c19105282a4f4d3e2ba884_2c130933-15f5-4898-a6d6-3d5180b7c2e8%201.webp",
     date: "07/20/23",
+    director: "Christopher Nolan",
   },
   {
     title: "Dune II",
-    describtion:
-      "come on barbie, let's go party! Take a look at Margot Robbie, Ryan Gosling, and more stars set to play Barbie and Ken in the ...",
+    description:
+      "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
     casting: [
       {
         image:
@@ -48,12 +52,16 @@ export const cards = [
     ],
     cinema:
       "https://cdn6.aptoide.com/imgs/a/d/5/ad5233230d9d687e709b49db53d452dd_icon.png",
-    movieImages: "https://dunenewsnet.com/wp-content/uploads/2023/05/Dune-Part-Two-Movie-Poster-819x1024.jpg",
+    movieImages:
+      "https://dunenewsnet.com/wp-content/uploads/2023/05/Dune-Part-Two-Movie-Poster-819x1024.jpg",
+    horizontalPoster:
+      "https://cdnb.artstation.com/p/assets/images/images/037/636/465/large/andres-mencia-e6d693ce-a635-425f-811b-9354846b0e31-rw-1920.jpg?1620903148",
     date: "03/01/24",
+    director: "Denis Villenueve",
   },
   {
     title: "Barbie",
-    describtion:
+    description:
       "come on barbie, let's go party! Take a look at Margot Robbie, Ryan Gosling, and more stars set to play Barbie and Ken in the ...",
     casting: [
       {
@@ -74,7 +82,10 @@ export const cards = [
     ],
     cinema:
       "https://cdn6.aptoide.com/imgs/a/d/5/ad5233230d9d687e709b49db53d452dd_icon.png",
-    movieImages: "https://m.media-amazon.com/images/I/61rlHO9hPDL._AC_UF894,1000_QL80_.jpg",
+    movieImages:
+      "https://m.media-amazon.com/images/I/61rlHO9hPDL._AC_UF894,1000_QL80_.jpg",
+    horizontalPoster: "https://www.barbie-themovie.com/images/share.jpg",
     date: "07/20/23",
+    director: "Greta Gerwig",
   },
 ];
