@@ -17,7 +17,7 @@ const images = [
   "https://via.placeholder.com/1200x400?text=Slide%205",
 ];
 
-export default function CarouselCard() {
+export function CarouselCard() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextSlide = () => {

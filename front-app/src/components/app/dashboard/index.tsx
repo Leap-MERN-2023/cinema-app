@@ -2,7 +2,7 @@ import React from "react";
 
 import FilterSection from "./filterSection";
 import EventsBanner from "./eventbanner";
-import CarouselCard from "../../carousel";
+import { CarouselCard } from "@/components";
 import { MovieCard } from "@/components";
 
 type Props = {};
