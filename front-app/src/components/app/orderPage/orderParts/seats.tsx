@@ -18,6 +18,9 @@ const seats = [
   { seatNumber: "2-A", isBooked: true, isSelected: true },
   { seatNumber: "2-B", isBooked: true, isSelected: true },
   { seatNumber: "2-C", isBooked: true, isSelected: true },
+  { seatNumber: "3-A", isBooked: true, isSelected: true },
+  { seatNumber: "3-B", isBooked: true, isSelected: true },
+  { seatNumber: "3-C", isBooked: true, isSelected: true },
 ];
 
 const seatsTest = [
@@ -30,7 +33,6 @@ const seatsTest = [
 
 export const Seats = (props: Props) => {
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
-
   const handleSelect = (seatNumber: string) => {
     const fndIdx = selectedSeats.findIndex((el) => el === seatNumber);
     console.log("F", fndIdx);
