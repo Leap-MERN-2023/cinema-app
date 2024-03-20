@@ -74,7 +74,7 @@ export const OrderPage = (props: Props) => {
   };
 
   return (
-    <div className=" flex flex-col bg-slate-800 pt-20 items-center justify-center">
+    <div className=" flex flex-col h-screen bg-slate-800 pt-20 items-center justify-center">
       {StepSwitch()}
       <div>
         {step === 1 && <CinemaCard changeStep={changeStep} />}

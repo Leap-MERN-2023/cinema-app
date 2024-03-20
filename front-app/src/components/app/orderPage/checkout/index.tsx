@@ -248,7 +248,13 @@ export function Checkout({ changeStep }: any) {
             <Button
               type="submit"
               className="w-full bg-red-600 mt-2 hover:bg-red-200"
-              onClick={() => changeStep()}
+              onClick={() => {
+                if (form.formState.isValid) {
+                  changeStep();
+                } else {
+                  console.log("Form contains errors. Cannot proceed.");
+                }
+              }}
             >
               Төлөх
             </Button>
