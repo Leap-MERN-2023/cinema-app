@@ -34,7 +34,7 @@ const formSchema = z.object({
   }),
 });
 
-export function Checkout() {
+export function Checkout({ changeStep }: any) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -248,6 +248,7 @@ export function Checkout() {
             <Button
               type="submit"
               className="w-full bg-red-600 mt-2 hover:bg-red-200"
+              onClick={() => changeStep()}
             >
               Төлөх
             </Button>
