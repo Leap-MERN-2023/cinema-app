@@ -25,4 +25,3 @@ app.get("/", (req: Request, res: Response) => {
 app.listen(PORT, () =>
   console.log(color.rainbow(`Server started at ${PORT} `))
 );
-
