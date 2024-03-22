@@ -10,7 +10,7 @@ type Props = {};
 
 export const Footer = (props: Props) => {
   return (
-    <div className="text-[#d3cfe6] bg-[#1f2333]">
+    <div className="text-[#d3cfe6] bg-[#1f2333] overflow-hidden">
       <div className="grid mx-auto flex-col  items-center justify-center  md:grid-cols-2 xl:grid-cols-2 md:container">
         <div className="flex flex-col gap-4 justify-start">
           <div className="text-2xl font-bold mt-12 md:mb-4">Central Cinema</div>

@@ -52,7 +52,7 @@ export function Checkout({ changeStep }: any) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex justify-between w-[800px] max-h-[450px] bg-slate-900 px-8 py-12 rounded-xl mt-10"
+        className="flex justify-between w-[800px] max-h-[450px] bg-slate-900 px-8 py-12 rounded-xl my-10"
       >
         <div className="flex flex-col gap-6 h-full text-white">
           <h1 className="font-semibold ">Checkout</h1>
