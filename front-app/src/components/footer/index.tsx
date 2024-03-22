@@ -10,14 +10,16 @@ type Props = {};
 
 export const Footer = (props: Props) => {
   return (
-    <div className="text-[#d3cfe6] bg-[#1f2333] overflow-hidden">
-      <div className="grid mx-auto flex-col  items-center justify-center  md:grid-cols-2 xl:grid-cols-2 md:container">
+    <div className="text-[#d3cfe6] bg-[#1f2333] overflow-hidden text-[12px] md:text-[16px] md:p-16">
+      <div className="grid mx-auto flex-col  items-center justify-center  md:grid-cols-2 xl:grid-cols-2 container md:mb-16">
         <div className="flex flex-col gap-4 justify-start">
-          <div className="text-2xl font-bold mt-12 md:mb-4">Central Cinema</div>
+          <div className="text-xl md:text-2xl font-bold mt-12 md:mb-4">
+            Central Cinema
+          </div>
           <div className="font-medium mb-8">
             - Бүх кино театарыг нэг доороос!
           </div>
-          <div className="font-bold text-2xl mb-2">Холбоос </div>
+          <div className="font-bold text-xl md:text-2xl mb-2">Холбоос </div>
           <div className="flex flex-col gap-5 mb-12">
             <div className="flex items-center gap-2">
               <FaFacebookF className="size-6 hover:bg-blue-700 " />
@@ -34,40 +36,44 @@ export const Footer = (props: Props) => {
           </div>
         </div>
 
-        <div className="md:mt-32 xl:mt-[-132px] xl:flex xl:justify-center">
-          <div className="flex justify-center flex-col gap-4 xl:ml-[-240px] xl:mr-32 xl:gap-10">
-            <div className="text-2xl mb-4 font-bold">Түгээмэл асуулт</div>
+        <div className="grid xl:flex xl:justify-center xl:mt-[-48px] md:mt-[132px]">
+          <div className="flex justify-center flex-col gap-4  xl:mr-32 xl:gap-10 xl:ml-[-88px]">
+            <div className="text-xl md:text-2xl mb-4 font-bold">
+              Түгээмэл асуулт
+            </div>
             <div className="flex items-center gap-2">
               <FaLocationDot className="size-5" />
               <div className="font-medium">
                 Сүхбаатар дүүрэг, 8-р хороо, EyeCandy Tower, 5-н давхар
               </div>
             </div>
-            <div className="flex items-center gap-5">
-              <div className="flex items-center gap-2">
-                <FaPhone className="size-4 xl:size-4" />
-                <div className="font-medium font-mono">99487463, 83837632</div>
-              </div>
-              <div className="flex items-center gap-2">
-                <IoMdMail className="size-5" />
-                <div className="font-medium">eyecandy@business.com</div>
-              </div>
+
+            <div className="flex items-center gap-2">
+              <FaPhone className="size-4 xl:size-4" />
+              <div className="font-medium font-mono">99487463, 83837632</div>
+            </div>
+            <div className="flex items-center gap-2">
+              <IoMdMail className="size-5" />
+              <div className="font-medium">eyecandy@business.com</div>
             </div>
           </div>
 
-          <div className="flex items-center gap-14 xl:flex-col xl:mt-64">
+          <div className="flex items-center xl:flex-col size-64">
             <div>
-              <img src="./qr/Untitled.svg" className="size-40" />
+              <img
+                src="./qr/Untitled.svg"
+                className="size-[180px] xl:size-[160px]"
+              />
             </div>
 
-            <div className="flex items-center justify-center flex-col ml-[20px] xl:m-auto xl:mt-[-80px] ">
+            <div className="flex items-center justify-center flex-col ml-[20px] xl:m-auto md:h-[160px]">
               <img
                 src="https://www.svgrepo.com/show/303128/download-on-the-app-store-apple-logo.svg"
-                className="size-56"
+                className="size-56 xl:size-40 xl:mb-[-20px]"
               />
               <img
                 src="https://www.svgrepo.com/show/303139/google-play-badge-logo.svg"
-                className="size-56 mt-[-140px]"
+                className="size-56 xl:size-40 mt-[-160px] md:mt-[-80px]"
               />
             </div>
           </div>
