@@ -2,7 +2,9 @@ import { Button } from "@/components";
 import { Armchair } from "lucide-react";
 import React from "react";
 
-type Props = {};
+type Props = {
+  changeStep: any;
+};
 
 const date = [
   {
@@ -28,9 +30,9 @@ const date = [
 ];
 const time = ["15:20", "16:30", "19:40", "20:50", "21:20"];
 
-export const TicketInfo = (props: Props) => {
+export const TicketInfo = ({ changeStep }: Props) => {
   return (
-    <div className="h-screen flex flex-col gap-8 justify-center items-center bg-slate-800 text-white">
+    <div className="flex flex-col gap-8 justify-center items-center bg-slate-800 text-white">
       <div className="flex gap-4">
         {date.map((date, i) => (
           <Button key={i} className="flex flex-col gap-1 h-full bg-slate-500">
@@ -94,7 +96,9 @@ export const TicketInfo = (props: Props) => {
           </div>
         </div>
 
-        <Button className="bg-red-500 ">Тасалбар захиалах</Button>
+        <Button className="bg-red-500 " onClick={() => changeStep()}>
+          Тасалбар захиалах
+        </Button>
       </div>
     </div>
   );

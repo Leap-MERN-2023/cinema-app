@@ -26,7 +26,7 @@ const headers = [
 const Header = () => {
   const isActive = usePathname();
   return (
-    <div className="fixed  backdrop-blur-md w-[100%] z-10 text-white pl-36">
+    <div className="fixed  backdrop-blur-md w-[100%] z-10 text-white">
       <div className="header gap-80 flex py-5  text-red-500 justify-center items-center">
         <span className="font-semibold text-lg">CENTRAL CINEMA</span>
         <ul className="flex font-semibold gap-16 text-white items-center">

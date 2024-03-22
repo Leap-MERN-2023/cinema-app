@@ -9,7 +9,7 @@ type Props = {};
 
 export const Dashboard = (props: Props) => {
   return (
-    <div className="mx-80">
+    <div className="container mx-auto">
       <CarouselCard />
       <FilterSection />
       <MovieCard />

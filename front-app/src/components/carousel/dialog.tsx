@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { cinemas } from "./cinemas";
+import { cinemas } from "../movieCard/cinemas";
 import { useRouter } from "next/navigation";
 
 type ICardProps = {
@@ -23,10 +23,7 @@ export function DialogOpen({ card }: ICardProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button
-          variant="outline"
-          className="bg-slate-900 border-none text-white"
-        >
+        <Button variant="outline" className="bg-red-600 border-none text-white">
           Дэлгэрэнгүй
         </Button>
       </DialogTrigger>

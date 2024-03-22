@@ -2,16 +2,18 @@ import React from "react";
 import { Seats } from "./seats";
 import { TicketInfo } from "./ticketInfo";
 
-type Props = {};
+type Props = {
+  changeStep: any;
+};
 
-export const OrderIndex = (props: Props) => {
+export const OrderIndex = ({ changeStep }: Props) => {
   return (
-    <div className="flex w-">
+    <div className="flex gap-14 justify-center items-center mt-10">
       <div className="w-1/2">
         <Seats />
       </div>
       <div className="w-1/2 bg-slate-800">
-        <TicketInfo />
+        <TicketInfo changeStep={changeStep} />
       </div>
     </div>
   );

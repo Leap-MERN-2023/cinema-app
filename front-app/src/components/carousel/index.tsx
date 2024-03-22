@@ -8,30 +8,27 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-const images = [
-  "https://via.placeholder.com/1200x400?text=Slide%201",
-  "https://via.placeholder.com/1200x400?text=Slide%202",
-  "https://via.placeholder.com/1200x400?text=Slide%203",
-  "https://via.placeholder.com/1200x400?text=Slide%204",
-  "https://via.placeholder.com/1200x400?text=Slide%205",
-];
+import { carouselCards } from "./image";
+import { Button } from "..";
+import { useRouter } from "next/navigation";
+import { DialogOpen } from "./dialog";
 
 export function CarouselCard() {
+  const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextSlide = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === carouselCards.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? carouselCards.length - 1 : prevIndex - 1
     );
   };
-
+  const images = carouselCards.map((card: any) => card.horizontalPoster);
   return (
     <div className="w-full pt-12 lg:max-w-5xl mx-auto">
       <Carousel className="relative">
@@ -41,22 +38,28 @@ export function CarouselCard() {
             transition: "transform 0.5s ease-in-out",
           }}
         >
-          {images.map((image, index) => (
+          {carouselCards.map((card, index) => (
             <CarouselItem key={index}>
-              <div className="p-1">
+              <div className="p-1 ">
                 <img
-                  src={image}
+                  src={card.horizontalPoster}
                   alt={`Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-[500px] object-cover"
                 />
+                <div className="flex gap-3 absolute z-5 bottom-[20px] ml-5">
+                  <DialogOpen card={card} />
+                  <div>
+                    <Button variant="secondary">Трейлер</Button>
+                  </div>
+                </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious onClick={prevSlide} />
+        <CarouselPrevious onClick={prevSlide} disabled={false} />
         <CarouselNext onClick={nextSlide} />
       </Carousel>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-4 ">
         {images.map((_, index) => (
           <span
             key={index}
