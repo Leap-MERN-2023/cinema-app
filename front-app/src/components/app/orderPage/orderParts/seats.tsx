@@ -167,15 +167,6 @@ const seats = [
     { seatNumber: "9-16", isBooked: true, isSelected: true, status: "active" },
   ],
 ];
-const totalRows = [1, 2, 3];
-
-const seatsTest = [
-  {
-    id: "",
-    row: 1,
-  },
-  {},
-];
 
 export const Seats = (props: Props) => {
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
@@ -194,8 +185,8 @@ export const Seats = (props: Props) => {
   };
 
   return (
-    <div className="h-screen bg-blue-200 text-black pt-20 flex justify-start flex-col items-center">
-      <p className="text-2xl text-white">Дэлгэц</p>
+    <div className="h-screen text-black flex justify-center flex-col items-center">
+      <p className="text-2xl text-white pb-10">Дэлгэц</p>
       <div className="h-20 w-[500px] border-gray-500 border-l-[25px] border-l-transparent border-r-transparent border-r-[25px] border-t-[80px] rounded-t-md overflow-hidden"></div>
       <div className="flex gap-6 pt-20">
         <div className="flex flex-col gap-2">
