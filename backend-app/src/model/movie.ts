@@ -10,11 +10,17 @@ const movieSchema = new Schema({
       type: String,
       require: true,
     },
-    lands: [
-      {
+    lands: {
+      land1: {
         type: String,
+        require: true,
       },
-    ],
+
+      land2: {
+        type: String,
+        require: true,
+      },
+    },
   },
   duration: Number,
   releaseDate: Date,
@@ -30,7 +36,7 @@ const movieSchema = new Schema({
     {
       type: Schema.ObjectId,
       ref: "Cinema",
-      require: true,
+      //
     },
   ],
   movieType: {
