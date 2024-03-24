@@ -7,6 +7,7 @@ import { connectDB } from "./config/db";
 
 import movie from "./router/movie";
 import seats from "./router/seat";
+import cinema from "./router/cinema";
 
 const MONGO_URI = process.env.MONGO_URI as string;
 
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
 
 app.use("/seats", seats);
 app.use("/movie", movie);
+app.use("/cinema", cinema);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello Express Server");
