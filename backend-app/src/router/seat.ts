@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { createSeats } from "../controller/seat";
+import { createSeats, getSeats } from "../controller/seat";
 
 const router = Router();
 
-router.route("/").post(createSeats);
+router.route("/").post(createSeats).get(getSeats);
 
 export default router;

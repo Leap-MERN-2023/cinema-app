@@ -5,7 +5,7 @@ const seatSchema = new Schema({
   status: {
     type: String,
     require: true,
-    enum: ["unvailable", "available"],
+    enum: ["unavailable", "available"],
   },
 
   screen: {

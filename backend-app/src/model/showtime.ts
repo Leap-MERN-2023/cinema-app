@@ -19,4 +19,4 @@ const showtimeSchema = new Schema({
 
 const Showtime = model("Showtime", showtimeSchema);
 
-export default showtimeSchema;
+export default Showtime;

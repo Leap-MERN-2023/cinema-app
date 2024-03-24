@@ -1,29 +1,30 @@
 import { NextFunction, Request, Response } from "express";
 import Movie from "../model/movie";
 import Seat from "../model/seat";
+import Showtime from "../model/showtime";
 
-export const getSeats = async (
+export const getTime = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const seats = await Movie.find();
-    res.status(201).json({ message: "Бүх kino олдлоо", seats });
+    const times = await Showtime.find();
+    res.status(201).json({ message: "Бүх kino олдлоо", times });
   } catch (error) {
     console.log(error);
   }
 };
 
-export const createSeats = async (
+export const createTimes = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const newSeat = req.body;
-    const seat = await Seat.create(newSeat);
-    res.status(201).json({ message: "new movie creted", seat });
+    const newTimes = req.body;
+    const times = await Showtime.create(newTimes);
+    res.status(201).json({ message: "new shiwtime created", times });
   } catch (error) {
     res.status(400).json({ message: "there is an error" + error });
   }
