@@ -13,14 +13,14 @@ const uploadCinema = async () => {
     await connectDB(process.env.MONGO_URI as string);
     console.log("Өгөгдлийн санруу хуулж эхэлж байна");
     const fdata = fs.readFileSync(
-      path.join(__dirname, "../../data/film.json"),
+      path.join(__dirname, "../../data/cinema.json"),
       {
         encoding: "utf8",
       }
     );
-    const films = JSON.parse(fdata).films;
+    const cinemas = JSON.parse(fdata).cinemas;
     await Cinema.deleteMany();
-    await Cinema.insertMany(films);
+    await Cinema.insertMany(cinemas);
     console.log("Өгөгдлийн санруу хуулж дууслаа");
   } catch (error) {
   } finally {

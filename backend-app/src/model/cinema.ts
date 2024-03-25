@@ -1,3 +1,4 @@
+import { time } from "console";
 import { Schema, model } from "mongoose";
 
 const cinemaSchema = new Schema({
@@ -24,10 +25,10 @@ const cinemaSchema = new Schema({
     },
   },
   opening: {
-    type: Date,
+    type: String,
   },
   closing: {
-    type: Date,
+    type: String,
   },
   image: {
     type: String,
