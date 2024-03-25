@@ -19,7 +19,7 @@ const cinemaTypeOptions: readonly CinemaTypeOption[] = [
 ];
 
 const controlStyles = {
-  base: "border rounded-[5px] bg-[#020000] hover:cursor-pointer py-1 min-w-[300px] min-h-[40px]",
+  base: "border rounded-[5px] bg-[#020000] hover:cursor-pointer py-1 w-[100px] h-[56px] text-[10px] sm:text-[16px] sm:w-[160px] lg:w-[240px] xl:w-[280px]",
   focus: "border-primary-400 ",
   nonFocus: "border-gray-800 hover:border-gray-400 py-1",
 };

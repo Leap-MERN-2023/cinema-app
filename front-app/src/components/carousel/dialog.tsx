@@ -23,7 +23,7 @@ export function DialogOpen({ card }: ICardProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="bg-red-600 border-none text-white">
+        <Button className="w-24 h-6 text-[12px] md:w-28 md:h-9 font-medium md:text-[14px] text-white bg-red-500">
           Дэлгэрэнгүй
         </Button>
       </DialogTrigger>

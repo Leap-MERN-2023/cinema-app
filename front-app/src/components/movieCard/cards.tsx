@@ -83,7 +83,7 @@ export const cards = [
     cinema:
       "https://cdn6.aptoide.com/imgs/a/d/5/ad5233230d9d687e709b49db53d452dd_icon.png",
     movieImages:
-      "https://m.media-amazon.com/images/I/61rlHO9hPDL._AC_UF894,1000_QL80_.jpg",
+      "https://image.tmdb.org/t/p/original/neWmzIPgz5s1htN80RdbS2frl04.jpg",
     horizontalPoster: "https://www.barbie-themovie.com/images/share.jpg",
     date: "07/20/23",
     director: "Greta Gerwig",
