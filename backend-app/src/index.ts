@@ -10,6 +10,7 @@ import seats from "./router/seat";
 import cinema from "./router/cinema";
 import screen from "./router/screen";
 import showtime from "./router/showtime";
+import auth from "./router/auth";
 
 const MONGO_URI = process.env.MONGO_URI as string;
 
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/auth", auth);
 app.use("/seats", seats);
 app.use("/movie", movie);
 app.use("/cinema", cinema);
