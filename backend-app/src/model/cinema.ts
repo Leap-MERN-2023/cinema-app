@@ -1,4 +1,3 @@
-import { time } from "console";
 import { Schema, model } from "mongoose";
 
 const cinemaSchema = new Schema({
