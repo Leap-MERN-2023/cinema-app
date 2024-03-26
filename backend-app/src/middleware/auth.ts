@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import MyError from "../utils/myError";
 import jwt from "jsonwebtoken";
-import User from "../model/customer";
 import { IReq } from "../utils/interface";
+import Customer from "../model/customer";
 
 export const authenticate = async (
   req: IReq,
@@ -23,8 +23,8 @@ export const authenticate = async (
     const { id } = jwt.verify(token!, process.env.JWT_PRIVATE_KEY!) as {
       id: string;
     };
-    const findUser = await User.findById(id);
-    req.user = findUser;
+    const findCustomer = await Customer.findById(id);
+    req.user = findCustomer;
     next();
   } catch (error) {
     next(error);

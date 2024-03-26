@@ -12,6 +12,7 @@ import screen from "./router/screen";
 import showtime from "./router/showtime";
 import auth from "./router/auth";
 import ticket from "./router/ticket";
+import order from "./router/order";
 
 const MONGO_URI = process.env.MONGO_URI as string;
 
@@ -34,6 +35,7 @@ app.use("/cinema", cinema);
 app.use("/screen", screen);
 app.use("/showtime", showtime);
 app.use("/ticket", ticket);
+app.use("/order", order);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello Express Server");

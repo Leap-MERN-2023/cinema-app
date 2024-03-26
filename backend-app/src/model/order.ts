@@ -1,13 +1,27 @@
 import { Schema, model } from "mongoose";
 
 const orderSchema = new Schema({
-  paymentStatus: {
-    enum: ["Unpaid", "Paid"],
-    require: true,
+  customer: {
+    type: Schema.Types.ObjectId,
+    ref: "Customer",
+    required: true,
   },
-  paymentMethod: {
-    enum: ["Qpay", "Bank card"],
-    require: true,
+  orderNo: String,
+  tickets: [],
+  paidDate: { type: Date, default: null },
+  paymentStatus: {
+    type: String,
+    enum: ["Unpaid", "Paid"],
+    required: true,
+    default: "Unpaid",
+  },
+  payment: {
+    paymentAmount: Number,
+    paymentMethod: {
+      type: String,
+      enum: ["Qpay", "Bank card"],
+      required: true,
+    },
   },
 });
 
