@@ -7,8 +7,8 @@ export const getMovies = async (
   next: NextFunction
 ) => {
   try {
-    const movies = await Movie.find();
-    res.status(201).json({ message: "Бүх kino олдлоо", movies });
+    const movies = await Movie.find().populate("cinemas");
+    res.status(200).json({ message: "Бүх kino олдлоо", movies });
   } catch (error) {
     console.log(error);
   }

@@ -23,7 +23,7 @@ const headers = [
     href: "/ticket",
   },
 ];
-const Header = () => {
+export const Header = () => {
   const isActive = usePathname();
   return (
     <div className="fixed flex backdrop-blur-md w-[100%] h-[60px] sm:h-[80px] md:h-[100px] z-10 text-white p-2 text-[10px] sm:text-[16px] justify-center">
@@ -52,5 +52,3 @@ const Header = () => {
     </div>
   );
 };
-
-export default Header;

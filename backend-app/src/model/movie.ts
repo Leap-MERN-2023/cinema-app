@@ -22,7 +22,7 @@ const movieSchema = new Schema({
       },
     },
   },
-  movie_traler: {
+  movie_trailer: {
     type: String,
     require: true,
   },
@@ -38,10 +38,8 @@ const movieSchema = new Schema({
   },
   cinemas: [
     {
-      name: {
-        type: Schema.ObjectId,
-        ref: "Cinema",
-      },
+      type: Schema.ObjectId,
+      ref: "Cinema",
     },
   ],
   movieType: {
@@ -49,6 +47,12 @@ const movieSchema = new Schema({
     enum: ["2D", "3D", "IMAX", "LASER"],
     require: true,
   },
+  cast: [
+    {
+      name: String,
+      img: String,
+    },
+  ],
 });
 
 const Movie = model("Movie", movieSchema);

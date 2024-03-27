@@ -1,10 +1,9 @@
+// "use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import Header from "@/components/header";
-import { Footer } from "@/components";
-import { AuthProvider } from "@/components/";
+import { Footer, MovieProvider, AuthProvider, Header } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +21,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <Header />
-          {children}
-          <Toaster />
-          <Footer />
+          <MovieProvider>
+            <Header />
+            {children}
+            <Toaster />
+            <Footer />
+          </MovieProvider>
         </AuthProvider>
       </body>
     </html>

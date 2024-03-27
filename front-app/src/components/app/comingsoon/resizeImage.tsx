@@ -14,28 +14,28 @@ export function Resizable({ card }: IResize) {
         direction="horizontal"
         className="w-full pr-10 pb-10"
       >
-        <ResizablePanel defaultSize={50}>
+        <ResizablePanel defaultSize={40}>
           <div className="flex h-full items-center  justify-center ">
-            <img src={card.images?.squar} alt="" />
+            <img src={card.poster?.vertical} alt="" />
           </div>
         </ResizablePanel>
         <ResizableHandle />
-        <ResizablePanel defaultSize={50}>
+        <ResizablePanel defaultSize={60}>
           <ResizablePanelGroup direction="vertical">
-            <ResizablePanel defaultSize={25}>
+            <ResizablePanel defaultSize={50}>
               <div className="flex h-full items-center justify-center">
                 <img
-                  src={card.images?.land1}
+                  src={card.poster?.lands.land1}
                   className="h-full w-full"
                   alt=""
                 />
               </div>
             </ResizablePanel>
             <ResizableHandle />
-            <ResizablePanel defaultSize={75}>
+            <ResizablePanel defaultSize={50}>
               <div className="flex h-full items-center justify-center">
                 <img
-                  src={card.images?.land2}
+                  src={card.poster?.lands.land2}
                   className="h-full w-full"
                   alt=""
                 />

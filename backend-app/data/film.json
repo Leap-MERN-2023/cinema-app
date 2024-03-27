@@ -3,7 +3,7 @@
     {
       "title": "Dune: Part II",
       "poster": {
-        "vertical": "https://cdnb.artstation.com/p/assets/images/images/037/636/465/large/andres-mencia-e6d693ce-a635-425f-811b-9354846b0e31-rw-1920.jpg?1620903148",
+        "vertical": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/2a5bb2105168471.5f733bb4cec20.jpg",
         "lands": {
           "land1": "https://www.hollywoodreporter.com/wp-content/uploads/2024/02/rev-1-DUN2-27986r-JPv3_High_Res_JPEG-copy.jpg?w=1296",
           "land2": "https://ichef.bbci.co.uk/news/976/cpsprodpb/6B9E/production/_132705572_4155f4d6-7d6f-46b1-8bfd-02f7a5e982e1.jpg"
@@ -12,33 +12,41 @@
       "duration": "166",
       "releaseDate": "2024-03-01",
       "director": "Denis Villeneuve",
-      "movie_traler": "https://trailer.movieglu.com/324892_high_V3.mp4",
+      "movie_trailer": "https://trailer.movieglu.com/324892_high_V3.mp4",
       "synopsis": "\"Dune: Part Two\" will explore the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.",
       "cinemas": [
-        {
-          "name": ""
-        }
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
       ],
       "movieType": "IMAX",
       "cast": [
         {
-          "actor1": {
-            "name": "Timothée Chalamet",
-            "img": "https://kingchoice.me/media/CACHE/images/dc5101614a768433a04816cf8f56bdb6_2YlnIng/d79b5c4bca807d12f57a445a01eb6272.jpg "
-          },
-          "actor2": {
-            "name": "Zendaya",
-            "img": "https://images.wallpapersden.com/image/download/zendaya-photoshoot-2022_bWhmaWqUmZqaraWkpJRmZW1lrWZlbWU.jpg "
-          },
-          "actor3": {
-            "name": "Austin Butler",
-            "img": "https://tse2.mm.bing.net/th?id=OIP.8ZYlvMKkUAHpu_Msdj7glgHaE8&pid=Api&P=0&h=220"
-          }
+          "name": "Timothée Chalamet",
+          "img": "https://kingchoice.me/media/CACHE/images/dc5101614a768433a04816cf8f56bdb6_2YlnIng/d79b5c4bca807d12f57a445a01eb6272.jpg "
+        },
+        {
+          "name": "Zendaya",
+          "img": "https://images.wallpapersden.com/image/download/zendaya-photoshoot-2022_bWhmaWqUmZqaraWkpJRmZW1lrWZlbWU.jpg "
+        },
+        {
+          "name": "Austin Butler",
+          "img": "https://tse2.mm.bing.net/th?id=OIP.8ZYlvMKkUAHpu_Msdj7glgHaE8&pid=Api&P=0&h=220"
         }
       ]
     },
     {
-      "title": "Kunfu Panda 4",
+      "title": "Kung Fu Panda 4",
       "poster": {
         "vertical": "https://pictures.betaseries.com/films/affiches/es/81683.jpg",
         "lands": {
@@ -49,28 +57,36 @@
       "duration": "166",
       "releaseDate": "2024-03-08",
       "director": "Mike Mitchell",
-      "movie_traler": "https://www.youtube.com/watch?v=_inKs4eeHiI",
+      "movie_trailer": "https://trailer.movieglu.com/357576_high.mp4",
       "synopsis": "\"Kunfu Panda - 4\" Po must train a new warrior when he's chosen to become the spiritual leader of the Valley of Peace. However, when a powerful shape-shifting sorceress sets her eyes on his Staff of Wisdom, he suddenly realizes he's going to need some help. Teaming up with a quick-witted corsac fox, Po soon discovers that heroes can be found in the most unexpected places",
       "cinemas": [
-        {
-          "name": ""
-        }
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
       ],
       "movieType": "3D",
       "cast": [
         {
-          "actor1": {
-            "name": "Jack Black",
-            "img": "https://townsquare.media/site/959/files/2020/03/GettyImages-jack-black.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89"
-          },
-          "actor2": {
-            "name": "Awkwafina",
-            "img": "https://i.pinimg.com/originals/f8/d8/7f/f8d87f2dbad8edca1eb0dde21e3c39ad.jpg "
-          },
-          "actor3": {
-            "name": "Austin Butler",
-            "img": "https://tse2.mm.bing.net/th?id=OIP.8ZYlvMKkUAHpu_Msdj7glgHaE8&pid=Api&P=0&h=220"
-          }
+          "name": "Jack Black",
+          "img": "https://townsquare.media/site/959/files/2020/03/GettyImages-jack-black.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89"
+        },
+        {
+          "name": "Awkwafina",
+          "img": "https://i.pinimg.com/originals/f8/d8/7f/f8d87f2dbad8edca1eb0dde21e3c39ad.jpg "
+        },
+        {
+          "name": "Austin Butler",
+          "img": "https://tse2.mm.bing.net/th?id=OIP.8ZYlvMKkUAHpu_Msdj7glgHaE8&pid=Api&P=0&h=220"
         }
       ]
     },
@@ -86,28 +102,36 @@
       "duration": "166",
       "releaseDate": "2023-07-21",
       "director": "Christopher Nolan",
-      "movie_traler": "https://www.youtube.com/watch?v=uYPbbksJxIg",
+      "movie_trailer": "https://trailer.movieglu.com/339741_high_V2.mp4",
       "synopsis": "\"Oppenheimer\" The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
       "cinemas": [
-        {
-          "name": ""
-        }
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
       ],
       "movieType": "IMAX",
       "cast": [
         {
-          "actor1": {
-            "name": "Emily Blunt",
-            "img": "https://media.themoviedb.org/t/p/w500/5nCSG5TL1bP1geD8aaBfaLnLLCD.jpg"
-          },
-          "actor2": {
-            "name": "Robert Downey Jr",
-            "img": "https://hips.hearstapps.com/hmg-prod/images/robert-downey-jr-attends-the-96th-oscars-nominees-luncheon-news-photo-1708713684.jpg?crop=0.504xw:0.596xh;0.244xw,0.0388xh&resize=640:*"
-          },
-          "actor3": {
-            "name": "Cillian Murphy",
-            "img": "https://i0.wp.com/www.thewrap.com/wp-content/uploads/2016/04/Cillian-Murphy.jpg?fit=618%2C412&ssl=1"
-          }
+          "name": "Emily Blunt",
+          "img": "https://media.themoviedb.org/t/p/w500/5nCSG5TL1bP1geD8aaBfaLnLLCD.jpg"
+        },
+        {
+          "name": "Robert Downey Jr",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/robert-downey-jr-attends-the-96th-oscars-nominees-luncheon-news-photo-1708713684.jpg?crop=0.504xw:0.596xh;0.244xw,0.0388xh&resize=640:*"
+        },
+        {
+          "name": "Cillian Murphy",
+          "img": "https://i0.wp.com/www.thewrap.com/wp-content/uploads/2016/04/Cillian-Murphy.jpg?fit=618%2C412&ssl=1"
         }
       ]
     },
@@ -123,28 +147,36 @@
       "duration": "114",
       "releaseDate": "2023-07-21",
       "director": "Greta Gerwig",
-      "movie_traler": "https://www.youtube.com/watch?v=pBk4NYhWNMM",
+      "movie_trailer": "https://trailer.movieglu.com/215333_high_V3.mp4",
       "synopsis": "\"Barbie\" Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
       "cinemas": [
-        {
-          "name": ""
-        }
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
       ],
       "movieType": "2D",
       "cast": [
         {
-          "actor1": {
-            "name": "Ryan",
-            "img": "https://i.insider.com/64a325b16075be0019c28e16?width=700"
-          },
-          "actor2": {
-            "name": "Margot",
-            "img": "https://ichef.bbci.co.uk/news/976/cpsprodpb/138D1/production/_132518008_gettyimages-1917155375.jpg"
-          },
-          "actor3": {
-            "name": "Issa Rae",
-            "img": "https://m.media-amazon.com/images/M/MV5BMjQwMzEwMDQ2NF5BMl5BanBnXkFtZTgwMzU4NTY4NjE@._V1_.jpg"
-          }
+          "name": "Ryan",
+          "img": "https://i.insider.com/64a325b16075be0019c28e16?width=700"
+        },
+        {
+          "name": "Margot",
+          "img": "https://ichef.bbci.co.uk/news/976/cpsprodpb/138D1/production/_132518008_gettyimages-1917155375.jpg"
+        },
+        {
+          "name": "Issa Rae",
+          "img": "https://m.media-amazon.com/images/M/MV5BMjQwMzEwMDQ2NF5BMl5BanBnXkFtZTgwMzU4NTY4NjE@._V1_.jpg"
         }
       ]
     },
@@ -160,28 +192,36 @@
       "duration": "114",
       "releaseDate": "2024-06-14",
       "director": "Kelsey Mann",
-      "movie_traler": "https://www.youtube.com/watch?v=LEjhY15eCx0",
+      "movie_trailer": "https://trailer.movieglu.com/337411_high.mp4",
       "synopsis": "\"Inside Out 2\" Joy, Sadness, Anger, Fear and Disgust have been running a successful operation by all accounts. However, when Anxiety shows up, they aren't sure how to feel.",
       "cinemas": [
-        {
-          "name": ""
-        }
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
       ],
       "movieType": "2D",
       "cast": [
         {
-          "actor1": {
-            "name": "Amy Poehler",
-            "img": "https://static4.businessinsider.com/image/5b22cd3042e1cc26c927f54a-1877/gettyimages-873805418.jpg"
-          },
-          "actor2": {
-            "name": "Maya Hawke",
-            "img": "https://www.thelist.com/img/gallery/what-you-dont-know-about-maya-hawke/intro-1654887539.jpg"
-          },
-          "actor3": {
-            "name": "Lewis Black",
-            "img": "https://famous-comedians.com/wp-content/uploads/2021/01/Lewis-Black.jpg"
-          }
+          "name": "Amy Poehler",
+          "img": "https://static4.businessinsider.com/image/5b22cd3042e1cc26c927f54a-1877/gettyimages-873805418.jpg"
+        },
+        {
+          "name": "Maya Hawke",
+          "img": "https://www.thelist.com/img/gallery/what-you-dont-know-about-maya-hawke/intro-1654887539.jpg"
+        },
+        {
+          "name": "Lewis Black",
+          "img": "https://famous-comedians.com/wp-content/uploads/2021/01/Lewis-Black.jpg"
         }
       ]
     },
@@ -197,28 +237,36 @@
       "duration": "114",
       "releaseDate": "2025-03-19",
       "director": "Joaquim Dos Santos, Kemp Powers",
-      "movie_traler": "https://www.youtube.com/watch?v=D7pQ-S8QlC8",
+      "movie_trailer": "https://trailer.movieglu.com/309732_high_V4.mp4",
       "synopsis": "\"Spiderman: beyond the spiderverse\" Continuation of Miles Morales' story.",
       "cinemas": [
-        {
-          "name": ""
-        }
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
       ],
       "movieType": "2D",
       "cast": [
         {
-          "actor1": {
-            "name": "Shameik Moore",
-            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdr2hTkTx5SeAwg9A1-opCEXmY0zMe7Hpi-Qiq3oyCrQ&s"
-          },
-          "actor2": {
-            "name": "Hailee Steinfeld",
-            "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
-          },
-          "actor3": {
-            "name": "Oscar Isaac",
-            "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
-          }
+          "name": "Shameik Moore",
+          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdr2hTkTx5SeAwg9A1-opCEXmY0zMe7Hpi-Qiq3oyCrQ&s"
+        },
+        {
+          "name": "Hailee Steinfeld",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
+        },
+        {
+          "name": "Oscar Isaac",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
         }
       ]
     }
