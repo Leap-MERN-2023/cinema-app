@@ -8,8 +8,8 @@ export const getSeats = async (
   next: NextFunction
 ) => {
   try {
-    const seats = await Movie.find();
-    res.status(201).json({ message: "Бүх kino олдлоо", seats });
+    const seats = await Seat.find();
+    res.status(201).json({ message: "Бүх seats олдлоо", seats });
   } catch (error) {
     console.log(error);
   }
