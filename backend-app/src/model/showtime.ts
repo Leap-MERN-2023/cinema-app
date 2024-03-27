@@ -6,14 +6,10 @@ const showtimeSchema = new Schema({
     ref: "Movie",
     require: true,
   },
-
-  screen: {
-    type: Schema.ObjectId,
-    ref: "Screen",
-    require: true,
+  startTime: {
+    date: { type: String, require: true },
+    time: { type: String, require: true },
   },
-
-  startTime: Date,
   endTime: Date,
 });
 

@@ -8,7 +8,7 @@ type Props = {
 
 export const OrderIndex = ({ changeStep }: Props) => {
   return (
-    <div className="flex gap-14 justify-center items-center mt-10">
+    <div className="flex gap-10 justify-center items-center ">
       <div className="w-1/2">
         <Seats />
       </div>

@@ -1,6 +1,6 @@
 export const cinemas = [
   {
-    name: "Urguu",
+    name: "Өргөө",
     branches: [
       {
         title: "Өргөө-1",
@@ -53,7 +53,7 @@ export const cinemas = [
     ],
   },
   {
-    name: "Tengis",
+    name: "Тэнгис",
     branches: [
       {
         title: "Тэнгис",
@@ -91,7 +91,7 @@ export const cinemas = [
     ],
   },
   {
-    name: "Hunnu",
+    name: "Хүннү",
     branches: [
       {
         title: "Хүннү",
@@ -103,7 +103,7 @@ export const cinemas = [
     ],
   },
   {
-    name: "Gegeenten",
+    name: "Гэгээнтэн",
     branches: [
       {
         title: "Гэгээнтэн",

@@ -18,7 +18,7 @@ export const OrderPage = (props: Props) => {
     switch (step) {
       case 1:
         return (
-          <ul className=" dark:text-white flex justify-center  lg:w-1/5">
+          <ul className=" dark:text-white flex justify-center mt-10  lg:w-1/5">
             <div className="flex items-center  ">
               <li className="bg-red-500 text-white rounded-md p-2 mx-2">
                 CinemaCard
@@ -113,7 +113,7 @@ export const OrderPage = (props: Props) => {
   };
 
   return (
-    <div className=" flex flex-col h-full bg-slate-800 pt-20 items-center justify-center">
+    <div className=" flex flex-col h-full bg-slate-800 pt-36 items-center justify-center">
       {StepSwitch()}
       <div>
         {step === 1 && <CinemaCard changeStep={changeStep} />}

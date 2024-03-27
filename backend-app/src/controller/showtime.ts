@@ -9,7 +9,7 @@ export const getTime = async (
   next: NextFunction
 ) => {
   try {
-    const times = await Showtime.find();
+    const times = await Showtime.find().populate("movie screen");
     res.status(201).json({ message: "Бүх kino олдлоо", times });
   } catch (error) {
     console.log(error);

@@ -9,10 +9,9 @@ type Props = {};
 export const ComingSoon = (props: Props) => {
   return (
     <div className="p-14 container">
-      <h1 className="font-bold text-3xl text-slate-50 mt-7">
+      <h1 className="font-bold text-3xl text-slate-50 my-10">
         Тун удахгүй гарах кинонууд
       </h1>
-      <CardSection />
       <CardSection />
     </div>
   );
