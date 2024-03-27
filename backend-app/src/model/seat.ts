@@ -7,13 +7,7 @@ const seatSchema = new Schema({
     require: true,
     enum: ["unavailable", "available"],
   },
-
-  screen: {
-    type: Schema.ObjectId,
-    require: true,
-    ref: "Screen",
-  },
-
+  seatNumber: String,
   isNull: Boolean,
 });
 
