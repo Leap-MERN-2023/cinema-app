@@ -1,23 +1,8 @@
 "use client";
 import { useContext, useState } from "react";
 
-import { useFormik } from "formik";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { PasswordInput } from "../ui/passwordinput";
-import { Separator } from "@/components/ui/separator";
-import { CiFacebook } from "react-icons/ci";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { FaUser } from "react-icons/fa6";
-import { CgMail } from "react-icons/cg";
-import { AuthContext } from "..";
 import { Login } from "./login";
 import { Signup } from "./signup";
 

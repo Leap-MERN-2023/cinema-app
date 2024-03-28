@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFormContext } from "react-hook-form";
-import { z } from "zod";
+import { any, z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,8 +16,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "../../../ui/label";
-import { FcSimCardChip } from "react-icons/fc";
-import { LuNfc } from "react-icons/lu";
+import { useToast } from "@/components/ui/use-toast";
+import { useContext } from "react";
+import { OrderContext } from "@/components/contexts/order";
 
 const formSchema = z.object({
   email: z.string().includes("@", {
@@ -32,9 +33,15 @@ const formSchema = z.object({
   cvv: z.string().refine((value) => /^\d{3}$/.test(value), {
     message: "CVV дугаар буруу байна",
   }),
+  paymentMethod: z.string(),
+  paymentAmount: z.number(),
 });
 
 export function Checkout({ changeStep }: any) {
+  const storedUserData = localStorage.getItem("user") as any;
+  const { order, setOrder, createOrder } = useContext(OrderContext);
+
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,6 +49,8 @@ export function Checkout({ changeStep }: any) {
       phone: "",
       banknumber: "",
       cvv: "",
+      paymentMethod: "Qpay",
+      paymentAmount: totalPrice,
     },
   });
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -78,6 +87,7 @@ export function Checkout({ changeStep }: any) {
                           placeholder="И-мэйл хаяг"
                           className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
                           {...field}
+                          value={storedUserData?.email}
                         />
                       </div>
                     </FormControl>
@@ -105,6 +115,7 @@ export function Checkout({ changeStep }: any) {
                           className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
                           placeholder="Утасны дугаар"
                           {...field}
+                          value={storedUserData?.phone}
                         />
                       </div>
                     </FormControl>
@@ -193,46 +204,11 @@ export function Checkout({ changeStep }: any) {
           <div className="w-[250px] h-[140px] bg-red-100 rounded-sm relative text-white shadow-2xl transition-transform transform hover:scale-110 ">
             <img
               className="relative object-cover w-full h-full rounded-sm"
-              src="https://i.imgur.com/kGkSg1v.png"
+              src="https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/04/Guardians-of-the-Galaxy-Vol.-3-min-1.jpg"
             />
-
-            <div className="w-full px-4 absolute top-4">
-              <div className="flex justify-between">
-                <div className="">
-                  <p className="text-[15px]">Бүртгэлтэй карт</p>
-                </div>
-              </div>
-              <div className="flex gap-1 mt-3 ">
-                <LuNfc width={"10px"} height={"10px"} />
-                <FcSimCardChip width={"10px"} height={"10px"} color="white" />
-              </div>
-
-              <div className="flex items-end justify-between mt-3">
-                <div>
-                  <div className="mb-2">
-                    <p className="font-medium text-[10px] flex gap-4 mt-2">
-                      <span>4642</span>
-                      <span>3489</span>
-                      <span>9867</span>
-                      <span>7632</span>
-                    </p>
-                  </div>
-                  <div className="flex justify-between">
-                    <p className="font-light text-[8px]">Дансны дугаар</p>
-                    <p className="font-medium text-[8px]">123-45-67-890</p>
-                  </div>
-                </div>
-                <div className="w-14 h-8">
-                  <img
-                    className="size-full bg-slate-100 px-2 py-[9px] rounded-sm"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Visa_Logo.png/640px-Visa_Logo.png"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
           <div className="flex flex-col justify-center gap-1 ">
-            <h1 className="text-slate-100 my-4 text-center">
+            <h1 className="text-slate-100 my-2 text-center">
               Guardians of the Galaxy Vol.3
             </h1>
             {ordersDetail.map((e, i) => {
@@ -248,14 +224,29 @@ export function Checkout({ changeStep }: any) {
                 </div>
               );
             })}
+            <div className="flex justify-between text-slate-100 text-[12px] w-[250px]">
+              <p>Нийт:</p>
+              <p>{totalPrice}₮</p>
+            </div>
             <Button
               type="submit"
               className="w-full bg-red-600 mt-2 hover:bg-red-200"
               onClick={() => {
+                const values = form.getValues();
+                if (storedUserData === null) {
+                  toast({
+                    title: "Та заавал нэвтэрнэ үү",
+                    description:
+                      "Тасалбар захиалахын тулд та заавал нэвтэрсэн байх шаарлдлагатай.",
+                    duration: 1500,
+                  });
+                  return;
+                }
                 if (form.formState.isValid) {
+                  createOrder(values);
+                  console.log(values);
                   changeStep();
-                } else {
-                  console.log("Form contains errors. Cannot proceed.");
+                  return;
                 }
               }}
             >
@@ -275,6 +266,16 @@ const ordersDetail = [
   { name: "Fanta", quantity: "2", price: "5000" },
   { name: "Classic Lays", quantity: "2", price: "10000" },
 ];
+
+const totalPriceForEachItem = ordersDetail.map((item) => ({
+  ...item,
+  totalPrice: Number(item.quantity) * Number(item.price),
+}));
+
+const totalPrice = totalPriceForEachItem.reduce(
+  (acc, item) => acc + item.totalPrice,
+  0
+);
 
 const banks = [
   { name: "Khan Bank", imgsrc: "/banklogos/khaanbank.png" },
