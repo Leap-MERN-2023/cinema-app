@@ -12,7 +12,7 @@ import { useToast } from "@/components/ui/use-toast";
 import myAxios from "@/components/utils/axios";
 
 interface IScreenContext {
-  getScreen: (screenId: String) => {};
+  screens: any;
 }
 
 export const ScreenContext = createContext({} as IScreenContext);
@@ -21,16 +21,21 @@ export const ScreenProvider = ({ children }: PropsWithChildren) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [refresh, setRefresh] = useState(false);
+  const [screens, setScreens] = useState([]);
   const { toast } = useToast();
 
   const handleNext = () => {
     router.replace("/");
   };
 
-  const getScreen = async (screenId: String) => {
+  const getScreen = async () => {
     try {
       setLoading(true);
-      const { data } = await myAxios.get(`/screen/${screenId}`);
+      const {
+        data: { screen },
+      } = await myAxios.get(`/screen`);
+      setScreens(screen);
+      console.log("screen irev");
     } catch (error) {
       toast({
         variant: "destructive",
@@ -42,9 +47,12 @@ export const ScreenProvider = ({ children }: PropsWithChildren) => {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    getScreen();
+  }, []);
 
   return (
-    <ScreenContext.Provider value={{ getScreen }}>
+    <ScreenContext.Provider value={{ screens }}>
       {children}
     </ScreenContext.Provider>
   );

@@ -10,6 +10,7 @@ import {
   Header,
   CinemaProvider,
 } from "@/components";
+import { ScreenProvider } from "@/components/contexts/screen";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,10 +30,12 @@ export default function RootLayout({
         <AuthProvider>
           <MovieProvider>
             <CinemaProvider>
-              <Header />
-              {children}
-              <Toaster />
-              <Footer />
+              <ScreenProvider>
+                <Header />
+                {children}
+                <Toaster />
+                <Footer />
+              </ScreenProvider>
             </CinemaProvider>
           </MovieProvider>
         </AuthProvider>

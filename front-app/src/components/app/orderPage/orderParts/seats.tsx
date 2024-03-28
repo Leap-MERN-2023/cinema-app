@@ -1,5 +1,6 @@
+import { ScreenContext } from "@/components/contexts/screen";
 import { Armchair } from "lucide-react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 type Props = {};
 
@@ -169,10 +170,13 @@ const seats = [
 ];
 
 export const Seats = (props: Props) => {
+  const { screens } = useContext(ScreenContext);
+  const [allSeats, setAllSeats] = useState([]);
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
   const handleSelect = (seatNumber: string) => {
     const fndIdx = selectedSeats.findIndex((el) => el === seatNumber);
     console.log("F", fndIdx);
+    console.log(screens[0].seats);
     if (fndIdx !== -1) {
       const newSeatNumbers = selectedSeats;
       console.log("CHA", newSeatNumbers);
@@ -191,29 +195,26 @@ export const Seats = (props: Props) => {
       <div className="flex gap-6 pt-20">
         <div className="flex flex-col gap-2">
           <div className="flex flex-col px-40">
-            {seats.map((row) => {
+            {screens[0]?.seats.map((row: any, i: any) => {
               return (
-                <div className="flex">
-                  {row.map((seat) => {
+                <div className="flex" key={i}>
+                  {row.map((seat: any, i: any) => {
                     return (
-                      <div>
-                        {seat.status === "active" ? (
-                          <div className="w-10">
+                      <div key={i}>
+                        {seat.isNull === "false" ? (
+                          <div className="w-10 hover:cursor-pointer">
                             <Armchair
                               onClick={() => {
                                 handleSelect(seat.seatNumber);
+                                console.log("hi", seat);
                               }}
                               size={30}
                               color={
-                                selectedSeats.includes(seat.seatNumber)
-                                  ? "green"
-                                  : "gray"
+                                seat.status === "available" ? "green" : "gray"
                               }
                               opacity="70%"
                               fill={
-                                selectedSeats.includes(seat.seatNumber)
-                                  ? "green"
-                                  : "gray"
+                                seat.status === "available" ? "green" : "gray"
                               }
                             />
                           </div>

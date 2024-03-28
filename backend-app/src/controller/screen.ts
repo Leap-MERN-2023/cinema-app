@@ -29,17 +29,3 @@ export const createScreen = async (
     res.status(400).json({ message: "there is an error" + error });
   }
 };
-
-export const getScreenById = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    const screenId = req.params;
-    const screen = await Screen.findById(screenId);
-    res.status(201).json({ message: "Screen is found", screen });
-  } catch (error) {
-    res.status(400).json({ message: "There is an error" + error });
-  }
-};
