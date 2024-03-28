@@ -3,7 +3,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import { Footer, MovieProvider, AuthProvider, Header } from "@/components";
+import {
+  Footer,
+  MovieProvider,
+  AuthProvider,
+  Header,
+  CinemaProvider,
+} from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +28,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <MovieProvider>
-            <Header />
-            {children}
-            <Toaster />
-            <Footer />
+            <CinemaProvider>
+              <Header />
+              {children}
+              <Toaster />
+              <Footer />
+            </CinemaProvider>
           </MovieProvider>
         </AuthProvider>
       </body>

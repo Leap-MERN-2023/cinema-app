@@ -12,6 +12,7 @@ import { carouselCards } from "./image";
 import { Button } from "..";
 import { useRouter } from "next/navigation";
 import { DialogOpen } from "./dialog";
+import Autoplay from "embla-carousel-autoplay";
 
 export function CarouselCard() {
   const router = useRouter();
@@ -30,8 +31,15 @@ export function CarouselCard() {
   };
   const images = carouselCards.map((card: any) => card.horizontalPoster);
   return (
-    <div className="w-full mt-[20px] sm:mt-[40px] md:mt-[60px] lg:max-w-5xl mx-auto">
-      <Carousel className="relative">
+    <div className="w-full mt-[20px]  sm:mt-[40px] md:mt-[60px] lg:max-w-5xl mx-auto">
+      <Carousel
+        plugins={[
+          Autoplay({
+            delay: 4000,
+          }),
+        ]}
+        className="relative "
+      >
         <div className="flex justify-center items-center">
           <button
             onClick={prevSlide}
