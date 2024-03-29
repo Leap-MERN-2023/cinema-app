@@ -3,12 +3,15 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cinemas } from "./cinemas";
 import { Resizable } from "./resizeImage";
+import { useState } from "react";
 
 type ICardProps = {
   card: any;
 };
 
 export function ComingModal({ card }: ICardProps) {
+  const [openVideo, setOpenvideo] = useState(false);
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -24,7 +27,7 @@ export function ComingModal({ card }: ICardProps) {
           <div className="flex backdrop-blur-md p-6 gap-40">
             <section className="flex justify-center gap-4 z-10">
               <div className="rounded-lg overflow-hidden w-[400px] flex justify-center items-center">
-                <img src={card.movieImages} alt={card.title + " image"} />
+                <img src={card.poster.vertical} alt={card.title + " image"} />
               </div>
             </section>
             <section className="flex flex-col text-white z-20">
@@ -37,38 +40,67 @@ export function ComingModal({ card }: ICardProps) {
                 <p className="text-2xl font-bold">Төрөл:</p>
                 <div className="text-2xl">Action, Drama</div>
               </div>
-              <div className="flex mt-20 gap-10">
-                <Button className="bg-white px-10 text-black h-12 hover:text-white">
+              <div className="flex mt-20 gap-10 flex-col">
+                <Button
+                  onClick={() => {
+                    setOpenvideo(true);
+                    // console.log("clicked");
+                  }}
+                  className="bg-white px-10 text-black h-12 hover:text-white"
+                >
                   Трейлер
                 </Button>
+                {openVideo && (
+                  <div className="bg-black ">
+                    <Button
+                      className="bg-black"
+                      onClick={() => {
+                        setOpenvideo(false);
+                      }}
+                    >
+                      Close
+                    </Button>
+                    <iframe
+                      src={card.movie_trailer}
+                      width={560}
+                      height={300}
+                      allowFullScreen
+                      loading="lazy"
+                      title={card.synopsis}
+                    />
+                  </div>
+                )}
               </div>
             </section>
           </div>
           <div className="absolute -z-10 top-0">
-            <img src={card.horizontalPoster} alt="" width="1500px" />
+            <img src={card.poster.lands.land1} alt="" width="1500px" />
           </div>
           <div className="bg-gradient-to-b from-black to-zinc-600 text-white m-0 pl-10 pt-10">
             <p className="text-4xl font-bold">Тухай: </p>
-            <div className="text-3xl font-light mt-4">{card.description}</div>
+            <div className="text-3xl font-light mt-4">{card.synopsis}</div>
             <p className="text-4xl font-bold mt-4">Дүрүүдэд: </p>
             <div className="flex gap-10 mt-10">
-              {card.casting.map((cast: any) => {
+              {card.cast.map((cast: any) => {
                 return (
-                  <div className="flex flex-col gap-4">
+                  <div key={cast._id} className="flex flex-col gap-4">
                     <Avatar className="rounded-md w-20 h-20">
-                      <AvatarImage src={cast.image} alt="@shadcn" />
+                      <AvatarImage src={cast.img} alt="@shadcn" />
                       <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
-                    <p>{cast.actor}</p>
+                    <p>{cast.name}</p>
                   </div>
                 );
               })}
             </div>
             <p className="text-4xl font-bold mt-4">Кино театрууд:</p>
             <div className="flex gap-10 mt-10 pb-10">
-              {cinemas.map((cinema: any) => {
+              {cinemas.map((cinema: any, i: any) => {
                 return (
-                  <div className="flex rounded-lg w-[100px] h-[100px] overflow-hidden justify-center items-center">
+                  <div
+                    key={i}
+                    className="flex rounded-lg w-[100px] h-[100px] overflow-hidden justify-center items-center"
+                  >
                     <img src={cinema.img} alt={cinema.name} />
                   </div>
                 );

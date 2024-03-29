@@ -1,19 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CinemaCard } from "./cinema";
 import { OrderIndex } from "./orderParts";
 import { Checkout } from "./checkout";
 import { PaymentQr } from "./paymentQr";
+import { CinemaContext } from "@/components";
 
 type Props = {};
 
 export const OrderPage = (props: Props) => {
   const [step, setStep] = useState(1);
+  const { cinemas } = useContext(CinemaContext);
 
   const changeStep = () => {
     setStep((step) => step + 1);
   };
+
   const StepSwitch = () => {
     switch (step) {
       case 1:
@@ -116,7 +119,7 @@ export const OrderPage = (props: Props) => {
     <div className=" flex flex-col h-full bg-slate-800 pt-36 items-center justify-center">
       {StepSwitch()}
       <div>
-        {step === 1 && <CinemaCard changeStep={changeStep} />}
+        {step === 1 && <CinemaCard changeStep={changeStep} cinemas={cinemas} />}
         {step === 2 && <OrderIndex changeStep={changeStep} />}
         {step === 3 && <Checkout changeStep={changeStep} />}
         {step === 4 && <PaymentQr />}
