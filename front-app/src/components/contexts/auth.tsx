@@ -21,6 +21,7 @@ interface IAuthContext {
   signup: (password: string, email: string) => Promise<void>;
   logout: () => void;
   user: any;
+  token: any;
 }
 
 export const AuthContext = createContext({} as IAuthContext);
@@ -45,7 +46,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         customerPassword: password,
       });
       console.log("newterlee", token, user);
-      localStorage.setItem("token", JSON.stringify(token));
+      localStorage.setItem("token", JSON.stringify(user));
       localStorage.setItem("user", JSON.stringify(user));
       toast({
         title: "Амжилттай нэвтрэлээ!",
@@ -118,7 +119,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   };
 
   return (
-    <AuthContext.Provider value={{ login, signup, logout, user }}>
+    <AuthContext.Provider value={{ login, signup, logout, user, token }}>
       {children}
     </AuthContext.Provider>
   );

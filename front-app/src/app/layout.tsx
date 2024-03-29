@@ -9,6 +9,7 @@ import {
   AuthProvider,
   Header,
   CinemaProvider,
+  OrderProvider,
 } from "@/components";
 import { ScreenProvider } from "@/components/contexts/screen";
 
@@ -31,10 +32,12 @@ export default function RootLayout({
           <MovieProvider>
             <CinemaProvider>
               <ScreenProvider>
-                <Header />
-                {children}
-                <Toaster />
-                <Footer />
+                <OrderProvider>
+                  <Header />
+                  {children}
+                  <Toaster />
+                  <Footer />
+                </OrderProvider>
               </ScreenProvider>
             </CinemaProvider>
           </MovieProvider>

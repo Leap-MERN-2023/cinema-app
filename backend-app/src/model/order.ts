@@ -9,12 +9,6 @@ const orderSchema = new Schema({
   orderNo: String,
   tickets: [],
   paidDate: { type: Date, default: null },
-  paymentStatus: {
-    type: String,
-    enum: ["Unpaid", "Paid"],
-    required: true,
-    default: "Unpaid",
-  },
   payment: {
     paymentAmount: Number,
     paymentMethod: {

@@ -46,6 +46,8 @@ interface IMovies {
 
 interface IMovieContext {
   movies: IMovies[];
+  setSelectedMovieId: (id: any) => void;
+  selectedMovieId: string;
 }
 
 export const MovieContext = createContext({} as IMovieContext);
@@ -53,13 +55,14 @@ export const MovieContext = createContext({} as IMovieContext);
 export const MovieProvider = ({ children }: PropsWithChildren) => {
   const { toast } = useToast();
   const [movies, setMovies] = useState([]);
+  const [selectedMovieId, setSelectedMovieId] = useState("");
 
   const getMovies = async () => {
     try {
       const {
         data: { movies },
       } = await myAxios.get("/movie");
-      //   console.log("GetMovies ===> ", movies);
+      console.log("GetMovies ===> ", movies);
       setMovies(movies);
     } catch (error) {
       toast({
@@ -77,6 +80,10 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   return (
-    <MovieContext.Provider value={{ movies }}>{children}</MovieContext.Provider>
+    <MovieContext.Provider
+      value={{ movies, setSelectedMovieId, selectedMovieId }}
+    >
+      {children}
+    </MovieContext.Provider>
   );
 };

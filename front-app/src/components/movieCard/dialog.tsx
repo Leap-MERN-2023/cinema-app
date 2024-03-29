@@ -4,8 +4,9 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { cinemas } from "./cinemas";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Resizable } from "./resizeImage";
+import { MovieContext } from "..";
 
 type ICardProps = {
   card: any;
@@ -13,11 +14,11 @@ type ICardProps = {
 
 export function DialogOpen({ card }: ICardProps) {
   const [openVideo, setOpenvideo] = useState(false);
-  const [saveId, setSaveId] = useState("");
+  const { setSelectedMovieId } = useContext(MovieContext);
   const router = useRouter();
 
   const handleNext = (id: string) => {
-    setSaveId(id);
+    setSelectedMovieId(id);
     router.push("/order");
   };
 
