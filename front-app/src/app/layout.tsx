@@ -11,6 +11,7 @@ import {
   CinemaProvider,
 } from "@/components";
 import { ScreenProvider } from "@/components/contexts/screen";
+import { ShowtimeProvider } from "@/components/contexts/showtime";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,10 +32,12 @@ export default function RootLayout({
           <MovieProvider>
             <CinemaProvider>
               <ScreenProvider>
-                <Header />
-                {children}
-                <Toaster />
-                <Footer />
+                <ShowtimeProvider>
+                  <Header />
+                  {children}
+                  <Toaster />
+                  <Footer />
+                </ShowtimeProvider>
               </ScreenProvider>
             </CinemaProvider>
           </MovieProvider>

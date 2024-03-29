@@ -9,8 +9,8 @@ export const getTime = async (
   next: NextFunction
 ) => {
   try {
-    const times = await Showtime.find().populate("movie screen");
-    res.status(201).json({ message: "Бүх kino олдлоо", times });
+    const times = await Showtime.find();
+    res.status(201).json({ message: "Бүх цагууд олдлоо", times });
   } catch (error) {
     console.log(error);
   }
@@ -24,8 +24,9 @@ export const createTimes = async (
   try {
     const newTimes = req.body;
     const times = await Showtime.create(newTimes);
-    res.status(201).json({ message: "new shiwtime created", times });
+    res.status(201).json({ message: "new showtime created", times });
   } catch (error) {
     res.status(400).json({ message: "there is an error" + error });
   }
 };
+

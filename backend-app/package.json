@@ -7,6 +7,7 @@
     "dev": "nodemon ./src/index.ts",
     "db": "npx tsc  && node ./build/utils/upload.js",
     "dbc": "npx tsc && node ./build/utils/cinema.js",
+    "dbs": "npx tsc && node ./build/utils/showtime.js",
     "dbseat": "npx tsc && node ./build/utils/seats.js"
   },
   "author": "",
