@@ -20,6 +20,7 @@ interface IAuthContext {
   login: (email: string, password: string) => Promise<void>;
   signup: (password: string, email: string) => Promise<void>;
   logout: () => void;
+  user: any;
 }
 
 export const AuthContext = createContext({} as IAuthContext);
@@ -51,6 +52,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         description: "Enjoy your journey ^.^ 🫰",
         duration: 1500,
       });
+      authLogged();
       handleNext();
     } catch (error) {
       toast({
@@ -116,7 +118,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   };
 
   return (
-    <AuthContext.Provider value={{ login, signup, logout }}>
+    <AuthContext.Provider value={{ login, signup, logout, user }}>
       {children}
     </AuthContext.Provider>
   );

@@ -25,7 +25,7 @@ export const Login = ({ handleLinkClick }: Props) => {
     validateOnBlur: false,
   });
   return (
-    <div>
+    <div className="px-14">
       <SheetHeader>
         <SheetTitle className="text-white">Нэвтрэх</SheetTitle>
       </SheetHeader>

@@ -20,6 +20,7 @@ import { CgMail } from "react-icons/cg";
 import { AuthContext } from "..";
 import { Login } from "./login";
 import { Signup } from "./signup";
+import Profile from "./profile";
 
 export function ProfileDrawer() {
   const [showSignIn, setShowSignIn] = useState(true);
@@ -28,6 +29,8 @@ export function ProfileDrawer() {
     setShowSignIn(!showSignIn);
   };
 
+  const { user } = useContext(AuthContext);
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -35,9 +38,20 @@ export function ProfileDrawer() {
           <FaUser />
         </a>
       </SheetTrigger>
-      <SheetContent className="flex justify-center items-center px-14 bg-[#000000] bg-opacity-50 border-none">
-        {showSignIn && <Login handleLinkClick={handleLinkClick} />}
-        {!showSignIn && <Signup handleLinkClick={handleLinkClick} />}
+      <SheetContent className="flex justify-center items-center bg-[#000000] bg-opacity-50 border-none">
+        {user == null ? (
+          <div>
+            {showSignIn ? (
+              <Login handleLinkClick={handleLinkClick} />
+            ) : (
+              <Signup handleLinkClick={handleLinkClick} />
+            )}
+          </div>
+        ) : (
+          <div>
+            <Profile user={user} />
+          </div>
+        )}
       </SheetContent>
     </Sheet>
   );

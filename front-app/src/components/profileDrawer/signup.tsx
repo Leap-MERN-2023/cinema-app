@@ -30,6 +30,7 @@ export const Signup = ({ handleLinkClick }: Props) => {
   const formik = useFormik({
     onSubmit: ({ email, password }) => {
       signup(email, password);
+      handleLinkClick;
     },
     initialValues: { email: "", password: "", rePassword: "" },
     validateOnChange: false,
@@ -37,11 +38,11 @@ export const Signup = ({ handleLinkClick }: Props) => {
     // validationSchema,
   });
   return (
-    <div>
+    <div className="w-[254px]">
       <SheetHeader>
-        <SheetTitle className="text-white">Бүртгүүлэх</SheetTitle>
+        <SheetTitle className="text-white mb-2">Бүртгүүлэх</SheetTitle>
       </SheetHeader>
-      <div className="grid gap-4 py-4">
+      <div className="flex flex-col gap-4 py-4 ">
         <Input
           id="email"
           name="email"
