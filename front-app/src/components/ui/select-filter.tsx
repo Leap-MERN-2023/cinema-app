@@ -50,7 +50,7 @@ export const MultiSelect = () => (
     isMulti
     name="cinema"
     options={cinemaTypeOptions}
-    placeholder="Cinema Type"
+    placeholder="Танхимын төрөл"
     unstyled
     classNames={{
       control: ({ isFocused }) =>
@@ -97,7 +97,7 @@ export const SelectCinema = () => (
     options={cinemasNameOption}
     unstyled
     name="cinemas"
-    placeholder="Cinemas"
+    placeholder="кино театр"
     classNames={{
       control: ({ isFocused }) =>
         isFocused
@@ -157,7 +157,7 @@ export const SelectShowTime = () => (
     options={showTime}
     unstyled
     name="showtime"
-    placeholder="Show Time"
+    placeholder="Цагийн хуваарь"
     classNames={{
       control: ({ isFocused }) =>
         isFocused

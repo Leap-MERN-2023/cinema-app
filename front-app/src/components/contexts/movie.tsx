@@ -11,7 +11,7 @@ import { ToastAction } from "../ui/toast";
 
 interface IMovies {
   poster: {
-    land: {
+    lands: {
       land1: string;
       land2: string;
     };

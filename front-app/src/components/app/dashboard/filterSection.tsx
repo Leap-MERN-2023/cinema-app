@@ -11,7 +11,7 @@ const FilterSection = () => {
     <div className="flex flex-col md:flex-row items-center mx-auto gap-4 mt-10 sm:mb-20 justify-center">
       <div className="flex flex-row items-center gap-6 sm:mr-6">
         <p className="text-[14px] text-[#e5e7eb] whitespace-nowrap">
-          Filter by:
+          Шүүлтүүр:
         </p>
         <div>
           <ImLocation className="p-3 bg-[#0089d0] w-9 h-9 text-white rounded-[5px] size-4" />
@@ -23,7 +23,7 @@ const FilterSection = () => {
         <SelectShowTime />
       </div>
       <button className="underline text-[14px] text-[#e5e7eb] sm:ml-6">
-        Reset
+        Арилгах
       </button>
     </div>
   );

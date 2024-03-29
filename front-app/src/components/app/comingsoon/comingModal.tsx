@@ -83,9 +83,16 @@ export function ComingModal({ card }: ICardProps) {
             <div className="flex gap-10 mt-10">
               {card.cast.map((cast: any) => {
                 return (
-                  <div key={cast._id} className="flex flex-col gap-4">
-                    <Avatar className="rounded-md w-20 h-20">
-                      <AvatarImage src={cast.img} alt="@shadcn" />
+                  <div
+                    key={cast._id}
+                    className="flex flex-col items-center gap-4 max-w-20 font-light"
+                  >
+                    <Avatar className="rounded-md w-20  items-center h-20">
+                      <AvatarImage
+                        src={cast.img}
+                        className="object-cover"
+                        alt="@shadcn"
+                      />
                       <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                     <p>{cast.name}</p>

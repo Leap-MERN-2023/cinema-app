@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -8,38 +8,32 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { carouselCards } from "./image";
-import { Button } from "..";
 import { useRouter } from "next/navigation";
 import { DialogOpen } from "./dialog";
-import Autoplay from "embla-carousel-autoplay";
+import { MovieCard, MovieContext } from "..";
 
-export function CarouselCard() {
+type Props = {};
+
+export function CarouselCard(props: Props) {
   const router = useRouter();
+  const { movies } = useContext(MovieContext);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextSlide = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === carouselCards.length - 1 ? 0 : prevIndex + 1
+      prevIndex === movies.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? carouselCards.length - 1 : prevIndex - 1
+      prevIndex === 0 ? movies.length - 1 : prevIndex - 1
     );
   };
-  const images = carouselCards.map((card: any) => card.horizontalPoster);
+  const images = movies.map((movie: any) => movie.horizontalPoster);
   return (
     <div className="w-full mt-[20px]  sm:mt-[40px] md:mt-[60px] lg:max-w-5xl mx-auto">
-      <Carousel
-        plugins={[
-          Autoplay({
-            delay: 4000,
-          }),
-        ]}
-        className="relative "
-      >
+      <Carousel className="relative ">
         <div className="flex justify-center items-center">
           <button
             onClick={prevSlide}
@@ -51,19 +45,19 @@ export function CarouselCard() {
           <CarouselContent
             style={{
               transform: `translateX(-${activeIndex * 100}%)`,
-              transition: "transform 0.5s ease-in-out",
+              transition: "transform 3s ease-in",
             }}
           >
-            {carouselCards.map((card, index) => (
+            {movies.map((movie, index) => (
               <CarouselItem key={index}>
                 <div className="p-1 ">
                   <img
-                    src={card.horizontalPoster}
+                    src={movie.poster.lands.land1}
                     alt={`Slide ${index + 1}`}
                     className="w-full h-[200px] sm:h-[280px] md:h-[360px] lg:h-[440px] xl:h-[520px] object-cover scroll-smooth snap-center shadow-2xl"
                   />
                   <div className="flex gap-3 absolute z-5 bottom-[20px] ml-5">
-                    <DialogOpen card={card} />
+                    <DialogOpen movie={movie} />
                     <div>
                       <button className="w-20 h-6 text-[12px] md:w-24 md:h-9 rounded font-medium md:text-[14px] bg-white">
                         Трейлер

@@ -41,10 +41,6 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
         data: { cinemas },
       } = await myAxios.get("/cinema");
       setCinemas(cinemas);
-      console.log(cinemas);
-      toast({
-        title: "Амжилттай кино театр сонголоо.",
-      });
       console.log(cinemas, "<3");
     } catch (error) {
       toast({

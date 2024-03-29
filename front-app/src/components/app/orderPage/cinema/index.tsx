@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { CinemaSection } from "./cinemaSection";
 import { CinemaButton } from "./cinemaButton";
 
 type Props = {

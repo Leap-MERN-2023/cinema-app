@@ -7,19 +7,19 @@ import { ProfileDrawer } from "../profileDrawer";
 
 const headers = [
   {
-    header: "Cinema",
+    header: "Нүүр",
     href: "/",
   },
   {
-    header: "Coming soon",
+    header: "Удахгүй дэлгэцнээ",
     href: "/comingsoon",
   },
   {
-    header: "Event",
+    header: "Үйл ажилагаа",
     href: "/event",
   },
   {
-    header: "Ticket",
+    header: "Тасалбар",
     href: "/ticket",
   },
 ];

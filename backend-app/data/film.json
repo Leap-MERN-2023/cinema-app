@@ -13,7 +13,7 @@
       "releaseDate": "2024-03-01",
       "director": "Denis Villeneuve",
       "movie_trailer": "https://trailer.movieglu.com/324892_high_V3.mp4",
-      "synopsis": "\"Dune: Part Two\" will explore the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.",
+      "synopsis": "\"Dune: Хоёрдугаар хэсэг\" нь Пол Атрейдесийн гэр бүлийг нь устгасан хуйвалдагчдын эсрэг өшөө авах дайны замд явж байхдаа Чани болон Фремен нартай нэгдэж буй домогт аяллыг судлах болно. Амьдралынхаа хайр, хайр дурлал хоёрын хоорондох сонголтын өмнө. Мэдэгдэж буй орчлон ертөнцийн хувь заяаг зөвхөн түүний урьдчилан харж чадах аймшигт ирээдүйгээс урьдчилан сэргийлэхийг хичээдэг.",
       "cinemas": [
         "66014ea0bfbc2722d353235a",
         "66014ea0bfbc2722d353235b",
@@ -58,7 +58,7 @@
       "releaseDate": "2024-03-08",
       "director": "Mike Mitchell",
       "movie_trailer": "https://trailer.movieglu.com/357576_high.mp4",
-      "synopsis": "\"Kunfu Panda - 4\" Po must train a new warrior when he's chosen to become the spiritual leader of the Valley of Peace. However, when a powerful shape-shifting sorceress sets her eyes on his Staff of Wisdom, he suddenly realizes he's going to need some help. Teaming up with a quick-witted corsac fox, Po soon discovers that heroes can be found in the most unexpected places",
+      "synopsis": "\"Күнфу Панда - 4\" По Энх тайвны хөндийн сүнслэг удирдагчаар сонгогдохдоо шинэ дайчин бэлтгэх ёстой. Гэсэн хэдий ч хэлбэрээ өөрчилдөг хүчирхэг илбэчин түүний мэргэн ухааны таяг руу нүдээ тавих үед тэр гэнэт ухаарчээ. Түүнд тусламж хэрэгтэй болно. Түргэн ухаантай хярс үнэгтэй нийлж По удалгүй баатруудыг санаанд оромгүй газраас олж болохыг олж мэдэв",
       "cinemas": [
         "66014ea0bfbc2722d353235a",
         "66014ea0bfbc2722d353235b",
@@ -103,7 +103,7 @@
       "releaseDate": "2023-07-21",
       "director": "Christopher Nolan",
       "movie_trailer": "https://trailer.movieglu.com/339741_high_V2.mp4",
-      "synopsis": "\"Oppenheimer\" The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
+      "synopsis": "\"Оппенгеймер\" Америкийн эрдэмтэн Ж.Роберт Оппенхаймерын түүх ба атомын бөмбөг бүтээхэд гүйцэтгэсэн үүрэг.",
       "cinemas": [
         "66014ea0bfbc2722d353235a",
         "66014ea0bfbc2722d353235b",
@@ -148,7 +148,7 @@
       "releaseDate": "2023-07-21",
       "director": "Greta Gerwig",
       "movie_trailer": "https://trailer.movieglu.com/215333_high_V3.mp4",
-      "synopsis": "\"Barbie\" Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+      "synopsis": " Барби Кен хоёр амьдралынхаа цагийг өнгөлөг бөгөөд төгс мэт харагдах Барби газрын ертөнцөд өнгөрөөж байна. Гэсэн хэдий ч тэд бодит ертөнцөд очих боломж олдвол удалгүй хүмүүсийн дунд амьдрахын баяр баясгалан, аюулыг олж мэдэрдэг.",
       "cinemas": [
         "66014ea0bfbc2722d353235a",
         "66014ea0bfbc2722d353235b",
@@ -193,7 +193,7 @@
       "releaseDate": "2024-06-14",
       "director": "Kelsey Mann",
       "movie_trailer": "https://trailer.movieglu.com/337411_high.mp4",
-      "synopsis": "\"Inside Out 2\" Joy, Sadness, Anger, Fear and Disgust have been running a successful operation by all accounts. However, when Anxiety shows up, they aren't sure how to feel.",
+      "synopsis": "\"Inside Out 2\" Баяр баясгалан, уйтгар гуниг, уур хилэн, айдас, зэвүүцэл бүхий л үйл ажиллагаа амжилттай явагдаж байна. Гэсэн хэдий ч сэтгэлийн түгшүүр гарч ирэхэд тэд хэрхэн мэдрэхээ мэдэхгүй байна.",
       "cinemas": [
         "66014ea0bfbc2722d353235a",
         "66014ea0bfbc2722d353235b",
@@ -238,7 +238,7 @@
       "releaseDate": "2025-03-19",
       "director": "Joaquim Dos Santos, Kemp Powers",
       "movie_trailer": "https://trailer.movieglu.com/309732_high_V4.mp4",
-      "synopsis": "\"Spiderman: beyond the spiderverse\" Continuation of Miles Morales' story.",
+      "synopsis": "\"Хүн аалз: аалзны цаана\" Майлс Моралесийн түүхийн үргэлжлэл.",
       "cinemas": [
         "66014ea0bfbc2722d353235a",
         "66014ea0bfbc2722d353235b",
@@ -259,6 +259,231 @@
         {
           "name": "Shameik Moore",
           "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdr2hTkTx5SeAwg9A1-opCEXmY0zMe7Hpi-Qiq3oyCrQ&s"
+        },
+        {
+          "name": "Hailee Steinfeld",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
+        },
+        {
+          "name": "Oscar Isaac",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
+        }
+      ]
+    },
+    {
+      "title": "Godzilla x Kong: The New Empire",
+      "poster": {
+        "vertical": "https://miro.medium.com/v2/resize:fit:1000/1*U0zzy1GM-6WRnWhmkw4Wjw.jpeg",
+        "lands": {
+          "land1": "https://i.ytimg.com/vi/0hTWFlmh9UQ/maxresdefault.jpg",
+          "land2": "https://www.escapistmagazine.com/wp-content/uploads/2022/06/new-godzilla-kong-sequel-movie-2024.jpeg?w=1200"
+        }
+      },
+      "duration": "114",
+      "releaseDate": "2024-4-25",
+      "director": "Adam Wingard ",
+      "movie_trailer": "https://www.youtube.com/watch?v=JNYIM0wl3wA",
+      "synopsis": "\"Godzilla x Kong: The New Empire\"Годзилла, Конг хэмээх эртний хоёр титан нар баатарлаг тулалдаанд тулалдаж, хүмүүс хоорондоо холбоотой гарал үүслийг тайлж, Гавалын арлын нууцлаг харилцааг тайлж байна.",
+      "cinemas": [
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
+      ],
+      "movieType": "3D",
+      "cast": [
+        {
+          "name": "Shameik Moore",
+          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdr2hTkTx5SeAwg9A1-opCEXmY0zMe7Hpi-Qiq3oyCrQ&s"
+        },
+        {
+          "name": "Hailee Steinfeld",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
+        },
+        {
+          "name": "Oscar Isaac",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
+        }
+      ]
+    },
+    {
+      "title": "Joker: Folie à Deux",
+      "poster": {
+        "vertical": "https://i.pinimg.com/originals/42/5f/75/425f7562858eec1b0096f6f6e630f48f.jpg",
+        "lands": {
+          "land1": "https://i.ytimg.com/vi/JNYIM0wl3wA/maxresdefault.jpg",
+          "land2": "https://images.squarespace-cdn.com/content/v1/5bbcad0f2727be3646b9fee1/970c3dc3-d477-46aa-9c1c-608bb508c2c4/2E91A032-E300-44E4-BE2A-90A400BCF9A0.jpeg"
+        }
+      },
+      "duration": "114",
+      "releaseDate": "2024-10-4",
+      "director": "Тодд Филлипс ",
+      "movie_trailer": "https://www.youtube.com/watch?v=JNYIM0wl3wA",
+      "synopsis": "\"Joker: Folie à Deux\" бол 2024 онд нээлтээ хийхээр төлөвлөж буй Тодд Филлипсийн найруулсан Америкийн хөгжимт сэтгэлзүйн триллер кино юм.",
+      "cinemas": [
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
+      ],
+      "movieType": "2D",
+      "cast": [
+        {
+          "name": "Shameik Moore",
+          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdr2hTkTx5SeAwg9A1-opCEXmY0zMe7Hpi-Qiq3oyCrQ&s"
+        },
+        {
+          "name": "Hailee Steinfeld",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
+        },
+        {
+          "name": "Oscar Isaac",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
+        }
+      ]
+    },
+    {
+      "title": "Deadpool & Wolverine",
+      "poster": {
+        "vertical": "https://i.pinimg.com/originals/42/5f/75/425f7562858eec1b0096f6f6e630f48f.jpg",
+        "lands": {
+          "land1": "https://i.ytimg.com/vi/JNYIM0wl3wA/maxresdefault.jpg",
+          "land2": "https://images.squarespace-cdn.com/content/v1/5bbcad0f2727be3646b9fee1/970c3dc3-d477-46aa-9c1c-608bb508c2c4/2E91A032-E300-44E4-BE2A-90A400BCF9A0.jpeg"
+        }
+      },
+      "duration": "114",
+      "releaseDate": "2024-7-26",
+      "director": "Shawn Levy",
+      "movie_trailer": "https://www.youtube.com/watch?v=uJMCNJP2ipI",
+      "synopsis": "\"Deadpool & Wolverine\" Wolverine чанга дуугаар Deadpool-тэй зам хөндлөн гарахдаа бэртлээ эдгээж байна. Тэд нийтлэг дайсныг ялахын тулд нэгддэг.",
+      "cinemas": [
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
+      ],
+      "movieType": "3D",
+      "cast": [
+        {
+          "name": "Shameik Moore",
+          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdr2hTkTx5SeAwg9A1-opCEXmY0zMe7Hpi-Qiq3oyCrQ&s"
+        },
+        {
+          "name": "Hailee Steinfeld",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
+        },
+        {
+          "name": "Oscar Isaac",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
+        }
+      ]
+    },
+    {
+      "title": "Furiosa: A Mad Max Saga",
+      "poster": {
+        "vertical": "https://miro.medium.com/v2/resize:fit:1400/1*XGNlu-9Ez2bFK0lK1zwsSQ.jpeg",
+        "lands": {
+          "land1": "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2023/12/furiosa-a-mad-max-saga-poster-shows-anya-taylor-joy-and-chris-hemsworth.jpg",
+          "land2": "https://www.awn.com/sites/default/files/styles/original/public/image/attached/1061322-friosaonlinemastertt4000x2490rgb-1280.jpg?itok=pJQvrpyS"
+        }
+      },
+      "duration": "114",
+      "releaseDate": "2024-5-23",
+      "director": "George Miller",
+      "movie_trailer": "https://www.youtube.com/watch?v=XJMuhwVlca4",
+      "synopsis": "\"Furiosa: A Mad Max Saga\" Furiosa: A Mad Max Saga: Найруулагч Жорж Миллер. Аня Тейлор-Жой, Крис Хемсворт, Чарли Фрейзер, Натан Жонс нартай. Бусдын гарал үүслийн түүх .",
+      "cinemas": [
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
+      ],
+      "movieType": "3D",
+      "cast": [
+        {
+          "name": "Shameik Moore",
+          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdr2hTkTx5SeAwg9A1-opCEXmY0zMe7Hpi-Qiq3oyCrQ&s"
+        },
+        {
+          "name": "Hailee Steinfeld",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
+        },
+        {
+          "name": "Oscar Isaac",
+          "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
+        }
+      ]
+    },
+    {
+      "title": "American Civil War",
+      "poster": {
+        "vertical": "https://www.movietowne.com/uploads/movies/civil-war-movie-poster-v2-resizedpng1711462949.png",
+        "lands": {
+          "land1": " https://openmediahub.com/wp-content/uploads/2024/02/Untitled-design-7-16-1024x536.jpg",
+          "land2": "https://i.ytimg.com/vi/aDyQxtg0V2w/maxresdefault.jpg"
+        }
+      },
+      "duration": "114",
+      "releaseDate": "2024-4-12",
+      "director": " Alex Garland",
+      "movie_trailer": "https://www.youtube.com/watch?v=XJMuhwVlca4",
+      "synopsis": "\"American Civil War\" Америкийн иргэний дайн, дөрвөн жил үргэлжилсэн дайн (1861-65) нь АНУ болон Америкийн Холбооны Улсыг байгуулахаар салан тусгаарласан Өмнөд 11 муж улсын хооронд тулалдаж байв.",
+      "cinemas": [
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
+      ],
+      "movieType": "IMAX",
+      "cast": [
+        {
+          "name": "Wagner Moura",
+          "img": "https://remezcla.com/wp-content/uploads/2023/12/Wagner-Moura.jpg"
         },
         {
           "name": "Hailee Steinfeld",

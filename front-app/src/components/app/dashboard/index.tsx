@@ -9,10 +9,12 @@ type Props = {};
 
 export const Dashboard = (props: Props) => {
   return (
-    <div className="container mx-auto">
+    <div>
       <CarouselCard />
-      <FilterSection />
-      <MovieCard />
+      <div className="container mx-auto">
+        <FilterSection />
+        <MovieCard />
+      </div>
       <EventsBanner />
     </div>
   );
