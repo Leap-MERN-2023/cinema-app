@@ -1,54 +1,79 @@
 import { Button } from "@/components";
+import { ShowtimeContext } from "@/components/contexts/showtime";
 import { Armchair } from "lucide-react";
-import React from "react";
+import React, { useContext, useState } from "react";
 
 type Props = {
   changeStep: any;
 };
 
+const dateNow = new Date();
+
 const date = [
   {
-    month: "5 сар",
-    date: "09",
+    month: dateNow.getMonth() + 2,
+    day: "1",
   },
   {
-    month: "5 сар",
-    date: "10",
+    month: dateNow.getMonth() + 2,
+    day: "2",
   },
   {
-    month: "5 сар",
-    date: "11",
+    month: dateNow.getMonth() + 2,
+    day: "3",
   },
   {
-    month: "5 сар",
-    date: "12",
+    month: dateNow.getMonth() + 2,
+    day: "4",
   },
   {
-    month: "5 сар",
-    date: "13",
+    month: dateNow.getMonth() + 2,
+    day: "5",
   },
 ];
-const time = ["15:20", "16:30", "19:40", "20:50", "21:20"];
 
 export const TicketInfo = ({ changeStep }: Props) => {
+  const { showtimes } = useContext(ShowtimeContext);
+  const [selectedShowtime, setSelectedShowtime] = useState({
+    month: "03",
+    day: "30",
+  });
+  const handleDate = (date: any) => {
+    setSelectedShowtime(date);
+    console.log(date);
+  };
+
   return (
-    <div className="flex flex-col gap-8 justify-center items-center bg-slate-800 text-white">
+    <div className="flex flex-col gap-4 justify-center items-center bg-slate-800 text-white">
       <div className="flex gap-4">
         {date.map((date, i) => (
-          <Button key={i} className="flex flex-col gap-1 h-full bg-slate-500">
+          <Button
+            key={i}
+            className="flex flex-col gap-1 h-full bg-slate-500"
+            onClick={() => {
+              handleDate(date);
+            }}
+          >
             <p>{date.month}</p>
             <p className=" bg-slate-50 text-black rounded-full p-1 px-2">
-              {date.date}
+              {date.day}
             </p>
           </Button>
         ))}
       </div>
       <div className="flex gap-4">
-        {time.map((time, i) => (
+        {showtimes.map((time, i) => (
           <Button key={i} className="bg-slate-500">
-            {time}
+            {time.startTime.time}
           </Button>
         ))}
+        {showtimes
+          .filter((el: any) => el.startTime === selectedShowtime)
+          .map((showtime: any, i: any) => (
+            <Button key={i} className="bg-slate-500">
+              {showtime.startTime.time}
+            </Button>
+          ))}
       </div>
       <div className="flex flex-col gap-3">
         <div className="flex gap-5 bg-slate-500 border-2 py-3 px-5 rounded-lg items-center">

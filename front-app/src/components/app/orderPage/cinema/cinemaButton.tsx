@@ -40,8 +40,8 @@ export const CinemaButton = ({ cinemas, changeStep }: Props) => {
       <div>
         {cinemas
           .filter((i: any) => i._id === click)
-          .map((e: any) => (
-            <CinemaSection changeStep={changeStep} cinemas={e} key={e.name} />
+          .map((e: any, i: any) => (
+            <CinemaSection changeStep={changeStep} cinemas={e} key={i} />
           ))}
       </div>
     </div>
