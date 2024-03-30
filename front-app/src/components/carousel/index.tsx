@@ -11,6 +11,7 @@ import {
 import { useRouter } from "next/navigation";
 import { DialogOpen } from "./dialog";
 import { MovieCard, MovieContext } from "..";
+import Trailermodal from "./trailerModal";
 
 type Props = {};
 
@@ -58,11 +59,7 @@ export function CarouselCard(props: Props) {
                   />
                   <div className="flex gap-3 absolute z-5 bottom-[20px] ml-5">
                     <DialogOpen movie={movie} />
-                    <div>
-                      <button className="w-20 h-6 text-[12px] md:w-24 md:h-9 rounded font-medium md:text-[14px] bg-white">
-                        Трейлер
-                      </button>
-                    </div>
+                    <Trailermodal trailers={movie.movie_trailer} />
                   </div>
                 </div>
               </CarouselItem>

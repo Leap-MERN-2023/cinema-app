@@ -46,9 +46,6 @@ export function DialogOpen({ movie }: ICardProps) {
                 <div className="text-2xl">Action, Drama</div>
               </div>
               <div className="flex mt-20 gap-10">
-                <Button className="bg-white px-10 text-black h-12 hover:text-white">
-                  Трейлер
-                </Button>
                 <Button
                   className="bg-rose-500 px-10 h-12"
                   onClick={() => router.push("/order")}
