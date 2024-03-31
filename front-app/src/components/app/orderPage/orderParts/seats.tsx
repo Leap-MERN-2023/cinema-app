@@ -2,10 +2,12 @@ import { ScreenContext } from "@/components/contexts/screen";
 import { Armchair } from "lucide-react";
 import React, { useContext, useState } from "react";
 
-type Props = {};
+type Props = {
+  showtimes: any;
+  func: any;
+};
 
-export const Seats = (props: Props) => {
-  const { screens } = useContext(ScreenContext);
+export const Seats = ({ showtimes, func }: Props) => {
   const [allSeats, setAllSeats] = useState([]);
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
   const handleSelect = (seatNumber: string) => {
@@ -17,19 +19,22 @@ export const Seats = (props: Props) => {
       newSeatNumbers.splice(fndIdx, 1);
       console.log("CHA", newSeatNumbers);
       setSelectedSeats([...newSeatNumbers]);
+      func(selectedSeats.length);
     } else {
       setSelectedSeats([...selectedSeats, seatNumber]);
+      func(selectedSeats.length + 1);
     }
   };
 
   return (
     <div className="h-screen text-black flex justify-center flex-col items-center">
+      <p className="text-white py-5">{showtimes[0]?.screen}</p>
       <p className="text-2xl text-white pb-10">Дэлгэц</p>
       <div className="h-20 w-[500px] border-gray-500 border-l-[25px] border-l-transparent border-r-transparent border-r-[25px] border-t-[80px] rounded-t-md overflow-hidden"></div>
       <div className="flex gap-6 pt-20">
         <div className="flex flex-col gap-2">
-          <div className="flex flex-col px-40">
-            {screens[1]?.seats.map((row: any, i: any) => {
+          <div className="flex flex-col px-10">
+            {showtimes[0]?.seats.map((row: any, i: any) => {
               return (
                 <div className="flex" key={i}>
                   {row.map((seat: any, i: any) => {

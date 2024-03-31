@@ -26,6 +26,14 @@ interface ITimes {
 
 interface ITimeContext {
   showtimes: ITimes[];
+  getTimeByCinemaAndMovie: (
+    movieId: string,
+    cinemaId: string,
+    branch: string,
+    screen: string,
+    startTime: Date
+  ) => Promise<void>;
+  seats: any;
 }
 
 export const ShowtimeContext = createContext({} as ITimeContext);
@@ -33,6 +41,7 @@ export const ShowtimeContext = createContext({} as ITimeContext);
 export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
   const [showtimes, setShowtimes] = useState([]);
   const { toast } = useToast();
+  const [seats, setSeats] = useState([]);
 
   const getTime = async () => {
     try {
@@ -43,6 +52,29 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
     } catch (error) {}
   };
 
+  const getTimeByCinemaAndMovie = async (
+    movieId: string,
+    cinemaId: string,
+    branch: string,
+    screen: string,
+    startTime: Date
+  ) => {
+    try {
+      const {
+        data: { times },
+      } = await myAxios.post("/showtime/", {
+        movieId: movieId,
+        cinemaId: cinemaId,
+        branch: branch,
+        screen: screen,
+        startTime: startTime,
+      });
+      setSeats(times.seats);
+      console.log(times.seats);
+    } catch (error) {
+      console.log(error, "ALDAA GARAV");
+    }
+  };
   console.log("SHOWTIMES", showtimes);
 
   useEffect(() => {
@@ -50,7 +82,9 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   return (
-    <ShowtimeContext.Provider value={{ showtimes }}>
+    <ShowtimeContext.Provider
+      value={{ showtimes, getTimeByCinemaAndMovie, seats }}
+    >
       {children}
     </ShowtimeContext.Provider>
   );

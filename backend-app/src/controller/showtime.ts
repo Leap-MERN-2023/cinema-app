@@ -16,17 +16,21 @@ export const getTime = async (
   }
 };
 
-export const createTimes = async (
+export const getTimes = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const newTimes = req.body;
-    const times = await Showtime.create(newTimes);
-    res.status(201).json({ message: "new showtime created", times });
+    const times = await Showtime.findOne({
+      movie: req.body.movieId,
+      cinema: req.body.cinemaId,
+      branch: req.body.branch,
+      screen: req.body.screen,
+      startTime: req.body.startTime,
+    });
+    res.status(201).json({ message: "Цагийн хуваариуд ирлээ", times });
   } catch (error) {
     res.status(400).json({ message: "there is an error" + error });
   }
 };
-
