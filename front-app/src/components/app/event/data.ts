@@ -19,7 +19,7 @@ export const events = [
     no: 2,
     name: "Sozhou River ",
     image:
-      "https://scontent.fuln4-3.fna.fbcdn.net/v/t39.30808-6/280752925_1197347787748036_7475917066551322472_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=_R2A7RLBLz0AX9shCI6&_nc_oc=AQneQB7Ukst5pekze6BQ4vTrDveR64Qydl6Pv_V7B4wR2R05E6BaTyuthb15BqVytLc&_nc_ht=scontent.fuln4-3.fna&oh=00_AfDbeJ3CrgKuSQlXcWm1DdfP2F18skqQM83GEJb9dlf1Ew&oe=65F967BB",
+      "https://filmforum.org/do-not-enter-or-modify-or-erase/client-uploads/SUZHOU_RIVER_thumbnail.png",
     // "https://images.static-bluray.com/reviews/28045_5.jpg",
     // "https://images.static-bluray.com/reviews/28045_1.jpg",
 
