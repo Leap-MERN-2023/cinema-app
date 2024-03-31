@@ -6,7 +6,10 @@ import { OrderIndex } from "./orderParts";
 import { Checkout } from "./checkout";
 import { PaymentQr } from "./paymentQr";
 import { CinemaContext } from "@/components";
-
+import { BiCameraMovie } from "react-icons/bi";
+import { MdOutlineChair } from "react-icons/md";
+import { LiaWalletSolid } from "react-icons/lia";
+import { TfiTicket } from "react-icons/tfi";
 type Props = {};
 
 export const OrderPage = (props: Props) => {
@@ -21,95 +24,163 @@ export const OrderPage = (props: Props) => {
     switch (step) {
       case 1:
         return (
-          <ul className=" dark:text-white flex justify-center mt-10  lg:w-1/5">
+          <ul className=" dark:text-white flex justify-center mt-5  ">
+            <div className="flex items-center ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center ml-4 rounded-xl bg-red-500">
+                  <BiCameraMovie className="w-16 h-14 text-white" />
+                </button>
+                <li className=" text-white rounded-md pl-1">Кино сонголт</li>
+              </div>
+            </div>
+            <div className="w-20 h-[1px] mt-8  bg-white"></div>
+            <div className="flex items-center ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center ml-7 rounded-xl bg-white">
+                  <MdOutlineChair className="w-14 h-14" />
+                </button>
+                <li className=" text-white w-32">Суудал сонголт</li>
+              </div>
+            </div>
+            <div className="w-20 h-[1px] mt-8  bg-white"></div>
             <div className="flex items-center  ">
-              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
-                CinemaCard
-              </li>
-              <div className="w-16 h-[1px] bg-white"></div>
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center  rounded-xl ml-7 bg-white">
+                  <LiaWalletSolid className="w-14 h-14 " />
+                </button>
+                <li className=" text-white w-32">Баталгаажуулах</li>
+              </div>
             </div>
-            <div className="flex items-center">
-              <li className=" text-white rounded-md p-2">orderIndex</li>
-              <div className="w-16 h-[1px] bg-white"></div>
+            <div className="w-20 h-[1px] mt-8  bg-white"></div>
+            <div className="flex items-center ml-4 ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center  rounded-xl bg-white">
+                  <TfiTicket className="w-16 h-14 " />
+                </button>
+                <li className=" text-white w-32">QR код</li>
+              </div>
             </div>
-            <div className="flex items-center">
-              <li className=" text-white rounded-md p-2">Checkout</li>
-              <div className="w-16 h-[1px] bg-white"></div>
-            </div>
-            <li className=" text-white rounded-md p-2">Payment</li>
           </ul>
         );
       case 2:
         return (
-          <ul className=" dark:text-white flex justify-center  lg:w-1/5">
-            <div className="flex items-center">
-              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
-                CinemaCard
-              </li>
-              <div className="w-16 h-[1px] bg-white"></div>
-            </div>
+          <ul className=" dark:text-white flex justify-center mt-5  ">
             <div className="flex items-center ">
-              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
-                orderIndex
-              </li>
-              <div className="w-16 h-[1px] bg-white"></div>
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center ml-4 rounded-xl bg-red-500">
+                  <BiCameraMovie className="w-16 h-14 text-white" />
+                </button>
+                <li className=" text-white rounded-md pl-1">Кино сонголт</li>
+              </div>
             </div>
-            <div className="flex items-center">
-              <li className=" text-white rounded-md p-2">Checkout</li>
-              <div className="w-16 h-[1px] bg-white"></div>
+            <div className="w-20 h-[1px] mt-8  bg-red-500"></div>
+            <div className="flex items-center ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center ml-7 rounded-xl bg-red-500">
+                  <MdOutlineChair className="w-14 h-14 text-white" />
+                </button>
+                <li className=" text-white w-32">Суудал сонголт</li>
+              </div>
             </div>
-            <li className=" text-white rounded-md p-2">Payment</li>
+            <div className="w-20 h-[1px] mt-8  bg-white"></div>
+            <div className="flex items-center  ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center  rounded-xl ml-7 bg-white">
+                  <LiaWalletSolid className="w-14 h-14  " />
+                </button>
+                <li className=" text-white w-32">Баталгаажуулах</li>
+              </div>
+            </div>
+            <div className="w-20 h-[1px] mt-8  bg-white"></div>
+            <div className="flex items-center ml-4 ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center  rounded-xl bg-white">
+                  <TfiTicket className="w-16 h-14 " />
+                </button>
+                <li className=" text-white w-32">QR код</li>
+              </div>
+            </div>
           </ul>
         );
 
       case 3:
         return (
-          <ul className=" dark:text-white flex justify-center  lg:w-1/5">
+          <ul className=" dark:text-white flex justify-center mt-5  ">
             <div className="flex items-center ">
-              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
-                CinemaCard
-              </li>
-              <div className="w-16 h-[1px] bg-white"></div>
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center ml-4 rounded-xl bg-red-500">
+                  <BiCameraMovie className="w-16 h-14 text-white" />
+                </button>
+                <li className=" text-white rounded-md pl-1">Кино сонголт</li>
+              </div>
             </div>
-            <div className="flex items-center mx-2">
-              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
-                orderIndex
-              </li>
-              <div className="w-16 h-[1px] bg-white"></div>
+            <div className="w-20 h-[1px] mt-8  bg-red-500"></div>
+            <div className="flex items-center ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center ml-7 rounded-xl bg-red-500">
+                  <MdOutlineChair className="w-14 h-14 text-white" />
+                </button>
+                <li className=" text-white w-32">Суудал сонголт</li>
+              </div>
             </div>
-            <div className="flex items-center">
-              <li className=" bg-red-500 text-white rounded-md p-2 mx-2">
-                Checkout
-              </li>
-              <div className="w-16 h-[1px] bg-white"></div>
+            <div className="w-20 h-[1px] mt-8  bg-red-500"></div>
+            <div className="flex items-center  ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center  rounded-xl ml-7 bg-red-500">
+                  <LiaWalletSolid className="w-14 h-14 text-white " />
+                </button>
+                <li className=" text-white w-32">Баталгаажуулах</li>
+              </div>
             </div>
-            <li className=" text-white rounded-md p-2">Payment</li>
+            <div className="w-20 h-[1px] mt-8  bg-white"></div>
+            <div className="flex items-center ml-4 ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center  rounded-xl bg-white">
+                  <TfiTicket className="w-16 h-14 " />
+                </button>
+                <li className=" text-white w-32">QR код</li>
+              </div>
+            </div>
           </ul>
         );
       case 4:
         return (
-          <ul className=" dark:text-white flex justify-center  lg:w-1/5">
+          <ul className=" dark:text-white flex justify-center mt-5  ">
+            <div className="flex items-center ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center ml-4 rounded-xl bg-red-500">
+                  <BiCameraMovie className="w-16 h-14 text-white" />
+                </button>
+                <li className=" text-white rounded-md pl-1">Кино сонголт</li>
+              </div>
+            </div>
+            <div className="w-20 h-[1px] mt-8  bg-red-500"></div>
+            <div className="flex items-center ">
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center ml-7 rounded-xl bg-red-500">
+                  <MdOutlineChair className="w-14 h-14 text-white" />
+                </button>
+                <li className=" text-white w-32">Суудал сонголт</li>
+              </div>
+            </div>
+            <div className="w-20 h-[1px] mt-8  bg-red-500"></div>
             <div className="flex items-center  ">
-              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
-                CinemaCard
-              </li>
-              <div className="w-16 h-[1px] bg-white"></div>
+              <div className="flex-col  max-h-20 w-28">
+                <button className="items-center  rounded-xl ml-7 bg-red-500">
+                  <LiaWalletSolid className="w-14 h-14 text-white " />
+                </button>
+                <li className=" text-white w-32">Баталгаажуулах</li>
+              </div>
             </div>
-            <div className="flex items-center">
-              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
-                orderIndex
-              </li>
-              <div className="w-16 h-[1px] bg-white"></div>
+            <div className="w-20 h-[1px] mt-8  bg-red-500"></div>
+            <div className="flex items-center ml-4 ">
+              <div className="flex-col  max-h-20 w-28 ">
+                <button className="items-center  rounded-xl bg-red-500">
+                  <TfiTicket className="w-16 h-14 text-white" />
+                </button>
+                <li className=" text-white w-32">QR код</li>
+              </div>
             </div>
-            <div className="flex items-center">
-              <li className=" bg-red-500 text-white rounded-md p-2 mx-2">
-                Checkout
-              </li>
-              <div className="w-16 h-[1px] bg-white"></div>
-            </div>
-            <li className="bg-red-500 text-white rounded-md p-2 mx-2">
-              Payment
-            </li>
           </ul>
         );
     }

@@ -46,7 +46,7 @@ export function CarouselCard(props: Props) {
           <CarouselContent
             style={{
               transform: `translateX(-${activeIndex * 100}%)`,
-              transition: "transform 3s ease-in",
+              transition: "transform 1s ease-in",
             }}
           >
             {movies.map((movie, index) => (

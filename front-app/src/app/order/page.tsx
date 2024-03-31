@@ -1,4 +1,4 @@
-import { OrderPage } from "@/components";
+import { OrderPage } from "@/components/";
 import React from "react";
 
 type Props = {};
