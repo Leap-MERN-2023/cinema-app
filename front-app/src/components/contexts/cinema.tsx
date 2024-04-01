@@ -9,6 +9,11 @@ import { ToastAction } from "@radix-ui/react-toast";
 interface ICinemaContext {
   getCinema: () => Promise<void>;
   cinemas: ICinema[];
+  setSelectedCinema: (id: any) => void;
+  setSelectedBranch: (name: string) => void;
+  selectedCinema: string;
+  selectedBranch: string;
+  loading: boolean;
 }
 interface ICinema {
   location: {
@@ -31,6 +36,8 @@ export const CinemaContext = createContext({} as ICinemaContext);
 export const CinemaProvider = ({ children }: PropsWithChildren) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [selectedCinema, setSelectedCinema] = useState("");
+  const [selectedBranch, setSelectedBranch] = useState("");
   const { toast } = useToast();
   const [cinemas, setCinemas] = useState([]);
 
@@ -57,7 +64,17 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   return (
-    <CinemaContext.Provider value={{ getCinema, cinemas }}>
+    <CinemaContext.Provider
+      value={{
+        getCinema,
+        cinemas,
+        selectedCinema,
+        setSelectedCinema,
+        selectedBranch,
+        setSelectedBranch,
+        loading,
+      }}
+    >
       {children}
     </CinemaContext.Provider>
   );

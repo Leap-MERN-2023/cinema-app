@@ -1,3 +1,4 @@
+import { Button } from "@/components";
 import { ScreenContext } from "@/components/contexts/screen";
 import { Armchair } from "lucide-react";
 import React, { useContext, useState } from "react";
@@ -5,21 +6,29 @@ import React, { useContext, useState } from "react";
 type Props = {
   showtimes: any;
   func: any;
+  selectedSeats: any;
+  clear: () => void;
+  setSelectedSeats: (el: any) => void;
 };
 
-export const Seats = ({ showtimes, func }: Props) => {
+export const Seats = ({
+  showtimes,
+  func,
+  selectedSeats,
+  setSelectedSeats,
+  clear,
+}: Props) => {
   const [allSeats, setAllSeats] = useState([]);
-  const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
   const handleSelect = (seatNumber: string) => {
-    const fndIdx = selectedSeats.findIndex((el) => el === seatNumber);
+    const fndIdx = selectedSeats.findIndex((el: any) => el === seatNumber);
     console.log("F", fndIdx);
     if (fndIdx !== -1) {
-      const newSeatNumbers = selectedSeats;
-      console.log("CHA", newSeatNumbers);
-      newSeatNumbers.splice(fndIdx, 1);
-      console.log("CHA", newSeatNumbers);
-      setSelectedSeats([...newSeatNumbers]);
-      func(selectedSeats.length);
+      //   const newSeatNumbers = selectedSeats;
+      //   console.log("CHA", newSeatNumbers);
+      //   newSeatNumbers.splice(fndIdx, 1);
+      //   console.log("CHA", newSeatNumbers);
+      //   setSelectedSeats([...newSeatNumbers]);
+      //   func(selectedSeats.length);
     } else {
       setSelectedSeats([...selectedSeats, seatNumber]);
       func(selectedSeats.length + 1);
@@ -68,6 +77,16 @@ export const Seats = ({ showtimes, func }: Props) => {
                 </div>
               );
             })}
+            <div className="w-full flex justify-center my-10">
+              <Button
+                color="white"
+                onClick={() => {
+                  clear();
+                }}
+              >
+                Clear
+              </Button>
+            </div>
           </div>
         </div>
       </div>

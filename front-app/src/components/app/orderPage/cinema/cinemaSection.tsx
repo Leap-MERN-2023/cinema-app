@@ -1,14 +1,19 @@
 "use client";
 
-import React from "react";
-import { Button } from "@/components";
+import React, { useContext } from "react";
+import { Button, CinemaContext } from "@/components";
 
 type Props = {
-  changeStep: any;
+  handleForwardStep: () => void;
   cinemas: any;
 };
 
-export const CinemaSection = ({ changeStep, cinemas }: Props) => {
+export const CinemaSection = ({ handleForwardStep, cinemas }: Props) => {
+  const { setSelectedBranch } = useContext(CinemaContext);
+  const handleClick = (name: string) => {
+    handleForwardStep();
+    setSelectedBranch(name);
+  };
   return (
     <div className="grid grid-cols-2 items-center gap-10 my-10 ">
       {cinemas.branches?.map((branch: any, i: any) => (
@@ -22,7 +27,12 @@ export const CinemaSection = ({ changeStep, cinemas }: Props) => {
             <div className="mb-1 text-slate-300">
               {branch.location.address.street}
             </div>
-            <Button className="bg-red-600 mb-2" onClick={() => changeStep()}>
+            <Button
+              className="bg-red-600 mb-2"
+              onClick={() => {
+                handleClick(branch.name);
+              }}
+            >
               Сонгох
             </Button>
           </div>

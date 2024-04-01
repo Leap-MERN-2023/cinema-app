@@ -1,50 +1,93 @@
-import { Button } from "@/components";
+import { Button, CinemaContext, MovieContext } from "@/components";
 import { ShowtimeContext } from "@/components/contexts/showtime";
 import { Armchair } from "lucide-react";
 import React, { useContext, useState } from "react";
 import { Seats } from "../seats";
 
 type Props = {
-  changeStep: any;
+  handleForwardStep: () => void;
+  handleBackwardStep: () => void;
 };
 
 const dateNow = new Date();
 
 const date = [
   {
-    month: dateNow.getMonth() + 2,
+    month: dateNow.getMonth() + 1,
     day: "29",
   },
   {
-    month: dateNow.getMonth() + 2,
+    month: dateNow.getMonth() + 1,
     day: "2",
   },
   {
-    month: dateNow.getMonth() + 2,
+    month: dateNow.getMonth() + 1,
     day: "3",
   },
   {
-    month: dateNow.getMonth() + 2,
+    month: dateNow.getMonth() + 1,
     day: "4",
   },
   {
-    month: dateNow.getMonth() + 2,
+    month: dateNow.getMonth() + 1,
     day: "5",
   },
 ];
 
-export const TicketInfo = ({ changeStep }: Props) => {
-  const { showtimes } = useContext(ShowtimeContext);
+export const TicketInfo = ({
+  handleForwardStep,
+  handleBackwardStep,
+}: Props) => {
+  const { showtimes, sendShowtime } = useContext(ShowtimeContext);
+  const { selectedMovieId } = useContext(MovieContext);
+  const { selectedCinema, selectedBranch } = useContext(CinemaContext);
   const [showtimeByDay, setShowtimeByDay] = useState<any>([]);
   const [showtimeByTime, setShowtimeByTime] = useState<any>([]);
   const [isActiveDate, setIsActiveDate] = useState("");
   const [isActiveTime, setIsActiveTime] = useState("");
+  const [isActiveMonth, setIsActiveMonth] = useState("4");
   const [adultCount, setAdultCount] = useState(0);
   const [kidsCount, setKidsCount] = useState(0);
-  // const [total, setTotal] = useState(10);
-  const [total, setTotal] = useState(1);
+  const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
+  const [total, setTotal] = useState(selectedSeats.length);
+  // const [showtimeInfo, setShowtimeInfo] = useState({
+  //   movieId: selectedMovieId,
+  //   cinemaId: selectedCinema,
+  //   branch: selectedBranch,
+  //   adultCount: adultCount,
+  //   kidsCount: kidsCount,
+  //   seatNumbers: selectedSeats,
+  //   startTime: {
+  //     date: {
+  //       month: isActiveMonth,
+  //       day: isActiveDate,
+  //     },
+  //     time: isActiveTime,
+  //   },
+  // });
+
+  const send = () => {
+    sendShowtime(
+      selectedMovieId,
+      selectedCinema,
+      selectedBranch,
+      adultCount,
+      kidsCount,
+      selectedSeats,
+      isActiveMonth,
+      isActiveDate,
+      isActiveTime
+    );
+    handleForwardStep();
+  };
   const func = (length: any) => {
     setTotal(length);
+  };
+  const clear = () => {
+    setSelectedSeats([]);
+    setAdultCount(0);
+    setKidsCount(0);
+    setTotal(0);
   };
   return (
     <div className="flex justify-center">
@@ -65,7 +108,7 @@ export const TicketInfo = ({ changeStep }: Props) => {
                 );
               }}
             >
-              <p>{date.month}</p>
+              <p>{date.month + " сар"}</p>
               <p className={`bg-slate-50 text-black rounded-full p-1 px-2`}>
                 {date.day}
               </p>
@@ -89,6 +132,7 @@ export const TicketInfo = ({ changeStep }: Props) => {
                       showtime.startTime.time === time.startTime.time
                   )
                 );
+                clear();
               }}
             >
               {time.startTime.time}
@@ -103,13 +147,13 @@ export const TicketInfo = ({ changeStep }: Props) => {
                 type="button"
                 value="-"
                 onClick={() => {
-                  setAdultCount(adultCount !== 0 ? adultCount - 1 : adultCount);
+                  setAdultCount(total - kidsCount > 0 ? total - kidsCount : 0);
                 }}
               />
               <input
                 type="text"
                 className="w-10 bg-transparent border-2 rounded-md"
-                value={adultCount}
+                value={total - kidsCount}
               />
               <input
                 type="button"
@@ -130,21 +174,21 @@ export const TicketInfo = ({ changeStep }: Props) => {
                 type="button"
                 value="-"
                 onClick={() => {
-                  // setKidsCount(kidsCount > 0 ? kidsCount - 1 : kidsCount);
+                  setKidsCount(kidsCount > 0 ? kidsCount - 1 : 0);
                 }}
               />
               <input
                 type="text"
                 className="w-10 bg-transparent border-2 rounded-md"
-                value={total - adultCount > 0 ? total - adultCount : 0}
+                value={kidsCount}
               />
               <input
                 type="button"
                 value="+"
                 onClick={() => {
-                  // setKidsCount(
-                  //   kidsCount + adultCount < total ? kidsCount + 1 : kidsCount
-                  // );
+                  setKidsCount(
+                    kidsCount + adultCount < total ? kidsCount + 1 : kidsCount
+                  );
                 }}
               />
             </div>
@@ -153,7 +197,7 @@ export const TicketInfo = ({ changeStep }: Props) => {
         </div>
         <div className="flex gap-16">
           <p>Тасалбарын үнэ</p>
-          <p>{adultCount * 18000 + (total - adultCount) * 10000}₮</p>
+          <p>{(total - kidsCount) * 18000 + kidsCount * 10000}₮</p>
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex gap-5">
@@ -171,12 +215,24 @@ export const TicketInfo = ({ changeStep }: Props) => {
             </div>
           </div>
 
-          <Button className="bg-red-500 " onClick={() => changeStep()}>
+          <Button
+            className="bg-red-500 "
+            onClick={() => {
+              send();
+            }}
+          >
             Тасалбар захиалах
           </Button>
+          <Button onClick={handleBackwardStep}>Go Back</Button>
         </div>
       </div>
-      <Seats showtimes={showtimeByTime} func={func} />
+      <Seats
+        showtimes={showtimeByTime}
+        func={func}
+        selectedSeats={selectedSeats}
+        setSelectedSeats={setSelectedSeats}
+        clear={clear}
+      />
     </div>
   );
 };

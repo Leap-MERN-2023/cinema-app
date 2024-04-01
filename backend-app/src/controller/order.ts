@@ -13,7 +13,8 @@ export const createOrder = async (
     const orderNo = () => {
       return Math.floor(Math.random() * 100000) + 1;
     };
-    const findTicket = await Ticket.find({ customer: req.user._id });
+    const newFormData = req.body;
+    // const findTicket = await Ticket.find({ customer: req.user._id });
     const findCustomer = await Customer.findById(req.user._id);
     if (!findCustomer) {
       return res.status(400).json({ message: "customer is not found." });
@@ -21,7 +22,7 @@ export const createOrder = async (
     const order = await Order.create({
       customer: findCustomer._id,
       orderNo: "#" + orderNo(),
-      tickets: findTicket,
+      tickets: [],
       payment: {
         paymentAmount: req.body.paymentAmount,
         paymentMethod: req.body.paymentMethod,

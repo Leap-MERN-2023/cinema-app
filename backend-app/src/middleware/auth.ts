@@ -18,7 +18,7 @@ export const authenticate = async (
     }
     const token = req.headers.authorization.split(" ")[1];
     if (!token) {
-      throw new MyError("Энэ үйлдлийг хийхийн тулд нэвтэрх ёстой", 400);
+      throw new MyError("Энэ үйлдлийг хийхийн тулд нэвтрэх ёстой", 400);
     }
     const { id } = jwt.verify(token!, process.env.JWT_PRIVATE_KEY!) as {
       id: string;

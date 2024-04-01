@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         customerPassword: password,
       });
       console.log("newterlee", token, user);
-      localStorage.setItem("token", JSON.stringify(user));
+      localStorage.setItem("token", JSON.stringify(token));
       localStorage.setItem("user", JSON.stringify(user));
       toast({
         title: "Амжилттай нэвтрэлээ!",
@@ -99,7 +99,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     if (localStorage.getItem("token")) {
       setUser(JSON.parse(localStorage.getItem("user")!));
       // console.log("USER", JSON.parse(localStorage.getItem("user")!));
-      setToken(localStorage.getItem("token")!);
+      setToken(JSON.parse(localStorage.getItem("token")!));
     }
   };
   useEffect(() => {

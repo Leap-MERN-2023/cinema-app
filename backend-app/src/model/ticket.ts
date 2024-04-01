@@ -1,31 +1,36 @@
 import { Schema, model } from "mongoose";
 
 const ticketSchema = new Schema({
-  ticketType: {
+  movieId: {
+    type: Schema.ObjectId,
     require: true,
-    type: String,
-    enum: ["Adult", "Child"],
+    ref: "Movie",
+  },
+  cinemaId: {
+    type: Schema.ObjectId,
+    require: true,
+    ref: "Cinema",
   },
   screen: {
-    type: Schema.ObjectId,
-    require: true,
-    ref: "Screen",
-  },
-
-  seat: {
-    type: Schema.ObjectId,
-    require: true,
-    ref: "Seat",
-  },
-
-  customer: {
-    type: Schema.ObjectId,
-    ref: "Customer",
+    type: String,
     require: true,
   },
-
-  startTime: Date,
-  endTime: Date,
+  seatNumbers: [],
+  adultCount: {
+    type: Number,
+    require: true,
+  },
+  kidsCount: {
+    type: Number,
+    require: true,
+  },
+  startTime: {
+    date: {
+      month: String,
+      day: String,
+    },
+    time: String,
+  },
 });
 
 const Ticket = model("Ticket", ticketSchema);

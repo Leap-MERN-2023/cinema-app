@@ -3,12 +3,14 @@ import { useRouter } from "next/navigation";
 import React, {
   PropsWithChildren,
   createContext,
+  useContext,
   useEffect,
   useState,
 } from "react";
-import { ToastAction } from "@/components/ui/toast";
+import { Toast, ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 import myAxios from "@/components/utils/axios";
+import { AuthContext } from ".";
 
 interface ITimes {
   movie: string;
@@ -34,20 +36,33 @@ interface ITimeContext {
     startTime: Date
   ) => Promise<void>;
   seats: any;
+  sendShowtime: (
+    selectedMovieId: string,
+    selectedCinema: string,
+    selectedBranch: string,
+    adultCount: number,
+    kidsCount: number,
+    selectedSeats: any,
+    isActiveMonth: string,
+    isActiveDate: string,
+    isActiveTime: string
+  ) => Promise<void>;
 }
 
 export const ShowtimeContext = createContext({} as ITimeContext);
 
 export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
   const [showtimes, setShowtimes] = useState([]);
+  const [selectedScreen, setSelectedScreen] = useState("");
   const { toast } = useToast();
   const [seats, setSeats] = useState([]);
+  const { token } = useContext(AuthContext);
 
   const getTime = async () => {
     try {
       const {
         data: { times },
-      } = await myAxios.get("/showtime/", {});
+      } = await myAxios.get("/showtime", {});
       setShowtimes(times);
     } catch (error) {}
   };
@@ -69,12 +84,58 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
         screen: screen,
         startTime: startTime,
       });
+      setSelectedScreen(times.screen);
       setSeats(times.seats);
       console.log(times.seats);
     } catch (error) {
       console.log(error, "ALDAA GARAV");
     }
   };
+
+  const sendShowtime = async (
+    selectedMovieId: string,
+    selectedCinema: string,
+    selectedBranch: string,
+    adultCount: number,
+    kidsCount: number,
+    selectedSeats: any,
+    isActiveMonth: string,
+    isActiveDate: string,
+    isActiveTime: string
+  ) => {
+    try {
+      await myAxios.post(
+        "/ticket",
+        {
+          movieId: selectedMovieId,
+          cinemaId: selectedCinema,
+          branch: selectedBranch,
+          adultCount: adultCount,
+          kidsCount: kidsCount,
+          seatNumbers: selectedSeats,
+          month: isActiveMonth,
+          day: isActiveDate,
+          time: isActiveTime,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      toast({
+        variant: "default",
+        title: "Тасалбар үүслээ",
+      });
+    } catch (error) {
+      toast({
+        title: "Showtime илгээхэд алдаа гарлаа",
+        variant: "destructive",
+        action: <ToastAction altText="Try again">Try Again</ToastAction>,
+      });
+    }
+  };
+
   console.log("SHOWTIMES", showtimes);
 
   useEffect(() => {
@@ -83,7 +144,7 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <ShowtimeContext.Provider
-      value={{ showtimes, getTimeByCinemaAndMovie, seats }}
+      value={{ showtimes, getTimeByCinemaAndMovie, seats, sendShowtime }}
     >
       {children}
     </ShowtimeContext.Provider>

@@ -1,28 +1,32 @@
 "use client";
 
-import React, { useState } from "react";
-import { Button } from "@/components";
+import { Button, CinemaContext } from "@/components";
+import { useContext, useState } from "react";
 import { CinemaSection } from "./cinemaSection";
 type Props = {
-  changeStep: any;
+  handleForwardStep: () => void;
   cinemas: any;
 };
 
-export const CinemaButton = ({ cinemas, changeStep }: Props) => {
-  const [click, setClick] = useState("");
-  const [isActive, setIsActive] = useState("");
+export const CinemaButton = ({ cinemas, handleForwardStep }: Props) => {
+  const [click, setClick] = useState("66052ac321e966a4e977b24e");
+  const { setSelectedCinema, loading } = useContext(CinemaContext);
+  const [isActive, setIsActive] = useState("Өргөө");
   const [filteredCinema, setFilteredCinema] = useState([]);
-
-  const handleClick = (cinemaId: any, name: any) => {
-    setClick(cinemaId);
+  const handleClick = (cinameId: string, name: string) => {
+    setClick(cinameId);
     setIsActive(name);
-
-    const filtered = cinemas.filter((cinema: any) => cinema._id === cinemaId);
-    setFilteredCinema(filtered);
+    setFilteredCinema(cinemas.filter((i: any) => cinameId === click));
+    setSelectedCinema(cinameId);
   };
+
+  if (loading) {
+    return <div>Loading ...</div>;
+  }
 
   return (
     <div className="flex flex-col">
+      {loading && <div>Loading</div>}
       <div className="flex mt-10 gap-7 justify-center">
         {cinemas.map((cinema: any, i: any) => (
           <Button
@@ -41,13 +45,14 @@ export const CinemaButton = ({ cinemas, changeStep }: Props) => {
         ))}
       </div>
       <div>
-        {filteredCinema.length === 0 &&
-          cinemas.map((cinema: any, i: number) => (
-            <CinemaSection key={i} changeStep={changeStep} cinemas={cinema} />
-          ))}
-        {filteredCinema.length !== 0 &&
-          filteredCinema.map((cinema: any, i: number) => (
-            <CinemaSection key={i} changeStep={changeStep} cinemas={cinema} />
+        {cinemas
+          .filter((i: any) => i._id === click)
+          .map((e: any, i: any) => (
+            <CinemaSection
+              handleForwardStep={handleForwardStep}
+              cinemas={e}
+              key={i}
+            />
           ))}
       </div>
     </div>

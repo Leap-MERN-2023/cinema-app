@@ -4,14 +4,21 @@ import { TicketInfo } from "./ticketInfo";
 import { ShowtimeContext } from "@/components/contexts/showtime";
 
 type Props = {
-  changeStep: any;
+  handleForwardStep: () => void;
+  handleBackwardStep: () => void;
 };
 
-export const OrderIndex = ({ changeStep }: Props) => {
+export const OrderIndex = ({
+  handleForwardStep,
+  handleBackwardStep,
+}: Props) => {
   const { showtimes } = useContext(ShowtimeContext);
   return (
     <div className="flex justify-center items-center ">
-      <TicketInfo changeStep={changeStep} />
+      <TicketInfo
+        handleForwardStep={handleForwardStep}
+        handleBackwardStep={handleBackwardStep}
+      />
     </div>
   );
 };
