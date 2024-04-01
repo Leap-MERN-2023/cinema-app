@@ -17,7 +17,7 @@ export function ComingModal({ card }: ICardProps) {
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="bg-slate-900 border-none text-white"
+          className="bg-slate-900 border-none text-white absolute mt-20"
         >
           Дэлгэрэнгүй
         </Button>
@@ -62,8 +62,8 @@ export function ComingModal({ card }: ICardProps) {
                     </Button>
                     <iframe
                       src={card.movie_trailer}
-                      width={560}
-                      height={300}
+                      width={575}
+                      height={320}
                       allowFullScreen
                       loading="lazy"
                       title={card.synopsis}

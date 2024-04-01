@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         customerEmail: email,
         customerPassword: password,
       });
-      console.log("newterlee", token, user);
+      // console.log("newterlee", token, user);
       localStorage.setItem("token", JSON.stringify(token));
       localStorage.setItem("user", JSON.stringify(user));
       toast({

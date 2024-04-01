@@ -85,7 +85,7 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
       });
       setSelectedScreen(times.screen);
       setSeats(times.seats);
-      console.log(times.seats);
+      // console.log(times.seats);
     } catch (error) {
       console.log(error, "ALDAA GARAV");
     }
@@ -144,7 +144,7 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  console.log("SHOWTIMES", showtimes);
+  // console.log("SHOWTIMES", showtimes);
 
   useEffect(() => {
     getTime();

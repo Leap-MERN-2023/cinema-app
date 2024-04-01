@@ -73,9 +73,12 @@ export function DialogOpen({ movie }: ICardProps) {
             <div className="text-3xl font-light mt-4">{movie.synopsis}</div>
             <p className="text-4xl font-bold mt-4">Дүрүүдэд: </p>
             <div className="flex gap-10 mt-10">
-              {movie.cast.map((cast: any) => {
+              {movie.cast.map((cast: any, i: any) => {
                 return (
-                  <div className="flex flex-col gap-4 overflow-hidden max-w-20 font-light text-center">
+                  <div
+                    key={i}
+                    className="flex flex-col gap-4 overflow-hidden max-w-20 font-light text-center"
+                  >
                     <Avatar className="rounded-md w-20 items-center h-20">
                       <AvatarImage
                         src={cast.img}
@@ -91,9 +94,12 @@ export function DialogOpen({ movie }: ICardProps) {
             </div>
             <p className="text-4xl font-bold mt-4">Кино театрууд:</p>
             <div className="flex gap-10 mt-10 pb-10">
-              {cinemas.map((cinema: any) => {
+              {cinemas.map((cinema: any, i: any) => {
                 return (
-                  <div className="flex rounded-lg w-[100px] h-[100px] overflow-hidden justify-center items-center">
+                  <div
+                    key={i}
+                    className="flex rounded-lg w-[100px] h-[100px] overflow-hidden justify-center items-center"
+                  >
                     <img src={cinema.img} alt={cinema.name} />
                   </div>
                 );

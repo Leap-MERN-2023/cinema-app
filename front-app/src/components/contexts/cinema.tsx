@@ -48,7 +48,7 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
         data: { cinemas },
       } = await myAxios.get("/cinema");
       setCinemas(cinemas);
-      console.log(cinemas, "<3");
+      // console.log(cinemas, "<3");
     } catch (error) {
       toast({
         description: `There was a problem with your request. ${error} `,
@@ -58,7 +58,7 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
       setLoading(false);
     }
   };
-  console.log("cineams", cinemas);
+  // console.log("cineams", cinemas);
   useEffect(() => {
     getCinema();
   }, []);

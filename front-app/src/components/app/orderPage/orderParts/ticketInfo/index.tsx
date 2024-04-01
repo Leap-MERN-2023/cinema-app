@@ -127,54 +127,58 @@ export const TicketInfo = ({
           <div className="flex gap-5 bg-slate-500 border-2 py-3 px-5 rounded-lg items-center">
             <p>Том хүн</p>
             <div className="flex gap-2">
-              <input
-                type="button"
-                value="-"
+              <Button
+                className="bg-transparent m-o p-0 text-white"
                 onClick={() => {
                   setAdultCount(total - kidsCount > 0 ? total - kidsCount : 0);
                 }}
-              />
+              >
+                -
+              </Button>
               <input
                 type="text"
-                className="w-10 bg-transparent border-2 rounded-md"
+                className="w-10 bg-transparent text-center border-2 rounded-md"
                 value={total - kidsCount}
               />
-              <input
-                type="button"
-                value="+"
+              <Button
+                className="bg-transparent m-o p-0 text-white"
                 onClick={() => {
                   setAdultCount(
                     adultCount + kidsCount < total ? adultCount + 1 : adultCount
                   );
                 }}
-              />
+              >
+                +
+              </Button>
             </div>
             <p>18000 ₮</p>
           </div>
           <div className="flex gap-5 bg-slate-500 border-2 py-3 px-5 rounded-lg items-center">
-            <p>Хүүхэд</p>
+            <p className="mr-2">Хүүхэд</p>
             <div className="flex gap-2">
-              <input
-                type="button"
-                value="-"
+              <Button
+                className="bg-transparent m-o p-0 text-white"
                 onClick={() => {
                   setKidsCount(kidsCount > 0 ? kidsCount - 1 : 0);
                 }}
-              />
+              >
+                -
+              </Button>
               <input
                 type="text"
-                className="w-10 bg-transparent border-2 rounded-md"
+                className="w-10 text-center bg-transparent border-2 rounded-md"
                 value={kidsCount}
               />
-              <input
-                type="button"
-                value="+"
+              <Button
+                className="bg-transparent m-o p-0 text-white"
                 onClick={() => {
                   setKidsCount(
                     kidsCount + adultCount < total ? kidsCount + 1 : kidsCount
                   );
                 }}
-              />
+              >
+                +
+              </Button>
             </div>
             <p>10000 ₮</p>
           </div>
