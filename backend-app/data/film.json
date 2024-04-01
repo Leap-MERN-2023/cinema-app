@@ -5,13 +5,14 @@
       "poster": {
         "vertical": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/2a5bb2105168471.5f733bb4cec20.jpg",
         "lands": {
-          "land1": "https://www.hollywoodreporter.com/wp-content/uploads/2024/02/rev-1-DUN2-27986r-JPv3_High_Res_JPEG-copy.jpg?w=1296",
+          "land1": "https://www.findelahistoria.com/web/wp-content/uploads/2023/06/Nuevo-trailer-de-DUNE-Parte-Dos.jpg",
           "land2": "https://ichef.bbci.co.uk/news/976/cpsprodpb/6B9E/production/_132705572_4155f4d6-7d6f-46b1-8bfd-02f7a5e982e1.jpg"
         }
       },
       "duration": "166",
       "releaseDate": "2024-03-01",
-      "director": "Denis Villeneuve",
+      "director": "Денис Вильнев",
+      "genre": "Адал явдал, Драм",
       "movie_trailer": "https://trailer.movieglu.com/324892_high_V3.mp4",
       "synopsis": "\"Dune: Хоёрдугаар хэсэг\" нь Пол Атрейдесийн гэр бүлийг нь устгасан хуйвалдагчдын эсрэг өшөө авах дайны замд явж байхдаа Чани болон Фремен нартай нэгдэж буй домогт аяллыг судлах болно. Амьдралынхаа хайр, хайр дурлал хоёрын хоорондох сонголтын өмнө. Мэдэгдэж буй орчлон ертөнцийн хувь заяаг зөвхөн түүний урьдчилан харж чадах аймшигт ирээдүйгээс урьдчилан сэргийлэхийг хичээдэг.",
       "cinemas": [
@@ -32,15 +33,15 @@
       "movieType": "IMAX",
       "cast": [
         {
-          "name": "Timothée Chalamet",
+          "name": "Тимоти Чаламет",
           "img": "https://kingchoice.me/media/CACHE/images/dc5101614a768433a04816cf8f56bdb6_2YlnIng/d79b5c4bca807d12f57a445a01eb6272.jpg "
         },
         {
-          "name": "Zendaya",
-          "img": "https://images.wallpapersden.com/image/download/zendaya-photoshoot-2022_bWhmaWqUmZqaraWkpJRmZW1lrWZlbWU.jpg "
+          "name": "Зэндая",
+          "img": "https://goldenglobes.com/wp-content/uploads/2023/10/Zendaya-GettyImages-1401833833.jpg "
         },
         {
-          "name": "Austin Butler",
+          "name": "Остин Батлер",
           "img": "https://tse2.mm.bing.net/th?id=OIP.8ZYlvMKkUAHpu_Msdj7glgHaE8&pid=Api&P=0&h=220"
         }
       ]
@@ -56,7 +57,8 @@
       },
       "duration": "166",
       "releaseDate": "2024-03-08",
-      "director": "Mike Mitchell",
+      "director": "Майк Митчелл",
+      "genre": "Адал явдал",
       "movie_trailer": "https://trailer.movieglu.com/357576_high.mp4",
       "synopsis": "\"Күнфу Панда - 4\" По Энх тайвны хөндийн сүнслэг удирдагчаар сонгогдохдоо шинэ дайчин бэлтгэх ёстой. Гэсэн хэдий ч хэлбэрээ өөрчилдөг хүчирхэг илбэчин түүний мэргэн ухааны таяг руу нүдээ тавих үед тэр гэнэт ухаарчээ. Түүнд тусламж хэрэгтэй болно. Түргэн ухаантай хярс үнэгтэй нийлж По удалгүй баатруудыг санаанд оромгүй газраас олж болохыг олж мэдэв",
       "cinemas": [
@@ -77,15 +79,15 @@
       "movieType": "3D",
       "cast": [
         {
-          "name": "Jack Black",
+          "name": "Жак Блэк",
           "img": "https://townsquare.media/site/959/files/2020/03/GettyImages-jack-black.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89"
         },
         {
-          "name": "Awkwafina",
+          "name": "Авквафина",
           "img": "https://i.pinimg.com/originals/f8/d8/7f/f8d87f2dbad8edca1eb0dde21e3c39ad.jpg "
         },
         {
-          "name": "Austin Butler",
+          "name": "Остин Батлер",
           "img": "https://tse2.mm.bing.net/th?id=OIP.8ZYlvMKkUAHpu_Msdj7glgHaE8&pid=Api&P=0&h=220"
         }
       ]
@@ -101,7 +103,8 @@
       },
       "duration": "166",
       "releaseDate": "2023-07-21",
-      "director": "Christopher Nolan",
+      "director": "Кристофер Нолан",
+      "genre": "Намтар, Жүжиг, Түүх",
       "movie_trailer": "https://trailer.movieglu.com/339741_high_V2.mp4",
       "synopsis": "\"Оппенгеймер\" Америкийн эрдэмтэн Ж.Роберт Оппенхаймерын түүх ба атомын бөмбөг бүтээхэд гүйцэтгэсэн үүрэг.",
       "cinemas": [
@@ -122,15 +125,15 @@
       "movieType": "IMAX",
       "cast": [
         {
-          "name": "Emily Blunt",
+          "name": "Эмили Блант",
           "img": "https://media.themoviedb.org/t/p/w500/5nCSG5TL1bP1geD8aaBfaLnLLCD.jpg"
         },
         {
-          "name": "Robert Downey Jr",
+          "name": "Роберт Дауни Жр",
           "img": "https://hips.hearstapps.com/hmg-prod/images/robert-downey-jr-attends-the-96th-oscars-nominees-luncheon-news-photo-1708713684.jpg?crop=0.504xw:0.596xh;0.244xw,0.0388xh&resize=640:*"
         },
         {
-          "name": "Cillian Murphy",
+          "name": "Килиан Мерфи",
           "img": "https://i0.wp.com/www.thewrap.com/wp-content/uploads/2016/04/Cillian-Murphy.jpg?fit=618%2C412&ssl=1"
         }
       ]
@@ -146,7 +149,8 @@
       },
       "duration": "114",
       "releaseDate": "2023-07-21",
-      "director": "Greta Gerwig",
+      "director": "Грета Гервиг",
+      "genre": "Адал явдал, Инээдмийн, Уран зөгнөлт",
       "movie_trailer": "https://trailer.movieglu.com/215333_high_V3.mp4",
       "synopsis": " Барби Кен хоёр амьдралынхаа цагийг өнгөлөг бөгөөд төгс мэт харагдах Барби газрын ертөнцөд өнгөрөөж байна. Гэсэн хэдий ч тэд бодит ертөнцөд очих боломж олдвол удалгүй хүмүүсийн дунд амьдрахын баяр баясгалан, аюулыг олж мэдэрдэг.",
       "cinemas": [
@@ -164,18 +168,18 @@
         "66014ea0bfbc2722d3532365",
         "66014ea0bfbc2722d3532366"
       ],
-      "movieType": "2D",
+      "movieType": "3D",
       "cast": [
         {
-          "name": "Ryan",
+          "name": "Райн",
           "img": "https://i.insider.com/64a325b16075be0019c28e16?width=700"
         },
         {
-          "name": "Margot",
+          "name": "Маргот",
           "img": "https://ichef.bbci.co.uk/news/976/cpsprodpb/138D1/production/_132518008_gettyimages-1917155375.jpg"
         },
         {
-          "name": "Issa Rae",
+          "name": "Исса Рэ",
           "img": "https://m.media-amazon.com/images/M/MV5BMjQwMzEwMDQ2NF5BMl5BanBnXkFtZTgwMzU4NTY4NjE@._V1_.jpg"
         }
       ]
@@ -191,7 +195,8 @@
       },
       "duration": "114",
       "releaseDate": "2024-06-14",
-      "director": "Kelsey Mann",
+      "director": "Келси Манн",
+      "genre": "Адал явдал",
       "movie_trailer": "https://trailer.movieglu.com/337411_high.mp4",
       "synopsis": "\"Inside Out 2\" Баяр баясгалан, уйтгар гуниг, уур хилэн, айдас, зэвүүцэл бүхий л үйл ажиллагаа амжилттай явагдаж байна. Гэсэн хэдий ч сэтгэлийн түгшүүр гарч ирэхэд тэд хэрхэн мэдрэхээ мэдэхгүй байна.",
       "cinemas": [
@@ -212,21 +217,21 @@
       "movieType": "2D",
       "cast": [
         {
-          "name": "Amy Poehler",
+          "name": "Эми Похлер",
           "img": "https://static4.businessinsider.com/image/5b22cd3042e1cc26c927f54a-1877/gettyimages-873805418.jpg"
         },
         {
-          "name": "Maya Hawke",
+          "name": "Майя Хоук",
           "img": "https://www.thelist.com/img/gallery/what-you-dont-know-about-maya-hawke/intro-1654887539.jpg"
         },
         {
-          "name": "Lewis Black",
+          "name": "Льюис Блэк",
           "img": "https://famous-comedians.com/wp-content/uploads/2021/01/Lewis-Black.jpg"
         }
       ]
     },
     {
-      "title": "Spiderman: beyond the spiderverse",
+      "title": "Spider Man: beyond the spider verse",
       "poster": {
         "vertical": "https://m.media-amazon.com/images/M/MV5BNTNlOTU3Y2EtYTg2NC00NmIyLTk1ZDgtNTY0ZjM4NDA1NjgwXkEyXkFqcGdeQXVyMTcyNjczNjU4._V1_.jpg",
         "lands": {
@@ -236,7 +241,8 @@
       },
       "duration": "114",
       "releaseDate": "2025-03-19",
-      "director": "Joaquim Dos Santos, Kemp Powers",
+      "director": "Жоаким Дос Сантос",
+      "genre": "Адал явдал",
       "movie_trailer": "https://trailer.movieglu.com/309732_high_V4.mp4",
       "synopsis": "\"Хүн аалз: аалзны цаана\" Майлс Моралесийн түүхийн үргэлжлэл.",
       "cinemas": [
@@ -254,18 +260,18 @@
         "66014ea0bfbc2722d3532365",
         "66014ea0bfbc2722d3532366"
       ],
-      "movieType": "2D",
+      "movieType": "IMAX",
       "cast": [
         {
-          "name": "Shameik Moore",
+          "name": "Шамейк Мур",
           "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdr2hTkTx5SeAwg9A1-opCEXmY0zMe7Hpi-Qiq3oyCrQ&s"
         },
         {
-          "name": "Hailee Steinfeld",
+          "name": "Хайли Стайнфельд",
           "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
         },
         {
-          "name": "Oscar Isaac",
+          "name": "Оскар Исаак",
           "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
         }
       ]
@@ -281,7 +287,8 @@
       },
       "duration": "114",
       "releaseDate": "2024-4-25",
-      "director": "Adam Wingard ",
+      "director": "Адам Вингард ",
+      "genre": "Адал явдал, Шинжлэх ухааны уран зөгнөлт",
       "movie_trailer": "https://www.youtube.com/watch?v=JNYIM0wl3wA",
       "synopsis": "\"Godzilla x Kong: The New Empire\"Годзилла, Конг хэмээх эртний хоёр титан нар баатарлаг тулалдаанд тулалдаж, хүмүүс хоорондоо холбоотой гарал үүслийг тайлж, Гавалын арлын нууцлаг харилцааг тайлж байна.",
       "cinemas": [
@@ -327,6 +334,7 @@
       "duration": "114",
       "releaseDate": "2024-10-4",
       "director": "Тодд Филлипс ",
+      "genre": "Гэмт хэрэг, Драм, Мюзикл",
       "movie_trailer": "https://www.youtube.com/watch?v=JNYIM0wl3wA",
       "synopsis": "\"Joker: Folie à Deux\" бол 2024 онд нээлтээ хийхээр төлөвлөж буй Тодд Филлипсийн найруулсан Америкийн хөгжимт сэтгэлзүйн триллер кино юм.",
       "cinemas": [
@@ -363,15 +371,16 @@
     {
       "title": "Deadpool & Wolverine",
       "poster": {
-        "vertical": "https://i.pinimg.com/originals/42/5f/75/425f7562858eec1b0096f6f6e630f48f.jpg",
+        "vertical": "https://upload.wikimedia.org/wikipedia/en/4/4c/Deadpool_%26_Wolverine_poster.jpg",
         "lands": {
-          "land1": "https://i.ytimg.com/vi/JNYIM0wl3wA/maxresdefault.jpg",
-          "land2": "https://images.squarespace-cdn.com/content/v1/5bbcad0f2727be3646b9fee1/970c3dc3-d477-46aa-9c1c-608bb508c2c4/2E91A032-E300-44E4-BE2A-90A400BCF9A0.jpeg"
+          "land1": "https://m.media-amazon.com/images/M/MV5BNDgzNjQyZDktMDJmZC00NDU4LWI3Y2EtYTJlOTk4M2NhMWRhXkEyXkFqcGdeQWFsZWxvZw@@._V1_.jpg",
+          "land2": "https://fwmedia.fandomwire.com/wp-content/uploads/2024/02/28082325/deadpool-and-wolverine-1.jpg"
         }
       },
       "duration": "114",
       "releaseDate": "2024-7-26",
-      "director": "Shawn Levy",
+      "director": "Шоун Леви",
+      "genre": "Адал явдал, Инээдмийн, шинжлэх ухааны уран зөгнөлт",
       "movie_trailer": "https://www.youtube.com/watch?v=uJMCNJP2ipI",
       "synopsis": "\"Deadpool & Wolverine\" Wolverine чанга дуугаар Deadpool-тэй зам хөндлөн гарахдаа бэртлээ эдгээж байна. Тэд нийтлэг дайсныг ялахын тулд нэгддэг.",
       "cinemas": [
@@ -392,16 +401,16 @@
       "movieType": "3D",
       "cast": [
         {
-          "name": "Shameik Moore",
-          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdr2hTkTx5SeAwg9A1-opCEXmY0zMe7Hpi-Qiq3oyCrQ&s"
+          "name": "Райан Рейнолдс",
+          "img": "https://media.licdn.com/dms/image/C5603AQGOBfXsKX8U5Q/profile-displayphoto-shrink_800_800/0/1636498355197?e=2147483647&v=beta&t=WccTCRhi9DDHCkH21sQJllXT-WlcjMDBvExMY42m-nA"
         },
         {
-          "name": "Hailee Steinfeld",
-          "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
+          "name": "Хью Жекман",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Hugh_jackman_02.JPG/250px-Hugh_jackman_02.JPG"
         },
         {
-          "name": "Oscar Isaac",
-          "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
+          "name": "Морена Баккарин",
+          "img": "https://pagesix.com/wp-content/uploads/sites/3/2022/03/Morena-Baccarin.jpg?quality=75&strip=all"
         }
       ]
     },
@@ -416,7 +425,8 @@
       },
       "duration": "114",
       "releaseDate": "2024-5-23",
-      "director": "George Miller",
+      "director": "Крис Хемсворт",
+      "genre": "Адал явдал, Уран зөгнөлт",
       "movie_trailer": "https://www.youtube.com/watch?v=XJMuhwVlca4",
       "synopsis": "\"Furiosa: A Mad Max Saga\" Furiosa: A Mad Max Saga: Найруулагч Жорж Миллер. Аня Тейлор-Жой, Крис Хемсворт, Чарли Фрейзер, Натан Жонс нартай. Бусдын гарал үүслийн түүх .",
       "cinemas": [
@@ -437,16 +447,16 @@
       "movieType": "3D",
       "cast": [
         {
-          "name": "Shameik Moore",
-          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdr2hTkTx5SeAwg9A1-opCEXmY0zMe7Hpi-Qiq3oyCrQ&s"
+          "name": "Крис Хемсворт",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Chris_Hemsworth_by_Gage_Skidmore_2.jpg/274px-Chris_Hemsworth_by_Gage_Skidmore_2.jpg"
         },
         {
-          "name": "Hailee Steinfeld",
-          "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
+          "name": "Николас Холт",
+          "img": "https://www.film.ru/sites/default/files/people/1459657-2500161.jpg"
         },
         {
-          "name": "Oscar Isaac",
-          "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
+          "name": "Аня Тейлор-Жой",
+          "img": "https://media.glamourmagazine.co.uk/photos/643e6cc8642b25b97b643638/16:9/w_1920,h_1080,c_limit/ANYA%20TAYLOR%20JOY%20180423%20default-GettyImages-1249538706.jpg"
         }
       ]
     },
@@ -461,9 +471,194 @@
       },
       "duration": "114",
       "releaseDate": "2024-4-12",
-      "director": " Alex Garland",
-      "movie_trailer": "https://www.youtube.com/watch?v=XJMuhwVlca4",
+      "director": " Алекс Гарланд",
+      "genre": "Дайн тулаант, Драм",
+      "movie_trailer": "https://trailer.movieglu.com/328218_high.mp4",
       "synopsis": "\"American Civil War\" Америкийн иргэний дайн, дөрвөн жил үргэлжилсэн дайн (1861-65) нь АНУ болон Америкийн Холбооны Улсыг байгуулахаар салан тусгаарласан Өмнөд 11 муж улсын хооронд тулалдаж байв.",
+      "cinemas": [
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
+      ],
+      "movieType": "LASER",
+      "cast": [
+        {
+          "name": "Даниел Брюль",
+          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRrL1-VszcZqe_k8_kaUYSJF-OgvF0ZK_PrzKi7PqmFA&s"
+        },
+        {
+          "name": "Чэдвик Боузман",
+          "img": "https://nationaltoday.com/wp-content/uploads/2022/09/Chadwick-Boseman-1200x834.jpg"
+        },
+        {
+          "name": "Крис Эванс",
+          "img": "https://www.goldderby.com/wp-content/uploads/2022/06/Chris-Evans-movies-ranked-1.webp?w=640"
+        }
+      ]
+    },
+    {
+      "title": "The First Omen",
+      "poster": {
+        "vertical": "https://upload.wikimedia.org/wikipedia/en/7/70/The_First_Omen_poster.jpg",
+        "lands": {
+          "land1": "https://whatsondisneyplus.com/wp-content/uploads/2022/05/GoDaddyStudioPage-0-42.jpeg",
+          "land2": "https://www.tvinsider.com/wp-content/uploads/2024/01/the-first-omen.jpg"
+        }
+      },
+      "duration": "114",
+      "releaseDate": "2024-3-5",
+      "director": " Аркаша Стивенсон",
+      "genre": "Аймшигийн",
+      "movie_trailer": "https://trailer.movieglu.com/354315_high.mp4",
+      "synopsis": "\"The First Omen\" The First Omen нь Бен Жакобигийн зохиолын зохиолыг Тим Смит, Кит Томас нартай хамтран бичсэн Аркаша Стивенсоны найруулсан Америкийн ер бусын аймшгийн кино юм.",
+      "cinemas": [
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
+      ],
+      "movieType": "3D",
+      "cast": [
+        {
+          "name": "Тавфик Бархом",
+          "img": "https://superstarsbio.com/wp-content/uploads/2020/04/Tawfeek-Barhom.jpg"
+        },
+        {
+          "name": "Сониа Брага",
+          "img": "https://tse4.mm.bing.net/th?id=OIP.FgntkPd0aMQ9o6oOoOBENwHaE8&pid=Api&P=0&h=220"
+        },
+        {
+          "name": "Ральф Инесон",
+          "img": "https://i.pinimg.com/736x/99/f1/3a/99f13aa25d1e09098944e55f7930e8d3.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Ghostbusters: Frozen Empire",
+      "poster": {
+        "vertical": "https://m.media-amazon.com/images/M/MV5BNGE5MWJmZWYtN2ZlMi00ZjY1LTlhYTUtMzQ2Y2IxZWQyYTA2XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg",
+        "lands": {
+          "land1": "http://www.ghostbusters.com/images/share.jpg",
+          "land2": "https://www.monsterfest.com.au/monsterfest/wp-content/uploads/2023/11/GhostbustersFrozenEmpire-NWP-600x338.jpg"
+        }
+      },
+      "duration": "114",
+      "releaseDate": "2024-04-22",
+      "director": "Гил Кенан",
+      "genre": "Адал явдал, Инээдмийн, Уран зөгнөлт",
+      "movie_trailer": "https://trailer.movieglu.com/353879_high_V2.mp4",
+      "synopsis": "\"Ghostbusters: Frozen Empire\" кинонд Шпенглерийн гэр бүл бүх зүйл эхэлсэн газар болох Нью-Йорк хотын галын голомт руу буцаж ирж, сүнснүүдийг устгах маш нууц судалгааны лабораторийг бүтээсэн анхны Сүнс хорлогчидтой хамтрах болно. Гэвч эртний олдвор олдсоноор хотыг үхэлд хүргэсэн сүнснүүдийн армийг гаргахад шинэ болон хуучин Сүнстэй харьцагч нар гэр орноо хамгаалж, дэлхийг хоёр дахь мөстлөгөөс аврахын тулд хүчээ нэгтгэх ёстой.",
+      "cinemas": [
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
+      ],
+      "movieType": "3D",
+      "cast": [
+        {
+          "name": "Пол Радд",
+          "img": "https://www.usmagazine.com/wp-content/uploads/2019/11/Paul-Rudd-irish-bar-in-basement.jpg"
+        },
+        {
+          "name": "Кэрри Кун",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Carrie_Coon_at_2013_Toronto_Film_Festival.jpg/440px-Carrie_Coon_at_2013_Toronto_Film_Festival.jpg"
+        },
+        {
+          "name": "Маккенна Грейс",
+          "img": "https://s.yimg.com/zb/imgv1/7d5e2e29-a9c7-398a-ace3-ec479ec0c87b/t_500x300"
+        }
+      ]
+    },
+    {
+      "title": "Mothers' Instinct",
+      "poster": {
+        "vertical": "https://upload.wikimedia.org/wikipedia/en/1/18/Mothers%27_Instinct_Poster.jpg",
+        "lands": {
+          "land1": "https://i.ytimg.com/vi/hVMo9vRbROI/hqdefault.jpg",
+          "land2": "https://i.ytimg.com/vi/aLikloRQiUE/hqdefault.jpg"
+        }
+      },
+      "duration": "114",
+      "releaseDate": "2024-03-27",
+      "director": "Бенуа Делхомм",
+      "genre": "Драм, триллер",
+      "movie_trailer": "https://trailer.movieglu.com/354315_high.mp4",
+      "synopsis": "\"Mothers' Instinct\"Алис, Селин хоёр ижил насны амжилттай нөхөр, хөвгүүдтэй уламжлалт амьдралын хэв маягаар амьдардаг. Амьдралын төгс зохицол эмгэнэлт ослын дараа гэнэт эвдэрдэг. Гэм буруу, хардлага, гаж донтолт хоёр нийлж эгч дүүсийн холбоогоо тайлах болно.",
+      "cinemas": [
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
+      ],
+      "movieType": "2D",
+      "cast": [
+        {
+          "name": "Энн Хэтэуэй",
+          "img": "https://s.yimg.com/zb/imgv1/e20c5d14-a203-3878-babd-7188dafd8119/t_500x300"
+        },
+        {
+          "name": "Андерс Даниэлсен",
+          "img": "https://tse2.mm.bing.net/th?id=OIP.4aacSBK4l4VHJ770-7_83gHaJ4&pid=Api&P=0&h=220"
+        },
+        {
+          "name": "Жессика Чэстэйн",
+          "img": "https://cdn.britannica.com/39/218339-050-DAF84EE9/American-actress-Jessica-Chastain-2018.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Immaculate",
+      "poster": {
+        "vertical": "https://ih1.redbubble.net/image.5468438278.3962/flat,750x,075,f-pad,750x1000,f8f8f8.webp",
+        "lands": {
+          "land1": "https://i.ytimg.com/vi/ewxS9Z-XXYo/maxresdefault.jpg",
+          "land2": "https://sportshub.cbsistatic.com/i/2024/03/07/3dc199ae-6531-42df-a4b5-cf7c081e437a/screenshot-2024-03-07-at-5-26-15-pm.png?width=1200"
+        }
+      },
+      "duration": "114",
+      "releaseDate": "2024-03-22",
+      "director": "Майк Мохан",
+      "genre": "Драм, Аймшигийн",
+      "movie_trailer": "https://trailer.movieglu.com/355421_high.mp4",
+      "synopsis": "\"Immaculate\"Сидней Суини (Чамаас бусад нь, Эйфориа, Цагаан бадамлянхуа) нь Италийн үзэсгэлэнт хөдөө нутагт орших алслагдсан сүм хийдэд шинэ аялал хийж буй сүсэг бишрэлтэй Америкийн гэлэнмаа Сесилиягийн дүрд тоглосон. Сесилиагийн халуун дотноор угтан авсан нь хар дарсан зүүд болон хувирч, түүний шинэ гэрт аймшигтай нууц, үгээр хэлэхийн аргагүй аймшигт зүйлс нуугдаж байгаа нь тодорхой болно.",
       "cinemas": [
         "66014ea0bfbc2722d353235a",
         "66014ea0bfbc2722d353235b",
@@ -482,16 +677,62 @@
       "movieType": "IMAX",
       "cast": [
         {
-          "name": "Wagner Moura",
-          "img": "https://remezcla.com/wp-content/uploads/2023/12/Wagner-Moura.jpg"
+          "name": "Сидней Суни",
+          "img": "https://s.yimg.com/zb/imgv1/e20c5d14-a203-3878-babd-7188dafd8119/t_500x300"
         },
         {
-          "name": "Hailee Steinfeld",
-          "img": "https://hips.hearstapps.com/hmg-prod/images/hailee-steinfeld-visits-build-london-on-december-7-2017-in-london-england-photo-by-mike-marsland_mike-marsland_wireimage.jpg"
+          "name": "Альваро Морте",
+          "img": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTjdeC1uPWVSaZJ3QT7EqQTQqfxPJZPyH_gCmAm4DjtpAFt6Xon"
         },
         {
-          "name": "Oscar Isaac",
-          "img": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-914705386.jpg?crop=1xw:0.8316666666666667xh;center,top&resize=640:*"
+          "name": "Бенедетта Поркароли",
+          "img": "https://cdn.britannica.com/39/218339-050-DAF84EE9/American-actress-Jessica-Chastain-2018.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Wicked Little Letters",
+      "poster": {
+        "vertical": "https://upload.wikimedia.org/wikipedia/en/7/70/Wicked_Little_Letters_poster.jpg",
+        "lands": {
+          "land1": "https://i.ytimg.com/vi/ONM_7OPuSUw/sddefault.jpg",
+          "land2": "https://i.ytimg.com/vi/fgqQvmbP-UU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAOmBDsQJqGmjOgVTHi8RQcQQnf7Q"
+        }
+      },
+      "duration": "114",
+      "releaseDate": "2024-02-23",
+      "director": "Теа Шаррок",
+      "genre": "Драм",
+      "movie_trailer": "https://trailer.movieglu.com/349463_high.mp4",
+      "synopsis": "\"MWicked Little Letters\"1920-иод оны Английн далайн эргийн хот нь энэхүү эмх замбараагүй нууцлаг инээдмийн кинонд аймшигт, хааяа нэг аймшигт дуулианы гэрч болж байна. Зөгнөлт гэхээсээ үл таних бодит түүхээс сэдэвлэсэн (МУУ БЯЦХАН ЗАХИАД) кино нь хоёр хөршийн тухай өгүүлнэ: гүн гүнзгий консерватив орон нутгийн Эдит Свон (Оливиа Колман) болон хэрүүлч Ирландын цагаач Роуз Гудинг (Жесси Бакли).",
+      "cinemas": [
+        "66014ea0bfbc2722d353235a",
+        "66014ea0bfbc2722d353235b",
+        "66014ea0bfbc2722d353235c",
+        "66014ea0bfbc2722d353235d",
+        "66014ea0bfbc2722d353235e",
+        "66014ea0bfbc2722d353235f",
+        "66014ea0bfbc2722d3532360",
+        "66014ea0bfbc2722d3532361",
+        "66014ea0bfbc2722d3532362",
+        "66014ea0bfbc2722d3532363",
+        "66014ea0bfbc2722d3532364",
+        "66014ea0bfbc2722d3532365",
+        "66014ea0bfbc2722d3532366"
+      ],
+      "movieType": "2D",
+      "cast": [
+        {
+          "name": "Жесси Бакли",
+          "img": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYAhZ8A1PswqvluT2LVuSe7TgYv26ymSfal3TquuCQJlt3bvNt"
+        },
+        {
+          "name": "Тимоти Спал",
+          "img": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTwYSgPBzpjfPnawj4fYtKjDaI8lIU7ePklGhRNOe0aPaPAYbYk"
+        },
+        {
+          "name": "Анжана Васан",
+          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx-xfiCKnBzxMckvIinyrjMKuvbX2GTUNikHPBN9_rK2MgPDFt"
         }
       ]
     }

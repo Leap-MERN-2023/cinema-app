@@ -9,13 +9,16 @@ type Props = {
 };
 
 export const CinemaButton = ({ cinemas, changeStep }: Props) => {
-  const [click, setClick] = useState("66052ac321e966a4e977b24e");
-  const [isActive, setIsActive] = useState("Өргөө");
+  const [click, setClick] = useState("");
+  const [isActive, setIsActive] = useState("");
   const [filteredCinema, setFilteredCinema] = useState([]);
-  const handleClick = (i: any, name: any) => {
-    setClick(i);
+
+  const handleClick = (cinemaId: any, name: any) => {
+    setClick(cinemaId);
     setIsActive(name);
-    setFilteredCinema(cinemas.filter((i: any) => i._id === click));
+
+    const filtered = cinemas.filter((cinema: any) => cinema._id === cinemaId);
+    setFilteredCinema(filtered);
   };
 
   return (
@@ -38,10 +41,13 @@ export const CinemaButton = ({ cinemas, changeStep }: Props) => {
         ))}
       </div>
       <div>
-        {cinemas
-          .filter((i: any) => i._id === click)
-          .map((e: any, i: any) => (
-            <CinemaSection changeStep={changeStep} cinemas={e} key={i} />
+        {filteredCinema.length === 0 &&
+          cinemas.map((cinema: any, i: number) => (
+            <CinemaSection key={i} changeStep={changeStep} cinemas={cinema} />
+          ))}
+        {filteredCinema.length !== 0 &&
+          filteredCinema.map((cinema: any, i: number) => (
+            <CinemaSection key={i} changeStep={changeStep} cinemas={cinema} />
           ))}
       </div>
     </div>

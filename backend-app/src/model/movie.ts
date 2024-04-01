@@ -32,6 +32,11 @@ const movieSchema = new Schema({
     type: String,
     require: true,
   },
+  genre: {
+    type: String,
+    require: true,
+  },
+
   synopsis: {
     type: String,
     maxlength: [500],

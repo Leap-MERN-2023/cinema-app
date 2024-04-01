@@ -10,9 +10,10 @@ import { MovieContext } from "..";
 
 type ICardProps = {
   card: any;
+  movie: any;
 };
 
-export function DialogOpen({ card }: ICardProps) {
+export function DialogOpen({ card, movie }: ICardProps) {
   const [openVideo, setOpenvideo] = useState(false);
   const { setSelectedMovieId } = useContext(MovieContext);
   const router = useRouter();
@@ -45,7 +46,7 @@ export function DialogOpen({ card }: ICardProps) {
               </div>
               <div className="flex gap-6 items-center mt-10">
                 <p className="text-2xl font-bold">Төрөл:</p>
-                <div className="text-2xl">Action, Drama</div>
+                <div className="text-2xl">{card.genre}</div>
               </div>
               <div className="flex flex-col mt-20 gap-10">
                 <Button

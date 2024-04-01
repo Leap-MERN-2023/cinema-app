@@ -23,6 +23,7 @@ interface IMovies {
   duration: number;
   releaseDate: Date;
   director: string;
+  genre: string;
   synopsis: string;
   cinemas: [
     {

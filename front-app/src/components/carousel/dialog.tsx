@@ -12,6 +12,9 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { cinemas } from "../movieCard/cinemas";
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { MovieContext } from "..";
+import { Resizable } from "./resizeImage";
 
 type ICardProps = {
   movie: any;
@@ -19,7 +22,7 @@ type ICardProps = {
 
 export function DialogOpen({ movie }: ICardProps) {
   const router = useRouter();
-
+  const { setSelectedMovieId } = useContext(MovieContext);
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -29,7 +32,7 @@ export function DialogOpen({ movie }: ICardProps) {
       </DialogTrigger>
       <DialogContent className="p-0 bg-slate-700 max-h-[800px] min-w-[1200px] border-none overflow-auto">
         <div className="">
-          <div className="flex backdrop-blur-md p-6 gap-40">
+          <div className="flex backdrop-blur-md p-6 justify-center gap-40">
             <section className="flex justify-center gap-4 z-10">
               <div className="rounded-lg overflow-hidden w-[400px] flex justify-center items-center">
                 <img src={movie.poster.vertical} alt={movie.title + " image"} />
@@ -42,13 +45,15 @@ export function DialogOpen({ movie }: ICardProps) {
                 <div className="text-2xl">{movie.director}</div>
               </div>
               <div className="flex gap-6 items-center mt-10">
-                <p className="text-2xl font-bold">Төрөл:</p>
-                <div className="text-2xl">Action, Drama</div>
+                <p className="text-2xl font-bold">Төрөл</p>
+                <div className="text-2xl">{movie.genre}</div>
               </div>
               <div className="flex mt-20 gap-10">
                 <Button
-                  className="bg-rose-500 px-10 h-12"
-                  onClick={() => router.push("/order")}
+                  className="bg-rose-500 px-10 w-96 h-12"
+                  onClick={() => {
+                    router.push("/order"), setSelectedMovieId(movie._id);
+                  }}
                 >
                   Захиалах
                 </Button>
@@ -94,6 +99,7 @@ export function DialogOpen({ movie }: ICardProps) {
                 );
               })}
             </div>
+            <Resizable card={movie} />
           </div>
         </div>
       </DialogContent>
