@@ -80,7 +80,7 @@ export const Footer = (props: Props) => {
         </div>
       </div>
       <div className="bg-slate-600 w-[640px] h-[1px] flex justify-center m-auto"></div>
-      <div className="font-medium flex justify-center bg-[#1f2333] h-16 mt-12">
+      <div className="font-medium flex justify-center bg-slate-800 h-16 mt-12">
         Copyright © 2024 | EYECANDY
       </div>
     </div>

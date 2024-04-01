@@ -16,7 +16,7 @@ interface IEventProps {
   event: any;
 }
 
-export function DialogOpen({ event }: IEventProps) {
+export function EventDialog({ event }: IEventProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -31,7 +31,49 @@ export function DialogOpen({ event }: IEventProps) {
             src={event.image}
             alt="image"
           />
+          <div className="text-2xl sm:text-3xl md:text-4xl absolute left-0 ml-8 mt-2 p-2 rounded-xl bg-opacity-30 bg-black text-white">
+            {event.name}
+          </div>
           <div className="text-gray-300 mt-4">
+            <div>
+              <h5 className="py-3 font-bold sm:text-xl lg:text-2xl">Тухай</h5>
+              <p className="text-xs sm:text-sm text-wrap">{event.about}</p>
+            </div>
+            <div className="mt-4">
+              <h5 className="py-3 font-bold sm:text-xl lg:text-2xl">
+                Үйл ажиллагаа
+              </h5>
+              <p className="text-xs sm:text-sm text-wrap">{event.addition}</p>
+            </div>
+            <div className="mt-4">
+              <h6 className="py-3 font-bold sm:text-xl lg:text-2xl">Байршил</h6>
+              <p className="text-xs sm:text-sm text-wrap">{event.location}</p>
+            </div>
+          </div>
+          <Button className="bg-red-500 mt-8">Тасалбар захиалах</Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+export function EventDialog2({ event }: IEventProps) {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <img className="w-48 md:w-64 xl:w-72 rounded-sm" src={event.image} />
+      </DialogTrigger>
+      <DialogContent className="w-[95%] h-[75%] md:h-[80%] h-max-[150%] rounded-lg bg-slate-800 border-none overflow-auto">
+        <div className="w-full mt-6 flex flex-col items-center ">
+          <img
+            className="rounded-md shadow-2xl"
+            src={event.image}
+            alt="image"
+          />
+          <div className="text-2xl sm:text-3xl md:text-4xl absolute left-0 ml-8 mt-2 p-2 rounded-xl bg-opacity-30 bg-black text-white">
+            {event.name}
+          </div>
+          <div className="text-gray-300 mt-2">
             <div>
               <h5 className="py-3 font-bold sm:text-xl lg:text-2xl">Тухай</h5>
               <p className="text-xs sm:text-sm text-wrap">{event.about}</p>
