@@ -58,6 +58,10 @@ const movieSchema = new Schema({
       img: String,
     },
   ],
+  ticketPrice: {
+    adult: Number,
+    child: Number,
+  },
 });
 
 const Movie = model("Movie", movieSchema);

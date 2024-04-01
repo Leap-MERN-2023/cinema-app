@@ -10,10 +10,9 @@ import { MovieContext } from "..";
 
 type ICardProps = {
   card: any;
-  movie: any;
 };
 
-export function DialogOpen({ card, movie }: ICardProps) {
+export function DialogOpen({ card }: ICardProps) {
   const [openVideo, setOpenvideo] = useState(false);
   const { setSelectedMovieId } = useContext(MovieContext);
   const router = useRouter();

@@ -50,21 +50,6 @@ export const TicketInfo = ({
   const [kidsCount, setKidsCount] = useState(0);
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
   const [total, setTotal] = useState(selectedSeats.length);
-  // const [showtimeInfo, setShowtimeInfo] = useState({
-  //   movieId: selectedMovieId,
-  //   cinemaId: selectedCinema,
-  //   branch: selectedBranch,
-  //   adultCount: adultCount,
-  //   kidsCount: kidsCount,
-  //   seatNumbers: selectedSeats,
-  //   startTime: {
-  //     date: {
-  //       month: isActiveMonth,
-  //       day: isActiveDate,
-  //     },
-  //     time: isActiveTime,
-  //   },
-  // });
 
   const send = () => {
     sendShowtime(
