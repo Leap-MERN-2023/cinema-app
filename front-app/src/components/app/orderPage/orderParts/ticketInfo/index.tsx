@@ -54,7 +54,6 @@ export const TicketInfo = ({
   const send = () => {
     sendShowtime(
       selectedMovieId,
-      selectedCinema,
       selectedBranch,
       adultCount,
       kidsCount,

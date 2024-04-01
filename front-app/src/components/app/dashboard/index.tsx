@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import FilterSection from "./filterSection";
 import EventsBanner from "./eventbanner";
 import { CarouselCard } from "@/components";
 import { MovieCard } from "@/components";
+import { MovieContext } from "@/components";
 
 type Props = {};
 

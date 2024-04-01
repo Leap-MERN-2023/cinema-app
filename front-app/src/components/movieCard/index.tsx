@@ -6,12 +6,12 @@ import { Button, MovieContext } from "..";
 type Props = {};
 
 export const MovieCard = (props: Props) => {
-  const { movies } = useContext(MovieContext);
+  const { movies, filteredMovies } = useContext(MovieContext);
   const [pageCount, setPageCount] = useState(8);
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="mt-10 flex flex-wrap gap-5">
-        {movies.slice(0, pageCount).map((card: any) => {
+        {filteredMovies.slice(0, pageCount).map((card: any) => {
           return <MCard card={card} key={card._id} />;
         })}
       </div>

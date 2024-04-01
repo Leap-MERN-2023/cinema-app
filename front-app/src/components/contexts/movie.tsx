@@ -48,7 +48,14 @@ interface IMovies {
 interface IMovieContext {
   movies: IMovies[];
   setSelectedMovieId: (id: any) => void;
+  setFilterByScreenType: ([]: any) => void;
+  allFilteredMovies: () => void;
+  setFilterByCinema: (id: any) => void;
+  setFilteredMovies: (e: any) => void;
+  filterByCinema: any;
   selectedMovieId: string;
+  filterByScreenType: any;
+  filteredMovies: any;
 }
 
 export const MovieContext = createContext({} as IMovieContext);
@@ -57,6 +64,9 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
   const { toast } = useToast();
   const [movies, setMovies] = useState([]);
   const [selectedMovieId, setSelectedMovieId] = useState("");
+  const [filteredMovies, setFilteredMovies] = useState<any>([]);
+  const [filterByScreenType, setFilterByScreenType] = useState([]);
+  const [filterByCinema, setFilterByCinema] = useState<any>([]);
 
   const getMovies = async () => {
     try {
@@ -65,6 +75,7 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
       } = await myAxios.get("/movie");
       console.log("GetMovies ===> ", movies);
       setMovies(movies);
+      setFilteredMovies(movies);
     } catch (error) {
       toast({
         variant: "destructive",
@@ -74,7 +85,26 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
       });
     }
   };
-  //   console.log("Movies", movies);
+
+  const allFilteredMovies = () => {
+    const filteredbyCinemas = movies.filter((movie: any) => {
+      return movie.cinemas.filter((e: any) => {
+        return e == filterByCinema.value;
+      });
+    });
+    if (filterByScreenType.length == 0) {
+      setFilteredMovies(filteredbyCinemas),
+        console.log(filteredbyCinemas, "gg");
+    } else {
+      const filteredbyCinemaTypes = filteredbyCinemas.filter((movie: any) => {
+        return filterByScreenType
+          .map((e: any) => e.value)
+          .includes(movie.movieType);
+      });
+      setFilteredMovies(filteredbyCinemaTypes),
+        console.log(filteredbyCinemaTypes, "gg");
+    }
+  };
 
   useEffect(() => {
     getMovies();
@@ -82,7 +112,18 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <MovieContext.Provider
-      value={{ movies, setSelectedMovieId, selectedMovieId }}
+      value={{
+        movies,
+        setSelectedMovieId,
+        selectedMovieId,
+        setFilterByScreenType,
+        setFilterByCinema,
+        filterByCinema,
+        filterByScreenType,
+        setFilteredMovies,
+        filteredMovies,
+        allFilteredMovies,
+      }}
     >
       {children}
     </MovieContext.Provider>

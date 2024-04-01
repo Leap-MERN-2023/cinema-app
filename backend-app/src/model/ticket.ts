@@ -11,6 +11,9 @@ const ticketSchema = new Schema({
     require: true,
     ref: "Cinema",
   },
+  branch: {
+    type: String,
+  },
   screen: {
     type: String,
     require: true,

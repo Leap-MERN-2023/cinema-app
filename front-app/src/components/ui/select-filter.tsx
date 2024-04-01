@@ -1,7 +1,9 @@
 "use client";
 
-import React from "react";
-import Select from "react-select";
+import React, { useContext, useRef } from "react";
+import Select, { OnChangeValue } from "react-select";
+import { MovieContext } from "..";
+import { ValueType } from "tailwindcss/types/config";
 
 interface CinemaTypeOption {
   readonly value: string;
@@ -12,10 +14,10 @@ interface CinemaTypeOption {
 }
 
 const cinemaTypeOptions: readonly CinemaTypeOption[] = [
-  { value: "2d", label: "2D", color: "#00B8D9", isFixed: false },
-  { value: "3d", label: "3D", color: "#0052CC", isDisabled: false },
-  { value: "imax", label: "IMAX", color: "#5243AA" },
-  { value: "laser", label: "LASER", color: "#FF5630", isFixed: false },
+  { value: "2D", label: "2D", color: "#00B8D9", isFixed: false },
+  { value: "3D", label: "3D", color: "#0052CC", isDisabled: false },
+  { value: "IMAX", label: "IMAX", color: "#5243AA" },
+  { value: "LASER", label: "LASER", color: "#FF5630", isFixed: false },
 ];
 
 const controlStyles = {
@@ -45,37 +47,130 @@ const optionStyles = "bg-green hover:bg-white p-2 rounded-[4px]";
 const noOptionsMessageStyles =
   "text-gray-500 p-2 bg-gray-50 border border-dashed border-gray-200 rounded-sm";
 
-export const MultiSelect = () => (
-  <Select
-    isMulti
-    name="cinema"
-    options={cinemaTypeOptions}
-    placeholder="Танхимын төрөл"
-    unstyled
-    classNames={{
-      control: ({ isFocused }) =>
-        isFocused
-          ? `${controlStyles.focus} ${controlStyles.base}`
-          : `${controlStyles.nonFocus} ${controlStyles.base}`,
-      placeholder: () => placeholderStyles,
-      input: () => selectInputStyles,
-      valueContainer: () => valueContainerStyles,
-      singleValue: () => singleValueStyles,
-      multiValue: () => multiValueStyles,
-      multiValueLabel: () => multiValueLabelStyles,
-      multiValueRemove: () => multiValueRemoveStyles,
-      indicatorsContainer: () => indicatorsContainerStyles,
-      clearIndicator: () => clearIndicatorStyles,
-      indicatorSeparator: () => indicatorSeparatorStyles,
-      dropdownIndicator: () => dropdownIndicatorStyles,
-      menu: () => menuStyles,
-      groupHeading: () => groupHeadingStyles,
-      noOptionsMessage: () => noOptionsMessageStyles,
-      option: () => optionStyles,
-    }}
-    classNamePrefix="select"
-  />
-);
+export const MultiSelect = () => {
+  const { setFilterByScreenType, setFilterByCinema, allFilteredMovies } =
+    useContext(MovieContext);
+  const selectRef = useRef<any>(null);
+  const selectRef1 = useRef<any>(null);
+  const selectRef2 = useRef<any>(null);
+
+  const handleChange = (selectedOptions: any) => {
+    const optionsArray = selectedOptions as (typeof Option)[];
+    setFilterByScreenType(optionsArray);
+    console.log(optionsArray, "clicked");
+    allFilteredMovies();
+  };
+  const handleChangeCinema = (selectedOptions: any) => {
+    const optionsObject = selectedOptions as typeof Option;
+    setFilterByCinema(optionsObject);
+    console.log(optionsObject, "clicked");
+    allFilteredMovies();
+  };
+
+  const handleClear = () => {
+    selectRef.current.clearValue();
+    selectRef1.current.clearValue();
+    selectRef2.current.clearValue();
+  };
+  return (
+    <div className="flex gap-2">
+      <Select
+        isMulti
+        name="cinema"
+        options={cinemaTypeOptions}
+        ref={selectRef}
+        onChange={handleChange}
+        placeholder="Танхимын төрөл"
+        unstyled
+        classNames={{
+          control: ({ isFocused }) =>
+            isFocused
+              ? `${controlStyles.focus} ${controlStyles.base}`
+              : `${controlStyles.nonFocus} ${controlStyles.base}`,
+          placeholder: () => placeholderStyles,
+          input: () => selectInputStyles,
+          valueContainer: () => valueContainerStyles,
+          singleValue: () => singleValueStyles,
+          multiValue: () => multiValueStyles,
+          multiValueLabel: () => multiValueLabelStyles,
+          multiValueRemove: () => multiValueRemoveStyles,
+          indicatorsContainer: () => indicatorsContainerStyles,
+          clearIndicator: () => clearIndicatorStyles,
+          indicatorSeparator: () => indicatorSeparatorStyles,
+          dropdownIndicator: () => dropdownIndicatorStyles,
+          menu: () => menuStyles,
+          groupHeading: () => groupHeadingStyles,
+          noOptionsMessage: () => noOptionsMessageStyles,
+          option: () => optionStyles,
+        }}
+        classNamePrefix="select"
+      />
+      <Select
+        options={cinemasNameOption}
+        unstyled
+        ref={selectRef1}
+        name="cinemas"
+        placeholder="кино театр"
+        onChange={handleChangeCinema}
+        classNames={{
+          control: ({ isFocused }) =>
+            isFocused
+              ? `${controlStyles.focus} ${controlStyles.base}`
+              : `${controlStyles.nonFocus} ${controlStyles.base}`,
+          placeholder: () => placeholderStyles,
+          input: () => selectInputStyles,
+          valueContainer: () => valueContainerStyles,
+          singleValue: () => singleValueStyles,
+          multiValue: () => multiValueStyles,
+          multiValueLabel: () => multiValueLabelStyles,
+          multiValueRemove: () => multiValueRemoveStyles,
+          indicatorsContainer: () => indicatorsContainerStyles,
+          clearIndicator: () => clearIndicatorStyles,
+          indicatorSeparator: () => indicatorSeparatorStyles,
+          dropdownIndicator: () => dropdownIndicatorStyles,
+          menu: () => menuStyles,
+          groupHeading: () => groupHeadingStyles,
+          noOptionsMessage: () => noOptionsMessageStyles,
+          option: () => optionStyles,
+        }}
+      />
+      <Select
+        options={showTime}
+        unstyled
+        name="showtime"
+        ref={selectRef2}
+        placeholder="Цагийн хуваарь"
+        classNames={{
+          control: ({ isFocused }) =>
+            isFocused
+              ? `${controlStyles.focus} ${controlStyles.base}`
+              : `${controlStyles.nonFocus} ${controlStyles.base}`,
+          placeholder: () => placeholderStyles,
+          input: () => selectInputStyles,
+          valueContainer: () => valueContainerStyles,
+          singleValue: () => singleValueStyles,
+          multiValue: () => multiValueStyles,
+          multiValueLabel: () => multiValueLabelStyles,
+          multiValueRemove: () => multiValueRemoveStyles,
+          indicatorsContainer: () => indicatorsContainerStyles,
+          clearIndicator: () => clearIndicatorStyles,
+          indicatorSeparator: () => indicatorSeparatorStyles,
+          dropdownIndicator: () => dropdownIndicatorStyles,
+          menu: () => menuStyles,
+          groupHeading: () => groupHeadingStyles,
+          noOptionsMessage: () => noOptionsMessageStyles,
+          option: () => optionStyles,
+        }}
+      />
+      <button
+        className="underline text-[14px] text-[#e5e7eb] sm:ml-6"
+        onClick={handleClear}
+      >
+        Арилгах
+      </button>
+    </div>
+  );
+};
 
 interface CinemasOption {
   readonly value: string;
@@ -86,41 +181,119 @@ interface CinemasOption {
 }
 
 const cinemasNameOption: readonly CinemasOption[] = [
-  { value: "urgoo1", label: "Urgoo", color: "#00B8D9", isFixed: false },
-  { value: "urgoo2", label: "Urgoo 2", color: "#0052CC", isDisabled: false },
-  { value: "tengis", label: "Tengis", color: "#5243AA" },
-  { value: "gegeenten", label: "Gegeenten", color: "#FF5630", isFixed: false },
+  {
+    value: "660692f73de61589e3b1f3ff",
+    label: "Өргөө",
+    color: "#00B8D9",
+    isFixed: false,
+  },
+  {
+    value: "660692f73de61589e3b1f400",
+    label: "Өргөө-2 IT парк",
+    color: "#0052CC",
+    isDisabled: false,
+  },
+  {
+    value: "660692f73de61589e3b1f401",
+    label: "Өргөө 3 IMAX Шангри-Ла Төв",
+    color: "#0052CC",
+    isDisabled: false,
+  },
+  {
+    value: "660692f73de61589e3b1f402",
+    label: "Өргөө 4 Эрдэнэт хот",
+    color: "#0052CC",
+    isDisabled: false,
+  },
+  {
+    value: "660692f73de61589e3b1f403",
+    label: "Өргөө 5 Laser Cinema",
+    color: "#0052CC",
+    isDisabled: false,
+  },
+  {
+    value: "660692f73de61589e3b1f404",
+    label: "Өргөө 6 Дархан хот",
+    color: "#0052CC",
+    isDisabled: false,
+  },
+  {
+    value: "660692f73de61589e3b1f405",
+    label: "Өргөө 7 Парк-Од Молл",
+    color: "#0052CC",
+    isDisabled: false,
+  },
+  { value: "660692f73de61589e3b1f407", label: "Тэнгис", color: "#5243AA" },
+  {
+    value: "660692f73de61589e3b1f40f",
+    label: "Гэгээнтэн",
+    color: "#FF5630",
+    isFixed: false,
+  },
+  {
+    value: "660692f73de61589e3b1f40d",
+    label: "Хүннү",
+    color: "#FF5630",
+    isFixed: false,
+  },
+  {
+    value: "660692f73de61589e3b1f409",
+    label: "Prime Cineplex 1",
+    color: "#FF5630",
+    isFixed: false,
+  },
+  {
+    value: "660692f73de61589e3b1f40a",
+    label: "Prime Cineplex 2",
+    color: "#FF5630",
+    isFixed: false,
+  },
+  {
+    value: "660692f73de61589e3b1f40b",
+    label: "Prime Cineplex 3",
+    color: "#FF5630",
+    isFixed: false,
+  },
 ];
 
-export const SelectCinema = () => (
-  <Select
-    options={cinemasNameOption}
-    unstyled
-    name="cinemas"
-    placeholder="кино театр"
-    classNames={{
-      control: ({ isFocused }) =>
-        isFocused
-          ? `${controlStyles.focus} ${controlStyles.base}`
-          : `${controlStyles.nonFocus} ${controlStyles.base}`,
-      placeholder: () => placeholderStyles,
-      input: () => selectInputStyles,
-      valueContainer: () => valueContainerStyles,
-      singleValue: () => singleValueStyles,
-      multiValue: () => multiValueStyles,
-      multiValueLabel: () => multiValueLabelStyles,
-      multiValueRemove: () => multiValueRemoveStyles,
-      indicatorsContainer: () => indicatorsContainerStyles,
-      clearIndicator: () => clearIndicatorStyles,
-      indicatorSeparator: () => indicatorSeparatorStyles,
-      dropdownIndicator: () => dropdownIndicatorStyles,
-      menu: () => menuStyles,
-      groupHeading: () => groupHeadingStyles,
-      noOptionsMessage: () => noOptionsMessageStyles,
-      option: () => optionStyles,
-    }}
-  />
-);
+export const SelectCinema = () => {
+  const { setFilterByCinema } = useContext(MovieContext);
+  const handleChange = (selectedOptions: any) => {
+    const optionsObject = selectedOptions as typeof Option;
+    setFilterByCinema(optionsObject);
+    console.log(optionsObject, "clicked");
+  };
+  return (
+    <Select
+      options={cinemasNameOption}
+      unstyled
+      name="cinemas"
+      placeholder="кино театр"
+      onChange={handleChange}
+      classNames={{
+        control: ({ isFocused }) =>
+          isFocused
+            ? `${controlStyles.focus} ${controlStyles.base}`
+            : `${controlStyles.nonFocus} ${controlStyles.base}`,
+        placeholder: () => placeholderStyles,
+        input: () => selectInputStyles,
+        valueContainer: () => valueContainerStyles,
+        singleValue: () => singleValueStyles,
+        multiValue: () => multiValueStyles,
+        multiValueLabel: () => multiValueLabelStyles,
+        multiValueRemove: () => multiValueRemoveStyles,
+        indicatorsContainer: () => indicatorsContainerStyles,
+        clearIndicator: () => clearIndicatorStyles,
+        indicatorSeparator: () => indicatorSeparatorStyles,
+        dropdownIndicator: () => dropdownIndicatorStyles,
+        menu: () => menuStyles,
+        groupHeading: () => groupHeadingStyles,
+        noOptionsMessage: () => noOptionsMessageStyles,
+        option: () => optionStyles,
+      }}
+    />
+  );
+};
 
 interface showTimeOption {
   readonly value: string;

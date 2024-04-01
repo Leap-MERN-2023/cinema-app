@@ -29,7 +29,6 @@ export const createTicket = async (
     }
     const ticket = await Ticket.create({
       movieId: req.body.movieId,
-      cinemaId: req.body.cinemaId,
       branch: req.body.branch,
       adultCount: req.body.adultCount,
       kidsCount: req.body.kidsCount,

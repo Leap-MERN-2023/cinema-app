@@ -1,9 +1,11 @@
+"use client";
+
 import {
   MultiSelect,
   SelectCinema,
   SelectShowTime,
 } from "@/components/ui/select-filter";
-import React from "react";
+import React, { useContext, useRef } from "react";
 import { ImLocation } from "react-icons/im";
 
 const FilterSection = () => {
@@ -17,14 +19,7 @@ const FilterSection = () => {
           <ImLocation className="p-3 bg-[#0089d0] w-9 h-9 text-white rounded-[5px] size-4" />
         </div>
       </div>
-      <div className="flex flex-row gap-2">
-        <MultiSelect />
-        <SelectCinema />
-        <SelectShowTime />
-      </div>
-      <button className="underline text-[14px] text-[#e5e7eb] sm:ml-6">
-        Арилгах
-      </button>
+      <MultiSelect />
     </div>
   );
 };

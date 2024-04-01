@@ -38,7 +38,6 @@ interface ITimeContext {
   seats: any;
   sendShowtime: (
     selectedMovieId: string,
-    selectedCinema: string,
     selectedBranch: string,
     adultCount: number,
     kidsCount: number,
@@ -94,7 +93,6 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
 
   const sendShowtime = async (
     selectedMovieId: string,
-    selectedCinema: string,
     selectedBranch: string,
     adultCount: number,
     kidsCount: number,
@@ -104,11 +102,18 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
     isActiveTime: string
   ) => {
     try {
+      // console.log(selectedMovieId);
+      // console.log(selectedBranch);
+      // console.log(adultCount);
+      // console.log(kidsCount);
+      // console.log(selectedSeats);
+      // console.log(isActiveMonth);
+      // console.log(isActiveDate);
+      // console.log(isActiveTime);
       await myAxios.post(
         "/ticket",
         {
           movieId: selectedMovieId,
-          cinemaId: selectedCinema,
           branch: selectedBranch,
           adultCount: adultCount,
           kidsCount: kidsCount,
@@ -131,8 +136,11 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
       toast({
         title: "Showtime илгээхэд алдаа гарлаа",
         variant: "destructive",
-        action: <ToastAction altText="Try again">Try Again</ToastAction>,
+        action: (
+          <ToastAction altText={`Try again ${error}`}>Try Again</ToastAction>
+        ),
       });
+      console.log(error);
     }
   };
 
