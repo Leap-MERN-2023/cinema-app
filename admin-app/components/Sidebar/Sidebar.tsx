@@ -41,7 +41,6 @@ const Sidebar = ({}: SidebarProps) => {
         }
       )}
     >
-      {/* <!-- SIDEBAR HEADER --> */}
       <div className="relative flex w-full items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <Link className="flex items-center" href="/">
           <Image
@@ -53,7 +52,7 @@ const Sidebar = ({}: SidebarProps) => {
           />
           {isSidebarOpen && (
             <h1 className=" ml-2 text-xl font-semibold text-white">
-              ShakibAdmin
+              Cinema-Admin
             </h1>
           )}
         </Link>
@@ -61,19 +60,15 @@ const Sidebar = ({}: SidebarProps) => {
           <MenuIcon onClick={toggleSidebar} className="h-6 w-6" />
         )}
       </div>
-      {/* <!-- SIDEBAR HEADER --> */}
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-        {/* <!-- Sidebar Menu --> */}
         <nav className="px-4 py-4  lg:px-6">
-          {/* <!-- Menu Group --> */}
           <div>
             <ul
               className={cn("mb-6 flex flex-col  gap-1.5", {
                 "items-center justify-center": !isSidebarOpen,
               })}
             >
-              {/* <!-- Menu Item Dashboard --> */}
               <li>
                 <ExpandMenu
                   name="Homepage"
@@ -86,9 +81,6 @@ const Sidebar = ({}: SidebarProps) => {
                   />
                 </ExpandMenu>
               </li>
-              {/* <!-- Menu Item Dashboard --> */}
-
-              {/* <!-- Menu Item Calendar --> */}
               <li>
                 <ExpandMenu
                   name="Movies"
@@ -114,28 +106,6 @@ const Sidebar = ({}: SidebarProps) => {
                   icon={<Table2Icon className="h-6 w-6" />}
                 ></LinkItem>
               </li>
-
-              {/* <!-- Menu Item Tables --> */}
-
-              {/* <!-- Menu Item Settings --> */}
-              <li>
-                <LinkItem
-                  title="Settings"
-                  href="/settings"
-                  icon={<Settings className="h-6 w-6" />}
-                ></LinkItem>
-              </li>
-
-              {/* <!-- Menu Item Settings --> */}
-              <li>
-                <LinkItem
-                  title="Profile"
-                  href="/profile"
-                  icon={<User2Icon className="h-6 w-6" />}
-                ></LinkItem>
-              </li>
-
-              {/* <!-- Menu Item Chart --> */}
               <li>
                 <LinkItem
                   title="Charts"
@@ -143,41 +113,29 @@ const Sidebar = ({}: SidebarProps) => {
                   icon={<BarChart2 className="h-6 w-6" />}
                 ></LinkItem>
               </li>
-
-              {/* <!-- Menu Item Chart --> */}
-
-              {/* <!-- Menu Item Ui Elements --> */}
-
-              {/* <!-- Dropdown Menu Start --> */}
               <li>
-                <ExpandMenu icon={<Component className="h-6 w-6" />} name="UI">
+                <ExpandMenu
+                  name="Profile"
+                  icon={<User2Icon className="  h-6 w-6 hover:text-white" />}
+                >
                   <LinkItem
-                    title="Alerts"
-                    href="/ui/alerts"
-                    icon={<AlertCircle className="h-5 w-5" />}
+                    title="Profile"
+                    href="/profile"
+                    icon={<User2Icon className="h-6 w-6" />}
                   ></LinkItem>
                   <LinkItem
-                    title="Buttons"
-                    href="/ui/buttons"
-                    icon={<MousePointerClick className="h-5 w-5" />}
-                  />
+                    title="Settings"
+                    href="/settings"
+                    icon={<Settings className="h-6 w-6" />}
+                  ></LinkItem>
                 </ExpandMenu>
               </li>
-
-              {/* <!-- Menu Item Ui Elements --> */}
-
-              {/* <!-- Menu Item Auth Pages --> */}
               <li>
                 <ExpandMenu name="Auth" icon={<LampIcon className="h-6 w-6" />}>
                   <LinkItem
                     title="Sign In"
                     href="/auth/signin"
                     icon={<LockIcon className="h-5 w-5" />}
-                  ></LinkItem>
-                  <LinkItem
-                    title="Sign up"
-                    href="/auth/signup"
-                    icon={<SignalHigh className="h-5 w-5" />}
                   ></LinkItem>
                 </ExpandMenu>
               </li>
