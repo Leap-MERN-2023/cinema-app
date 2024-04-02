@@ -7,7 +7,7 @@ type Props = {};
 
 export const MovieCard = (props: Props) => {
   const { movies, filteredMovies } = useContext(MovieContext);
-  const [pageCount, setPageCount] = useState(8);
+  const [pageCount, setPageCount] = useState(4);
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="mt-10 flex flex-wrap gap-5">

@@ -73,7 +73,7 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
       const {
         data: { movies },
       } = await myAxios.get("/movie");
-      console.log("GetMovies ===> ", movies);
+      // console.log("GetMovies ===> ", movies);
       setMovies(movies);
       setFilteredMovies(movies);
     } catch (error) {
@@ -93,16 +93,16 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
       });
     });
     if (filterByScreenType.length == 0) {
-      setFilteredMovies(filteredbyCinemas),
-        console.log(filteredbyCinemas, "gg");
+      setFilteredMovies(filteredbyCinemas);
+      // console.log(filteredbyCinemas, "gg");
     } else {
       const filteredbyCinemaTypes = filteredbyCinemas.filter((movie: any) => {
         return filterByScreenType
           .map((e: any) => e.value)
           .includes(movie.movieType);
       });
-      setFilteredMovies(filteredbyCinemaTypes),
-        console.log(filteredbyCinemaTypes, "gg");
+      setFilteredMovies(filteredbyCinemaTypes);
+      // console.log(filteredbyCinemaTypes, "gg");
     }
   };
 

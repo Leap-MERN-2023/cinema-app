@@ -41,7 +41,7 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
         },
         config
       );
-      console.log(data);
+      console.log("Order data", data);
     } catch (error) {}
   };
   const getSelectedMovieData = async () => {

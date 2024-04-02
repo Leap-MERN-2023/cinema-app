@@ -13,6 +13,7 @@ import showtime from "./router/showtime";
 import auth from "./router/auth";
 import ticket from "./router/ticket";
 import order from "./router/order";
+import comingsoon from "./router/comingsoon";
 
 const MONGO_URI = process.env.MONGO_URI as string;
 
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 app.use("/auth", auth);
 app.use("/seats", seats);
 app.use("/movie", movie);
+app.use("/comingsoon", comingsoon);
 app.use("/cinema", cinema);
 app.use("/screen", screen);
 app.use("/showtime", showtime);

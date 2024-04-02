@@ -10,9 +10,9 @@ import {
   Header,
   CinemaProvider,
   OrderProvider,
+  ShowtimeProvider,
+  ComingsoonProvider,
 } from "@/components";
-import { ScreenProvider } from "@/components/contexts/screen";
-import { ShowtimeProvider } from "@/components/contexts/showtime";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,8 +31,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <MovieProvider>
-            <CinemaProvider>
-              <ScreenProvider>
+            <ComingsoonProvider>
+              <CinemaProvider>
                 <OrderProvider>
                   <ShowtimeProvider>
                     <Header />
@@ -41,8 +41,8 @@ export default function RootLayout({
                     <Footer />
                   </ShowtimeProvider>
                 </OrderProvider>
-              </ScreenProvider>
-            </CinemaProvider>
+              </CinemaProvider>
+            </ComingsoonProvider>
           </MovieProvider>
         </AuthProvider>
       </body>
