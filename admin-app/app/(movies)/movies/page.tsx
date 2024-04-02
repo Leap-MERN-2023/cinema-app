@@ -1,4 +1,4 @@
-import Movies from "@/components/Movies";
+import { Movies } from "@/components/Movies/movies";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

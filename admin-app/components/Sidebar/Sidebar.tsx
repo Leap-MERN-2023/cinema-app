@@ -3,24 +3,22 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import {
-  LineChartIcon,
   MenuIcon,
   ShoppingBag,
-  AreaChart,
-  Calendar,
   User2Icon,
   LockIcon,
   BarChart2,
   Component,
   Settings,
   Table2Icon,
-  FormInputIcon,
   HomeIcon,
   LampIcon,
   SignalHigh,
   AlertCircle,
-  SwissFranc,
   MousePointerClick,
+  MonitorPlay,
+  Clapperboard,
+  FileVideo2,
 } from "lucide-react";
 import { useSidebar } from "./use-sidebar";
 import { cn } from "@/app/libs/utlis";
@@ -92,11 +90,21 @@ const Sidebar = ({}: SidebarProps) => {
 
               {/* <!-- Menu Item Calendar --> */}
               <li>
-                <LinkItem
-                  title="Movies"
-                  href="/movies"
-                  icon={<Calendar className="h-6 w-6" />}
-                ></LinkItem>
+                <ExpandMenu
+                  name="Movies"
+                  icon={<MonitorPlay className="  h-6 w-6 hover:text-white" />}
+                >
+                  <LinkItem
+                    title="Now showing"
+                    href="/movies"
+                    icon={<Clapperboard className="h-6 w-6" />}
+                  ></LinkItem>
+                  <LinkItem
+                    title="Comingsoon"
+                    href="/comingsoon"
+                    icon={<FileVideo2 className="h-6 w-6" />}
+                  ></LinkItem>
+                </ExpandMenu>
               </li>
 
               <li>
