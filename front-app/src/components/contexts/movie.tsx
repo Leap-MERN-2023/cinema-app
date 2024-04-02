@@ -87,6 +87,12 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
   };
 
   const allFilteredMovies = () => {
+    if (filterByCinema == null) {
+      return movies;
+    }
+    if (filterByScreenType == null) {
+      return movies;
+    }
     const filteredbyCinemas = movies.filter((movie: any) => {
       return movie.cinemas.filter((e: any) => {
         return e == filterByCinema.value;
@@ -109,6 +115,10 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     getMovies();
   }, []);
+
+  useEffect(() => {
+    allFilteredMovies();
+  }, [filterByScreenType, filterByCinema]);
 
   return (
     <MovieContext.Provider

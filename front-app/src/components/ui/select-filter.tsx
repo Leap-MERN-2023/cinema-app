@@ -71,6 +71,8 @@ export const MultiSelect = () => {
     selectRef.current.clearValue();
     selectRef1.current.clearValue();
     selectRef2.current.clearValue();
+    setFilterByCinema({});
+    setFilterByScreenType([]);
   };
   return (
     <div className="flex gap-2">
@@ -110,7 +112,7 @@ export const MultiSelect = () => {
         unstyled
         ref={selectRef1}
         name="cinemas"
-        placeholder="кино театр"
+        placeholder="Кино театр"
         onChange={handleChangeCinema}
         classNames={{
           control: ({ isFocused }) =>
