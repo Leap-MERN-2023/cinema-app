@@ -40,7 +40,7 @@ const Sidebar = ({}: SidebarProps) => {
         `absolute left-0 top-0 z-9999 flex h-screen w-20 flex-col overflow-y-hidden bg-black duration-300 ease-linear  dark:bg-boxdark lg:static lg:translate-x-0 `,
         {
           "w-70": isSidebarOpen,
-        },
+        }
       )}
     >
       {/* <!-- SIDEBAR HEADER --> */}
@@ -93,8 +93,8 @@ const Sidebar = ({}: SidebarProps) => {
               {/* <!-- Menu Item Calendar --> */}
               <li>
                 <LinkItem
-                  title="Calendar"
-                  href="/calendar"
+                  title="Movies"
+                  href="/movies"
                   icon={<Calendar className="h-6 w-6" />}
                 ></LinkItem>
               </li>
