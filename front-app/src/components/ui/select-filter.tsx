@@ -21,7 +21,7 @@ const cinemaTypeOptions: readonly CinemaTypeOption[] = [
 ];
 
 const controlStyles = {
-  base: "border rounded-[5px] bg-[#020000] hover:cursor-pointer py-1 w-[100px] h-[56px] text-[10px] sm:text-[16px] sm:w-[160px] lg:w-[240px] xl:w-[280px]",
+  base: "border rounded-[5px] bg-[#020000] hover:cursor-pointer py-1 w-[100px] h-[56px] text-[10px] sm:text-[12px] lg:text-base sm:w-[160px] lg:w-[240px] xl:w-[280px]",
   focus: "border-primary-400 ",
   nonFocus: "border-gray-800 hover:border-gray-400 py-1",
 };
@@ -75,97 +75,99 @@ export const MultiSelect = () => {
     setFilterByScreenType([]);
   };
   return (
-    <div className="flex gap-2">
-      <Select
-        isMulti
-        name="cinema"
-        options={cinemaTypeOptions}
-        ref={selectRef}
-        onChange={handleChange}
-        placeholder="Танхимын төрөл"
-        unstyled
-        classNames={{
-          control: ({ isFocused }) =>
-            isFocused
-              ? `${controlStyles.focus} ${controlStyles.base}`
-              : `${controlStyles.nonFocus} ${controlStyles.base}`,
-          placeholder: () => placeholderStyles,
-          input: () => selectInputStyles,
-          valueContainer: () => valueContainerStyles,
-          singleValue: () => singleValueStyles,
-          multiValue: () => multiValueStyles,
-          multiValueLabel: () => multiValueLabelStyles,
-          multiValueRemove: () => multiValueRemoveStyles,
-          indicatorsContainer: () => indicatorsContainerStyles,
-          clearIndicator: () => clearIndicatorStyles,
-          indicatorSeparator: () => indicatorSeparatorStyles,
-          dropdownIndicator: () => dropdownIndicatorStyles,
-          menu: () => menuStyles,
-          groupHeading: () => groupHeadingStyles,
-          noOptionsMessage: () => noOptionsMessageStyles,
-          option: () => optionStyles,
-        }}
-        classNamePrefix="select"
-      />
-      <Select
-        options={cinemasNameOption}
-        unstyled
-        ref={selectRef1}
-        name="cinemas"
-        placeholder="Кино театр"
-        onChange={handleChangeCinema}
-        classNames={{
-          control: ({ isFocused }) =>
-            isFocused
-              ? `${controlStyles.focus} ${controlStyles.base}`
-              : `${controlStyles.nonFocus} ${controlStyles.base}`,
-          placeholder: () => placeholderStyles,
-          input: () => selectInputStyles,
-          valueContainer: () => valueContainerStyles,
-          singleValue: () => singleValueStyles,
-          multiValue: () => multiValueStyles,
-          multiValueLabel: () => multiValueLabelStyles,
-          multiValueRemove: () => multiValueRemoveStyles,
-          indicatorsContainer: () => indicatorsContainerStyles,
-          clearIndicator: () => clearIndicatorStyles,
-          indicatorSeparator: () => indicatorSeparatorStyles,
-          dropdownIndicator: () => dropdownIndicatorStyles,
-          menu: () => menuStyles,
-          groupHeading: () => groupHeadingStyles,
-          noOptionsMessage: () => noOptionsMessageStyles,
-          option: () => optionStyles,
-        }}
-      />
-      <Select
-        options={showTime}
-        unstyled
-        name="showtime"
-        ref={selectRef2}
-        placeholder="Цагийн хуваарь"
-        classNames={{
-          control: ({ isFocused }) =>
-            isFocused
-              ? `${controlStyles.focus} ${controlStyles.base}`
-              : `${controlStyles.nonFocus} ${controlStyles.base}`,
-          placeholder: () => placeholderStyles,
-          input: () => selectInputStyles,
-          valueContainer: () => valueContainerStyles,
-          singleValue: () => singleValueStyles,
-          multiValue: () => multiValueStyles,
-          multiValueLabel: () => multiValueLabelStyles,
-          multiValueRemove: () => multiValueRemoveStyles,
-          indicatorsContainer: () => indicatorsContainerStyles,
-          clearIndicator: () => clearIndicatorStyles,
-          indicatorSeparator: () => indicatorSeparatorStyles,
-          dropdownIndicator: () => dropdownIndicatorStyles,
-          menu: () => menuStyles,
-          groupHeading: () => groupHeadingStyles,
-          noOptionsMessage: () => noOptionsMessageStyles,
-          option: () => optionStyles,
-        }}
-      />
+    <div className="flex flex-col sm:flex-row">
+      <div className="flex gap-2">
+        <Select
+          isMulti
+          name="cinema"
+          options={cinemaTypeOptions}
+          ref={selectRef}
+          onChange={handleChange}
+          placeholder="Танхимын төрөл"
+          unstyled
+          classNames={{
+            control: ({ isFocused }) =>
+              isFocused
+                ? `${controlStyles.focus} ${controlStyles.base}`
+                : `${controlStyles.nonFocus} ${controlStyles.base}`,
+            placeholder: () => placeholderStyles,
+            input: () => selectInputStyles,
+            valueContainer: () => valueContainerStyles,
+            singleValue: () => singleValueStyles,
+            multiValue: () => multiValueStyles,
+            multiValueLabel: () => multiValueLabelStyles,
+            multiValueRemove: () => multiValueRemoveStyles,
+            indicatorsContainer: () => indicatorsContainerStyles,
+            clearIndicator: () => clearIndicatorStyles,
+            indicatorSeparator: () => indicatorSeparatorStyles,
+            dropdownIndicator: () => dropdownIndicatorStyles,
+            menu: () => menuStyles,
+            groupHeading: () => groupHeadingStyles,
+            noOptionsMessage: () => noOptionsMessageStyles,
+            option: () => optionStyles,
+          }}
+          classNamePrefix="select"
+        />
+        <Select
+          options={cinemasNameOption}
+          unstyled
+          ref={selectRef1}
+          name="cinemas"
+          placeholder="Кино театр"
+          onChange={handleChangeCinema}
+          classNames={{
+            control: ({ isFocused }) =>
+              isFocused
+                ? `${controlStyles.focus} ${controlStyles.base}`
+                : `${controlStyles.nonFocus} ${controlStyles.base}`,
+            placeholder: () => placeholderStyles,
+            input: () => selectInputStyles,
+            valueContainer: () => valueContainerStyles,
+            singleValue: () => singleValueStyles,
+            multiValue: () => multiValueStyles,
+            multiValueLabel: () => multiValueLabelStyles,
+            multiValueRemove: () => multiValueRemoveStyles,
+            indicatorsContainer: () => indicatorsContainerStyles,
+            clearIndicator: () => clearIndicatorStyles,
+            indicatorSeparator: () => indicatorSeparatorStyles,
+            dropdownIndicator: () => dropdownIndicatorStyles,
+            menu: () => menuStyles,
+            groupHeading: () => groupHeadingStyles,
+            noOptionsMessage: () => noOptionsMessageStyles,
+            option: () => optionStyles,
+          }}
+        />
+        <Select
+          options={showTime}
+          unstyled
+          name="showtime"
+          ref={selectRef2}
+          placeholder="Цагийн хуваарь"
+          classNames={{
+            control: ({ isFocused }) =>
+              isFocused
+                ? `${controlStyles.focus} ${controlStyles.base}`
+                : `${controlStyles.nonFocus} ${controlStyles.base}`,
+            placeholder: () => placeholderStyles,
+            input: () => selectInputStyles,
+            valueContainer: () => valueContainerStyles,
+            singleValue: () => singleValueStyles,
+            multiValue: () => multiValueStyles,
+            multiValueLabel: () => multiValueLabelStyles,
+            multiValueRemove: () => multiValueRemoveStyles,
+            indicatorsContainer: () => indicatorsContainerStyles,
+            clearIndicator: () => clearIndicatorStyles,
+            indicatorSeparator: () => indicatorSeparatorStyles,
+            dropdownIndicator: () => dropdownIndicatorStyles,
+            menu: () => menuStyles,
+            groupHeading: () => groupHeadingStyles,
+            noOptionsMessage: () => noOptionsMessageStyles,
+            option: () => optionStyles,
+          }}
+        />
+      </div>
       <button
-        className="underline text-[14px] text-[#e5e7eb] sm:ml-6"
+        className="underline text-[14px] text-[#e5e7eb] mt-4 sm:ml-6 sm:mt-0"
         onClick={handleClear}
       >
         Арилгах
