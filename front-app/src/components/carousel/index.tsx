@@ -39,7 +39,7 @@ export function CarouselCard(props: Props) {
           <button
             onClick={prevSlide}
             disabled={false}
-            className="text-white text-[24px] md:text-[36px] size-6 rounded-xl z-10 mr-[-40px]"
+            className="text-white text-[24px] size-6 rounded-xl z-10"
           >
             ❮
           </button>
@@ -57,7 +57,7 @@ export function CarouselCard(props: Props) {
                     alt={`Slide ${index + 1}`}
                     className="w-full h-[200px] sm:h-[280px] md:h-[360px] lg:h-[440px] xl:h-[520px] object-cover scroll-smooth snap-center shadow-2xl"
                   />
-                  <div className="flex gap-3 absolute z-5 bottom-[20px] ml-5">
+                  <div className="flex gap-3 absolute bottom-[20px] ml-5">
                     <DialogOpen movie={movie} />
                     <Trailermodal trailers={movie.movie_trailer} />
                   </div>
@@ -68,7 +68,7 @@ export function CarouselCard(props: Props) {
 
           <button
             onClick={nextSlide}
-            className="text-white text-[24px] md:text-[36px] size-6 rounded-xl z-10 ml-[-40px]"
+            className="text-white text-[24px] size-6 rounded-xl z-10"
           >
             ❯
           </button>

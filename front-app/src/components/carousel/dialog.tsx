@@ -30,83 +30,76 @@ export function DialogOpen({ movie }: ICardProps) {
           Дэлгэрэнгүй
         </Button>
       </DialogTrigger>
-      <DialogContent className="p-0 bg-slate-700 max-h-[800px] min-w-[1200px] border-none overflow-auto">
-        <div className="">
-          <div className="flex backdrop-blur-md p-6 justify-center gap-40">
-            <section className="flex justify-center gap-4 z-10">
-              <div className="rounded-lg overflow-hidden w-[400px] flex justify-center items-center">
-                <img src={movie.poster.vertical} alt={movie.title + " image"} />
-              </div>
-            </section>
-            <section className="flex flex-col text-white z-20">
-              <h1 className="text-6xl font-bold mt-10">{movie.title}</h1>
-              <div className="flex gap-6 items-center mt-10">
-                <p className="text-2xl font-bold">Найруулагч:</p>
-                <div className="text-2xl">{movie.director}</div>
-              </div>
-              <div className="flex gap-6 items-center mt-10">
-                <p className="text-2xl font-bold">Төрөл</p>
-                <div className="text-2xl">{movie.genre}</div>
-              </div>
-              <div className="flex mt-20 gap-10">
-                <Button
-                  className="bg-rose-500 px-10 w-96 h-12"
-                  onClick={() => {
-                    router.push("/order"), setSelectedMovieId(movie._id);
-                  }}
+      <DialogContent className="p-0 bg-slate-900 w-[95%] h-[95%] border-none rounded-md overflow-auto">
+        <div className="flex flex-col backdrop-blur-sm p-6 justify-center">
+          <div className="rounded-lg overflow-hidden w-48 flex justify-center items-center">
+            <img src={movie.poster.vertical} alt={movie.title + " image"} />
+          </div>
+          <div className="flex flex-col text-white">
+            <h1 className="text-4xl lg:text-6xl font-bold mt-4">
+              {movie.title}
+            </h1>
+            <div className="flex gap-2 items-center mt-4">
+              <p className="text-base font-bold">Найруулагч:</p>
+              <div className="text-sm">{movie.director}</div>
+            </div>
+            <div className="flex gap-2 items-center mt-2">
+              <p className="text-base font-bold">Төрөл:</p>
+              <div className="text-sm">{movie.genre}</div>
+            </div>
+            <div className="flex mt-6">
+              <Button
+                className="bg-rose-500 px-10 w-32 h-8"
+                onClick={() => {
+                  router.push("/order"), setSelectedMovieId(movie._id);
+                }}
+              >
+                Захиалах
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="absolute -z-10 top-0 opacity-30">
+          <img src={movie.poster.vertical} alt="" className="w-[640px]" />
+        </div>
+        <div className="bg-gradient-to-b from-slate-900 to-slate-600 text-white pl-6 mt-[-20px]">
+          <p className="text-xl font-bold mt-6">Тухай: </p>
+          <div className="text-sm mt-4 mr-4">{movie.synopsis}</div>
+          <p className="text-xl font-bold mt-4">Дүрүүдэд: </p>
+          <div className="flex gap-6 mt-4">
+            {movie.cast.map((cast: any, i: any) => {
+              return (
+                <div
+                  key={i}
+                  className="flex flex-col gap-4 overflow-hidden max-w-20 text-sm text-center"
                 >
-                  Захиалах
-                </Button>
-              </div>
-            </section>
+                  <Avatar className="rounded-full size-20 items-center ">
+                    <AvatarImage
+                      src={cast.img}
+                      className="object-cover"
+                      alt="@shadcn"
+                    />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                  <p>{cast.name}</p>
+                </div>
+              );
+            })}
           </div>
-          <div className="absolute -z-10 top-0">
-            <img
-              src={movie.poster.vertical}
-              alt=""
-              width="1000px"
-              height="500px"
-            />
+          <p className="text-xl font-bold mt-4">Кино театрууд:</p>
+          <div className="flex gap-4 mt-4 pb-10">
+            {cinemas.map((cinema: any, i: any) => {
+              return (
+                <div
+                  key={i}
+                  className="flex rounded-lg size-12 overflow-hidden justify-center items-center"
+                >
+                  <img src={cinema.img} alt={cinema.name} />
+                </div>
+              );
+            })}
           </div>
-          <div className="bg-gradient-to-b from-black to-zinc-600 text-white m-0 pl-10 pt-10">
-            <p className="text-4xl font-bold">Тухай: </p>
-            <div className="text-3xl font-light mt-4">{movie.synopsis}</div>
-            <p className="text-4xl font-bold mt-4">Дүрүүдэд: </p>
-            <div className="flex gap-10 mt-10">
-              {movie.cast.map((cast: any, i: any) => {
-                return (
-                  <div
-                    key={i}
-                    className="flex flex-col gap-4 overflow-hidden max-w-20 font-light text-center"
-                  >
-                    <Avatar className="rounded-md w-20 items-center h-20">
-                      <AvatarImage
-                        src={cast.img}
-                        className="object-cover"
-                        alt="@shadcn"
-                      />
-                      <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    <p>{cast.name}</p>
-                  </div>
-                );
-              })}
-            </div>
-            <p className="text-4xl font-bold mt-4">Кино театрууд:</p>
-            <div className="flex gap-10 mt-10 pb-10">
-              {cinemas.map((cinema: any, i: any) => {
-                return (
-                  <div
-                    key={i}
-                    className="flex rounded-lg w-[100px] h-[100px] overflow-hidden justify-center items-center"
-                  >
-                    <img src={cinema.img} alt={cinema.name} />
-                  </div>
-                );
-              })}
-            </div>
-            <Resizable card={movie} />
-          </div>
+          <Resizable card={movie} />
         </div>
       </DialogContent>
     </Dialog>
