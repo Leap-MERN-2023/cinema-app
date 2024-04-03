@@ -1,13 +1,16 @@
-import React from "react";
-import { events } from "./data";
+"use client";
+import React, { useContext } from "react";
+// import { events } from "./data";
 import { EventDialog } from "./dialog";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
 import { FaFacebook } from "react-icons/fa6";
+import { EventContext } from "@/components";
 
 type Props = {};
 
 export const EventBanner = (props: Props) => {
+  const { events } = useContext(EventContext);
   return (
     <div className=" flex flex-wrap justify-center">
       <ScrollArea className="h-[600px] w-[50%%] rounded-md border">
@@ -22,7 +25,7 @@ export const EventBanner = (props: Props) => {
             />
             <div className="absolute flex flex-row h-full">
               <p className="absolute bottom-0 p-2 mb-2 ml-2 bg-black bg-opacity-20 rounded-xl">
-                {event.date}
+                {event.date.split("T")[0]}
               </p>
               <p className="absolute text-[0px] md:text-base bottom-2 ml-40 text-wrap bg-black bg-opacity-20 w-[500px]">
                 {event.about}

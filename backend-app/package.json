@@ -9,7 +9,8 @@
     "dbc": "npx tsc && node ./build/utils/cinema.js",
     "dbs": "npx tsc && node ./build/utils/showtime.js",
     "dbseat": "npx tsc && node ./build/utils/seats.js",
-    "dbco": "npx tsc && node ./build/utils/comingsoon.js"
+    "dbco": "npx tsc && node ./build/utils/comingsoon.js",
+    "dbe": "npx tsc && node ./build/utils/event.js"
   },
   "author": "",
   "license": "ISC",

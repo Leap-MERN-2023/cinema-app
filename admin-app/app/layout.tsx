@@ -8,7 +8,7 @@ import Loader from "@/components/common/Loader";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import Header from "@/components/Header";
 import { Theme } from "@radix-ui/themes";
-import { MovieProvider, ComingsoonProvider } from "@/components";
+import { MovieProvider, ComingsoonProvider, EventProvider } from "@/components";
 import { CinemaProvider } from "@/components/context/cinema";
 
 export default function RootLayout({
@@ -45,9 +45,11 @@ export default function RootLayout({
                     <CinemaProvider>
                       <MovieProvider>
                         <ComingsoonProvider>
-                          <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-                            {children}
-                          </div>
+                          <EventProvider>
+                            <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                              {children}
+                            </div>
+                          </EventProvider>
                         </ComingsoonProvider>
                       </MovieProvider>
                     </CinemaProvider>

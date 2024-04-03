@@ -16,6 +16,7 @@ import {
   Clapperboard,
   FileVideo2,
   Film,
+  CalendarCheck,
 } from "lucide-react";
 import { useSidebar } from "./use-sidebar";
 import { cn } from "@/app/libs/utlis";
@@ -109,6 +110,13 @@ const Sidebar = ({}: SidebarProps) => {
                   title="Cinema"
                   href="/cinema"
                   icon={<Film className="h-6 w-6" />}
+                ></LinkItem>
+              </li>
+              <li>
+                <LinkItem
+                  title="Events"
+                  href="/events"
+                  icon={<CalendarCheck className="h-6 w-6" />}
                 ></LinkItem>
               </li>
 

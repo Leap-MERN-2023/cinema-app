@@ -6,3 +6,4 @@ export * from "./header";
 export * from "./footer";
 export * from "./profileDrawer";
 export * from "./contexts";
+export * from "./types";

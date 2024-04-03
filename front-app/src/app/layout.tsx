@@ -12,6 +12,7 @@ import {
   OrderProvider,
   ShowtimeProvider,
   ComingsoonProvider,
+  EventProvider,
 } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -32,16 +33,18 @@ export default function RootLayout({
         <AuthProvider>
           <MovieProvider>
             <ComingsoonProvider>
-              <CinemaProvider>
-                <ShowtimeProvider>
-                  <OrderProvider>
-                    <Header />
-                    {children}
-                    <Toaster />
-                    <Footer />
-                  </OrderProvider>
-                </ShowtimeProvider>
-              </CinemaProvider>
+              <EventProvider>
+                <CinemaProvider>
+                  <ShowtimeProvider>
+                    <OrderProvider>
+                      <Header />
+                      {children}
+                      <Toaster />
+                      <Footer />
+                    </OrderProvider>
+                  </ShowtimeProvider>
+                </CinemaProvider>
+              </EventProvider>
             </ComingsoonProvider>
           </MovieProvider>
         </AuthProvider>
