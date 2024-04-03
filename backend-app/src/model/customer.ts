@@ -18,7 +18,7 @@ const customerSchema = new Schema({
     type: Number,
     require: true,
   },
-  orders: [
+  tickets: [
     {
       type: Schema.ObjectId,
       ref: "Ticket",

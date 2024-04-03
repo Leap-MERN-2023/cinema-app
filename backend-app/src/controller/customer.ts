@@ -51,6 +51,7 @@ export const login = async (
     const { customerEmail, customerPassword } = req.body;
     const customer = await Customer.findOne({ email: customerEmail })
       .select("+password")
+      .populate("orders")
       .lean();
 
     if (!customer) {
@@ -68,7 +69,6 @@ export const login = async (
       process.env.JWT_PRIVATE_KEY as string,
       { expiresIn: process.env.JWT_EXPIRE_IN }
     );
-    console.log("askdjsakjldadsjkljkldasjlkads");
     const { password, ...otherParams } = customer;
     res.status(201).json({
       message: "Хэрэглэгч амжилттай нэвтэрлээ",

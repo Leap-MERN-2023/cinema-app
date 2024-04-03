@@ -41,7 +41,9 @@ export const createTicket = async (
         time: req.body.time,
       },
     });
-    res.status(201).json({ message: "шинэ кино тасалбар үүслээ.", ticket });
+    user.tickets.push(ticket._id);
+    await user.save();
+    res.status(200).json({ message: "Created successfully ", ticket });
   } catch (error) {
     res.status(400).json({ message: "Create ticket error - " + error });
   }

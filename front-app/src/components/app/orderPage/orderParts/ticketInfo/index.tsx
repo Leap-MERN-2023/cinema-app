@@ -135,11 +135,9 @@ export const TicketInfo = ({
               >
                 -
               </Button>
-              <input
-                type="text"
-                className="w-10 bg-transparent text-center border-2 rounded-md"
-                value={total - kidsCount}
-              />
+              <div className="w-10 bg-transparent text-center border-2 rounded-md">
+                {total - kidsCount}
+              </div>
               <Button
                 className="bg-transparent m-o p-0 text-white"
                 onClick={() => {
@@ -164,11 +162,9 @@ export const TicketInfo = ({
               >
                 -
               </Button>
-              <input
-                type="text"
-                className="w-10 text-center bg-transparent border-2 rounded-md"
-                value={kidsCount}
-              />
+              <div className="w-10 text-center bg-transparent border-2 rounded-md">
+                {kidsCount}
+              </div>
               <Button
                 className="bg-transparent m-o p-0 text-white"
                 onClick={() => {

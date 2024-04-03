@@ -7,7 +7,7 @@ const orderSchema = new Schema({
     required: true,
   },
   orderNo: String,
-  tickets: [],
+  countDown: { type: Number, default: 600 },
   paidDate: { type: Date, default: null },
   payment: {
     paymentAmount: Number,

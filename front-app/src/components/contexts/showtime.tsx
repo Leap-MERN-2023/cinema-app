@@ -36,6 +36,7 @@ interface ITimeContext {
     startTime: Date
   ) => Promise<void>;
   seats: any;
+  newTicketId: any;
   sendShowtime: (
     selectedMovieId: string,
     selectedBranch: string,
@@ -46,6 +47,7 @@ interface ITimeContext {
     isActiveDate: string,
     isActiveTime: string
   ) => Promise<void>;
+  setIsCreateOrderWorked: (hi: any) => void;
 }
 
 export const ShowtimeContext = createContext({} as ITimeContext);
@@ -53,9 +55,11 @@ export const ShowtimeContext = createContext({} as ITimeContext);
 export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
   const [showtimes, setShowtimes] = useState([]);
   const [selectedScreen, setSelectedScreen] = useState("");
+  const [newTicketId, setNewTicketId] = useState<any>();
   const { toast } = useToast();
   const [seats, setSeats] = useState([]);
   const { token } = useContext(AuthContext);
+  const [isCreateOrderWorked, setIsCreateOrderWorked] = useState(false);
 
   const getTime = async () => {
     try {
@@ -110,7 +114,9 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
       // console.log(isActiveMonth);
       // console.log(isActiveDate);
       // console.log(isActiveTime);
-      await myAxios.post(
+      const {
+        data: { ticket },
+      } = await myAxios.post(
         "/ticket",
         {
           movieId: selectedMovieId,
@@ -132,6 +138,21 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
         variant: "default",
         title: "Тасалбар үүслээ",
       });
+      setNewTicketId(ticket._id);
+      console.log(ticket);
+      setTimeout(async () => {
+        if (isCreateOrderWorked == false) {
+          await myAxios.post(
+            "/order/isvalid",
+            { ticketId: ticket._id },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+        }
+      }, 600 * 1000);
     } catch (error) {
       toast({
         title: "Showtime илгээхэд алдаа гарлаа",
@@ -152,7 +173,14 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <ShowtimeContext.Provider
-      value={{ showtimes, getTimeByCinemaAndMovie, seats, sendShowtime }}
+      value={{
+        showtimes,
+        getTimeByCinemaAndMovie,
+        seats,
+        sendShowtime,
+        newTicketId,
+        setIsCreateOrderWorked,
+      }}
     >
       {children}
     </ShowtimeContext.Provider>

@@ -13,22 +13,23 @@ export const createOrder = async (
     const orderNo = () => {
       return Math.floor(Math.random() * 100000) + 1;
     };
-    const newFormData = req.body;
-    // const findTicket = await Ticket.find({ customer: req.user._id });
-    const findCustomer = await Customer.findById(req.user._id);
+    const findCustomer = await Customer.findById(req.user._id).populate(
+      "tickets"
+    );
     if (!findCustomer) {
       return res.status(400).json({ message: "customer is not found." });
     }
     const order = await Order.create({
       customer: findCustomer._id,
       orderNo: "#" + orderNo(),
-      tickets: [],
       payment: {
         paymentAmount: req.body.paymentAmount,
         paymentMethod: req.body.paymentMethod,
       },
     });
-    res.status(201).json({ message: "customer's order created successfully." });
+    res
+      .status(201)
+      .json({ message: "customer's order created successfully.", order });
   } catch (error) {
     next(error);
   }
@@ -48,5 +49,23 @@ export const getAllOrder = async (
     }
   } catch (error) {
     next(error);
+  }
+};
+
+export const invalidTicketDelete = async (
+  req: IReq,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const ticketId = req.body.ticketId;
+    await Ticket.findByIdAndDelete(ticketId);
+    const customer = await Customer.findById(req.user._id);
+    const popped = customer?.tickets.pop();
+    await customer?.save();
+    console.log(popped, "ljkadsfjlkdfsajadfs;j");
+    res.status(200).json({ message: "ustlaa" });
+  } catch (error) {
+    res.status(400).json({ message: "Create ticket error - " + error });
   }
 };

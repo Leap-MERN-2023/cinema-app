@@ -10,7 +10,7 @@ import myAxios from "@/components/utils/axios";
 import { Dispatch, SetStateAction } from "react";
 import { useToast } from "../ui/use-toast";
 import { ToastAction } from "../ui/toast";
-import { AuthContext } from ".";
+import { AuthContext, ShowtimeContext } from ".";
 
 interface IOrderContext {
   setOrder: Dispatch<
@@ -25,7 +25,8 @@ export const OrderContext = createContext({} as IOrderContext);
 export const OrderProvider = ({ children }: PropsWithChildren) => {
   const [order, setOrder] = useState({ paymentAmount: "", paymentMethod: "" });
   const { token } = useContext(AuthContext);
-
+  const { newTicketId } = useContext(ShowtimeContext);
+  const { setIsCreateOrderWorked } = useContext(ShowtimeContext);
   const createOrder = async (form: any) => {
     const config = {
       headers: {
@@ -38,11 +39,14 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
         {
           paymentAmount: form.paymentAmount,
           paymentMethod: form.paymentMethod,
+          ticketId: newTicketId,
         },
         config
       );
-      console.log("Order data", data);
-    } catch (error) {}
+      setIsCreateOrderWorked(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const getSelectedMovieData = async () => {
     try {

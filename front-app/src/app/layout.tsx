@@ -33,14 +33,14 @@ export default function RootLayout({
           <MovieProvider>
             <ComingsoonProvider>
               <CinemaProvider>
-                <OrderProvider>
-                  <ShowtimeProvider>
+                <ShowtimeProvider>
+                  <OrderProvider>
                     <Header />
                     {children}
                     <Toaster />
                     <Footer />
-                  </ShowtimeProvider>
-                </OrderProvider>
+                  </OrderProvider>
+                </ShowtimeProvider>
               </CinemaProvider>
             </ComingsoonProvider>
           </MovieProvider>

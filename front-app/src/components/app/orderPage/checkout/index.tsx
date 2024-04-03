@@ -19,7 +19,9 @@ import { Label } from "../../../ui/label";
 import { useToast } from "@/components/ui/use-toast";
 import { useContext } from "react";
 import { OrderContext } from "@/components/contexts/order";
-import { AuthContext, MovieContext } from "@/components";
+import { AuthContext, MovieContext, ShowtimeContext } from "@/components";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().includes("@", {
@@ -38,7 +40,7 @@ const formSchema = z.object({
   paymentAmount: z.number(),
 });
 
-export function Checkout({ changeStep }: any) {
+export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
   const { user } = useContext(AuthContext);
   const { order, setOrder, createOrder } = useContext(OrderContext);
   const { selectedMovieId, movies } = useContext(MovieContext);
@@ -57,10 +59,27 @@ export function Checkout({ changeStep }: any) {
       paymentAmount: totalPrice,
     },
   });
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
+  function onSubmit(values: z.infer<typeof formSchema>) {}
 
+  const router = useRouter();
+
+  const goBackAlert = async () => {
+    await Swal.fire({
+      position: "center",
+      title: "Та буцахдаа итгэлтэй байна уу?",
+      icon: "question",
+      text: "Буцвал таны сонгосон кино устахыг анхаарна уу.",
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Тийм",
+      confirmButtonColor: "#cc3300",
+      preConfirm: () => {
+        router.push("/");
+      },
+      cancelButtonText: "Үгүй",
+      cancelButtonColor: "#339900",
+    });
+  };
   return (
     <Form {...form}>
       <form
@@ -202,6 +221,14 @@ export function Checkout({ changeStep }: any) {
                 )}
               />
             </div>
+            <Button
+              className="text-slate-100 bg-slate-800 z-20 w-40"
+              onClick={() => {
+                goBackAlert();
+              }}
+            >
+              Буцах
+            </Button>
           </div>
         </div>
         <div className="h-full w-[250px]">
@@ -237,7 +264,6 @@ export function Checkout({ changeStep }: any) {
               className="w-full bg-red-600 mt-2 hover:bg-red-200"
               onClick={() => {
                 const values = form.getValues();
-                console.log(selectedMovie);
                 if (user == null) {
                   toast({
                     title: "Та заавал нэвтэрнэ үү",
@@ -249,10 +275,10 @@ export function Checkout({ changeStep }: any) {
                 }
                 if (form.formState.isValid) {
                   createOrder(values);
-                  console.log(values);
-                  changeStep();
+                  handleForwardStep();
                   return;
                 }
+                console.log("clicked", form.formState.isValid);
               }}
             >
               Төлөх
