@@ -7,19 +7,19 @@ type Props = {};
 
 export const MovieCard = (props: Props) => {
   const { movies, filteredMovies } = useContext(MovieContext);
-  const [pageCount, setPageCount] = useState(4);
+  const [pageCount, setPageCount] = useState(6);
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="mt-10 flex flex-wrap gap-5">
+      <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredMovies.slice(0, pageCount).map((card: any) => {
           return <MCard card={card} key={card._id} />;
         })}
       </div>
-      <div className="mt-12 p-3 rounded-xl bg-red-500">
+      <div className="mb-24 mt-8 p-3 rounded-md text-white bg-red-500 hover:bg-slate-800 duration-75">
         <button
           color="white"
           onClick={() => {
-            setPageCount(pageCount + 4);
+            setPageCount(pageCount + 6);
           }}
         >
           Show More

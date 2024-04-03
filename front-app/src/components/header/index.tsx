@@ -28,9 +28,9 @@ export const Header = () => {
   return (
     <div className="fixed flex backdrop-blur-md w-[100%] h-[60px] sm:h-[80px] md:h-[100px] z-10 text-white p-2 text-[10px] sm:text-[16px] justify-center">
       <div className="header flex md:gap-64 lg:gap-96 sm:gap-30 text-red-500 justify-evenly items-center">
-        <p className="flex flex-col font-bold size-10 items-center sm:mr-[96px]  sm:text-lg">
+        <p className="flex flex-col font-bold size-10 items-center mr-[32px]  sm:text-lg">
           CENTRAL
-          <span className="ml-10">CINEMA</span>
+          <span className="ml-8">CINEMA</span>
         </p>
         <ul className="flex font-semibold text-white items-center gap-4 sm:gap-8 lg:gap-12">
           {headers.map((header, i) => (
