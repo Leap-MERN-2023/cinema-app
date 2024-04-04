@@ -71,7 +71,12 @@ export const Login = ({ handleLinkClick }: Props) => {
           </div>
           Facebook-ээр нэвтрэх
         </Button>
-        <Button className="w-full py-4 mb-2">
+        <Button
+          onClick={() => {
+            window.open("http://localhost:8008/auth/google", "_self");
+          }}
+          className="w-full py-4 mb-2"
+        >
           <div className="w-[20px] mr-1">
             <CgMail className="h-full w-full" />
           </div>

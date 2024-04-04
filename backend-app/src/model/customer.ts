@@ -2,10 +2,13 @@ import { Schema, model } from "mongoose";
 import bcrypt from "bcrypt";
 
 const customerSchema = new Schema({
+  googleId: String,
   name: {
     type: String,
     require: true,
   },
+  fullName: String,
+  avatarUrl: String,
   password: {
     type: String,
   },

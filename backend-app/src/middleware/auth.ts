@@ -5,7 +5,7 @@ import { IReq } from "../utils/interface";
 import Customer from "../model/customer";
 
 export const authenticate = async (
-  req: IReq,
+  req: any,
   res: Response,
   next: NextFunction
 ) => {
@@ -29,4 +29,16 @@ export const authenticate = async (
   } catch (error) {
     next(error);
   }
+};
+
+export const isAuth = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  if (!req.user) {
+    return res.status(401).json({ message: "failed" });
+  }
+  res.status(200).json({ message: "success", user: req.user });
+  next();
 };

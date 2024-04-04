@@ -15,22 +15,45 @@ import ticket from "./router/ticket";
 import order from "./router/order";
 import comingsoon from "./router/comingsoon";
 import events from "./router/event";
+import user from "./router/user";
+import setupPassport from "./config/passport";
+import passport from "passport";
+import session from "express-session";
 
 const MONGO_URI = process.env.MONGO_URI as string;
 
 connectDB(MONGO_URI);
 
 const app: Application = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+setupPassport();
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use((req, res, next) => {
   next();
 });
+app.use(
+  session({
+    cookie: { maxAge: 24 * 60 * 60 * 1000 },
+    resave: false,
+    saveUninitialized: false,
+    secret: "secret-key",
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/auth", auth);
+app.use("/user", user);
 app.use("/seats", seats);
 app.use("/movie", movie);
 app.use("/comingsoon", comingsoon);

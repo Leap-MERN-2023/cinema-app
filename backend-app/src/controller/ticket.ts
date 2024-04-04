@@ -18,7 +18,7 @@ export const getTickets = async (
 };
 
 export const createTicket = async (
-  req: IReq,
+  req: any,
   res: Response,
   next: NextFunction
 ) => {

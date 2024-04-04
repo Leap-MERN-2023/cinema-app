@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { events } from "./data";
 import { Button } from "@/components";
 import { EventBanner } from "./eventSection";
 import Link from "next/link";

@@ -64,15 +64,15 @@ export const login = async (
     if (!isValid) {
       throw new MyError(`Имэйл эсвэл нууц үг буруу байна.`, 400);
     }
-    const token = jwt.sign(
-      { id: customer._id },
-      process.env.JWT_PRIVATE_KEY as string,
-      { expiresIn: process.env.JWT_EXPIRE_IN }
-    );
+    // const token = jwt.sign(
+    //   { id: customer._id },
+    //   process.env.JWT_PRIVATE_KEY as string,
+    //   { expiresIn: process.env.JWT_EXPIRE_IN }
+    // );
     const { password, ...otherParams } = customer;
     res.status(201).json({
       message: "Хэрэглэгч амжилттай нэвтэрлээ",
-      token,
+      // token,
       user: otherParams,
     });
   } catch (error) {

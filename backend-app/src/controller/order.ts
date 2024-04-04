@@ -5,7 +5,7 @@ import Ticket from "../model/ticket";
 import Customer from "../model/customer";
 
 export const createOrder = async (
-  req: IReq,
+  req: any,
   res: Response,
   next: NextFunction
 ) => {
@@ -36,7 +36,7 @@ export const createOrder = async (
 };
 
 export const getAllOrder = async (
-  req: IReq,
+  req: any,
   res: Response,
   next: NextFunction
 ) => {
@@ -53,7 +53,7 @@ export const getAllOrder = async (
 };
 
 export const invalidTicketDelete = async (
-  req: IReq,
+  req: any,
   res: Response,
   next: NextFunction
 ) => {

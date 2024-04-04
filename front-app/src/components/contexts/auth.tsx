@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import React, {
   PropsWithChildren,
   createContext,
+  useContext,
   useEffect,
   useState,
 } from "react";
@@ -22,6 +23,7 @@ interface IAuthContext {
   logout: () => void;
   user: any;
   token: any;
+  setUser: any;
 }
 
 export const AuthContext = createContext({} as IAuthContext);
@@ -40,20 +42,20 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     try {
       setLoading(true);
       const {
-        data: { token, user },
+        data: { user },
       } = await myAxios.post("/auth/login", {
         customerEmail: email,
         customerPassword: password,
       });
       // console.log("newterlee", token, user);
-      localStorage.setItem("token", JSON.stringify(token));
+      // localStorage.setItem("token", JSON.stringify(token));
       localStorage.setItem("user", JSON.stringify(user));
       toast({
         title: "Амжилттай нэвтрэлээ!",
         description: "Enjoy your journey ^.^ 🫰",
         duration: 1500,
       });
-      authLogged();
+      // authLogged();
       handleNext();
     } catch (error) {
       toast({
@@ -118,8 +120,12 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   };
 
   return (
-    <AuthContext.Provider value={{ login, signup, logout, user, token }}>
+    <AuthContext.Provider
+      value={{ login, signup, logout, user, token, setUser }}
+    >
       {children}
     </AuthContext.Provider>
   );
 };
+
+export const useAuth = () => useContext(AuthContext);
