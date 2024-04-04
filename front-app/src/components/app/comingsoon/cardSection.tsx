@@ -11,31 +11,28 @@ type Props = {
 export const CardSection = ({ pageCount }: Props) => {
   const { coMovies } = useContext(ComingsoonContext);
   return (
-    <div className="flex justify-center my-10 flex-wrap gap-5 items-center">
-      {coMovies.slice(0, pageCount).map((card: any) => (
-        <Card
-          className="w-[300px] h-[550px] rounded-lg overflow-hidden border-none bg-slate-800"
-          key={card._id}
-        >
-          <img
-            src={card.poster.vertical}
-            className="h-[380px] w-full rounded-t-lg border-none relative"
-          />
-          <Badge
-            variant="secondary"
-            className="absolute mt-2 ml-2 bg-black bg-opacity-20 text-slate-100"
+    <div className="flex flex-wrap justify-center items-center">
+      <div className=" grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {coMovies.slice(0, pageCount).map((card: any) => (
+          <Card
+            className="my-4 transition ease-in duration-200 delay-100 hover:cursor-pointer hover:scale-105 border-2 border-slate-900 bg-slate-900 shadow-none w-[300px] h-[450px]"
+            onClick={() => {
+              console.log("aaa==>", card.title);
+            }}
           >
-            {card.releaseDate.split("T")[0]}
-          </Badge>
-
-          <CardFooter className="bg-slate-800 flex items-center flex-col mt-8 gap-2 rounded-b-lg relative">
-            <p className="text-white font-bold text-xl mt-5 text-center overflow-hidden absolute">
-              {card.title}
-            </p>
             <ComingModal card={card} />
-          </CardFooter>
-        </Card>
-      ))}
+            <Badge className="absolute mt-[-20px] bg-slate-800 shadow-none rounded-none rounded-tr-lg">
+              {card.releaseDate.split("T")[0]}
+            </Badge>
+
+            <CardFooter className="bg-slate-800 flex items-center flex-col gap-2 rounded-b-lg">
+              <p className="text-white font-bold text-sm mt-5 overflow-hidden">
+                {card.title}
+              </p>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 };

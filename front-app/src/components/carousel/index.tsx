@@ -39,7 +39,7 @@ export function CarouselCard(props: Props) {
           <button
             onClick={prevSlide}
             disabled={false}
-            className="text-white text-[24px] size-6 rounded-xl z-10"
+            className="text-white text-[24px] size-6 rounded-xl z-10 opacity-0 sm:opacity-100"
           >
             ❮
           </button>
@@ -68,13 +68,13 @@ export function CarouselCard(props: Props) {
 
           <button
             onClick={nextSlide}
-            className="text-white text-[24px] size-6 rounded-xl z-10"
+            className="text-white text-[24px] size-6 rounded-xl z-10 opacity-0 sm:opacity-100"
           >
             ❯
           </button>
         </div>
       </Carousel>
-      <div className="flex justify-center mt-3 ">
+      <div className="flex justify-center mt-3 sm:mt-6 ">
         {images.map((_, index) => (
           <span
             key={index}

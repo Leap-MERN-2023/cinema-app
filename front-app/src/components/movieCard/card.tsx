@@ -9,7 +9,7 @@ type Props = {
 
 export const MCard = ({ card }: Props) => {
   return (
-    <div className="flex justify-center my-10 flex-wrap gap-5 items-center">
+    <div className="flex justify-center my-4 flex-wrap gap-5 items-center">
       <Card
         className="transition ease-in duration-200 delay-100 hover:cursor-pointer hover:scale-105 border-2 border-slate-900 bg-slate-900 shadow-none w-[300px] h-[450px]"
         onClick={() => {

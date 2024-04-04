@@ -13,7 +13,7 @@ export const EventBanner = (props: Props) => {
   const { events } = useContext(EventContext);
   return (
     <div className=" flex flex-wrap justify-center">
-      <ScrollArea className="h-[600px] w-[50%%] rounded-md border">
+      <ScrollArea className="h-[600px] w-[50%%] rounded-md border-4 border-slate-800 bg-slate-800">
         {events.map((event, index) => (
           <div
             key={index}
