@@ -264,15 +264,6 @@ export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
               className="w-full bg-red-600 mt-2 hover:bg-red-200"
               onClick={() => {
                 const values = form.getValues();
-                if (loginuser == null) {
-                  toast({
-                    title: "Та заавал нэвтэрнэ үү",
-                    description:
-                      "Тасалбар захиалахын тулд та заавал нэвтэрсэн байх шаарлдлагатай.",
-                    duration: 1500,
-                  });
-                  return;
-                }
                 if (form.formState.isValid) {
                   createOrder(values);
                   handleForwardStep();

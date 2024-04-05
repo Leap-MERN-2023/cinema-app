@@ -37,7 +37,7 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     getEvents();
-  }, [refresh]);
+  }, []);
 
   return (
     <EventContext.Provider value={{ events }}>{children}</EventContext.Provider>

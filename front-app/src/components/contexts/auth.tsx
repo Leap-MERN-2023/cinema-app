@@ -78,7 +78,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         withCredentials: true,
       });
       console.log("UUUUSSSEEERRR ", data);
-      setUser(data);
+      setUser(data.user);
       router.push("/");
       toast({
         title: "Амжилттай нэвтрэлээ!",
@@ -91,7 +91,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   const signup = async (email: string, password: string) => {
     try {
       setLoading(true);
-      const data = await myAxios.post("/user/signup", {
+      const { data } = await myAxios.post("/user/signup", {
         email: email,
         password: password,
       });
@@ -99,6 +99,8 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         title: "Амжилттай бүртгүүллээ",
         description: "Enjoy your journey ^.^ 🫰",
       });
+      console.log("agagagahahhaahhahahahaahhaahahhahaah", data);
+      setUserData(data);
       handleNext();
       setRefresh(!refresh);
     } catch (error) {

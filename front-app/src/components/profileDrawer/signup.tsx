@@ -30,7 +30,7 @@ export const Signup = ({ handleLinkClick }: Props) => {
   const formik = useFormik({
     onSubmit: ({ email, password }) => {
       signup(email, password);
-      handleLinkClick;
+      handleLinkClick();
     },
     initialValues: { email: "", password: "", rePassword: "" },
     validateOnChange: false,

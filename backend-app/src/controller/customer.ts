@@ -35,7 +35,7 @@ export const signup = async (
     console.log("usershuuuuu=======", user, "tokenshuuuuu=======", verifyToken);
     res
       .status(201)
-      .json({ message: "шинэ хэрэглэгч үүслээ.", user, verifyToken });
+      .json({ message: "шинэ хэрэглэгч үүслээ.", user, token: verifyToken });
   } catch (error) {
     res
       .status(400)

@@ -31,7 +31,7 @@ setupPassport();
 
 app.use(
   cors({
-    origin: "https://cinema-client-mauve.vercel.app",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );

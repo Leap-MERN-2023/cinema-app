@@ -1,8 +1,16 @@
-import { Button, CinemaContext, MovieContext } from "@/components";
+import {
+  AuthContext,
+  Button,
+  CinemaContext,
+  MovieContext,
+  useAuth,
+} from "@/components";
 import { ShowtimeContext } from "@/components/contexts/showtime";
 import { Armchair } from "lucide-react";
 import React, { useContext, useState } from "react";
 import { Seats } from "../seats";
+import { useToast } from "@/components/ui/use-toast";
+import { loginUser } from "../../../../../../../backend-app/src/controller/customer";
 
 type Props = {
   handleForwardStep: () => void;
@@ -40,6 +48,7 @@ export const TicketInfo = ({
 }: Props) => {
   const { showtimes, sendShowtime } = useContext(ShowtimeContext);
   const { selectedMovieId } = useContext(MovieContext);
+  const { loginuser } = useAuth();
   const { selectedCinema, selectedBranch } = useContext(CinemaContext);
   const [showtimeByDay, setShowtimeByDay] = useState<any>([]);
   const [showtimeByTime, setShowtimeByTime] = useState<any>([]);
@@ -50,19 +59,48 @@ export const TicketInfo = ({
   const [kidsCount, setKidsCount] = useState(0);
   const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
   const [total, setTotal] = useState(selectedSeats.length);
+  const { toast } = useToast();
 
   const send = () => {
-    sendShowtime(
-      selectedMovieId,
-      selectedBranch,
-      adultCount,
-      kidsCount,
-      selectedSeats,
-      isActiveMonth,
-      isActiveDate,
-      isActiveTime
-    );
-    handleForwardStep();
+    try {
+      if (loginuser === null) {
+        toast({
+          title: "Та заавал нэвтэрнэ үү",
+          variant: "destructive",
+          description:
+            "Тасалбар захиалахын тулд та заавал нэвтэрсэн байх шаарлдлагатай.",
+          duration: 1500,
+        });
+        return;
+      } else {
+        if (total - kidsCount === 0 && kidsCount === 0) {
+          toast({
+            title: "Алдаа гарлаа",
+            variant: "destructive",
+            description: `Бүх талбарыг бөглөнө үү`,
+          });
+          console.log("gag");
+        } else {
+          sendShowtime(
+            selectedMovieId,
+            selectedBranch,
+            total - kidsCount,
+            kidsCount,
+            selectedSeats,
+            isActiveMonth,
+            isActiveDate,
+            isActiveTime
+          );
+          handleForwardStep();
+        }
+      }
+    } catch (error) {
+      toast({
+        title: "Алдаа гарлаа",
+        variant: "destructive",
+        description: `Бүх талбарыг бөглөнө үү`,
+      });
+    }
   };
   const func = (length: any) => {
     setTotal(length);
