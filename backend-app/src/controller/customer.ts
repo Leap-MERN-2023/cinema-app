@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import MyError from "../utils/myError";
 import "dotenv/config";
+import generateToken from "../utils/generateToken";
 
 export const getCustomer = async (
   req: Request,
@@ -12,7 +13,7 @@ export const getCustomer = async (
 ) => {
   try {
     const allCustomers = await Customer.find();
-    res.status(201).json({ message: "Бүх кино олдлоо", allCustomers });
+    res.status(201).json({ message: "Бүх user олдлоо", allCustomers });
   } catch (error) {
     console.log(error);
   }
@@ -42,42 +43,41 @@ export const signup = async (
   }
 };
 
-export const login = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const loginUser = async (req: Request, res: Response) => {
+  const { userEmail, userPassword } = req.body;
+
   try {
-    const { customerEmail, customerPassword } = req.body;
-    const customer = await Customer.findOne({ email: customerEmail })
+    const existUser = await Customer.findOne({ email: userEmail })
       .select("+password")
-      .populate("orders")
+      .populate("tickets")
       .lean();
 
-    if (!customer) {
-      throw new MyError(`${customerEmail}-тэй Хэрэглэгч олдсонгүй.`, 400);
-    }
+    if (!existUser)
+      return res.status(400).json({ message: `${userEmail} is not exist` });
+
     const isValid = await bcrypt.compare(
-      customerPassword,
-      customer.password as string
+      userPassword,
+      existUser.password as string
     );
-    if (!isValid) {
-      throw new MyError(`Имэйл эсвэл нууц үг буруу байна.`, 400);
-    }
-    // const token = jwt.sign(
-    //   { id: customer._id },
-    //   process.env.JWT_PRIVATE_KEY as string,
-    //   { expiresIn: process.env.JWT_EXPIRE_IN }
-    // );
-    const { password, ...otherParams } = customer;
-    res.status(201).json({
-      message: "Хэрэглэгч амжилттай нэвтэрлээ",
-      // token,
-      user: otherParams,
-    });
-  } catch (error) {
+
+    if (!isValid)
+      return res
+        .status(400)
+        .json({ message: `Email or password is incorrect` });
+
+    const token = generateToken(existUser._id.toString());
+
     res
-      .status(400)
-      .json({ message: "hereglegch nevtrehed aldaa garlaa" + error });
+      .status(200)
+      .cookie("token", token, {
+        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+      })
+      .json({
+        message: "success",
+        user: existUser,
+        token,
+      });
+  } catch (error: any) {
+    res.status(500).json({ message: `${error.message}` });
   }
 };

@@ -1,15 +1,9 @@
-import { Response, Router } from "express";
-import { isAuth } from "../middleware/auth";
+import { Router } from "express";
+import { loginUser, signup } from "../controller/customer";
 
 const router = Router();
 
-router.route("/google/success").get((req: any, res: Response) => {
-  console.log("", req.user);
-  res.redirect(`http://localhost:3000/?login=success&id`);
-});
-
-router.route("/current_user").get(isAuth, (req, res) => {
-  res.status(201).json({ user: req.user });
-});
+router.route("/login").post(loginUser);
+router.route("/signup").post(signup);
 
 export default router;

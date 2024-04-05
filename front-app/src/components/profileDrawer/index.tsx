@@ -15,7 +15,7 @@ export function ProfileDrawer() {
     setShowSignIn(!showSignIn);
   };
 
-  const { user } = useContext(AuthContext);
+  const { loginuser } = useContext(AuthContext);
 
   return (
     <Sheet>
@@ -25,7 +25,7 @@ export function ProfileDrawer() {
         </a>
       </SheetTrigger>
       <SheetContent className="flex justify-center items-center bg-[#000000] bg-opacity-50 border-none">
-        {user == null ? (
+        {loginuser == null ? (
           <div>
             {showSignIn ? (
               <Login handleLinkClick={handleLinkClick} />
@@ -35,7 +35,7 @@ export function ProfileDrawer() {
           </div>
         ) : (
           <div>
-            <Profile user={user} />
+            <Profile user={loginuser} />
           </div>
         )}
       </SheetContent>

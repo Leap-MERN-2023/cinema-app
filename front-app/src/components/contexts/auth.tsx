@@ -11,17 +11,19 @@ import { ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 
 import myAxios from "@/components/utils/axios";
+import { AxiosError } from "axios";
 
 interface IUser {
   email: string;
   password?: string;
+  googleId?: string | null;
 }
 
 interface IAuthContext {
   login: (email: string, password: string) => Promise<void>;
   signup: (password: string, email: string) => Promise<void>;
   logout: () => void;
-  user: any;
+  loginuser: any;
   token: any;
   setUser: any;
 }
@@ -38,41 +40,64 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     router.replace("/");
   };
 
+  const getUser = async () => {
+    try {
+      const { data } = await myAxios.get(
+        `http://localhost:8080/auth/login/success`,
+        {
+          withCredentials: true,
+        }
+      );
+      setUserData(data);
+      router.push("/");
+      console.log("Successfully login wiht google");
+    } catch (error: any) {
+      console.log("Error");
+    }
+  };
+
+  const setUserData = (data: any) => {
+    setUser(data.user);
+    setToken(data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+    localStorage.setItem("token", data.token);
+  };
+
   const login = async (email: string, password: string) => {
     try {
-      setLoading(true);
-      const {
-        data: { user },
-      } = await myAxios.post("/auth/login", {
-        customerEmail: email,
-        customerPassword: password,
+      const { data } = await myAxios.post("/user/login", {
+        userEmail: email,
+        userPassword: password,
       });
-      // console.log("newterlee", token, user);
-      // localStorage.setItem("token", JSON.stringify(token));
-      localStorage.setItem("user", JSON.stringify(user));
+      console.log("DATA", data);
+      setUserData(data);
+      router.push("/");
       toast({
         title: "Амжилттай нэвтрэлээ!",
         description: "Enjoy your journey ^.^ 🫰",
         duration: 1500,
       });
-      // authLogged();
-      handleNext();
     } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: `There was a problem with your request. ${error} `,
-        action: <ToastAction altText="Try again">Try again</ToastAction>,
-      });
-    } finally {
-      setLoading(false);
+      if (error instanceof AxiosError) {
+        toast({
+          title: "Aldaa garlaa",
+          variant: "destructive",
+          description: `Aldaa = ${error.response?.data.message}`,
+        });
+      }
     }
   };
+
+  // toast({
+  //   title: "Амжилттай нэвтрэлээ!",
+  //   description: "Enjoy your journey ^.^ 🫰",
+  //   duration: 1500,
+  // });
 
   const signup = async (email: string, password: string) => {
     try {
       setLoading(true);
-      const data = await myAxios.post("/auth/signup", {
+      const data = await myAxios.post("/user/signup", {
         email: email,
         password: password,
       });
@@ -94,7 +119,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  const [user, setUser] = useState<IUser | null>();
+  const [loginuser, setUser] = useState<IUser | null>(null);
   const [token, setToken] = useState("");
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const authLogged = () => {
@@ -103,9 +128,8 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       setToken(JSON.parse(localStorage.getItem("token")!));
     }
   };
-  useEffect(() => {
-    authLogged();
-  }, []);
+
+  console.log("User =", loginuser);
 
   const logout = () => {
     setIsLoggingOut(true);
@@ -119,9 +143,14 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     router.push("/");
   };
 
+  useEffect(() => {
+    authLogged();
+    getUser();
+  }, []);
+
   return (
     <AuthContext.Provider
-      value={{ login, signup, logout, user, token, setUser }}
+      value={{ login, signup, logout, loginuser, token, setUser }}
     >
       {children}
     </AuthContext.Provider>

@@ -106,14 +106,14 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
     isActiveTime: string
   ) => {
     try {
-      // console.log(selectedMovieId);
-      // console.log(selectedBranch);
-      // console.log(adultCount);
-      // console.log(kidsCount);
-      // console.log(selectedSeats);
-      // console.log(isActiveMonth);
-      // console.log(isActiveDate);
-      // console.log(isActiveTime);
+      console.log(selectedMovieId);
+      console.log(selectedBranch);
+      console.log(adultCount);
+      console.log(kidsCount);
+      console.log(selectedSeats);
+      console.log(isActiveMonth);
+      console.log(isActiveDate);
+      console.log(isActiveTime);
       const {
         data: { ticket },
       } = await myAxios.post(

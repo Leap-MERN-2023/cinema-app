@@ -41,7 +41,7 @@ const formSchema = z.object({
 });
 
 export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
-  const { user } = useContext(AuthContext);
+  const { loginuser } = useContext(AuthContext);
   const { order, setOrder, createOrder } = useContext(OrderContext);
   const { selectedMovieId, movies } = useContext(MovieContext);
 
@@ -110,7 +110,7 @@ export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
                           placeholder="И-мэйл хаяг"
                           className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
                           {...field}
-                          value={user?.email}
+                          value={loginuser?.email}
                         />
                       </div>
                     </FormControl>
@@ -138,7 +138,7 @@ export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
                           className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
                           placeholder="Утасны дугаар"
                           {...field}
-                          value={user?.phone}
+                          value={loginuser?.phone}
                         />
                       </div>
                     </FormControl>
@@ -264,7 +264,7 @@ export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
               className="w-full bg-red-600 mt-2 hover:bg-red-200"
               onClick={() => {
                 const values = form.getValues();
-                if (user == null) {
+                if (loginuser == null) {
                   toast({
                     title: "Та заавал нэвтэрнэ үү",
                     description:

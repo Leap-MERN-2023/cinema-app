@@ -1,33 +1,33 @@
 import { Request, Response, NextFunction } from "express";
-import MyError from "../utils/myError";
-import jwt from "jsonwebtoken";
-import { IReq } from "../utils/interface";
 import Customer from "../model/customer";
+import verifyToken from "../utils/verifyToken";
 
 export const authenticate = async (
-  req: any,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  try {
-    if (!req.headers.authorization) {
-      throw new MyError(
-        "Token байхгүй байна. Та заавал токен илгээх ёстой.",
-        400
-      );
-    }
-    const token = req.headers.authorization.split(" ")[1];
-    if (!token) {
-      throw new MyError("Энэ үйлдлийг хийхийн тулд нэвтрэх ёстой", 400);
-    }
-    const { id } = jwt.verify(token!, process.env.JWT_PRIVATE_KEY!) as {
-      id: string;
-    };
-    const findCustomer = await Customer.findById(id);
-    req.user = findCustomer;
+  console.log("R", req.headers.authorization);
+  if (!req.headers.authorization) {
+    return res
+      .status(401)
+      .json({ message: "Энэ үйлдлийг хийхийн тулд нэвтэрх ёстой" });
+  }
+
+  const token = req.headers.authorization.split(" ")[1];
+  console.log("Token", token);
+
+  if (!token) {
+    console.log("Token-null", token);
+    res
+      .status(401)
+      .json({ message: "Энэ үйлдлийг хийхийн тулд нэвтэрх ёстой" });
+  } else {
+    console.log("Token-Yes", token);
+    const { userId } = verifyToken(token) as { userId: string };
+    const findUser = await Customer.findById(userId).lean();
+    req.user = findUser!;
     next();
-  } catch (error) {
-    next(error);
   }
 };
 

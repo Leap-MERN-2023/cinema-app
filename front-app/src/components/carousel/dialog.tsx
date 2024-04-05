@@ -30,7 +30,6 @@ export function DialogOpen({ movie }: ICardProps) {
           Дэлгэрэнгүй
         </Button>
       </DialogTrigger>
-      <DialogTitle>Event</DialogTitle>
       <DialogContent className="p-0 bg-slate-700 max-h-[800px] min-w-[1200px] border-none overflow-auto">
         <div className="">
           <div className="flex backdrop-blur-md p-6 justify-center gap-40">

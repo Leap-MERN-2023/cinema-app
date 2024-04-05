@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import Movie from "../model/movie";
 import Seat from "../model/seat";
 import Showtime from "../model/showtime";
+import Customer from "../model/customer";
 
 export const getTime = async (
   req: Request,
@@ -16,12 +17,12 @@ export const getTime = async (
   }
 };
 
-export const getTimes = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const getTimes = async (req: any, res: Response, next: NextFunction) => {
   try {
+    const findUser = await Customer.findById({ _id: req.user._id });
+    if (!findUser) {
+      res.status(400).json({ message: "user oldsongui" });
+    }
     const times = await Showtime.findOne({
       movie: req.body.movieId,
       cinema: req.body.cinemaId,

@@ -24,7 +24,6 @@ export default function Trailermodal({ trailers }: Props) {
       <DialogTrigger asChild>
         <Button variant="outline">Трейлер</Button>
       </DialogTrigger>
-      <DialogTitle>Trailer</DialogTitle>
       {trailerClose && (
         <DialogContent className=" bg-black border-black  rounded-none max-w-[650px] max-h-full">
           <Button
