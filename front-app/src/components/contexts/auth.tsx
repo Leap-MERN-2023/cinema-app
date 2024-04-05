@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     setUser(data.user);
     setToken(data.token);
     localStorage.setItem("user", JSON.stringify(data.user));
-    localStorage.setItem("token", data.token);
+    localStorage.setItem("token", JSON.stringify(data.token));
   };
 
   const login = async (email: string, password: string) => {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext } from "react";
-import { Button, CinemaContext } from "@/components";
+import { Button, CinemaContext, ShowtimeContext } from "@/components";
 
 type Props = {
   handleForwardStep: () => void;
@@ -9,10 +9,16 @@ type Props = {
 };
 
 export const CinemaSection = ({ handleForwardStep, cinemas }: Props) => {
+  const { showtimesByMovie, setShowtimesByCinema } =
+    useContext(ShowtimeContext);
   const { setSelectedBranch } = useContext(CinemaContext);
-  const handleClick = (name: string) => {
+  const handleClick = (branchName: string) => {
     handleForwardStep();
-    setSelectedBranch(name);
+    setShowtimesByCinema(
+      showtimesByMovie.filter((showtime: any) => showtime.branch === branchName)
+    );
+    setSelectedBranch(branchName);
+    console.log("console log on orderPage/cinema", showtimesByMovie);
   };
   return (
     <div className="grid grid-cols-2 items-center gap-10 my-10 ">

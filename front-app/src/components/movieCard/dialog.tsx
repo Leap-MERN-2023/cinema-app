@@ -6,13 +6,15 @@ import { cinemas } from "./cinemas";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { Resizable } from "./resizeImage";
-import { MovieContext } from "..";
+import { MovieContext, ShowtimeContext } from "..";
 
 type ICardProps = {
   card: any;
 };
 
 export function DialogOpen({ card }: ICardProps) {
+  const { showtimesByMovie, setShowtimesByMovie, showtimes } =
+    useContext(ShowtimeContext);
   const [openVideo, setOpenvideo] = useState(false);
   const { setSelectedMovieId } = useContext(MovieContext);
   const router = useRouter();
@@ -51,7 +53,14 @@ export function DialogOpen({ card }: ICardProps) {
               <Button
                 className="bg-rose-500 px-10 w-32 h-8"
                 onClick={() => {
-                  router.push("/order"), setSelectedMovieId(card._id);
+                  router.push("/order"),
+                    setSelectedMovieId(card._id),
+                    setShowtimesByMovie(
+                      showtimes.filter(
+                        (showtime: any) => showtime.movie === card._id
+                      )
+                    );
+                  console.log("movie filter ====>", card._id);
                 }}
               >
                 Захиалах

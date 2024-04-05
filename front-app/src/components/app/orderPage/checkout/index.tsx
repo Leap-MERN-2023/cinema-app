@@ -44,6 +44,7 @@ export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
   const { loginuser } = useContext(AuthContext);
   const { order, setOrder, createOrder } = useContext(OrderContext);
   const { selectedMovieId, movies } = useContext(MovieContext);
+  const { updateShowtime, orderSeats } = useContext(ShowtimeContext);
 
   const selectedMovie = movies.find((movie) => movie._id === selectedMovieId);
 
@@ -264,12 +265,12 @@ export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
               className="w-full bg-red-600 mt-2 hover:bg-red-200"
               onClick={() => {
                 const values = form.getValues();
-                if (form.formState.isValid) {
-                  createOrder(values);
-                  handleForwardStep();
-                  return;
-                }
-                console.log("clicked", form.formState.isValid);
+                // if (form.formState.isValid) {
+                createOrder(values);
+                updateShowtime(orderSeats);
+                handleForwardStep();
+                // }
+                // console.log("clicked", form.formState.isValid);
               }}
             >
               Төлөх

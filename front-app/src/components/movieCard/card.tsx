@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { Badge, CardFooter, Card } from "..";
+import React, { useContext } from "react";
+import { Badge, CardFooter, Card, ShowtimeContext } from "..";
 import { DialogOpen } from "./dialog";
 
 type Props = {
@@ -10,12 +10,7 @@ type Props = {
 export const MCard = ({ card }: Props) => {
   return (
     <div className="flex justify-center my-4 flex-wrap gap-5 items-center">
-      <Card
-        className="transition ease-in duration-200 delay-100 hover:cursor-pointer hover:scale-105 border-2 border-slate-900 bg-slate-900 shadow-none w-[300px] h-[450px]"
-        onClick={() => {
-          console.log("aaa==>", card.title);
-        }}
-      >
+      <Card className="transition ease-in duration-200 delay-100 hover:cursor-pointer hover:scale-105 border-2 border-slate-900 bg-slate-900 shadow-none w-[300px] h-[450px]">
         <DialogOpen card={card} />
         <Badge className="absolute mt-[-20px] bg-slate-800 shadow-none rounded-none rounded-tr-lg">
           {card.releaseDate.split("T")[0]}
