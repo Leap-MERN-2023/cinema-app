@@ -22,25 +22,15 @@ export default function Trailermodal({ trailers }: Props) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="w-24 h-6 text-[12px] md:w-28 md:h-9 font-medium md:text-[14px] text-black bg-white">
+        <Button className="w-24 h-6 text-[12px] md:w-28 md:h-9 font-medium md:text-[14px] text-black bg-white hover:text-white">
           Трейлер
         </Button>
       </DialogTrigger>
       {trailerClose && (
-        <DialogContent className=" bg-black border-black  rounded-none max-w-[650px] max-h-full">
-          <Button
-            className="bg-black"
-            onClick={() => {
-              setTrailerClose(false);
-            }}
-          >
-            X
-          </Button>
-
+        <DialogContent className=" bg-black border-none">
           <iframe
             src={trailers}
-            width={600}
-            height={350}
+            className="w-[280px] sm:w-[466px] sm:h-[240px] flex justify-center m-auto"
             allowFullScreen
             loading="lazy"
           />

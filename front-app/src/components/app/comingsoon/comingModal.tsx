@@ -15,106 +15,100 @@ export function ComingModal({ card }: ICardProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button
-          variant="outline"
-          className="bg-slate-900 border-none text-white absolute mt-20"
-        >
-          Дэлгэрэнгүй
-        </Button>
+        <img
+          src={card.poster.vertical}
+          className="h-[380px] w-full rounded-t-lg border-none relative"
+        />
       </DialogTrigger>
-      <DialogContent className="p-0 bg-slate-700 max-h-[800px] min-w-[1200px] border-none overflow-auto">
-        <div className="">
-          <div className="flex backdrop-blur-md p-6 gap-40">
-            <section className="flex justify-center gap-4 z-10">
-              <div className="rounded-lg overflow-hidden w-[400px] flex justify-center items-center">
-                <img src={card.poster.vertical} alt={card.title + " image"} />
-              </div>
-            </section>
-            <section className="flex flex-col text-white z-20">
-              <h1 className="text-6xl font-bold mt-10">{card.title}</h1>
-              <div className="flex gap-6 items-center mt-10">
-                <p className="text-2xl font-bold">Найруулагч:</p>
-                <div className="text-2xl">{card.director}</div>
-              </div>
-              <div className="flex gap-6 items-center mt-10">
-                <p className="text-2xl font-bold">Төрөл:</p>
-                <div className="text-2xl">Action, Drama</div>
-              </div>
-              <div className="flex mt-20 gap-10 flex-col">
-                <Button
-                  onClick={() => {
-                    setOpenvideo(true);
-                    // console.log("clicked");
-                  }}
-                  className="bg-white px-10 text-black h-12 hover:text-white"
+      <DialogContent className="p-0 bg-slate-900 w-[95%] h-[95%] border-none rounded-md overflow-auto">
+        <div className="flex flex-col backdrop-blur-sm p-6 justify-center">
+          <div className="rounded-lg overflow-hidden w-48 flex justify-center items-center">
+            <img src={card.poster.vertical} alt={card.title + " image"} />
+          </div>
+          <div className="flex flex-col text-white">
+            <h1 className="text-4xl lg:text-6xl font-bold mt-4">
+              {card.title}
+            </h1>
+            <div className="flex gap-2 items-center mt-4">
+              <p className="text-base font-bold">Найруулагч:</p>
+              <div className="text-sm">{card.director}</div>
+            </div>
+            <div className="flex gap-2 items-center mt-2">
+              <p className="text-base font-bold">Төрөл:</p>
+              <div className="text-sm">{card.genre}</div>
+            </div>
+            <div className="flex mt-6 gap-4">
+              <Button
+                onClick={() => {
+                  setOpenvideo(true);
+                }}
+                className="px-10 w-32 h-8 bg-white text-black hover:text-white"
+              >
+                Трейлер
+              </Button>
+              {openVideo && (
+                <div className="bg-black absolute flex justify-center">
+                  <Button
+                    className="bg-black size-7 rounded-sm text-white hover:text-red-500 hover:bg-black absolute right-0"
+                    onClick={() => {
+                      setOpenvideo(false);
+                    }}
+                  >
+                    ✖
+                  </Button>
+                  <iframe
+                    src={card.movie_trailer}
+                    allowFullScreen
+                    loading="lazy"
+                    title={card.synopsis}
+                    className="w-[308px] sm:w-[466px] sm:h-[240px]"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="absolute -z-10 top-0 opacity-30">
+          <img src={card.poster.vertical} alt="" className="w-[640px]" />
+        </div>
+        <div className="bg-gradient-to-b from-slate-900 to-slate-600 text-white pl-6 mt-[-20px]">
+          <p className="text-xl font-bold mt-6">Тухай: </p>
+          <div className="text-sm mt-4 mr-4">{card.synopsis}</div>
+          <p className="text-xl font-bold mt-4">Дүрүүдэд: </p>
+          <div className="flex gap-6 mt-4">
+            {card.cast.map((cast: any, i: any) => {
+              return (
+                <div
+                  key={i}
+                  className="flex flex-col gap-4 overflow-hidden max-w-20 text-sm text-center"
                 >
-                  Трейлер
-                </Button>
-                {openVideo && (
-                  <div className="bg-black ">
-                    <Button
-                      className="bg-black"
-                      onClick={() => {
-                        setOpenvideo(false);
-                      }}
-                    >
-                      Close
-                    </Button>
-                    <iframe
-                      src={card.movie_trailer}
-                      width={575}
-                      height={320}
-                      allowFullScreen
-                      loading="lazy"
-                      title={card.synopsis}
+                  <Avatar className="rounded-full size-20 items-center ">
+                    <AvatarImage
+                      src={cast.img}
+                      className="object-cover"
+                      alt="@shadcn"
                     />
-                  </div>
-                )}
-              </div>
-            </section>
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                  <p>{cast.name}</p>
+                </div>
+              );
+            })}
           </div>
-          <div className="absolute -z-10 top-0">
-            <img src={card.poster.lands.land1} alt="" width="1500px" />
+          <p className="text-xl font-bold mt-4">Кино театрууд:</p>
+          <div className="flex gap-4 mt-4 pb-10">
+            {cinemas.map((cinema: any, i: any) => {
+              return (
+                <div
+                  key={i}
+                  className="flex rounded-lg size-12 overflow-hidden justify-center items-center"
+                >
+                  <img src={cinema.img} alt={cinema.name} />
+                </div>
+              );
+            })}
           </div>
-          <div className="bg-gradient-to-b from-black to-zinc-600 text-white m-0 pl-10 pt-10">
-            <p className="text-4xl font-bold">Тухай: </p>
-            <div className="text-3xl font-light mt-4">{card.synopsis}</div>
-            <p className="text-4xl font-bold mt-4">Дүрүүдэд: </p>
-            <div className="flex gap-10 mt-10">
-              {card.cast.map((cast: any) => {
-                return (
-                  <div
-                    key={cast._id}
-                    className="flex flex-col items-center gap-4 max-w-20 font-light"
-                  >
-                    <Avatar className="rounded-md w-20  items-center h-20">
-                      <AvatarImage
-                        src={cast.img}
-                        className="object-cover"
-                        alt="@shadcn"
-                      />
-                      <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    <p>{cast.name}</p>
-                  </div>
-                );
-              })}
-            </div>
-            <p className="text-4xl font-bold mt-4">Кино театрууд:</p>
-            <div className="flex gap-10 mt-10 pb-10">
-              {cinemas.map((cinema: any, i: any) => {
-                return (
-                  <div
-                    key={i}
-                    className="flex rounded-lg w-[100px] h-[100px] overflow-hidden justify-center items-center"
-                  >
-                    <img src={cinema.img} alt={cinema.name} />
-                  </div>
-                );
-              })}
-            </div>
-            <Resizable card={card} />
-          </div>
+          <Resizable card={card} />
         </div>
       </DialogContent>
     </Dialog>

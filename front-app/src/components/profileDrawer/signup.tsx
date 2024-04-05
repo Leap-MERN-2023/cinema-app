@@ -49,14 +49,14 @@ export const Signup = ({ handleLinkClick }: Props) => {
           value={formik.values.email}
           onChange={formik.handleChange}
           placeholder="Е-майл хаяг"
-          className="bg-white"
+          className="bg-slate-400 border-none"
         />
         <PasswordInput
           id="password"
           name="password"
           value={formik.values.password}
           onChange={formik.handleChange}
-          className=" bg-white"
+          className=" bg-slate-400 border-none"
           placeholder="Нууц үг"
         />
         <PasswordInput

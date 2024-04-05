@@ -19,7 +19,7 @@ export function EventDialog({ event }: IEventProps) {
           Дэлгэрэнгүй
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-[95%] h-[75%] md:h-[80%] h-max-[150%] rounded-lg bg-slate-800 border-none overflow-auto">
+      <DialogContent className="w-[95%] h-[95%] h-max-[150%] rounded-lg bg-slate-800 border-none overflow-auto">
         <div className="w-full mt-6 flex flex-col items-center ">
           <img
             className="rounded-md shadow-2xl"

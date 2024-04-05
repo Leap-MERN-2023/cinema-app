@@ -3,7 +3,7 @@ import React from "react";
 
 const Page = () => {
   return (
-    <div className="bg-gradient-to-t from-gray-500 to-gray-950 h-full">
+    <div className="bg-slate-900 h-full">
       <ComingSoon />
     </div>
   );

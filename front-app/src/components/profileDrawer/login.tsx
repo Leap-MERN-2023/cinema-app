@@ -36,14 +36,14 @@ export const Login = ({ handleLinkClick }: Props) => {
           value={formik.values.email}
           onChange={formik.handleChange}
           placeholder="Е-майл хаяг"
-          className="bg-white"
+          className="bg-slate-400 border-none"
         />
         <PasswordInput
           id="current_password"
           name="password"
           value={formik.values.password}
           onChange={formik.handleChange}
-          className=" bg-white"
+          className="bg-slate-400 border-none"
           placeholder="Нууц үг"
         />
         <a className="text-white text-end text-[13px]">Нууц үг мартсан</a>
