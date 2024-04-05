@@ -10,7 +10,7 @@ import React, {
 import { Toast, ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 import myAxios from "@/components/utils/axios";
-import { AuthContext } from ".";
+import { AuthContext, MovieContext } from ".";
 
 interface ITimes {
   movie: string;
@@ -48,15 +48,27 @@ interface ITimeContext {
     isActiveTime: string
   ) => Promise<void>;
   setIsCreateOrderWorked: (hi: any) => void;
+  setShowtimes: (showtimes: any) => void;
+  showtimesByMovie: ITimes[];
+  setShowtimesByMovie: (showtimes: any) => void;
+  showtimesByCinema: ITimes[];
+  setShowtimesByCinema: (showtimes: any) => void;
+  setOrderSeats: (seats: any) => void;
+  orderSeats: any;
+  updateShowtime: (seats: any) => Promise<void>;
 }
 
 export const ShowtimeContext = createContext({} as ITimeContext);
 
 export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
+  const { selectedMovieId } = useContext(MovieContext);
   const [showtimes, setShowtimes] = useState([]);
+  const [showtimesByMovie, setShowtimesByMovie] = useState([]);
+  const [showtimesByCinema, setShowtimesByCinema] = useState([]);
   const [selectedScreen, setSelectedScreen] = useState("");
   const [newTicketId, setNewTicketId] = useState<any>();
   const { toast } = useToast();
+  const [orderSeats, setOrderSeats] = useState([]);
   const [seats, setSeats] = useState([]);
   const { token } = useContext(AuthContext);
   const [isCreateOrderWorked, setIsCreateOrderWorked] = useState(false);
@@ -67,6 +79,7 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
         data: { times },
       } = await myAxios.get("/showtime", {});
       setShowtimes(times);
+      console.log("times irlee", times);
     } catch (error) {}
   };
 
@@ -92,6 +105,23 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
       // console.log(times.seats);
     } catch (error) {
       console.log(error, "ALDAA GARAV");
+    }
+  };
+  const updateShowtime = async (seats: any) => {
+    try {
+      const { data } = await myAxios.put(
+        "/showtime",
+        {
+          seats,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (error) {
+      console.log("update Showtime context dr aldaa garlaa", error);
     }
   };
 
@@ -180,6 +210,14 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
         sendShowtime,
         newTicketId,
         setIsCreateOrderWorked,
+        setShowtimes,
+        showtimesByMovie,
+        setShowtimesByMovie,
+        showtimesByCinema,
+        setShowtimesByCinema,
+        setOrderSeats,
+        orderSeats,
+        updateShowtime,
       }}
     >
       {children}

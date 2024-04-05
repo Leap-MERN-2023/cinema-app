@@ -27,9 +27,13 @@ export const createOrder = async (
         paymentMethod: req.body.paymentMethod,
       },
     });
+
+    const lastOrder = await (
+      await (await order.save()).populate("customer")
+    ).populate("customer.tickets");
     res
       .status(201)
-      .json({ message: "customer's order created successfully.", order });
+      .json({ message: "customer's order created successfully.", lastOrder });
   } catch (error) {
     next(error);
   }
