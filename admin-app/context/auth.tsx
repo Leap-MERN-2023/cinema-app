@@ -20,9 +20,12 @@ interface IUser {
 interface IAuthContext {
   signup: (password: string, email: string) => Promise<void>;
   login: (password: string, email: string) => Promise<void>;
+  deleteUser: (id: string) => Promise<void>;
+  getAllUser: () => void;
   logout: () => void;
   loginuser: IUser | null;
   token: string;
+  allUser: any;
   setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
 }
 
@@ -33,6 +36,7 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
   const [loading, setLoading] = useState(false);
   const [refresh, setRefresh] = useState(false);
   const [loginuser, setUser] = useState<IUser | null>(null);
+  const [allUser, setAllUser] = useState<any | null>([]);
   const [token, setToken] = useState<string>("");
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
@@ -43,6 +47,16 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
     localStorage.setItem("token", data.token);
   };
 
+  const getAllUser = async () => {
+    try {
+      const { data } = await myAxios.get("/user/allcustomer");
+      console.log(data, "alluser");
+      setAllUser(data.allCustomers);
+    } catch (error) {
+      console.error("cannot get all user", error);
+    }
+  };
+
   const login = async (email: string, password: string) => {
     try {
       const { data } = await myAxios.post("/user/login", {
@@ -51,6 +65,7 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
       });
       console.log(data, "datataatatatatata");
       setUserData(data);
+      getAllUser();
       handleNext();
     } catch (error) {
       console.error("Login error:", error);
@@ -92,6 +107,7 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
     if (storedUser && storedToken) {
       setUser(JSON.parse(storedUser));
       setToken(storedToken);
+      getAllUser();
     }
   };
 
@@ -103,9 +119,30 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
     authLogged();
   }, []);
 
+  const deleteUser = async (id: string) => {
+    try {
+      const data = await myAxios.post(`/user/deletecustomer`, {
+        userId: id,
+      });
+      console.log("User deleted successfully", data);
+    } catch (error) {
+      console.error("Cannot delete user", error);
+    }
+  };
+
   return (
     <AuthContext.Provider
-      value={{ login, signup, logout, loginuser, token, setUser }}
+      value={{
+        login,
+        signup,
+        logout,
+        loginuser,
+        token,
+        setUser,
+        getAllUser,
+        allUser,
+        deleteUser,
+      }}
     >
       {children}
     </AuthContext.Provider>

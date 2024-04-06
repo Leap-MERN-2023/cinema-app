@@ -1,7 +1,7 @@
 "use client";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { AreaChart, SimpleBar, SimpleDonut } from "@/components/Charts";
-import { useAuth } from "@/components/context/auth";
+import { useAuth } from "@/context";
 import { useFormik } from "formik";
 
 const Chart = () => {

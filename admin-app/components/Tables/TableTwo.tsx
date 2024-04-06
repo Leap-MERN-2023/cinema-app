@@ -1,107 +1,105 @@
-import Image from "next/image";
-import { Product } from "@/types/product";
+"use client";
 
-const productData: Product[] = [
-  {
-    image: "/images/product/product-01.png",
-    name: "Apple Watch Series 7",
-    category: "Electronics",
-    price: 296,
-    sold: 22,
-    profit: 45,
-  },
-  {
-    image: "/images/product/product-02.png",
-    name: "Macbook Pro M1",
-    category: "Electronics",
-    price: 546,
-    sold: 12,
-    profit: 125,
-  },
-  {
-    image: "/images/product/product-03.png",
-    name: "Dell Inspiron 15",
-    category: "Electronics",
-    price: 443,
-    sold: 64,
-    profit: 247,
-  },
-  {
-    image: "/images/product/product-04.png",
-    name: "HP Probook 450",
-    category: "Electronics",
-    price: 499,
-    sold: 72,
-    profit: 103,
-  },
-];
+import { useAuth } from "..";
+import myAxios from "@/components/utils/axios";
 
 const TableTwo = () => {
+  const { allUser, loginuser } = useAuth();
+
+  const deleteUser = async (id: string) => {
+    try {
+      const data = await myAxios.post(`/user/deletecustomer`, {
+        userId: id,
+      });
+      console.log("User deleted successfully", data);
+    } catch (error) {
+      console.error("Cannot delete user", error);
+    }
+  };
   return (
-    <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-      <div className="py-6 px-4 md:px-6 xl:px-7.5">
-        <h4 className="text-xl font-semibold text-black dark:text-white">
-          Top Products
-        </h4>
-      </div>
+    <>
+      {loginuser ? (
+        <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+          <div className="py-6 px-4 md:px-6 xl:px-7.5">
+            <h4 className="text-xl font-semibold text-black dark:text-white">
+              Хэрэглэгчдийн жагсаалт
+            </h4>
+          </div>
 
-      <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-        <div className="col-span-3 flex items-center">
-          <p className="font-medium">Product Name</p>
-        </div>
-        <div className="col-span-2 hidden items-center sm:flex">
-          <p className="font-medium">Category</p>
-        </div>
-        <div className="col-span-1 flex items-center">
-          <p className="font-medium">Price</p>
-        </div>
-        <div className="col-span-1 flex items-center">
-          <p className="font-medium">Sold</p>
-        </div>
-        <div className="col-span-1 flex items-center">
-          <p className="font-medium">Profit</p>
-        </div>
-      </div>
-
-      {productData.map((product, key) => (
-        <div
-          className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5"
-          key={key}
-        >
-          <div className="col-span-3 flex items-center">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <div className="h-12.5 w-15 rounded-md">
-                <Image
-                  src={product.image}
-                  width={60}
-                  height={50}
-                  alt="Product"
-                />
-              </div>
-              <p className="text-sm text-black dark:text-white">
-                {product.name}
-              </p>
+          <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
+            <div className="col-span-2 flex items-center">
+              <p className="font-medium">И-мэйл</p>
+            </div>
+            <div className="col-span-2 hidden items-center sm:flex">
+              <p className="font-medium">Нэр</p>
+            </div>
+            <div className="col-span-1 flex items-center text-center">
+              <p className="font-medium">Утас</p>
+            </div>
+            <div className="col-span-1 flex items-center">
+              <p className="font-medium">Тасалбарын тоо</p>
+            </div>
+            <div className="col-span-1 flex items-center"></div>
+            <div className="col-span-1 flex items-center">
+              <p className="font-medium">Эрх</p>
             </div>
           </div>
-          <div className="col-span-2 hidden items-center sm:flex">
-            <p className="text-sm text-black dark:text-white">
-              {product.category}
-            </p>
-          </div>
-          <div className="col-span-1 flex items-center">
-            <p className="text-sm text-black dark:text-white">
-              ${product.price}
-            </p>
-          </div>
-          <div className="col-span-1 flex items-center">
-            <p className="text-sm text-black dark:text-white">{product.sold}</p>
-          </div>
-          <div className="col-span-1 flex items-center">
-            <p className="text-sm text-meta-3">${product.profit}</p>
-          </div>
+
+          {allUser?.map((user: any, key: string) => (
+            <div
+              className="grid grid-cols-6 border-t  border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5"
+              key={key}
+            >
+              <div className="col-span-2 flex items-center">
+                <div className="flex flex-col gap-4 sm:flex-row items-center">
+                  <div className="">{user.email}</div>
+                  <p className="text-sm text-black dark:text-white"></p>
+                </div>
+              </div>
+              <div className="col-span-2 hidden items-center sm:flex">
+                <p className="text-sm text-black dark:text-white">
+                  {user.name ? user.name : "Хэрэглэгчийн нэр"}
+                </p>
+              </div>
+              <div className="col-span-1 flex items-center">
+                <p className="text-sm text-black dark:text-white">
+                  {user.phoneNumber ? user.phoneNumber : "99119911"}
+                </p>
+              </div>
+              <div className="col-span-1 flex items-center">
+                <p className="text-sm text-black dark:text-white ml-14">
+                  {user.tickets.length}
+                </p>
+              </div>
+              <div className="col-span-1 flex items-center gap-8 ml-28">
+                <p className="text-sm text-meta-3">Хэрэглэгч</p>
+                <button
+                  className="text-sm text-white cursor-pointer rounded-lg border bg-orange-500 px-4 py-2 transition hover:bg-opacity-90"
+                  onClick={() => {
+                    deleteUser(user._id);
+                    console.log("clicked", user._id);
+                  }}
+                >
+                  Устгах
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      ) : (
+        <div className="flex flex-col items-center justify-between gap-5 ">
+          <div className="text-2xl">
+            Хэрэглэгчийн жагсаалтыг харахын тулд та заавал нэвтэрнэ үү.
+          </div>
+          <a
+            className="max-w-[200px] cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+            href="/signin"
+          >
+            Нэвтрэх
+          </a>
+        </div>
+      )}
+    </>
   );
 };
 

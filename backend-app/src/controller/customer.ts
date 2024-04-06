@@ -19,6 +19,22 @@ export const getCustomer = async (
   }
 };
 
+export const deleteCustomer = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const userId = req.body.userId;
+    const deleteUser = await Customer.findByIdAndDelete(userId);
+    res
+      .status(201)
+      .json({ message: `${userId} tai hereglegchiig ustgalaa`, deleteUser });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const signup = async (
   req: Request,
   res: Response,
