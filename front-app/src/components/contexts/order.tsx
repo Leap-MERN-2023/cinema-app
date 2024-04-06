@@ -24,7 +24,7 @@ export const OrderContext = createContext({} as IOrderContext);
 
 export const OrderProvider = ({ children }: PropsWithChildren) => {
   const [order, setOrder] = useState({ paymentAmount: "", paymentMethod: "" });
-  const { setOrderSeats } = useContext(ShowtimeContext);
+  const { setOrderSeats, updateShowtime } = useContext(ShowtimeContext);
   const { token } = useContext(AuthContext);
   const { newTicketId } = useContext(ShowtimeContext);
   const { setIsCreateOrderWorked } = useContext(ShowtimeContext);
@@ -47,7 +47,11 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
         config
       );
       setIsCreateOrderWorked(true);
-      setOrderSeats(lastOrder.customer.tickets.slice(-1).seatNumbers);
+      const { data } = await myAxios.put(
+        "/showtime",
+        { ticket: newTicketId },
+        config
+      );
     } catch (error) {
       console.log(error);
     }

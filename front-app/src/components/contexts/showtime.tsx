@@ -68,7 +68,7 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
   const [selectedScreen, setSelectedScreen] = useState("");
   const [newTicketId, setNewTicketId] = useState<any>();
   const { toast } = useToast();
-  const [orderSeats, setOrderSeats] = useState([]);
+  const [orderSeats, setOrderSeats] = useState(null);
   const [seats, setSeats] = useState([]);
   const { token } = useContext(AuthContext);
   const [isCreateOrderWorked, setIsCreateOrderWorked] = useState(false);
@@ -120,6 +120,7 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
           },
         }
       );
+      console.log("seats on st context", seats);
     } catch (error) {
       console.log("update Showtime context dr aldaa garlaa", error);
     }

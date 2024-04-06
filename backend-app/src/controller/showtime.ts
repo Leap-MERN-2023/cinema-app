@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import Showtime from "../model/showtime";
+import Ticket from "../model/ticket";
 
 export const getTime = async (
   req: Request,
@@ -35,7 +36,9 @@ export const updateShowtime = async (
   next: NextFunction
 ) => {
   try {
-    console.log("hi ---->", req.body);
+    console.log("hi ---->", req.body.ticket);
+    const ticket = await Ticket.findOne(req.body.ticket);
+    console.log("ticket irev", ticket);
   } catch (error) {
     res.status(400).json({ message: "" });
   }

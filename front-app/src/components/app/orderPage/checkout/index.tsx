@@ -267,7 +267,6 @@ export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
                 const values = form.getValues();
                 // if (form.formState.isValid) {
                 createOrder(values);
-                updateShowtime(orderSeats);
                 handleForwardStep();
                 // }
                 // console.log("clicked", form.formState.isValid);
