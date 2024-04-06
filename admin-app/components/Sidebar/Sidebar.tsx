@@ -77,7 +77,7 @@ const Sidebar = ({}: SidebarProps) => {
             >
               <li>
                 <ExpandMenu
-                  name="Homepage"
+                  name="Нүүр хуудас"
                   icon={<HomeIcon className="  h-6 w-6 hover:text-white" />}
                 >
                   <LinkItem
@@ -89,7 +89,7 @@ const Sidebar = ({}: SidebarProps) => {
               </li>
               <li>
                 <ExpandMenu
-                  name="Movies"
+                  name="Кинонууд"
                   icon={<MonitorPlay className="  h-6 w-6 hover:text-white" />}
                 >
                   <LinkItem
@@ -107,14 +107,14 @@ const Sidebar = ({}: SidebarProps) => {
 
               <li>
                 <LinkItem
-                  title="Cinema"
+                  title="Кино театр"
                   href="/cinema"
                   icon={<Film className="h-6 w-6" />}
                 ></LinkItem>
               </li>
               <li>
                 <LinkItem
-                  title="Events"
+                  title="Үйл ажиллагаа"
                   href="/events"
                   icon={<CalendarCheck className="h-6 w-6" />}
                 ></LinkItem>
@@ -122,7 +122,7 @@ const Sidebar = ({}: SidebarProps) => {
 
               <li>
                 <LinkItem
-                  title="Tables"
+                  title="Хэрэглэгчид"
                   href="/tables"
                   icon={<Table2Icon className="h-6 w-6" />}
                 ></LinkItem>
@@ -136,29 +136,27 @@ const Sidebar = ({}: SidebarProps) => {
               </li>
               <li>
                 <ExpandMenu
-                  name="Profile"
+                  name="Профайл"
                   icon={<User2Icon className="  h-6 w-6 hover:text-white" />}
                 >
                   <LinkItem
-                    title="Profile"
+                    title="Профайл"
                     href="/profile"
                     icon={<User2Icon className="h-6 w-6" />}
                   ></LinkItem>
                   <LinkItem
-                    title="Settings"
+                    title="Тохиргоо"
                     href="/settings"
                     icon={<Settings className="h-6 w-6" />}
                   ></LinkItem>
                 </ExpandMenu>
               </li>
               <li>
-                <ExpandMenu name="Auth" icon={<LampIcon className="h-6 w-6" />}>
-                  <LinkItem
-                    title="Sign In"
-                    href="/auth/signin"
-                    icon={<LockIcon className="h-5 w-5" />}
-                  ></LinkItem>
-                </ExpandMenu>
+                <LinkItem
+                  title="Нэвтрэх"
+                  href="/signin"
+                  icon={<LockIcon className="h-5 w-5" />}
+                ></LinkItem>
               </li>
 
               {/* <!-- Menu Item Auth Pages --> */}

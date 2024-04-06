@@ -10,6 +10,7 @@ import Header from "@/components/Header";
 import { Theme } from "@radix-ui/themes";
 import { MovieProvider, ComingsoonProvider, EventProvider } from "@/components";
 import { CinemaProvider } from "@/components/context/cinema";
+import { AuthProvider } from "@/components/context/auth";
 
 export default function RootLayout({
   children,
@@ -34,27 +35,28 @@ export default function RootLayout({
             ) : (
               <div className="flex h-screen overflow-hidden">
                 <Sidebar />
+                <AuthProvider>
+                  <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+                    <Header
+                      sidebarOpen={sidebarOpen}
+                      setSidebarOpen={setSidebarOpen}
+                    />
 
-                <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-                  <Header
-                    sidebarOpen={sidebarOpen}
-                    setSidebarOpen={setSidebarOpen}
-                  />
-
-                  <main>
-                    <CinemaProvider>
-                      <MovieProvider>
-                        <ComingsoonProvider>
-                          <EventProvider>
-                            <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-                              {children}
-                            </div>
-                          </EventProvider>
-                        </ComingsoonProvider>
-                      </MovieProvider>
-                    </CinemaProvider>
-                  </main>
-                </div>
+                    <main>
+                      <CinemaProvider>
+                        <MovieProvider>
+                          <ComingsoonProvider>
+                            <EventProvider>
+                              <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                                {children}
+                              </div>
+                            </EventProvider>
+                          </ComingsoonProvider>
+                        </MovieProvider>
+                      </CinemaProvider>
+                    </main>
+                  </div>
+                </AuthProvider>
               </div>
             )}
           </div>

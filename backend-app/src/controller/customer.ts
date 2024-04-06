@@ -66,7 +66,6 @@ export const loginUser = async (req: Request, res: Response) => {
         .json({ message: `Email or password is incorrect` });
 
     const token = generateToken(existUser._id.toString());
-
     res
       .status(200)
       .cookie("token", token, {

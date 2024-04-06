@@ -2,6 +2,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import Image from "next/image";
 
 import { Metadata } from "next";
+import { FaUserCircle } from "react-icons/fa";
 export const metadata: Metadata = {
   title: "Settings Page | Next.js E-commerce Dashboard Template",
   description: "This is Settings page for ShakibAdmin Next.js",
@@ -12,14 +13,14 @@ const Settings = () => {
   return (
     <>
       <div className="mx-auto max-w-270">
-        <Breadcrumb pageName="Settings" />
+        <Breadcrumb pageName="Тохиргоо" />
 
         <div className="grid grid-cols-5 gap-8">
           <div className="col-span-5 xl:col-span-3">
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
               <div className="border-b border-stroke px-7 py-4 dark:border-strokedark">
                 <h3 className="font-medium text-black dark:text-white">
-                  Personal Information
+                  Хувийн мэдээлэл
                 </h3>
               </div>
               <div className="p-7">
@@ -30,7 +31,7 @@ const Settings = () => {
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="fullName"
                       >
-                        Full Name
+                        Овог Нэр
                       </label>
                       <div className="relative">
                         <span className="absolute left-4.5 top-4">
@@ -74,7 +75,7 @@ const Settings = () => {
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="phoneNumber"
                       >
-                        Phone Number
+                        Утасны дугаар
                       </label>
                       <input
                         className="w-full rounded border border-stroke bg-gray px-4.5 py-3 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
@@ -92,7 +93,7 @@ const Settings = () => {
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="emailAddress"
                     >
-                      Email Address
+                      И-мэйл хаяг
                     </label>
                     <div className="relative">
                       <span className="absolute left-4.5 top-4">
@@ -136,7 +137,7 @@ const Settings = () => {
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="Username"
                     >
-                      Username
+                      Нэр
                     </label>
                     <input
                       className="w-full rounded border border-stroke bg-gray px-4.5 py-3 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
@@ -153,7 +154,7 @@ const Settings = () => {
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="Username"
                     >
-                      BIO
+                      Тухай
                     </label>
                     <div className="relative">
                       <span className="absolute left-4.5 top-4">
@@ -220,31 +221,25 @@ const Settings = () => {
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
               <div className="border-b border-stroke px-7 py-4 dark:border-strokedark">
                 <h3 className="font-medium text-black dark:text-white">
-                  Your Photo
+                  Таны зураг
                 </h3>
               </div>
               <div className="p-7">
                 <form action="#">
                   <div className="mb-4 flex items-center gap-3">
-                    <div className="h-14 w-14 rounded-full">
-                      <Image
-                        className="rounded-full"
-                        src={"/images/sadmanshakib.jpg"}
-                        width={55}
-                        height={55}
-                        alt="User"
-                      />
+                    <div className="h-14 w-14 ">
+                      <FaUserCircle className="" size={55} />
                     </div>
                     <div>
                       <span className="mb-1.5 text-black dark:text-white">
-                        Edit your photo
+                        Зургаа солих
                       </span>
                       <span className="flex gap-2.5">
                         <button className="text-sm hover:text-primary">
-                          Delete
+                          Устгах
                         </button>
                         <button className="text-sm hover:text-primary">
-                          Update
+                          Өөрчлөх
                         </button>
                       </span>
                     </div>
@@ -289,11 +284,13 @@ const Settings = () => {
                         </svg>
                       </span>
                       <p>
-                        <span className="text-primary">Click to upload</span> or
-                        drag and drop
+                        <span className="text-primary">
+                          Үүн дээр дарж өөрчлөх
+                        </span>{" "}
+                        эсвэл татаж авчран өөрчлөх
                       </p>
                       <p className="mt-1.5">SVG, PNG, JPG or GIF</p>
-                      <p>(max, 800 X 800px)</p>
+                      <p>(хамгийн ихдээ, 800 X 800px)</p>
                     </div>
                   </div>
 
@@ -302,13 +299,13 @@ const Settings = () => {
                       className="flex justify-center rounded border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
                       type="submit"
                     >
-                      Cancel
+                      Болих
                     </button>
                     <button
                       className="flex justify-center rounded bg-primary px-6 py-2 font-medium text-gray hover:bg-opacity-95"
                       type="submit"
                     >
-                      Save
+                      Хадгалах
                     </button>
                   </div>
                 </form>
