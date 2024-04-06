@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext } from "react";
 import Breadcrumb from "../../Breadcrumbs/Breadcrumb";
-import { ComingsoonContext } from "../../context/comingsoon";
+import { ComingsoonContext } from "../../../context/comingsoon";
 import { MovieCard } from "./movie-card";
 import { ComingsoonDialog } from "./coming-soon-dialog";
 

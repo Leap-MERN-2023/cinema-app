@@ -1,57 +1,26 @@
-"use State";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import * as Tabs from "@radix-ui/react-tabs";
 
-import { DialogText } from "./dialog-text";
-import { DialogFile } from "./dialog-file";
-import { ChangeEvent, useState } from "react";
+import { DialogText } from "../dialog-text";
+import { DialogFile } from "../dialog-file";
+import { Edit } from "lucide-react";
+import { Flex } from "@radix-ui/themes";
+import { DeleteDialog } from "@/components/utils";
 
-export const MovieDialog = ({ movie }: any) => {
-  const [vertical, setVertical] = useState<File | null>(null);
-
-  const handleVertChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setVertical(e.currentTarget.files![0]);
-    console.log("vert ===> ", e.currentTarget.files);
-  };
-  const [landOne, setLandOne] = useState<File | null>(null);
-
-  const handleland1Change = (e: ChangeEvent<HTMLInputElement>) => {
-    setLandOne(e.currentTarget.files![0]);
-    console.log("land1 ===> ", e.currentTarget.files);
-  };
-  const [landTwo, setLandTwo] = useState<File | null>(null);
-
-  const handleLand2Change = (e: ChangeEvent<HTMLInputElement>) => {
-    setLandTwo(e.currentTarget.files![0]);
-    console.log("land2 ===> ", e.currentTarget.files);
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    handleChange(name, value);
-  };
-
-  const handleChange = (name: string, value: string) => {
-    // setEventData({ ...eventData, [name]: value });
-  };
-
-  const handleAdd = () => {
-    // addEvent(eventData);
-  };
-
+export const EditDialog = ({ movie }: any) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="text-violet11 mb-5 shadow-blackA4 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-white px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
-          Add movie
+        <button className="text-violet11 absolute mb-5 bottom-0 right-2 shadow-blackA4 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[100%] bg-white px-[5px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
+          <Edit />
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
         <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[650px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
           <Dialog.Title className="text-mauve12 mb-5 text-[17px] font-medium">
-            Add movie
+            Edit movie
           </Dialog.Title>
 
           <Tabs.Root className="flex flex-col w-full " defaultValue="tab1">
@@ -92,10 +61,17 @@ export const MovieDialog = ({ movie }: any) => {
               <DialogFile />
             </Tabs.Content>
           </Tabs.Root>
-          <div className="mt-[25px] flex justify-end">
+          <div className="mt-[25px] flex gap-3 justify-end">
+            <button className=" text-red-500 bg-red-300 hover:bg-red-400 focus:shadow-red-300 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
+              <DeleteDialog
+                title={"Кино устгах"}
+                label={"Энэ киног устгахдаа итгэлтэй байна уу?"}
+              />
+            </button>
+
             <Dialog.Close asChild>
               <button className="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
-                Add Movie
+                Save
               </button>
             </Dialog.Close>
           </div>

@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Card, Inset, Strong, Text } from "@radix-ui/themes";
+import { Box, Card, Flex, Inset, Strong, Text } from "@radix-ui/themes";
+import { momentChange } from "../utils/moment";
+import { DeleteDialog } from "../utils";
 
 type Props = {
   event: any;
@@ -25,7 +27,14 @@ export const EventCard = ({ event }: Props) => {
         <Text as="p" size="3">
           <Strong>{event.name}</Strong>
         </Text>
-        <Text>{event.date.split("T")[0]}</Text>
+        <Flex align={"center"} justify={"between"}>
+          <Text>{momentChange(event.date)}</Text>
+          <DeleteDialog
+            event={event}
+            title={"Event устгах"}
+            label={"Эвентийг устгахдаа итгэлтэй байна уу?"}
+          />
+        </Flex>
       </Card>
     </Box>
   );

@@ -6,7 +6,7 @@ import React, { useContext } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { CinemaCard } from "./CinemaCard";
-import { CinemaContext } from "../context/cinema";
+import { CinemaContext } from "@/context";
 
 const Cinema = () => {
   const { cinemas } = useContext(CinemaContext);

@@ -2,132 +2,90 @@ import React from "react";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 
-type Props = {};
+type Props = {
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
 const typesMovie = ["2D", "3D", "IMAX", "LASER"];
 
-export const DialogText = (props: Props) => {
+export const DialogText = ({ handleInputChange }: Props) => {
   return (
-    <div className="flex gap-4 w-full">
+    <div className="flex  flex-col lg:flex-row gap-4 w-full">
       <div>
         <fieldset className="mb-[15px] w-[250px] flex flex-col justify-start">
           <label
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="title"
+            htmlFor="name"
           >
-            Title
+            Name
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
+            name="name"
+            onChange={handleInputChange}
             id="title"
           />
         </fieldset>
         <fieldset className="mb-[15px] w-full flex flex-col justify-start">
           <label
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="synopsis"
+            htmlFor="date"
           >
-            Synopsis
+            date
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
+            name="date"
+            onChange={handleInputChange}
+            type="Date"
             id="synopsis"
           />
         </fieldset>
         <fieldset className="mb-[15px] w-full flex flex-col justify-start">
           <label
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="director"
+            htmlFor="Event about"
           >
-            Director
+            About
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="director"
+            name="about"
+            onChange={handleInputChange}
             type="text"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="duration"
-          >
-            Duration
-          </label>
-          <input
-            className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="duration"
-            type="number"
           />
         </fieldset>
       </div>
       <div>
-        <fieldset className="mb-[15px]  flex flex-col justify-start">
+        <fieldset className="mb-[15px] w-[250px] flex flex-col justify-start">
           <label
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="cast"
+            htmlFor="location"
           >
-            Cast1
+            Location
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="cast"
+            name="location"
+            onChange={handleInputChange}
             type="text"
           />
         </fieldset>
         <fieldset className="mb-[15px] w-full flex flex-col justify-start">
           <label
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="cast"
+            htmlFor="addition"
           >
-            Cast2
+            Addition
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="cast"
+            name="addition"
+            onChange={handleInputChange}
             type="text"
           />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="cast"
-          >
-            Cast3
-          </label>
-          <input
-            className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="cast"
-            type="text"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="movieType"
-          >
-            Movie-type{" (check movie-type)"}
-          </label>
-          <div className="flex flex-row gap-3">
-            {typesMovie.map((type: string, i: any) => (
-              <div key={i} className="flex items-center">
-                <Checkbox.Root
-                  className="shadow-blackA4 hover:bg-violet3 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white shadow-[0_2px_10px] outline-none focus:shadow-[0_0_0_2px_black]"
-                  defaultChecked
-                  id="c1"
-                >
-                  <Checkbox.Indicator className="text-violet11">
-                    <CheckIcon />
-                  </Checkbox.Indicator>
-                </Checkbox.Root>
-                <label
-                  className="pl-[15px] text-[15px] leading-none"
-                  htmlFor="c1"
-                >
-                  {type}
-                </label>
-              </div>
-            ))}
-          </div>
         </fieldset>
       </div>
     </div>

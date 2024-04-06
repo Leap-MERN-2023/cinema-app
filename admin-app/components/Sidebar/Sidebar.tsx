@@ -158,7 +158,6 @@ const Sidebar = ({}: SidebarProps) => {
                   icon={<LockIcon className="h-5 w-5" />}
                 ></LinkItem>
               </li>
-
               {/* <!-- Menu Item Auth Pages --> */}
             </ul>
           </div>

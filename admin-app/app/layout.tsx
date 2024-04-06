@@ -4,13 +4,19 @@ import "./data-tables-css.css";
 import "./satoshi.css";
 import { useState, useEffect } from "react";
 import Loader from "@/components/common/Loader";
-
+import { ToastContainer } from "react-toastify";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import Header from "@/components/Header";
 import { Theme } from "@radix-ui/themes";
-import { MovieProvider, ComingsoonProvider, EventProvider } from "@/components";
-import { CinemaProvider } from "@/components/context/cinema";
-import { AuthProvider } from "@/components/context/auth";
+import {
+  MovieProvider,
+  ComingsoonProvider,
+  EventProvider,
+  CinemaProvider,
+  AuthProvider,
+} from "@/context";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export default function RootLayout({
   children,
@@ -50,6 +56,7 @@ export default function RootLayout({
                               <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
                                 {children}
                               </div>
+                              <ToastContainer />
                             </EventProvider>
                           </ComingsoonProvider>
                         </MovieProvider>

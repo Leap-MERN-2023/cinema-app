@@ -1,11 +1,35 @@
+"use client";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import * as Tabs from "@radix-ui/react-tabs";
 
 import { DialogText } from "./dialog-text";
 import { DialogFile } from "./dialog-file";
+import { ChangeEvent, useState } from "react";
+import { useEvent } from "@/context";
 
 export const EventDialog = () => {
+  const { addEvent, handleFileChange, isLoading } = useEvent();
+  const [eventData, setEventData] = useState({
+    name: "",
+    date: "",
+    link: "",
+    about: "",
+    location: "",
+    addition: "",
+  });
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
+  };
+
+  const handleChange = (name: string, value: string) => {
+    setEventData({ ...eventData, [name]: value });
+  };
+
+  const handleAdd = () => {
+    addEvent(eventData);
+  };
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -15,7 +39,7 @@ export const EventDialog = () => {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
-        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[650px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[100vh] w-[90vw] max-w-[650px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
           <Dialog.Title className="text-mauve12 mb-5 text-[17px] font-medium">
             Add Event
           </Dialog.Title>
@@ -29,13 +53,13 @@ export const EventDialog = () => {
                 className="bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative data-[state=active]:focus:shadow-[0_0_0_2px] data-[state=active]:focus:shadow-black outline-none cursor-default"
                 value="tab1"
               >
-                Movie Text{" (step1)"}
+                Event Text{" (step1)"}
               </Tabs.Trigger>
               <Tabs.Trigger
                 className="bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative data-[state=active]:focus:shadow-[0_0_0_2px] data-[state=active]:focus:shadow-black outline-none cursor-default"
                 value="tab2"
               >
-                Movie File{" (step2)"}
+                Event File{" (step2)"}
               </Tabs.Trigger>
             </Tabs.List>
             <Tabs.Content
@@ -43,24 +67,30 @@ export const EventDialog = () => {
               value="tab1"
             >
               <p className="mb-5 text-mauve11 text-[15px] leading-normal">
-                Add movie title, director, synopsis, casts, duration, genre,
-                movie-type here.
+                Add event name, date, about, location, addition here.
               </p>
-              <DialogText />
+              <DialogText handleInputChange={handleInputChange} />
             </Tabs.Content>
             <Tabs.Content
               className="grow p-5 bg-white rounded-b-md outline-none"
               value="tab2"
             >
               <p className="mb-5 text-mauve11 text-[15px] leading-normal">
-                Add movie trailer, vertical and landscape posters here.
+                Add event image, facebook link here.
               </p>
-              <DialogFile />
+              <DialogFile
+                handleInputChange={handleInputChange}
+                handleFileChange={handleFileChange}
+              />
             </Tabs.Content>
           </Tabs.Root>
           <div className="mt-[25px] flex justify-end">
             <Dialog.Close asChild>
-              <button className="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
+              <button
+                onClick={handleAdd}
+                disabled={isLoading}
+                className="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
+              >
                 Add Movie
               </button>
             </Dialog.Close>

@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export interface IEvent {
   name: string;
   image: string;
@@ -9,4 +11,8 @@ export interface IEvent {
 }
 export type TEventContext = {
   events: IEvent[];
+  addEvent: (eventData: any) => Promise<void>;
+  handleFileChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  deleteEvent: (eventId: string) => Promise<void>;
+  isLoading: boolean;
 };

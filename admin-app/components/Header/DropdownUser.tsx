@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useAuth } from "../context";
+import { useAuth } from "@/context";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);

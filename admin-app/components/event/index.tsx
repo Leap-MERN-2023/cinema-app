@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 import Breadcrumb from "../Breadcrumbs/Breadcrumb";
 import { EventDialog } from "./dialog/event-dialog";
-import { EventContext } from "..";
+import { EventContext } from "@/context";
 import { EventCard } from "./event-card";
 
 type Props = {};

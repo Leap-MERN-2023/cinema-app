@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import { useAuth } from "@/components/context/auth";
+import { useAuth } from "@/context/";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 

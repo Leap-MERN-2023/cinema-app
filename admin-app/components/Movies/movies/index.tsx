@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import Breadcrumb from "../../Breadcrumbs/Breadcrumb";
 import { MovieCard } from "./movie-card";
-import { MovieContext } from "../../context/movie";
+import { MovieContext } from "../../../context/movie";
 import { MovieDialog } from "./movie-dialog";
 
 export const Movies = () => {
