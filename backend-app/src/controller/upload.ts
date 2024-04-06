@@ -7,7 +7,7 @@ export const uploadFile = async (
   next: NextFunction
 ) => {
   try {
-    console.log("File", req.file);
+    console.log("File", req.file?.path);
     const result = await cloudinary.uploader.upload(req.file?.path as string);
     res.send("ok ==>" + result.secure_url);
   } catch (error) {

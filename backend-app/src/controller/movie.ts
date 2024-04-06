@@ -1,5 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import Movie from "../model/movie";
+import MyError from "../utils/myError";
+import cloudinary from "../utils/cloudinary";
+import Customer from "../model/customer";
 
 export const getMovies = async (
   req: Request,
@@ -14,16 +17,48 @@ export const getMovies = async (
   }
 };
 
-export const createMovies = async (
-  req: Request,
+export const createMovie = async (
+  req: any,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const newMovie = req.body;
-    const movie = await Movie.create(newMovie);
-    res.status(201).json({ message: "new movie creted", movie });
+    const finduser = Customer.findById(req.user?._id);
+    if (!finduser) {
+      throw new MyError("Нэмэх үйлдлийг хийхийн тулд нэвтрэх хэрэгтэй", 400);
+    } else {
+      const newMovie = { ...req.body };
+
+      console.log("newMovie", newMovie);
+      console.log("newMovie - image", req.file?.path);
+
+      if (req.file) {
+        const { secure_url } = await cloudinary.uploader.upload(req.file.path);
+        newMovie.image = secure_url;
+      }
+
+      const movie = await Movie.create(newMovie);
+      res.status(201).json({ message: "new event created", movie });
+    }
   } catch (error) {
-    res.status(400).json({ message: "there is an error" + error });
+    next(error);
+  }
+};
+
+export const deleteMovie = async (
+  req: any,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const finduser = Customer.findById(req.user?._id);
+    if (!finduser) {
+      throw new MyError("Устгах үйлдлийг хийхийн тулд нэвтрэх хэрэгтэй", 400);
+    } else {
+      await Movie.findByIdAndDelete(req.params.movieId);
+      res.status(201).json({ message: "movie deleted" });
+    }
+  } catch (error) {
+    next(error);
   }
 };

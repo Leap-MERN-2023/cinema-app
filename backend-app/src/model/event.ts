@@ -2,8 +2,8 @@ import { Schema, model } from "mongoose";
 
 const event = new Schema({
   name: String,
-  image: String,
-  date: Date,
+  image: { type: String, default: "no-image" },
+  date: String,
   link: String,
   about: String,
   location: String,
