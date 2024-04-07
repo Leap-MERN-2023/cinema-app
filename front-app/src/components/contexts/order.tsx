@@ -47,11 +47,6 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
         config
       );
       setIsCreateOrderWorked(true);
-      const { data } = await myAxios.put(
-        "/showtime",
-        { ticket: newTicketId },
-        config
-      );
     } catch (error) {
       console.log(error);
     }

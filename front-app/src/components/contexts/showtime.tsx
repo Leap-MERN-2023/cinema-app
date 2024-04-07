@@ -28,13 +28,13 @@ interface ITimes {
 
 interface ITimeContext {
   showtimes: ITimes[];
-  getTimeByCinemaAndMovie: (
-    movieId: string,
-    cinemaId: string,
-    branch: string,
-    screen: string,
-    startTime: Date
-  ) => Promise<void>;
+  // getTimeByCinemaAndMovie: (
+  //   movieId: string,
+  //   cinemaId: string,
+  //   branch: string,
+  //   screen: string,
+  //   startTime: Date
+  // ) => Promise<void>;
   seats: any;
   newTicketId: any;
   sendShowtime: (
@@ -55,12 +55,15 @@ interface ITimeContext {
   setShowtimesByCinema: (showtimes: any) => void;
   setOrderSeats: (seats: any) => void;
   orderSeats: any;
-  updateShowtime: (seats: any) => Promise<void>;
+  updateShowtime: () => Promise<void>;
+  showtimeByTime: any;
+  setShowtimeByTime: (showtimes: any) => void;
 }
 
 export const ShowtimeContext = createContext({} as ITimeContext);
 
 export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
+  const [showtimeByTime, setShowtimeByTime] = useState<any>([]);
   const { selectedMovieId } = useContext(MovieContext);
   const [showtimes, setShowtimes] = useState([]);
   const [showtimesByMovie, setShowtimesByMovie] = useState([]);
@@ -83,36 +86,39 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
     } catch (error) {}
   };
 
-  const getTimeByCinemaAndMovie = async (
-    movieId: string,
-    cinemaId: string,
-    branch: string,
-    screen: string,
-    startTime: Date
-  ) => {
+  // const getTimeByCinemaAndMovie = async (
+  //   movieId: string,
+  //   cinemaId: string,
+  //   branch: string,
+  //   screen: string,
+  //   startTime: Date
+  // ) => {
+  //   try {
+  //     const {
+  //       data: { times },
+  //     } = await myAxios.post("/showtime/", {
+  //       movieId: movieId,
+  //       cinemaId: cinemaId,
+  //       branch: branch,
+  //       screen: screen,
+  //       startTime: startTime,
+  //     });
+  //     setSelectedScreen(times.screen);
+  //     setSeats(times.seats);
+  //     // console.log(times.seats);
+  //   } catch (error) {
+  //     console.log(error, "ALDAA GARAV");
+  //   }
+  // };
+  const updateShowtime = async () => {
     try {
       const {
-        data: { times },
-      } = await myAxios.post("/showtime/", {
-        movieId: movieId,
-        cinemaId: cinemaId,
-        branch: branch,
-        screen: screen,
-        startTime: startTime,
-      });
-      setSelectedScreen(times.screen);
-      setSeats(times.seats);
-      // console.log(times.seats);
-    } catch (error) {
-      console.log(error, "ALDAA GARAV");
-    }
-  };
-  const updateShowtime = async (seats: any) => {
-    try {
-      const { data } = await myAxios.put(
+        data: { ticket },
+      } = await myAxios.post(
         "/showtime",
         {
-          seats,
+          ticket: newTicketId,
+          showtime: showtimeByTime[0],
         },
         {
           headers: {
@@ -120,7 +126,9 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
           },
         }
       );
-      console.log("seats on st context", seats);
+      console.log("seats on st context", newTicketId);
+      console.log("selected showtime", showtimeByTime[0]);
+      console.log("ticket irev ------->", ticket);
     } catch (error) {
       console.log("update Showtime context dr aldaa garlaa", error);
     }
@@ -196,8 +204,6 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  // console.log("SHOWTIMES", showtimes);
-
   useEffect(() => {
     getTime();
   }, []);
@@ -206,7 +212,9 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
     <ShowtimeContext.Provider
       value={{
         showtimes,
-        getTimeByCinemaAndMovie,
+        // getTimeByCinemaAndMovie,
+        showtimeByTime,
+        setShowtimeByTime,
         seats,
         sendShowtime,
         newTicketId,

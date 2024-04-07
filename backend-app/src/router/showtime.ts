@@ -1,13 +1,9 @@
 import { Router } from "express";
-import { getTime, addShowtime, updateShowtime } from "../controller/showtime";
+import { getTime, updateShowtime } from "../controller/showtime";
 import { authenticate } from "../middleware/auth";
 
 const router = Router();
 
-router
-  .route("/")
-  .post(authenticate, addShowtime)
-  .get(getTime)
-  .put(authenticate, updateShowtime);
+router.route("/").post(authenticate, updateShowtime).get(getTime);
 
 export default router;

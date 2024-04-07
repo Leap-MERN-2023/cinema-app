@@ -49,12 +49,13 @@ export const TicketInfo = ({
   handleForwardStep,
   handleBackwardStep,
 }: Props) => {
-  const { showtimesByCinema, sendShowtime } = useContext(ShowtimeContext);
+  const { showtimesByCinema, sendShowtime, showtimeByTime, setShowtimeByTime } =
+    useContext(ShowtimeContext);
   const { selectedMovieId } = useContext(MovieContext);
   const { loginuser } = useAuth();
   const { selectedCinema, selectedBranch } = useContext(CinemaContext);
   const [showtimeByDay, setShowtimeByDay] = useState<any>([]);
-  const [showtimeByTime, setShowtimeByTime] = useState<any>([]);
+  // const [showtimeByTime, setShowtimeByTime] = useState<any>([]);
   const [isActiveDate, setIsActiveDate] = useState("");
   const [isActiveTime, setIsActiveTime] = useState("");
   const [isActiveMonth, setIsActiveMonth] = useState("");
@@ -132,6 +133,8 @@ export const TicketInfo = ({
                   )
                 );
                 setIsActiveMonth(date.month);
+                setShowtimeByTime([]);
+                setIsActiveTime("");
               }}
             >
               <p>{date.month + " сар"}</p>
@@ -148,8 +151,9 @@ export const TicketInfo = ({
               .sort()
               .map((time: any, i: number) => {
                 if (
-                  Number(time.slice(0, 2)) <= date1.getHours() &&
-                  Number(time.slice(3, 5)) <= date1.getMinutes()
+                  Number(time.slice(0, 2)) < date1.getHours() ||
+                  (Number(time.slice(0, 2)) === date1.getHours() &&
+                    Number(time.slice(3, 5)) <= date1.getMinutes())
                 ) {
                   return (
                     <Button className="bg-slate-400" disabled>

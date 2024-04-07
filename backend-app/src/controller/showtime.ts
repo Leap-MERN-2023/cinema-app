@@ -15,31 +15,42 @@ export const getTime = async (
   }
 };
 
-export const addShowtime = async (
-  req: any,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    const times = await Showtime.create(req.body);
-    res
-      .status(200)
-      .json({ message: "Amjilttai uzlegiin huvaari nemlee", time: times[-1] });
-  } catch (error) {
-    console.log("uzlegiin huvaari nemeh ued aldaa garav", error);
-  }
-};
-
 export const updateShowtime = async (
   req: any,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    console.log("hi ---->", req.body.ticket);
-    const ticket = await Ticket.findOne(req.body.ticket);
-    console.log("ticket irev", ticket);
+    if (req.body.ticket === undefined) {
+      const showtime = await Showtime.create(req.body);
+      res
+        .status(200)
+        .json({ message: "Amjilttai uzlegiin huvaari nemlee", showtime });
+    } else {
+      const showtime = await Showtime.findOne({ _id: req.body.showtime._id });
+      console.log("hi1", showtime);
+      const ticket = await Ticket.findOne({ _id: req.body.ticket }).populate(
+        "_id"
+      );
+      // if (ticket?.seatNumbers.length === 1) {
+      //   showtime?.seats[Number(ticket?.seatNumbers[0].split("-")[0]) - 1][
+      //     Number(ticket?.seatNumbers[0].split("-")[1]) - 1
+      //   ]?.status;
+      // }
+      // ticket?.seatNumbers.map(
+      //   (seatNumber: string) =>
+      //     showtime?.seats[Number(seatNumber.split("-")[0]) - 1][
+      //       Number(seatNumber.split("-")[1]) - 1
+      //     ]?.status
+      // );
+      console.log("iiiiiiiiiiiiiiiiiiiiiiii", ticket);
+      res.status(200).json({
+        message: "Amjilttai uzlegiin huvaari uurchilluu",
+        showtime,
+        ticket,
+      });
+    }
   } catch (error) {
-    res.status(400).json({ message: "" });
+    console.log("uzlegiin huvaari nemeh ued aldaa garav", error);
   }
 };
