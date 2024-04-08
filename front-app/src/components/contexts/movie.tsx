@@ -52,6 +52,8 @@ interface IMovieContext {
   allFilteredMovies: () => void;
   setFilterByCinema: (id: any) => void;
   setFilteredMovies: (e: any) => void;
+  setSelectedMovie: (id: any) => void;
+  selectedMovie: any;
   filterByCinema: any;
   selectedMovieId: string;
   filterByScreenType: any;
@@ -64,6 +66,7 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
   const { toast } = useToast();
   const [movies, setMovies] = useState([]);
   const [selectedMovieId, setSelectedMovieId] = useState("");
+  const [selectedMovie, setSelectedMovie] = useState<any>({});
   const [filteredMovies, setFilteredMovies] = useState<any>([]);
   const [filterByScreenType, setFilterByScreenType] = useState([]);
   const [filterByCinema, setFilterByCinema] = useState<any>([]);
@@ -125,6 +128,7 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
       value={{
         movies,
         setSelectedMovieId,
+        selectedMovie,
         selectedMovieId,
         setFilterByScreenType,
         setFilterByCinema,
@@ -133,6 +137,7 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
         setFilteredMovies,
         filteredMovies,
         allFilteredMovies,
+        setSelectedMovie,
       }}
     >
       {children}

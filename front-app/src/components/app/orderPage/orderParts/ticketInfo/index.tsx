@@ -51,7 +51,7 @@ export const TicketInfo = ({
 }: Props) => {
   const { showtimesByCinema, sendShowtime, showtimeByTime, setShowtimeByTime } =
     useContext(ShowtimeContext);
-  const { selectedMovieId } = useContext(MovieContext);
+  const { selectedMovieId, selectedMovie } = useContext(MovieContext);
   const { loginuser } = useAuth();
   const { selectedCinema, selectedBranch } = useContext(CinemaContext);
   const [showtimeByDay, setShowtimeByDay] = useState<any>([]);
@@ -117,7 +117,7 @@ export const TicketInfo = ({
   };
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col gap-4 justify-center items-center bg-slate-800 text-white py-20">
+      <div className="flex flex-col gap-4 justify-center items-center bg-slate-900 text-white py-20">
         <div className="flex gap-4">
           {date.map((date, i) => (
             <Button
@@ -216,7 +216,7 @@ export const TicketInfo = ({
                     +
                   </Button>
                 </div>
-                <p>18000 ₮</p>
+                <p>{selectedMovie?.ticketPrice?.adult}₮</p>
               </div>
               <div className="flex gap-5 bg-slate-500 border-2 py-3 px-5 rounded-lg items-center">
                 <p className="mr-2">Хүүхэд</p>
@@ -245,13 +245,17 @@ export const TicketInfo = ({
                     +
                   </Button>
                 </div>
-                <p>10000 ₮</p>
+                <p>{selectedMovie?.ticketPrice?.child}₮</p>
               </div>
             </div>
 
             <div className="flex gap-16 py-10">
               <p>Тасалбарын үнэ</p>
-              <p>{(total - kidsCount) * 18000 + kidsCount * 10000}₮</p>
+              <p>
+                {(total - kidsCount) * selectedMovie?.ticketPrice?.adult +
+                  kidsCount * selectedMovie?.ticketPrice?.child}
+                ₮
+              </p>
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex gap-5">

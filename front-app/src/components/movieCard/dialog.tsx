@@ -16,7 +16,8 @@ export function DialogOpen({ card }: ICardProps) {
   const { showtimesByMovie, setShowtimesByMovie, showtimes } =
     useContext(ShowtimeContext);
   const [openVideo, setOpenvideo] = useState(false);
-  const { setSelectedMovieId } = useContext(MovieContext);
+  const { setSelectedMovieId, setSelectedMovie, movies } =
+    useContext(MovieContext);
   const router = useRouter();
 
   const handleNext = (id: string) => {
@@ -60,7 +61,10 @@ export function DialogOpen({ card }: ICardProps) {
                         (showtime: any) => showtime.movie === card._id
                       )
                     );
-                  console.log("movie filter ====>", card._id);
+                  setSelectedMovie(
+                    movies.filter((movie: any) => {
+                      return movie._id === card._id})[0]
+                  );
                 }}
               >
                 Захиалах
