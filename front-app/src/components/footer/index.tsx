@@ -23,15 +23,15 @@ export const Footer = (props: Props) => {
           <div className="flex flex-col gap-5 mb-12">
             <div className="flex items-center gap-2">
               <FaFacebookF className="size-6 hover:bg-blue-700 " />
-              <div className="font-mono">Facebook</div>
+              <div className="">Facebook</div>
             </div>
             <div className="flex items-center gap-2">
               <FaInstagram className="size-7 hover:text-red-400" />
-              <div className="font-mono">Instagram</div>
+              <div className="">Instagram</div>
             </div>
             <div className="flex items-center gap-2">
               <FaTwitter className="size-6 hover:text-blue-400" />
-              <div className="font-mono">Twitter</div>
+              <div className="">Twitter</div>
             </div>
           </div>
         </div>
@@ -50,7 +50,7 @@ export const Footer = (props: Props) => {
 
             <div className="flex items-center gap-2">
               <FaPhone className="size-4 xl:size-4" />
-              <div className="font-medium font-mono">99487463, 83837632</div>
+              <div className="font-medium ">99487463, 83837632</div>
             </div>
             <div className="flex items-center gap-2">
               <IoMdMail className="size-5" />

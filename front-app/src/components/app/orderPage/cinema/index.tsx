@@ -11,9 +11,9 @@ type Props = {
 export const CinemaCard = ({ handleForwardStep, cinemas }: Props) => {
   return (
     <div className="w-full">
-      <h1 className="font-extrabold text-3xl text-slate-50 pt-20 text-center">
+      <div className="flex justify-center font-bold text-xl sm:text-2xl text-slate-50 mt-12 md:mt-20 md:text-3xl">
         Кино театр болон салбар сонголт
-      </h1>
+      </div>
       <div>
         <CinemaButton handleForwardStep={handleForwardStep} cinemas={cinemas} />
       </div>

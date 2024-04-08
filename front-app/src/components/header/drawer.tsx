@@ -1,7 +1,12 @@
 import React from "react";
 import { useContext, useState } from "react";
 import { AltProfileDrawer } from "./altProfileDrawer";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { AuthContext } from "..";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -28,6 +33,7 @@ const headers = [
 
 export function HeadDrawer() {
   const [showDirects, setShowDirects] = useState(true);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   const handleClick = () => {
     setShowDirects(!showDirects);
@@ -44,15 +50,19 @@ export function HeadDrawer() {
       </SheetTrigger>
       <SheetContent className="bg-slate-900 border-none w-56 text-slate-300 flex flex-col">
         {headers.map((header, i) => (
-          <Link
-            className={`font-bold transition-all duration-75  ${
-              isActive === header.href ? "text-red-500" : "hover:text-red-400 "
-            }`}
-            key={i}
-            href={header.href}
-          >
-            {header.header}
-          </Link>
+          <SheetClose asChild>
+            <Link
+              className={`font-bold transition-all duration-75  ${
+                isActive === header.href
+                  ? "text-red-500"
+                  : "hover:text-red-400 "
+              }`}
+              key={i}
+              href={header.href}
+            >
+              {header.header}
+            </Link>
+          </SheetClose>
         ))}
         {<AltProfileDrawer />}
       </SheetContent>

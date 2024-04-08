@@ -15,11 +15,11 @@ export function EventDialog({ event }: IEventProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="absolute bottom-0 right-0 mr-2 mb-2 w-24 h-6 text-[12px] md:w-28 md:h-9 font-medium md:text-[14px] text-white bg-slate-900 hover:bg-red-500">
+        <Button className="bg-slate-900 absolute bottom-0 right-0 mr-2 mb-2 w-24 h-6 text-[12px] md:w-28 md:h-9 font-medium md:text-[14px] text-white  hover:bg-red-500">
           Дэлгэрэнгүй
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-[95%] h-[95%] h-max-[150%] rounded-lg bg-slate-800 border-none overflow-auto">
+      <DialogContent className="w-[95%] h-[95%] h-max-[150%] rounded-lg bg-slate-900 border-4 border-slate-800 overflow-auto">
         <div className="w-full mt-6 flex flex-col items-center ">
           <img
             className="rounded-md shadow-2xl"

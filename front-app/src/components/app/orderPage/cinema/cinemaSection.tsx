@@ -21,29 +21,28 @@ export const CinemaSection = ({ handleForwardStep, cinemas }: Props) => {
     console.log("console log on orderPage/cinema", showtimesByMovie);
   };
   return (
-    <div className="grid grid-cols-2 items-center gap-10 my-10 ">
-      {cinemas.branches?.map((branch: any, i: any) => (
-        <div className="w-[380px] h-full rounded-lg bg-gray-700 " key={i}>
-          <img
-            src={branch.image}
-            className="h-[450px] w-[380px] rounded-t-lg  object-cover relative"
-          />
-          <div className="mx-5 my-2 flex flex-col gap-2 ">
-            <div className="mb-1 text-slate-50 text-lg ">{branch.name}</div>
-            <div className="mb-1 text-slate-300">
-              {branch.location.address.street}
-            </div>
-            <Button
-              className="bg-red-600 mb-2"
+    <div className="flex flex-wrap justify-center items-center">
+      <div className="grid grid-cols-2 md:grid-cols-3 items-center justify-center gap-4 my-10 ">
+        {cinemas.branches?.map((branch: any, i: any) => (
+          <div className="w-40 sm:w-52 h-full rounded-lg bg-slate-800 " key={i}>
+            <img
+              src={branch.image}
+              className="w-40 sm:w-52 h-56 rounded-t-lg  object-cover relative"
               onClick={() => {
                 handleClick(branch.name);
               }}
-            >
-              Сонгох
-            </Button>
+            />
+            <div className="mx-2 mt-2 mb-1 flex flex-col gap-2 ">
+              <div className="mb-1 text-slate-50 text-xl font-bold ">
+                {branch.name}
+              </div>
+              <div className="mb-1 text-slate-400 font-thin">
+                {branch.location.address.street}
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

@@ -9,8 +9,8 @@ export const ComingSoon = (props: Props) => {
   const [pageCount, setPageCount] = useState(6);
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="py-16 container">
-        <h1 className="flex font-bold text-xl mb-6 md:mx-16 lg:mx-4 xl:mx-48 text-white mt-4 sm:mt-16">
+      <div className="pb-16 container">
+        <h1 className="flex font-bold text-xl mb-6 md:mx-16 lg:mx-4 md:text-3xl xl:mx-48 text-white mt-20 sm:mt-28 lg:mt-32">
           Тун удахгүй гарах кинонууд
         </h1>
         <CardSection pageCount={pageCount} />

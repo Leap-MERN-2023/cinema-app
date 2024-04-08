@@ -13,14 +13,6 @@ export const CinemaButton = ({ cinemas, handleForwardStep }: Props) => {
   const { setSelectedCinema, loading } = useContext(CinemaContext);
   const [isActive, setIsActive] = useState("");
   const [filteredCinema, setFilteredCinema] = useState([]);
-  // const handleClick = (cinameId: string, name: string) => {
-  //   setClick(cinameId);
-  //   setIsActive(name);
-  //   //   setFilteredCinema(cinemas.filter((i: any) => cinameId === click));
-  //   //   setSelectedCinema(cinameId);
-  //   const filtered = cinemas.filter((cinema: any) => cinema._id === cinemaId);
-  //   setFilteredCinema(filtered);
-  // };
   const handleClick = (cinemaId: any, name: any) => {
     setClick(cinemaId);
     setIsActive(name);
@@ -34,12 +26,12 @@ export const CinemaButton = ({ cinemas, handleForwardStep }: Props) => {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       {loading && <div>Loading</div>}
-      <div className="flex mt-10 gap-7 justify-center">
+      <div className="flex gap-2 md:gap-4 flex-wrap justify-center container mt-4 mb-2 md:mt-8 md:mb-8">
         {cinemas.map((cinema: any, i: any) => (
           <Button
-            className={`font-bold w-32 h-16 border border-white transition-all duration-75  ${
+            className={`font-bold p-3 border mt-4 border-slate-600 text-xs md:text-sm transition-all duration-75   ${
               isActive === cinema.cinemaName
                 ? "text-red-500"
                 : "hover:text-red-400 "
@@ -53,19 +45,7 @@ export const CinemaButton = ({ cinemas, handleForwardStep }: Props) => {
           </Button>
         ))}
       </div>
-      {/* <div>
-        {cinemas
-          .filter((i: any) => i._id === click)
-          .map((e: any, i: any) => (
-            <CinemaSection
-              handleForwardStep={handleForwardStep}
-              cinemas={e}
-              key={i}
-            />
-          ))}
-      </div> */}
       <div>
-        {/* Render CinemaSections based on filteredCinema */}
         <div className="">
           {filteredCinema.length === 0 &&
             cinemas.map((cinema: any, i: number) => (
