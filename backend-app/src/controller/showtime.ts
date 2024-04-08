@@ -26,30 +26,30 @@ export const updateShowtime = async (
       res
         .status(200)
         .json({ message: "Amjilttai uzlegiin huvaari nemlee", showtime });
-    } else {
-      const showtime = await Showtime.findOne({ _id: req.body.showtime._id });
-      console.log("hi1", showtime);
-      const ticket = await Ticket.findOne({ _id: req.body.ticket }).populate(
-        "_id"
-      );
-      // if (ticket?.seatNumbers.length === 1) {
-      //   showtime?.seats[Number(ticket?.seatNumbers[0].split("-")[0]) - 1][
-      //     Number(ticket?.seatNumbers[0].split("-")[1]) - 1
-      //   ]?.status;
-      // }
-      // ticket?.seatNumbers.map(
-      //   (seatNumber: string) =>
-      //     showtime?.seats[Number(seatNumber.split("-")[0]) - 1][
-      //       Number(seatNumber.split("-")[1]) - 1
-      //     ]?.status
-      // );
-      console.log("iiiiiiiiiiiiiiiiiiiiiiii", ticket);
-      res.status(200).json({
-        message: "Amjilttai uzlegiin huvaari uurchilluu",
-        showtime,
-        ticket,
-      });
     }
+    const ticket = await Ticket.findOne({ _id: req.body.ticket }).populate(
+      "_id"
+    );
+    const length = ticket?.seatNumbers.length as number;
+
+    for (let i = 0; i < length; i++) {
+      await Showtime.updateOne(
+        {
+          _id: req.body.showtime._id,
+        },
+        {
+          $set: {
+            [`seats.${ticket?.seatNumbers[i].split("-").map(Number)[0] - 1}.${
+              ticket?.seatNumbers[i].split("-").map(Number)[1] - 1
+            }.status`]: "unavailable",
+          },
+        }
+      );
+    }
+    res.status(200).json({
+      message: "Amjilttai uzlegiin huvaari uurchilluu",
+      ticket,
+    });
   } catch (error) {
     console.log("uzlegiin huvaari nemeh ued aldaa garav", error);
   }

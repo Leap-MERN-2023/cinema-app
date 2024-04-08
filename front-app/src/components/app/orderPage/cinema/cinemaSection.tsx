@@ -24,7 +24,7 @@ export const CinemaSection = ({ handleForwardStep, cinemas }: Props) => {
     <div className="flex flex-wrap justify-center items-center">
       <div className="grid grid-cols-2 md:grid-cols-3 items-center justify-center gap-4 my-10 ">
         {cinemas.branches?.map((branch: any, i: any) => (
-          <div className="w-40 sm:w-52 h-full rounded-lg bg-slate-800 " key={i}>
+          <div className="w-40 sm:w-52 h-full rounded-lg bg-slate-800 hover:cursor-pointer hover:scale-110 transition ease-in-out" key={i}>
             <img
               src={branch.image}
               className="w-40 sm:w-52 h-56 rounded-t-lg  object-cover relative"
