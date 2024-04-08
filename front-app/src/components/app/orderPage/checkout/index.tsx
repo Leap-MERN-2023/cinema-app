@@ -85,7 +85,7 @@ export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex justify-between w-[800px] max-h-[450px] bg-slate-900 px-8 py-12 rounded-xl my-16"
+        className="flex justify-between bg-slate-900 px-8 py-12 rounded-xl my-16 flex-col"
       >
         <div className="flex flex-col gap-6 h-full text-white">
           <h1 className="font-semibold ">Checkout</h1>

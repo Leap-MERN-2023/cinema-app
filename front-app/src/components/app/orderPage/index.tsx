@@ -46,7 +46,7 @@ export const OrderPage = (props: Props) => {
   };
 
   return (
-    <div className=" flex flex-col h-full bg-slate-800 pt-36 items-center justify-center">
+    <div className=" flex flex-col h-full bg-slate-900 pt-20 md:pt-28  items-center justify-center">
       {StepSwitch()}
       <div>
         {step === 1 && (
