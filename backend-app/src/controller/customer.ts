@@ -5,6 +5,8 @@ import bcrypt from "bcrypt";
 import MyError from "../utils/myError";
 import "dotenv/config";
 import generateToken from "../utils/generateToken";
+import { populate } from "dotenv";
+import path from "path";
 
 export const getCustomer = async (
   req: Request,
@@ -65,7 +67,7 @@ export const loginUser = async (req: Request, res: Response) => {
   try {
     const existUser = await Customer.findOne({ email: userEmail })
       .select("+password")
-      .populate("tickets")
+      .populate({ path: "tickets", populate: { path: "movieId" } })
       .lean();
 
     if (!existUser)

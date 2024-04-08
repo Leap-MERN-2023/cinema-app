@@ -3,7 +3,6 @@ import Customer from "../model/customer";
 import generateToken from "../utils/generateToken";
 
 export const login = async (req: any, res: Response) => {
-  console.log("GOSUCC", req.user);
   if (req.user) {
     const userExists = await Customer.findOne({
       email: req.user.email,
