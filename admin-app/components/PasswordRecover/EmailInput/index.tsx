@@ -1,4 +1,5 @@
-import React, { ChangeEvent } from "react";
+import { PasswordRecoverContext } from "@/context/passwordrecover";
+import React, { ChangeEvent, useContext } from "react";
 
 interface IStepProps {
   email: string;

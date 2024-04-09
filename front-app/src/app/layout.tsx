@@ -14,6 +14,7 @@ import {
   ComingsoonProvider,
   EventProvider,
 } from "@/components";
+import { PasswordRecoverProvider } from "@/components/contexts/passwordrecover";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,22 +32,24 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <MovieProvider>
-            <ComingsoonProvider>
-              <EventProvider>
-                <CinemaProvider>
-                  <ShowtimeProvider>
-                    <OrderProvider>
-                      <Header />
-                      {children}
-                      <Toaster />
-                      <Footer />
-                    </OrderProvider>
-                  </ShowtimeProvider>
-                </CinemaProvider>
-              </EventProvider>
-            </ComingsoonProvider>
-          </MovieProvider>
+          <PasswordRecoverProvider>
+            <MovieProvider>
+              <ComingsoonProvider>
+                <EventProvider>
+                  <CinemaProvider>
+                    <ShowtimeProvider>
+                      <OrderProvider>
+                        <Header />
+                        {children}
+                        <Toaster />
+                        <Footer />
+                      </OrderProvider>
+                    </ShowtimeProvider>
+                  </CinemaProvider>
+                </EventProvider>
+              </ComingsoonProvider>
+            </MovieProvider>
+          </PasswordRecoverProvider>
         </AuthProvider>
       </body>
     </html>

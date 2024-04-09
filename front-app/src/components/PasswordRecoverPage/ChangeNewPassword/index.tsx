@@ -5,6 +5,7 @@ import React, { ChangeEvent } from "react";
 import myAxios from "@/components/utils/axios";
 import { toast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
+import { usePassword } from "@/components/contexts/passwordrecover";
 
 interface IStepProps {
   email: string;
@@ -19,31 +20,7 @@ const ChangeNewPassword = ({
   rePassword,
   handleChangeInput,
 }: IStepProps) => {
-  const router = useRouter();
-  const handleChangeToNewPassword = async () => {
-    try {
-      if (password == rePassword) {
-        const data = await myAxios.put("/verify/changepassword", {
-          email,
-          password,
-        });
-        toast({
-          title: "Нууц үг амжилттай солигдлоо.",
-          variant: "default",
-          description: `Amjilttai`,
-        });
-        router.replace("/");
-      } else {
-        toast({
-          title: "Нууц үг зөрүүтэй байна.",
-          variant: "destructive",
-          description: `Aldaa`,
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { handleChangeToNewPassword, user } = usePassword();
   return (
     <div className="my-32">
       <div className="flex items-center flex-col justify-center m-auto p-[32px] gap-8">
@@ -63,7 +40,7 @@ const ChangeNewPassword = ({
         <div className="flex w-[50%] ">
           <Button
             onClick={() => {
-              handleChangeToNewPassword();
+              handleChangeToNewPassword(user.email, user.password);
             }}
             className="w-full py-4 bg-[#1f4682]"
           >

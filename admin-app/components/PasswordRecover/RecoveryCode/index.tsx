@@ -1,5 +1,7 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useContext } from "react";
 import myAxios from "@/components/utils/axios";
+import { toast } from "react-toastify";
+import { PasswordRecoverContext } from "@/context/passwordrecover";
 
 interface IStepProps {
   email: string;
@@ -15,15 +17,7 @@ const RecoveryCode = ({
   changeSteps,
   handleChangeInput,
 }: IStepProps) => {
-  const handleSendOtp = async () => {
-    try {
-      const data = await myAxios.post("/verify/otp", {
-        email,
-        otp,
-      });
-      changeSteps();
-    } catch (error) {}
-  };
+  const { handleSendOtp, user } = useContext(PasswordRecoverContext);
 
   return (
     <div className="my-32">
@@ -44,7 +38,9 @@ const RecoveryCode = ({
         <div className="flex w-[80%] rounded-lg">
           <button
             className="w-full py-4 bg-slate-700 text-white rounded-lg"
-            onClick={handleSendOtp}
+            onClick={() => {
+              handleSendOtp(user.email, user.otp);
+            }}
           >
             Үргэлжлүүлэх
           </button>

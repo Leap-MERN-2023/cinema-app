@@ -17,6 +17,10 @@ import {
 } from "@/context";
 
 import "react-toastify/dist/ReactToastify.css";
+import {
+  PasswordRecoverContext,
+  PasswordRecoverProvider,
+} from "@/context/passwordrecover";
 
 export default function RootLayout({
   children,
@@ -35,40 +39,42 @@ export default function RootLayout({
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <AuthProvider>
-          <CinemaProvider>
-            <MovieProvider>
-              <ComingsoonProvider>
-                <EventProvider>
-                  <Theme>
-                    <div className="dark:bg-black dark:text-bodydark">
-                      {loading ? (
-                        <Loader />
-                      ) : (
-                        <div className="flex h-screen overflow-hidden">
-                          <Sidebar />
+          <PasswordRecoverProvider>
+            <CinemaProvider>
+              <MovieProvider>
+                <ComingsoonProvider>
+                  <EventProvider>
+                    <Theme>
+                      <div className="dark:bg-black dark:text-bodydark">
+                        {loading ? (
+                          <Loader />
+                        ) : (
+                          <div className="flex h-screen overflow-hidden">
+                            <Sidebar />
 
-                          <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-                            <Header
-                              sidebarOpen={sidebarOpen}
-                              setSidebarOpen={setSidebarOpen}
-                            />
+                            <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+                              <Header
+                                sidebarOpen={sidebarOpen}
+                                setSidebarOpen={setSidebarOpen}
+                              />
 
-                            <main>
-                              <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-                                {children}
-                              </div>
-                              {/* <ThemePanel /> */}
-                              <ToastContainer />
-                            </main>
+                              <main>
+                                <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                                  {children}
+                                </div>
+                                {/* <ThemePanel /> */}
+                                <ToastContainer />
+                              </main>
+                            </div>
                           </div>
-                        </div>
-                      )}
-                    </div>
-                  </Theme>
-                </EventProvider>
-              </ComingsoonProvider>
-            </MovieProvider>
-          </CinemaProvider>
+                        )}
+                      </div>
+                    </Theme>
+                  </EventProvider>
+                </ComingsoonProvider>
+              </MovieProvider>
+            </CinemaProvider>
+          </PasswordRecoverProvider>
         </AuthProvider>
       </body>
     </html>

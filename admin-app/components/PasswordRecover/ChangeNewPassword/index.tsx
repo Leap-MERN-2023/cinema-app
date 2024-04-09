@@ -1,9 +1,11 @@
 "use client";
 
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useContext } from "react";
 import myAxios from "@/components/utils/axios";
 
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { PasswordRecoverContext, usePassword } from "@/context/passwordrecover";
 
 interface IStepProps {
   email: string;
@@ -18,22 +20,24 @@ const ChangeNewPassword = ({
   rePassword,
   handleChangeInput,
 }: IStepProps) => {
-  const router = useRouter();
-  const handleChangeToNewPassword = async () => {
-    try {
-      if (password == rePassword) {
-        const data = await myAxios.put("/verify/changepassword", {
-          email,
-          password,
-        });
-
-        router.replace("/");
-      } else {
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const router = useRouter();
+  // const handleChangeToNewPassword = async () => {
+  //   try {
+  //     if (password == rePassword) {
+  //       const data = await myAxios.put("/verify/changepassword", {
+  //         email,
+  //         password,
+  //       });
+  //       toast.success("Нууц үг амжилттай солигдлоо.");
+  //       router.replace("/");
+  //     } else {
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //     toast.error("");
+  //   }
+  // };
+  const { handleChangeToNewPassword, user } = usePassword();
   return (
     <div className="my-32">
       <div className="flex items-center flex-col justify-center m-auto p-[32px] gap-8">
@@ -53,7 +57,7 @@ const ChangeNewPassword = ({
         <div className="flex w-[50%] ">
           <button
             onClick={() => {
-              handleChangeToNewPassword();
+              handleChangeToNewPassword(user.email, user.password);
             }}
             className="w-full py-4 bg-slate-700 text-white rounded-lg"
           >

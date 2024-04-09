@@ -1,6 +1,5 @@
 import React, { ChangeEvent } from "react";
-import myAxios from "@/components/utils/axios";
-import { toast } from "@/components/ui/use-toast";
+import { usePassword } from "@/components/contexts/passwordrecover";
 
 interface IStepProps {
   email: string;
@@ -16,21 +15,7 @@ const RecoveryCode = ({
   changeSteps,
   handleChangeInput,
 }: IStepProps) => {
-  const handleSendOtp = async () => {
-    try {
-      const data = await myAxios.post("/verify/otp", {
-        email,
-        otp,
-      });
-      changeSteps();
-    } catch (error) {
-      toast({
-        title: "OTP буруу байна",
-        variant: "destructive",
-        description: `Aldaa`,
-      });
-    }
-  };
+  const { handleSendOtp, user } = usePassword();
 
   return (
     <div className="my-32">
@@ -49,7 +34,12 @@ const RecoveryCode = ({
           />
         </div>
         <div className="flex w-full rounded-lg">
-          <button className="w-full py-4 bg-[#1f4682]" onClick={handleSendOtp}>
+          <button
+            className="w-full py-4 bg-[#1f4682]"
+            onClick={() => {
+              handleSendOtp(user.email, user.otp);
+            }}
+          >
             Үргэлжлүүлэх
           </button>
         </div>
