@@ -1,105 +1,101 @@
-import React from "react";
-import * as Checkbox from "@radix-ui/react-checkbox";
-import { CheckIcon } from "@radix-ui/react-icons";
+import React, { ChangeEvent } from "react";
+import * as RadioGroup from "@radix-ui/react-radio-group";
+import { InputField } from "@/components/utils/input-field";
+import { Flex } from "@radix-ui/themes";
 
-type Props = {};
-const typesMovie = ["2D", "3D", "IMAX", "LASER"];
+type Props = {
+  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  movie: any;
+};
+const typesMovie = [
+  { name: "2D", id: "2D" },
+  { name: "3D", id: "3D" },
+  { name: "IMAX", id: "IMAX" },
+  { name: "LASER", id: "LASER" },
+];
 
-export const DialogText = (props: Props) => {
+export const DialogText = ({ handleInputChange, movie }: Props) => {
   return (
     <div className="flex gap-4 w-full">
       <div>
-        <fieldset className="mb-[15px] w-[250px] flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="title"
-          >
-            Title
-          </label>
-          <input
-            className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="title"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="synopsis"
-          >
-            Synopsis
-          </label>
-          <input
-            className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="synopsis"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="director"
-          >
-            Director
-          </label>
-          <input
-            className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="director"
-            type="text"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="duration"
-          >
-            Duration
-          </label>
-          <input
-            className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="duration"
-            type="number"
-          />
-        </fieldset>
+        <InputField
+          desc="Киноны нэр"
+          label="Title"
+          defaultValue={movie.title}
+          name="title"
+          type={"text"}
+          onChange={handleInputChange}
+        />
+        <InputField
+          desc="Киноны тайлбар"
+          label="Synopsis"
+          defaultValue={movie.synopsis || ""}
+          name="synopsis"
+          type={"text"}
+          onChange={handleInputChange}
+        />
+        <InputField
+          desc="Киноны Найруулагч"
+          defaultValue={movie.director || ""}
+          label="Director"
+          name="director"
+          type={"text"}
+          onChange={handleInputChange}
+        />
+        <InputField
+          desc="Киноны үргэлжлэх хугацаа"
+          label="Duration"
+          name="duration"
+          defaultValue={movie.duration}
+          type={"number"}
+          onChange={handleInputChange}
+        />
+        <InputField
+          desc="Киноны төрөл"
+          label="Genre"
+          defaultValue={movie.genre}
+          name="genre"
+          type={"text"}
+          onChange={handleInputChange}
+        />
+        <InputField
+          desc="Гарах өдөр"
+          label="Release - date"
+          defaultValue={movie.releaseDate}
+          name="releaseDate"
+          type={"date"}
+          onChange={handleInputChange}
+        />
       </div>
       <div>
-        <fieldset className="mb-[15px]  flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="cast"
-          >
-            Cast1
-          </label>
-          <input
-            className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="cast"
-            type="text"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="cast"
-          >
-            Cast2
-          </label>
-          <input
-            className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="cast"
-            type="text"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="cast"
-          >
-            Cast3
-          </label>
-          <input
-            className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="cast"
-            type="text"
-          />
-        </fieldset>
+        {movie.cast.map((cast: any) => (
+          <div>
+            <InputField
+              desc="Жүжигчин 1"
+              label="Casts"
+              name="cast1"
+              defaultValue={cast.name}
+              type={"text"}
+              onChange={handleInputChange}
+            />
+          </div>
+        ))}
+        <InputField
+          desc="Том хүн тасалбар үнэ"
+          label="Ticket price (adult)"
+          defaultValue={movie.ticketPrice.adult}
+          name="adult"
+          type={"number"}
+          onChange={handleInputChange}
+        />
+        <InputField
+          desc="Хүүхдийн тасалбар үнэ"
+          label="Ticket price (child)"
+          defaultValue={movie.ticketPrice.child}
+          name="child"
+          type={"number"}
+          onChange={handleInputChange}
+        />
         <fieldset className="mb-[15px] w-full flex flex-col justify-start">
           <label
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
@@ -107,27 +103,25 @@ export const DialogText = (props: Props) => {
           >
             Movie-type{" (check movie-type)"}
           </label>
-          <div className="flex flex-row gap-3">
-            {typesMovie.map((type: string, i: any) => (
-              <div key={i} className="flex items-center">
-                <Checkbox.Root
-                  className="shadow-blackA4 hover:bg-violet3 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white shadow-[0_2px_10px] outline-none focus:shadow-[0_0_0_2px_black]"
-                  defaultChecked
-                  id="c1"
+          <Flex direction="row">
+            {typesMovie.map((type: any, i: any) => (
+              <RadioGroup.Root
+                key={i}
+                defaultValue={movie.movieType}
+                name="movieType"
+                value={type.id}
+                onChange={handleInputChange}
+                className="flex flex-row gap-7"
+              >
+                <RadioGroup.Item
+                  className="bg-white px-2 w-full h-[25px] rounded-full shadow-[0_2px_10px] shadow-blackA4 hover:bg-violet3 focus:shadow-[0_0_0_2px] focus:shadow-black outline-none cursor-default"
+                  value={type.id}
                 >
-                  <Checkbox.Indicator className="text-violet11">
-                    <CheckIcon />
-                  </Checkbox.Indicator>
-                </Checkbox.Root>
-                <label
-                  className="pl-[15px] text-[15px] leading-none"
-                  htmlFor="c1"
-                >
-                  {type}
-                </label>
-              </div>
+                  {type.name}
+                </RadioGroup.Item>
+              </RadioGroup.Root>
             ))}
-          </div>
+          </Flex>
         </fieldset>
       </div>
     </div>

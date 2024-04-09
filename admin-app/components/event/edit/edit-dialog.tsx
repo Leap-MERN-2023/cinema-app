@@ -6,10 +6,11 @@ import { DialogText } from "./dialog-text";
 import { DialogFile } from "./dialog-file";
 import { Dialog, Transition } from "@headlessui/react";
 import { useEvent } from "@/context";
+import { DeleteDialog } from "@/components/utils";
 
-export const EventDialog = () => {
-  const { addEvent, setFile, isLoading } = useEvent();
-  const [eventData, setEventData] = useState({
+export const EventEdit = ({ event }: any) => {
+  const { setFile, isLoading, deleteEvent, updateEvent } = useEvent();
+  const [dataEvent, setEventData] = useState({
     name: "",
     date: "",
     link: "",
@@ -24,11 +25,11 @@ export const EventDialog = () => {
   };
 
   const handleChange = (name: string, value: string) => {
-    setEventData({ ...eventData, [name]: value });
+    setEventData({ ...dataEvent, [name]: value });
   };
 
   const handleAdd = () => {
-    addEvent(eventData);
+    updateEvent(dataEvent, event._id);
     setIsOpen(false);
   };
   const [isOpen, setIsOpen] = useState(false);
@@ -47,9 +48,9 @@ export const EventDialog = () => {
         <button
           type="button"
           onClick={openModal}
-          className="rounded-md bg-white  mb-7 px-4 py-2 text-sm font-medium text-violet11 hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+          className="rounded-md bg-green-200 px-4 py-2 text-sm font-medium text-green-700 hover:bg-green-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
         >
-          Add movie
+          Edit
         </button>
       </div>
 
@@ -113,7 +114,10 @@ export const EventDialog = () => {
                       <p className="mb-5 text-mauve11 text-[15px] leading-normal">
                         Add event name, date, about, location, addition here.
                       </p>
-                      <DialogText handleInputChange={handleInputChange} />
+                      <DialogText
+                        event={event}
+                        handleInputChange={handleInputChange}
+                      />
                     </Tabs.Content>
                     <Tabs.Content
                       className="grow p-5 bg-white rounded-b-md outline-none"
@@ -125,17 +129,27 @@ export const EventDialog = () => {
                       <DialogFile
                         handleInputChange={handleInputChange}
                         setFile={setFile}
+                        event={event}
                       />
                     </Tabs.Content>
                   </Tabs.Root>
-                  <div className="mt-4">
+                  <div className="mt-4 flex gap-4">
+                    <button className=" text-red-500 bg-red-300 hover:bg-red-400 focus:shadow-red-300 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
+                      <DeleteDialog
+                        event={event}
+                        handleDelete={deleteEvent}
+                        title={"Event устгах"}
+                        label={"Эвентийг устгахдаа итгэлтэй байна уу?"}
+                      />
+                    </button>
+
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       disabled={isLoading}
                       onClick={handleAdd}
                     >
-                      Add event
+                      update event
                     </button>
                   </div>
                 </Dialog.Panel>

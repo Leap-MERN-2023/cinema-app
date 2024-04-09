@@ -1,105 +1,133 @@
-import React from "react";
+"use client";
+import { Cloudinary } from "@/components/utils/cloudinary-next/upload";
+import { InputField } from "@/components/utils/input-field";
+import { useMovie } from "@/context";
+import { Flex } from "@radix-ui/themes";
+import React, { ChangeEvent } from "react";
 
-type Props = {};
+type Props = {
+  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  movie: any;
+};
 
-export const DialogFile = (props: Props) => {
+export const DialogFile = ({ handleInputChange, movie }: Props) => {
+  const { setCast1, setCast2, setCast3, setLandOne, setLandTwo, setVertical } =
+    useMovie();
   return (
-    <div className="flex gap-4">
-      <div>
-        <fieldset className="mb-[15px] w-[250px] flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="trailer"
-          >
-            Trailer {"(Youtube link format only)"}
-          </label>
-          <input
-            className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="trailer"
-            type="text"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="vertical"
-          >
-            Poster {"(portrait img link)"}
-          </label>
-          <input
-            className="grow pt-2 shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="vertical"
-            type="text"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="land1"
-          >
-            Poster {"(Landscape1 img link)"}
-          </label>
-          <input
-            className="grow pt-2 shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="land1"
-            type="text"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="land2"
-          >
-            Poster {"(Landscape2 img link)"}
-          </label>
-          <input
-            className="grow pt-2 shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="land2"
-            type="text"
-          />
-        </fieldset>
-      </div>
-      <div>
-        <fieldset className="mb-[15px] w-[250px] flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="img"
-          >
-            Cast {"(cast1 img link)"}
-          </label>
-          <input
-            className="grow pt-2 shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="img"
-            type="text"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="img"
-          >
-            Cast {"(cast2 img link)"}
-          </label>
-          <input
-            className="grow pt-2 shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="img"
-            type="text"
-          />
-        </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="img"
-          >
-            Cast {"(cast3 img link)"}
-          </label>
-          <input
-            className="grow pt-2 shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="img"
-            type="text"
-          />
-        </fieldset>
-      </div>
+    <div className=" ">
+      <InputField
+        desc="Трэйлер линк оруулна уу"
+        label="Trailer"
+        defaultValue={movie.movie_trailer}
+        name="movie_trailer"
+        type={"text"}
+        onChange={handleInputChange}
+      />
+
+      {movie ? (
+        <div className="flex flex-row gap-3 items-center">
+          <div className="w-[300px]">
+            <div className=" flex flex-col gap-3">
+              <p className="text-[13px] text-violet12">
+                Poster {"(Vertical img)"}
+              </p>
+              <p className="border text-[15px] overflow-hidden border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
+                {movie.poster.vertical}
+              </p>
+              <div className="bg-sky-200 text-sky-700 flex items-center rounded-md px-2">
+                <Cloudinary setFunction={setVertical} />
+              </div>
+            </div>
+            <div className=" flex flex-col gap-3">
+              <p className="text-[13px] mt-3 text-violet12">
+                Poster {"(Landscape 1 img)"}
+              </p>
+              <p className="border text-[15px] overflow-hidden border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
+                {movie.poster.lands.land1}
+              </p>
+              <div className="bg-sky-200 text-sky-700 flex items-center rounded-md px-2">
+                <Cloudinary setFunction={setLandOne} />
+              </div>
+            </div>
+            <div className=" flex flex-col gap-3">
+              <p className="text-[13px] text-violet12">
+                Poster {"(Landscape 2 img)"}
+              </p>
+              <p className="border text-[15px] overflow-hidden border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
+                {movie.poster.lands.land2}
+              </p>
+              <div className="bg-sky-200 text-sky-700 flex items-center rounded-md px-2">
+                <Cloudinary setFunction={setLandTwo} />
+              </div>
+            </div>
+          </div>
+
+          <Flex direction={"column"} className="w-[300px]">
+            {movie.cast.map((cast: any) => (
+              <div className="flex flex-col gap-3 mt-3">
+                <p className="text-[13px] text-violet12">
+                  Poster {"(Cast img )"}
+                </p>
+
+                <p className="border text-[15px] overflow-hidden border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
+                  {cast.img}
+                </p>
+                <div className="bg-sky-200 text-sky-700 flex items-center rounded-md px-2">
+                  <Cloudinary setFunction={setCast1} />
+                </div>
+              </div>
+            ))}
+          </Flex>
+        </div>
+      ) : (
+        <div>
+          <div className="flex flex-col gap-3">
+            <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded ">
+              {" "}
+              <Cloudinary setFunction={setVertical} />
+            </div>
+          </div>
+          <div className="flex flex-col gap-3 mt-3">
+            <p className="text-[13px] text-violet12">
+              Poster {"(Landscape img 1)"}
+            </p>
+            <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
+              {" "}
+              <Cloudinary setFunction={setLandOne} />
+            </div>
+          </div>
+          <div className="flex flex-col gap-3 mt-3">
+            <p className="text-[13px] text-violet12">
+              Poster {"(Landscape img 2)"}
+            </p>
+            <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
+              {" "}
+              <Cloudinary setFunction={setLandTwo} />
+            </div>
+          </div>
+          <div className="flex flex-col gap-3 mt-3">
+            <p className="text-[13px] text-violet12">Poster {"(Cast img 1)"}</p>
+            <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
+              {" "}
+              <Cloudinary setFunction={setCast1} />
+            </div>
+          </div>
+          <div className="flex flex-col gap-3 mt-3">
+            <p className="text-[13px] text-violet12">Poster {"(Cast img 2)"}</p>
+            <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
+              {" "}
+              <Cloudinary setFunction={setCast2} />
+            </div>
+          </div>
+          <div className="flex flex-col gap-3 mt-3">
+            <p className="text-[13px] text-violet12">Poster {"(Cast img 3)"}</p>
+            <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
+              {" "}
+              <Cloudinary setFunction={setCast3} />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

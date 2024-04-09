@@ -95,7 +95,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             {typesMovie.map((type: any, i: any) => (
               <RadioGroup.Root
                 key={i}
-                defaultValue="2D"
+                defaultChecked={"2D" === type.id ? true : false}
                 name="movieType"
                 value={type.id}
                 onChange={handleInputChange}

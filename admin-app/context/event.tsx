@@ -11,6 +11,7 @@ import { TEventContext } from "@/types/event";
 import myAxios from "@/components/utils/axios";
 import { toast } from "react-toastify";
 import { useAuth } from ".";
+import { headers } from "next/headers";
 
 export const EventContext = createContext({} as TEventContext);
 
@@ -39,17 +40,10 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
     console.log("EventData = ", eventData);
     try {
       setLoading(true);
-      const formData = new FormData();
-      formData.set("name", eventData.name);
-      formData.set("image", file);
-      formData.set("date", eventData.date);
-      formData.set("link", eventData.link);
-      formData.set("about", eventData.about);
-      formData.set("location", eventData.location);
-      formData.set("addition", eventData.addition);
+      eventData.image = file;
       const {
         data: { event },
-      } = await myAxios.post("/event", formData, {
+      } = await myAxios.post("/event", eventData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRefresh(!refresh);
@@ -76,13 +70,31 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
+  const updateEvent = async (dataEvent: any, eventId: string) => {
+    try {
+      setLoading(true);
+      dataEvent.image = file;
+      const {
+        data: { newEventData },
+      } = await myAxios.put(`/event/${eventId}`, dataEvent, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setRefresh(!refresh);
+      toast.success("Event updated successfully!", { autoClose: 1500 });
+    } catch (error) {
+      toast.error("Failed to update the Event!", { autoClose: 1500 });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     getEvents();
   }, [refresh]);
 
   return (
     <EventContext.Provider
-      value={{ events, addEvent, isLoading, setFile, deleteEvent }}
+      value={{ events, addEvent, isLoading, setFile, deleteEvent, updateEvent }}
     >
       {children}
     </EventContext.Provider>

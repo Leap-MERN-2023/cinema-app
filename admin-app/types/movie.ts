@@ -10,7 +10,7 @@ export interface IMovies {
   title: string;
   movie_trailer: string;
   duration: number;
-  releaseDate: Date;
+  releaseDate: string;
   director: string;
   genre: string;
   synopsis: string;
@@ -32,6 +32,7 @@ export interface IMovies {
     },
   ];
   movieType: string;
+  cast: [{ name: string; img: string }];
   ticketPrice: {
     adult: number;
     child: number;

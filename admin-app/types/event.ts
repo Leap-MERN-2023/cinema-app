@@ -11,8 +11,9 @@ export interface IEvent {
 }
 export type TEventContext = {
   events: IEvent[];
-  addEvent: (eventData: any) => Promise<void>;
-  setFile: (e: any) => void;
+  addEvent: (eventData: IEvent) => Promise<void>;
+  setFile: (e: string) => void;
   deleteEvent: (eventId: string) => Promise<void>;
   isLoading: boolean;
+  updateEvent: (eventData: IEvent, eventId: string) => Promise<void>;
 };

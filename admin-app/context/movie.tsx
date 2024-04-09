@@ -23,6 +23,7 @@ interface IMovieContext {
   setCast3: (e: any) => void;
   deleteMovie: (movieId: string) => Promise<void>;
   isLoading: boolean;
+  updateMovie: (movieData: any, movieId: string) => Promise<void>;
 }
 
 export const MovieContext = createContext({} as IMovieContext);
@@ -40,7 +41,6 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
       const {
         data: { movies },
       } = await myAxios.get("/movie");
-      // console.log("GetMovies ===> ", movies);
       setMovies(movies);
     } catch (error) {}
   };
@@ -111,6 +111,24 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
+  const updateMovie = async (movieData: any, movieId: string) => {
+    try {
+      setLoading(true);
+      // dataEvent.image = file;
+      const {
+        data: { newMovieData },
+      } = await myAxios.put(`/movie/${movieId}`, movieData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setRefresh(!refresh);
+      toast.success("Movie updated successfully!", { autoClose: 1500 });
+    } catch (error) {
+      toast.error("Failed to update the movie!", { autoClose: 1500 });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     getMovies();
   }, [refresh]);
@@ -128,6 +146,7 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
         setCast3,
         deleteMovie,
         isLoading,
+        updateMovie,
       }}
     >
       {children}

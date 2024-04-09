@@ -21,6 +21,7 @@ interface IComingsoonContext {
   setCast2: (e: any) => void;
   setCast3: (e: any) => void;
   deleteCMovie: (movieId: string) => Promise<void>;
+  updateComing: (comingData: any, movieId: string) => Promise<void>;
   isLoading: boolean;
 }
 
@@ -105,6 +106,24 @@ export const ComingsoonProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
+  const updateComing = async (comingData: any, movieId: string) => {
+    try {
+      setLoading(true);
+      // dataEvent.image = file;
+      const {
+        data: { newComingData },
+      } = await myAxios.put(`/comingsoon/${movieId}`, comingData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setRefresh(!refresh);
+      toast.success("Movie updated successfully!", { autoClose: 1500 });
+    } catch (error) {
+      toast.error("Failed to update the movie!", { autoClose: 1500 });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     getMovies();
   }, [refresh]);
@@ -122,6 +141,7 @@ export const ComingsoonProvider = ({ children }: PropsWithChildren) => {
         setCast3,
         deleteCMovie,
         isLoading,
+        updateComing,
       }}
     >
       {children}

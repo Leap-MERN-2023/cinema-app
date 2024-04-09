@@ -50,8 +50,8 @@ export const MovieCard = ({ movie }: Props) => {
 
           <Text>{movie.director}</Text>
           <TrailerDialog movie={movie} />
+          <EditDialog movie={movie} />
         </Flex>
-        <EditDialog movie={movie} />
       </Card>
     </Box>
   );

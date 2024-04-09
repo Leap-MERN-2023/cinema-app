@@ -86,3 +86,46 @@ export const deleteMovie = async (
     next(error);
   }
 };
+
+export const updateMovie = async (
+  req: any,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    // Find the user by ID
+    const finduser = Customer.findById(req.user?._id);
+
+    const updateData = req.body;
+    console.log("REQ BODY +++> ", updateData);
+
+    const filteredData = Object.entries(updateData).reduce(
+      (acc, [key, value]) => {
+        if (value !== "") {
+          acc[key] = value;
+        }
+        return acc;
+      },
+      {}
+    );
+
+    console.log(filteredData);
+
+    if (!finduser) {
+      throw new MyError("Өөрчлөх үйлдлийг хийхийн тулд нэвтрэх хэрэгтэй", 400);
+    } else {
+      // Find and update the event by ID
+      const newmovieData = await Movie.updateOne(
+        { _id: req.params.movieId },
+        { $set: filteredData }
+      );
+
+      console.log("UURCHILSUN DATA +++> ", newmovieData);
+
+      res.status(201).json({ message: "updated movie", newmovieData });
+    }
+  } catch (error) {
+    // Pass the error to the next middleware function
+    next(error);
+  }
+};
