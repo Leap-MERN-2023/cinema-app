@@ -16,18 +16,22 @@ const headers = [
   {
     header: "Нүүр",
     href: "/",
+    id: 1,
   },
   {
     header: "Удахгүй дэлгэцнээ",
     href: "/comingsoon",
+    id: 2,
   },
   {
     header: "Үйл ажиллагаа",
     href: "/event",
+    id: 3,
   },
   {
     header: "Тасалбар",
     href: "/ticket",
+    id: 4,
   },
 ];
 
@@ -49,15 +53,14 @@ export function HeadDrawer() {
         </div>
       </SheetTrigger>
       <SheetContent className="bg-slate-900 border-none w-56 text-slate-300 flex flex-col">
-        {headers.map((header, i) => (
-          <SheetClose asChild>
+        {headers.map((header) => (
+          <SheetClose asChild key={header.id}>
             <Link
               className={`font-bold transition-all duration-75  ${
                 isActive === header.href
                   ? "text-red-500"
                   : "hover:text-red-400 "
               }`}
-              key={i}
               href={header.href}
             >
               {header.header}

@@ -4,8 +4,8 @@ type Props = {
   label: string;
   desc?: string;
   name?: string;
-  type: "text" | "number" | "file" | "date"; // HTMLInputElement["type
-  defaultValue?: string | number ;
+  type: "text" | "number" | "file" | "date" | "datetime-local"; // HTMLInputElement["type
+  defaultValue?: string | number;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -26,7 +26,7 @@ export const InputField = ({
         {label}
       </label>
       <input
-        className="grow pt-1.5 shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
+        className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
         id={name}
         defaultValue={defaultValue}
         placeholder={desc}

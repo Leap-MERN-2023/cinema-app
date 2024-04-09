@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -13,21 +13,24 @@ import {
   ShowtimeProvider,
   ComingsoonProvider,
   EventProvider,
+  MovieContext,
 } from "@/components";
 import { PasswordRecoverProvider } from "@/components/contexts/passwordrecover";
+import Loader from "@/common/loader";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Cinema - App",
-  description: "Team - Code Roasters",
-};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [loading, setLoading] = useState<boolean>(true);
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 100);
+  }, []);
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -40,9 +43,15 @@ export default function RootLayout({
                     <ShowtimeProvider>
                       <OrderProvider>
                         <Header />
-                        {children}
-                        <Toaster />
-                        <Footer />
+                        {loading ? (
+                          <Loader />
+                        ) : (
+                          <div>
+                            {children}
+                            <Toaster />
+                            <Footer />
+                          </div>
+                        )}
                       </OrderProvider>
                     </ShowtimeProvider>
                   </CinemaProvider>

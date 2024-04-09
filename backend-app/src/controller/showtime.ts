@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import Showtime from "../model/showtime";
 import Ticket from "../model/ticket";
+import { IReq } from "../utils/interface";
 
 export const getTime = async (
   req: Request,
@@ -52,5 +53,40 @@ export const updateShowtime = async (
     });
   } catch (error) {
     console.log("uzlegiin huvaari nemeh ued aldaa garav", error);
+  }
+};
+
+export const createShowtime = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    // console.log("hi", req.body);
+    const data = req.body.formData;
+    const arr = data.date.split("-");
+    const arr1 = arr[2].split("T");
+    // console.log(arr, arr1);
+    // console.log("month", arr[1]);
+    // console.log("day", arr1[0]);
+    // console.log("time", arr1[1]);
+    const updatedSts = await Showtime.create({
+      movie: data.movieId,
+      cinema: data.cinemaId,
+      branch: data.branch,
+      screen: data.screen,
+      startTime: {
+        date: {
+          month: arr[1],
+          day: arr1[0],
+        },
+        time: arr1[1],
+      },
+    });
+    res
+      .status(200)
+      .json({ message: "Амжилттай үзвэрийн хуваарь нэмлээ", updatedSts });
+  } catch (error) {
+    next(error);
   }
 };

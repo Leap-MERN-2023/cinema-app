@@ -1,33 +1,15 @@
 "use client";
 
 import myAxios from "@/components/utils/axios";
-import { PropsWithChildren, createContext, useEffect, useState } from "react";
+import {
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { useRouter } from "next/navigation";
-
-interface ICinemaContext {
-  getCinema: () => Promise<void>;
-  cinemas: ICinema[];
-  setSelectedCinema: (id: any) => void;
-  setSelectedBranch: (name: string) => void;
-  selectedCinema: string;
-  selectedBranch: string;
-  loading: boolean;
-}
-interface ICinema {
-  location: {
-    address: {
-      street: string;
-      city: string;
-      zipCode: number;
-    };
-  };
-  _id: string;
-  name: string;
-  icon: string;
-  opening: string;
-  closing: string;
-  image: string;
-}
+import { ICinemaContext } from "@/types/cinema";
 
 export const CinemaContext = createContext({} as ICinemaContext);
 
@@ -72,3 +54,5 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
     </CinemaContext.Provider>
   );
 };
+
+export const useCinema = () => useContext(CinemaContext);

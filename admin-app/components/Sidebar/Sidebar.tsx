@@ -114,6 +114,13 @@ const Sidebar = ({}: SidebarProps) => {
               </li>
               <li>
                 <LinkItem
+                  title="Үзвэрийн хуваарь"
+                  href="/showtime"
+                  icon={<Film className="h-6 w-6" />}
+                ></LinkItem>
+              </li>
+              <li>
+                <LinkItem
                   title="Үйл ажиллагаа"
                   href="/events"
                   icon={<CalendarCheck className="h-6 w-6" />}

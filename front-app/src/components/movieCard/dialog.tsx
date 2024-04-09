@@ -58,12 +58,13 @@ export function DialogOpen({ card }: ICardProps) {
                     setSelectedMovieId(card._id),
                     setShowtimesByMovie(
                       showtimes.filter(
-                        (showtime: any) => showtime.movie === card._id
+                        (showtime: any) => showtime.movie == card._id
                       )
                     );
                   setSelectedMovie(
                     movies.filter((movie: any) => {
-                      return movie._id === card._id})[0]
+                      return movie._id === card._id;
+                    })[0]
                   );
                 }}
               >

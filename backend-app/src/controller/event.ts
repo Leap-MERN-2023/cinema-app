@@ -27,7 +27,7 @@ export const createEvent = async (
     if (!finduser) {
       throw new MyError("Нэмэх үйлдлийг хийхийн тулд нэвтрэх хэрэгтэй", 400);
     } else {
-      const newEvent = { ...req.body };
+      const newEvent = req.body;
 
       console.log("newEvent", newEvent);
 

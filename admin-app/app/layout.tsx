@@ -21,6 +21,7 @@ import {
   PasswordRecoverContext,
   PasswordRecoverProvider,
 } from "@/context/passwordrecover";
+import { ShowtimeProvider } from "@/context/showtime";
 
 export default function RootLayout({
   children,
@@ -44,32 +45,34 @@ export default function RootLayout({
               <MovieProvider>
                 <ComingsoonProvider>
                   <EventProvider>
-                    <Theme>
-                      <div className="dark:bg-black dark:text-bodydark">
-                        {loading ? (
-                          <Loader />
-                        ) : (
-                          <div className="flex h-screen overflow-hidden">
-                            <Sidebar />
+                    <ShowtimeProvider>
+                      <Theme>
+                        <div className="dark:bg-black dark:text-bodydark">
+                          {loading ? (
+                            <Loader />
+                          ) : (
+                            <div className="flex h-screen overflow-hidden">
+                              <Sidebar />
 
-                            <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-                              <Header
-                                sidebarOpen={sidebarOpen}
-                                setSidebarOpen={setSidebarOpen}
-                              />
+                              <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+                                <Header
+                                  sidebarOpen={sidebarOpen}
+                                  setSidebarOpen={setSidebarOpen}
+                                />
 
-                              <main>
-                                <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-                                  {children}
-                                </div>
-                                {/* <ThemePanel /> */}
-                                <ToastContainer />
-                              </main>
+                                <main>
+                                  <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                                    {children}
+                                  </div>
+                                  {/* <ThemePanel /> */}
+                                  <ToastContainer />
+                                </main>
+                              </div>
                             </div>
-                          </div>
-                        )}
-                      </div>
-                    </Theme>
+                          )}
+                        </div>
+                      </Theme>
+                    </ShowtimeProvider>
                   </EventProvider>
                 </ComingsoonProvider>
               </MovieProvider>

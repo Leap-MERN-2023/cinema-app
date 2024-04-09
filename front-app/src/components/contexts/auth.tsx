@@ -78,7 +78,6 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       const { data } = await myAxios.get("/auth/login/success", {
         withCredentials: true,
       });
-      console.log("UUUUSSSEEERRR ", data);
       setUser(data.user);
       router.push("/");
       toast({
@@ -150,7 +149,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     authLogged();
-    getCurrentUser();
+    // getCurrentUser();
   }, []);
 
   return (
