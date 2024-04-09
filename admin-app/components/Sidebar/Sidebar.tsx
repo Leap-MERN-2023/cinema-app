@@ -17,6 +17,7 @@ import {
   FileVideo2,
   Film,
   CalendarCheck,
+  PopcornIcon,
 } from "lucide-react";
 import { useSidebar } from "./use-sidebar";
 import { cn } from "@/app/libs/utlis";
@@ -116,7 +117,7 @@ const Sidebar = ({}: SidebarProps) => {
                 <LinkItem
                   title="Үзвэрийн хуваарь"
                   href="/showtime"
-                  icon={<Film className="h-6 w-6" />}
+                  icon={<PopcornIcon className="h-6 w-6" />}
                 ></LinkItem>
               </li>
               <li>

@@ -149,7 +149,7 @@ const DialogText = (props: Props) => {
         />
         <Dialog.Close asChild>
           <button
-            className="mt-6 bg-teal-400 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
+            className="mt-6 bg-violet-200 text-violet12 hover:bg-violet11 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
             onClick={() => {
               createShowtime(showtimeData);
             }}

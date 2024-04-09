@@ -17,7 +17,7 @@ export const getTime = async (
 };
 
 export const updateShowtime = async (
-  req: any,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {

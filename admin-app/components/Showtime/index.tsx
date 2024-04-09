@@ -22,7 +22,7 @@ const Showtime = () => {
             <div className="flex flex-wrap gap-4">
               {cinema?.branches.map((branch: any, i: any) => (
                 <div
-                  className="w-[330px] h-full rounded-lg border-[0.5px]  bg-slate-800 "
+                  className="w-[330px] h-full rounded-xl border-[0.5px] border-slate-800 bg-slate-800 drop-shadow-xl"
                   key={i}
                 >
                   <img
