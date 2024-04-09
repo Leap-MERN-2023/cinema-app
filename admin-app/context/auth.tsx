@@ -16,11 +16,14 @@ interface IUser {
   email: string;
   password?: string;
   avatarUrl?: string;
+  _id?: string;
 }
 
 interface IAuthContext {
   signup: (password: string, email: string) => Promise<void>;
   login: (password: string, email: string) => Promise<void>;
+  updateUserImage: () => Promise<void>;
+  setAvatarImage: (img: any) => void;
   deleteUser: (id: string) => Promise<void>;
   getAllUser: () => void;
   logout: () => void;
@@ -33,14 +36,14 @@ interface IAuthContext {
 export const AuthContext = createContext({} as IAuthContext);
 
 export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
-  
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [refresh, setRefresh] = useState(false);
+  const [refresh, setRefresh] = useState<boolean>(false);
   const [loginuser, setUser] = useState<IUser | null>(null);
   const [allUser, setAllUser] = useState<any | null>([]);
   const [token, setToken] = useState<string>("");
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [avatarImage, setAvatarImage] = useState<any>(null);
 
   const setUserData = (data: any) => {
     setUser(data.user);
@@ -61,6 +64,7 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
 
   const login = async (email: string, password: string) => {
     try {
+      setLoading(true);
       const { data } = await myAxios.post("/user/login", {
         userEmail: email,
         userPassword: password,
@@ -71,6 +75,8 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
       handleNext();
     } catch (error) {
       console.error("Login error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -117,20 +123,52 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
     router.replace("/");
   };
 
-  useEffect(() => {
-    authLogged();
-  }, []);
-
   const deleteUser = async (id: string) => {
     try {
+      setLoading(true);
       const data = await myAxios.post(`/user/deletecustomer`, {
         userId: id,
       });
+      setRefresh(!refresh);
       console.log("User deleted successfully", data);
     } catch (error) {
       console.error("Cannot delete user", error);
+    } finally {
+      setLoading(false);
     }
   };
+
+  const getUser = async () => {
+    try {
+      const { data } = await myAxios.get("/user/customer", {
+        params: { userId: loginuser?._id as string },
+      });
+      setUserData(data);
+      console.log(data, "newloginuser");
+    } catch (error) {}
+  };
+
+  const updateUserImage = async () => {
+    try {
+      setLoading(true);
+      const data = await myAxios.put(`/user/updatecustomer`, {
+        email: loginuser?.email,
+        avatarUrl: avatarImage,
+      });
+      getUser();
+      setRefresh(!refresh);
+
+      console.log("User updated successfully", data);
+    } catch (error) {
+      console.error("Cannot update user", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    authLogged();
+  }, [refresh]);
 
   return (
     <AuthContext.Provider
@@ -144,6 +182,8 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
         getAllUser,
         allUser,
         deleteUser,
+        setAvatarImage,
+        updateUserImage,
       }}
     >
       {children}

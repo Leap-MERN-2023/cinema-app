@@ -11,6 +11,43 @@ export const getCustomer = async (
   next: NextFunction
 ) => {
   try {
+    const { userId } = req.query;
+    if (!userId) {
+      return res.status(400).json({ message: "User ID is required" });
+    }
+
+    const findUser = await Customer.findOne({ _id: userId })
+      .select("+password")
+      .populate({ path: "tickets", populate: { path: "movieId" } })
+      .lean();
+
+    if (!findUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const token = generateToken(findUser._id.toString());
+    res
+      .status(200)
+      .cookie("token", token, {
+        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+      })
+      .json({
+        message: "success",
+        user: findUser,
+        token,
+      });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const getAllCustomer = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
     const allCustomers = await Customer.find();
     res.status(201).json({ message: "Бүх user олдлоо", allCustomers });
   } catch (error) {
@@ -93,5 +130,24 @@ export const loginUser = async (req: Request, res: Response) => {
       });
   } catch (error: any) {
     res.status(500).json({ message: `${error.message}` });
+  }
+};
+
+export const updateCustomer = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { email, avatarUrl } = req.body;
+    const updateUser = await Customer.updateOne(
+      { email: email },
+      { $set: { avatarUrl: avatarUrl } }
+    );
+    res
+      .status(201)
+      .json({ message: `${email} tai hereglegchiig uurchilluu`, updateUser });
+  } catch (error) {
+    console.log(error);
   }
 };

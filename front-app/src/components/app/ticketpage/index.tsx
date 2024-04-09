@@ -16,11 +16,9 @@ function TicketPage({}: Props) {
       </div>
       {loginuser ? (
         <div className="flex flex-row-reverse flex-wrap-reverse justify-center items-center max-w-[1200px] gap-8 mb-56">
-          {loginuser?.tickets
-            ?.slice(loginuser.tickets.length % 3, loginuser.tickets.length)
-            .map((ticket: any, i: number) => (
-              <MovieTicket ticket={ticket} key={i} />
-            ))}
+          {loginuser?.tickets?.map((ticket: any, i: number) => (
+            <MovieTicket ticket={ticket} key={i} />
+          ))}
         </div>
       ) : (
         <div className="h-[50vh] mb-10 sm:text-2xl md:text-xl container sm:pl-40 md:pl-12 lg:pl-44 xl:pl-32  text-white">

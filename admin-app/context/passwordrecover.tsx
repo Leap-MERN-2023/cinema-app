@@ -33,6 +33,9 @@ export const PasswordRecoverContext = createContext({} as IPasswordContext);
 export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
   const router = useRouter();
 
+  const [loading, setLoading] = useState(false);
+  const [refresh, setRefresh] = useState<boolean>(false);
+
   const [activeStep, setActivestep] = useState(1);
 
   const [user, setUser] = useState<any>({
@@ -48,6 +51,7 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
 
   const handleNext = async () => {
     try {
+      setLoading(true);
       const { data } = await myAxios.post<any>("/verify/send-email", {
         email: user.email,
       });
@@ -55,6 +59,8 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
     } catch (error) {
       console.log(error);
       toast.error("И-мэйл хаяг буруу байна.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -64,6 +70,7 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
 
   const handleSendOtp = async (email: string, otp: string) => {
     try {
+      setLoading(true);
       const data = await myAxios.post("/verify/otp", {
         email,
         otp,
@@ -71,10 +78,13 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
       changeSteps();
     } catch (error) {
       toast.error("OTP код буруу байна.");
+    } finally {
+      setLoading(false);
     }
   };
   const handleChangeToNewPassword = async (email: string, password: string) => {
     try {
+      setLoading(true);
       if (user.password == user.rePassword) {
         const data = await myAxios.put("/verify/changepassword", {
           email,
@@ -87,6 +97,8 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
     } catch (error) {
       console.log(error);
       toast.error("");
+    } finally {
+      setLoading(false);
     }
   };
 

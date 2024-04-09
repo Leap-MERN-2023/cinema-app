@@ -3,7 +3,6 @@
 import React, { useContext, useRef } from "react";
 import Select, { OnChangeValue } from "react-select";
 import { MovieContext } from "..";
-import { ValueType } from "tailwindcss/types/config";
 
 interface CinemaTypeOption {
   readonly value: string;
@@ -70,7 +69,6 @@ export const MultiSelect = () => {
   const handleClear = () => {
     selectRef.current.clearValue();
     selectRef1.current.clearValue();
-    selectRef2.current.clearValue();
     setFilterByCinema({});
     setFilterByScreenType([]);
   };
@@ -115,34 +113,6 @@ export const MultiSelect = () => {
           name="cinemas"
           placeholder="Кино театр"
           onChange={handleChangeCinema}
-          classNames={{
-            control: ({ isFocused }) =>
-              isFocused
-                ? `${controlStyles.focus} ${controlStyles.base}`
-                : `${controlStyles.nonFocus} ${controlStyles.base}`,
-            placeholder: () => placeholderStyles,
-            input: () => selectInputStyles,
-            valueContainer: () => valueContainerStyles,
-            singleValue: () => singleValueStyles,
-            multiValue: () => multiValueStyles,
-            multiValueLabel: () => multiValueLabelStyles,
-            multiValueRemove: () => multiValueRemoveStyles,
-            indicatorsContainer: () => indicatorsContainerStyles,
-            clearIndicator: () => clearIndicatorStyles,
-            indicatorSeparator: () => indicatorSeparatorStyles,
-            dropdownIndicator: () => dropdownIndicatorStyles,
-            menu: () => menuStyles,
-            groupHeading: () => groupHeadingStyles,
-            noOptionsMessage: () => noOptionsMessageStyles,
-            option: () => optionStyles,
-          }}
-        />
-        <Select
-          options={showTime}
-          unstyled
-          name="showtime"
-          ref={selectRef2}
-          placeholder="Цагийн хуваарь"
           classNames={{
             control: ({ isFocused }) =>
               isFocused
@@ -298,63 +268,3 @@ export const SelectCinema = () => {
     />
   );
 };
-
-interface showTimeOption {
-  readonly value: string;
-  readonly label: string;
-  readonly color: string;
-  readonly isFixed?: boolean;
-  readonly isDisabled?: boolean;
-}
-
-const showTime: readonly showTimeOption[] = [
-  {
-    value: "9-10",
-    label: "Between 9:00 and 10:00",
-    color: "#00B8D9",
-    isFixed: false,
-  },
-  {
-    value: "10-11",
-    label: "Between 10:00 and 11:00",
-    color: "#0052CC",
-    isDisabled: false,
-  },
-  { value: "11-12", label: "Between 11:00 and 12:00", color: "#5243AA" },
-  {
-    value: "12-13",
-    label: "Between 12:00 and 13:00",
-    color: "#FF5630",
-    isFixed: false,
-  },
-];
-
-export const SelectShowTime = () => (
-  <Select
-    options={showTime}
-    unstyled
-    name="showtime"
-    placeholder="Цагийн хуваарь"
-    classNames={{
-      control: ({ isFocused }) =>
-        isFocused
-          ? `${controlStyles.focus} ${controlStyles.base}`
-          : `${controlStyles.nonFocus} ${controlStyles.base}`,
-      placeholder: () => placeholderStyles,
-      input: () => selectInputStyles,
-      valueContainer: () => valueContainerStyles,
-      singleValue: () => singleValueStyles,
-      multiValue: () => multiValueStyles,
-      multiValueLabel: () => multiValueLabelStyles,
-      multiValueRemove: () => multiValueRemoveStyles,
-      indicatorsContainer: () => indicatorsContainerStyles,
-      clearIndicator: () => clearIndicatorStyles,
-      indicatorSeparator: () => indicatorSeparatorStyles,
-      dropdownIndicator: () => dropdownIndicatorStyles,
-      menu: () => menuStyles,
-      groupHeading: () => groupHeadingStyles,
-      noOptionsMessage: () => noOptionsMessageStyles,
-      option: () => optionStyles,
-    }}
-  />
-);

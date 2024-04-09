@@ -51,8 +51,11 @@ const DropdownUser = () => {
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          {loginuser?.avatarUrl ? (
-            loginuser?.avatarUrl
+          {loginuser ? (
+            <img
+              src={loginuser?.avatarUrl}
+              className="h-12 w-12 object-cover rounded-full"
+            />
           ) : (
             <div
               style={{

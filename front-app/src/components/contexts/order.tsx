@@ -10,7 +10,7 @@ import myAxios from "@/components/utils/axios";
 import { Dispatch, SetStateAction } from "react";
 import { useToast } from "../ui/use-toast";
 import { ToastAction } from "../ui/toast";
-import { AuthContext, ShowtimeContext } from ".";
+import { AuthContext, ShowtimeContext, useAuth } from ".";
 
 interface IOrderContext {
   setOrder: Dispatch<
@@ -28,6 +28,10 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
   const { token } = useContext(AuthContext);
   const { newTicketId } = useContext(ShowtimeContext);
   const { setIsCreateOrderWorked } = useContext(ShowtimeContext);
+  const [refresh, setRefresh] = useState<boolean>(true);
+  const [loading, setLoading] = useState(false);
+  const { loginuser, getUser } = useAuth();
+
   const createOrder = async (form: any) => {
     const config = {
       headers: {
@@ -35,6 +39,7 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
       },
     };
     try {
+      setLoading(true);
       const {
         data: { lastOrder },
       } = await myAxios.post(
@@ -47,13 +52,13 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
         config
       );
       setIsCreateOrderWorked(true);
+      getUser(loginuser._id);
+      setRefresh(!refresh);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
-  };
-  const getSelectedMovieData = async () => {
-    try {
-    } catch (error) {}
   };
 
   useEffect(() => {}, []);

@@ -22,6 +22,7 @@ interface IUser {
 interface IAuthContext {
   login: (email: string, password: string) => Promise<void>;
   signup: (password: string, email: string) => Promise<void>;
+  getUser: (id: any) => Promise<void>;
   logout: () => void;
   loginuser: any;
   token: any;
@@ -53,7 +54,6 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         userEmail: email,
         userPassword: password,
       });
-      console.log("DATA", data);
       setUserData(data);
       router.push("/");
       toast({
@@ -61,6 +61,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         description: "Enjoy your journey ^.^ 🫰",
         duration: 1500,
       });
+      console.log(data, "alsjkdsaljdk");
     } catch (error) {
       if (error instanceof AxiosError) {
         toast({
@@ -137,6 +138,16 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     router.push("/");
   };
 
+  const getUser = async (id: any) => {
+    try {
+      const { data } = await myAxios.get("/user/customer", {
+        params: { userId: id },
+      });
+      setUserData(data);
+      console.log(data, "newloginuser");
+    } catch (error) {}
+  };
+
   useEffect(() => {
     authLogged();
     getCurrentUser();
@@ -144,7 +155,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <AuthContext.Provider
-      value={{ login, signup, logout, loginuser, token, setUser }}
+      value={{ login, signup, logout, loginuser, token, setUser, getUser }}
     >
       {children}
     </AuthContext.Provider>

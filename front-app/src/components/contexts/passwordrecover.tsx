@@ -32,6 +32,8 @@ export const PasswordRecoverContext = createContext({} as IPasswordContext);
 
 export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
   const router = useRouter();
+  const [refresh, setRefresh] = useState<boolean>(true);
+  const [loading, setLoading] = useState(false);
 
   const [activeStep, setActivestep] = useState(1);
 
@@ -48,6 +50,7 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
 
   const handleNext = async () => {
     try {
+      setLoading(true);
       const { data } = await myAxios.post<any>("/verify/send-email", {
         email: user.email,
       });
@@ -58,6 +61,8 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
         variant: "destructive",
         description: `Aldaa`,
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,6 +72,7 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
 
   const handleSendOtp = async (email: string, otp: string) => {
     try {
+      setLoading(true);
       const data = await myAxios.post("/verify/otp", {
         email,
         otp,
@@ -78,10 +84,13 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
         variant: "destructive",
         description: `Aldaa`,
       });
+    } finally {
+      setLoading(false);
     }
   };
   const handleChangeToNewPassword = async (email: string, password: string) => {
     try {
+      setLoading(true);
       if (user.password == user.rePassword) {
         const data = await myAxios.put("/verify/changepassword", {
           email,
@@ -102,6 +111,8 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 

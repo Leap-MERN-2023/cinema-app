@@ -46,7 +46,6 @@ export const TicketDialog = (ticketData: any) => {
           <div className="items-center flex gap-2">
             <span className="text-base font-bold text-slate-400">Хэзээ:</span>
             <div className="font-semibold">
-              {" "}
               {ticketData?.ticketData?.ticket?.startTime.date.month} сарын{" "}
               {ticketData?.ticketData?.ticket?.startTime.date.day} {"2024"}
             </div>
@@ -62,7 +61,7 @@ export const TicketDialog = (ticketData: any) => {
             <div className="font-semibold">1</div>
           </div>
           <div className="text-sm font-bold text-slate-400 z-50">Суудал:</div>
-          <div className="items-center flex flex-wrap gap-4 justify-center h-40 overflow-scroll bg-slate-800 rounded-lg p-4">
+          <div className="items-center flex flex-wrap gap-4 justify-center h-40 overflow-y-auto bg-slate-800 rounded-lg p-4">
             {ticketData?.ticketData?.ticket?.seatNumbers.map(
               (seat: any, i: any) => (
                 <div className="flex gap-2 ">
