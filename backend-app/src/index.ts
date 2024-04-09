@@ -13,6 +13,7 @@ import auth from "./router/auth";
 import ticket from "./router/ticket";
 import order from "./router/order";
 import comingsoon from "./router/comingsoon";
+import verify from "./router/verify";
 import events from "./router/event";
 import user from "./router/user";
 import setupPassport from "./config/passport";
@@ -67,6 +68,7 @@ app.use("/cinema", cinema);
 app.use("/showtime", showtime);
 app.use("/ticket", ticket);
 app.use("/order", order);
+app.use("/verify", verify);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello Express Server");

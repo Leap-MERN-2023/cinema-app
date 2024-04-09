@@ -46,7 +46,9 @@ export const Login = ({ handleLinkClick }: Props) => {
           className="bg-slate-400 border-none"
           placeholder="Нууц үг"
         />
-        <a className="text-white text-end text-[13px]">Нууц үг мартсан</a>
+        <a href="/forgotpassword" className="text-white text-end text-[13px]">
+          Нууц үг мартсан
+        </a>
       </div>
       <SheetClose asChild>
         <Button
@@ -65,12 +67,6 @@ export const Login = ({ handleLinkClick }: Props) => {
         <Separator className="w-[100px]" />
       </div>
       <div className="">
-        <Button className="w-full py-4 mb-2">
-          <div className="w-[20px] mr-1">
-            <CiFacebook className="h-full w-full" />
-          </div>
-          Facebook-ээр нэвтрэх
-        </Button>
         <Button
           onClick={() => {
             window.open("http://localhost:8008/auth/google", "_self");

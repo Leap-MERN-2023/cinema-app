@@ -21,6 +21,10 @@ const customerSchema = new Schema({
     type: Number,
     require: true,
   },
+  otp: {
+    type: String,
+    default: "",
+  },
   tickets: [
     {
       type: Schema.ObjectId,
@@ -29,9 +33,14 @@ const customerSchema = new Schema({
   ],
 });
 
-customerSchema.pre("save", async function async(next) {
+customerSchema.pre("save", async function (next) {
+  // if (this.isModified("password")) {
+  //   this.password = bcrypt.hashSync(this.password as string, 10);
+  // }
   if (this.isModified("password")) {
-    this.password = bcrypt.hashSync(this.password as string, 10);
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password as string, salt);
+    console.log(this.password);
   }
   next();
 });
