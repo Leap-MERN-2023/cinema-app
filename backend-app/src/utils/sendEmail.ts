@@ -5,15 +5,23 @@ interface IEmailProps {
   otp?: string;
   token?: string;
 }
+// EMAIL_PORT=587
+// EMAIL_HOST="smtp.gmail.com"
+// EMAIL_USER="cinemaapp05@gmail.com"
+// EMAIL_PASS="nfsysbmtshaawwhj"
+const EMAIL_PORT = process.env.EMAIL_PORT;
+const EMAIL_HOST = process.env.EMAIL_HOST as string;
+const EMAIL_USER = process.env.EMAIL_USER as string;
+const EMAIL_PASS = process.env.EMAIL_PASS as string;
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
-  host: "smtp.gmail.com",
-  port: 587,
+  host: EMAIL_HOST,
+  port: EMAIL_PORT as any,
   secure: false,
   auth: {
-    user: "cinemaapp05@gmail.com",
-    pass: "nfsysbmtshaawwhj",
+    user: EMAIL_USER,
+    pass: EMAIL_PASS,
   },
 });
 
