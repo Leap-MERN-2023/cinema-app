@@ -64,8 +64,8 @@ const Settings = () => {
                           type="text"
                           name="fullName"
                           id="fullName"
-                          placeholder="Sadman Shakib"
-                          defaultValue="Sadman Shakib"
+                          placeholder="Central Cinema"
+                          defaultValue="Central Cinema"
                         />
                       </div>
                     </div>
@@ -82,8 +82,8 @@ const Settings = () => {
                         type="text"
                         name="phoneNumber"
                         id="phoneNumber"
-                        placeholder="+880 3343 7865"
-                        defaultValue="+880 3343 7865"
+                        placeholder="+976 99119911"
+                        defaultValue="+976 99119911"
                       />
                     </div>
                   </div>
@@ -126,8 +126,8 @@ const Settings = () => {
                         type="email"
                         name="emailAddress"
                         id="emailAddress"
-                        placeholder="sm.shakib7@gmail.com"
-                        defaultValue="sm.shakib007@gmail.com"
+                        placeholder="cinemaapp05@gmail.com"
+                        defaultValue="cinemaapp05@gmail.com"
                       />
                     </div>
                   </div>
@@ -144,8 +144,8 @@ const Settings = () => {
                       type="text"
                       name="Username"
                       id="Username"
-                      placeholder="xsadmanshakib"
-                      defaultValue="devidjhon24"
+                      placeholder="Cinema-app"
+                      defaultValue="cinema-app"
                     />
                   </div>
 
@@ -194,7 +194,7 @@ const Settings = () => {
                         id="bio"
                         rows={6}
                         placeholder="Write your bio here"
-                        defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque posuere fermentum urna, eu condimentum mauris tempus ut. Donec fermentum blandit aliquet."
+                        defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget ipsum ac eros consequat ultrices. Integer ac nisi euismod, tempor elit id, aliquet arcu. Vivamus venenatis, risus vel ullamcorper tristique, justo ipsum ultrices magna, sit amet fermentum mi nunc sit amet libero. Etiam non ante non augue pharetra maximus. Sed id urna eu magna mollis fermentum. Maecenas sollicitudin metus sit amet quam scelerisque, id pulvinar ipsum ultricies. Sed feugiat justo at diam condimentum."
                       ></textarea>
                     </div>
                   </div>

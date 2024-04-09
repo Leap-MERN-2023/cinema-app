@@ -1,9 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui";
 import React, { ChangeEvent } from "react";
 import myAxios from "@/components/utils/axios";
-import { toast } from "@/components/ui/use-toast";
+
 import { useRouter } from "next/navigation";
 
 interface IStepProps {
@@ -27,18 +26,9 @@ const ChangeNewPassword = ({
           email,
           password,
         });
-        toast({
-          title: "Нууц үг амжилттай солигдлоо.",
-          variant: "default",
-          description: `Amjilttai`,
-        });
+
         router.replace("/");
       } else {
-        toast({
-          title: "Нууц үг зөрүүтэй байна.",
-          variant: "destructive",
-          description: `Aldaa`,
-        });
       }
     } catch (error) {
       console.log(error);
@@ -61,14 +51,14 @@ const ChangeNewPassword = ({
           className="py-2 px-4 bg-slate-300"
         />
         <div className="flex w-[50%] ">
-          <Button
+          <button
             onClick={() => {
               handleChangeToNewPassword();
             }}
-            className="w-full py-4 bg-[#1f4682]"
+            className="w-full py-4 bg-slate-700 text-white rounded-lg"
           >
             Үргэлжлүүлэх
-          </Button>
+          </button>
         </div>
       </div>
     </div>
