@@ -58,6 +58,7 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
       setLoading(false);
     }
   };
+
   // console.log("cineams", cinemas);
   useEffect(() => {
     getCinema();

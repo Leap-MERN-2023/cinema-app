@@ -9,7 +9,6 @@ const cinemaSchema = new Schema({
 
   icon: {
     type: String,
-    require: true,
   },
   branches: [
     {

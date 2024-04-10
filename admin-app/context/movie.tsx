@@ -35,7 +35,7 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
   const [refresh, setRefresh] = useState<boolean>(false);
   const [isLoading, setLoading] = useState<boolean>(false);
 
-  const cinemaId = cinemas.map((cinema: any) => cinema._id);
+  const cinemaId = cinemas?.map((cinema: any) => cinema._id);
   const getMovies = async () => {
     try {
       const {

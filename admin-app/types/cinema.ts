@@ -3,6 +3,8 @@ export interface ICinemaContext {
   cinemas: ICinema[];
   setSelectedCinema: (id: any) => void;
   setSelectedBranch: (name: string) => void;
+  deleteCinema: (branch: string) => Promise<void>;
+  putCinema: (formData: any, cinemaId: string) => Promise<void>;
   selectedCinema: string;
   selectedBranch: string;
   loading: boolean;
