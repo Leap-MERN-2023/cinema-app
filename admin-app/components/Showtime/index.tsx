@@ -13,7 +13,7 @@ const Showtime = () => {
   return (
     <div className="flex flex-col justify-center items-start gap-4 py-6 text-white font-bold px-6">
       <Modal />
-      <div className="flex justify-center flex-wrap items-center gap-6">
+      <div className="flex justify-start flex-wrap items-center gap-6">
         {cinemas.map((cinema: any) => {
           return (
             <div>
@@ -23,12 +23,12 @@ const Showtime = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
                 {cinema?.branches.map((branch: any, i: any) => (
                   <div
-                    className="w-64 h-full rounded-lg border-slate-800 bg-slate-800 drop-shadow-xl"
+                    className="w-80 h-full rounded-lg border-slate-800 bg-slate-800 drop-shadow-xl"
                     key={i}
                   >
                     <img
                       src={branch.image}
-                      className="w-64 h-96 rounded-t-lg  object-cover relative"
+                      className="w-full h-96 rounded-t-lg  object-cover relative"
                     />
                     <div className="mx-5 my-2 flex flex-col gap-2 ">
                       <div className="mb-1 text-slate-50 text-lg ">
@@ -51,6 +51,7 @@ const Showtime = () => {
                               today.getDate()
                           )
                           .sort()
+                          .slice(0, 3)
                           .map((showtime: any) => {
                             return (
                               <div className="bg-white text-black rounded-lg px-2">

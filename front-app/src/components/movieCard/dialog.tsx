@@ -6,7 +6,8 @@ import { cinemas } from "./cinemas";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { Resizable } from "./resizeImage";
-import { MovieContext, ShowtimeContext } from "..";
+import { MovieContext, ShowtimeContext, useAuth } from "..";
+import { useToast } from "@/components/ui/use-toast";
 
 type ICardProps = {
   card: any;
@@ -19,6 +20,8 @@ export function DialogOpen({ card }: ICardProps) {
   const { setSelectedMovieId, setSelectedMovie, movies } =
     useContext(MovieContext);
   const router = useRouter();
+  const { loginuser } = useAuth();
+  const { toast } = useToast();
 
   const handleNext = (id: string) => {
     setSelectedMovieId(id);
@@ -54,18 +57,27 @@ export function DialogOpen({ card }: ICardProps) {
               <Button
                 className="bg-rose-500 px-10 w-32 h-8"
                 onClick={() => {
-                  router.push("/order"),
-                    setSelectedMovieId(card._id),
-                    setShowtimesByMovie(
-                      showtimes.filter(
-                        (showtime: any) => showtime.movie == card._id
-                      )
+                  if (loginuser) {
+                    router.push("/order"),
+                      setSelectedMovieId(card._id),
+                      setShowtimesByMovie(
+                        showtimes.filter(
+                          (showtime: any) => showtime.movie == card._id
+                        )
+                      );
+                    setSelectedMovie(
+                      movies.filter((movie: any) => {
+                        return movie._id === card._id;
+                      })[0]
                     );
-                  setSelectedMovie(
-                    movies.filter((movie: any) => {
-                      return movie._id === card._id;
-                    })[0]
-                  );
+                  } else {
+                    toast({
+                      title: "Алдаа гарлаа!",
+                      description: "Нэвтэрнэ үү ^.^ 🫰",
+                      duration: 1500,
+                    });
+                    console.log("owrked");
+                  }
                 }}
               >
                 Захиалах

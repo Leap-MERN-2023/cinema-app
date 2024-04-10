@@ -26,6 +26,8 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
   const { token } = useContext(AuthContext);
   const [isCreateOrderWorked, setIsCreateOrderWorked] = useState(false);
 
+  const router = useRouter();
+
   const getTime = async () => {
     try {
       const {
@@ -74,7 +76,7 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
         }
       );
     } catch (error) {
-      console.log("update Showtime context dr aldaa garlaa", error);
+      toast.warning("Та нэвтэрнэ үү!");
     }
   };
 
@@ -94,7 +96,8 @@ export const ShowtimeProvider = ({ children }: PropsWithChildren) => {
       );
       toast.success(data.message);
     } catch (error) {
-      console.log("create Showtime context dotor aldaa garav");
+      toast.warning("Та нэвтэрнэ үү!");
+      router.push("/signin");
     }
   };
 
