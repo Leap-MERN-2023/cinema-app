@@ -153,9 +153,11 @@ export const TicketInfo = ({
                 .sort()
                 .map((time: any, i: number) => {
                   if (
-                    Number(time.slice(0, 2)) < date1.getHours() ||
-                    (Number(time.slice(0, 2)) === date1.getHours() &&
-                      Number(time.slice(3, 5)) <= date1.getMinutes())
+                    showtimeByDay[0].startTime.date.day ===
+                      date1.getDate().toString() &&
+                    (Number(time.slice(0, 2)) < date1.getHours() ||
+                      (Number(time.slice(0, 2)) === date1.getHours() &&
+                        Number(time.slice(3, 5)) <= date1.getMinutes()))
                   ) {
                     return (
                       <Button className="bg-slate-400" disabled>

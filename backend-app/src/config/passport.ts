@@ -10,7 +10,8 @@ const setupPassport = () => {
         clientID: process.env.OAUTH_CLIENT_ID as string,
         clientSecret: process.env.OAUTH_CLIENT_SECRET as string,
         sessionKey: "session-key-2024",
-        callbackURL: "http://localhost:8008/auth/google/callback",
+        callbackURL:
+          "https://cinema-app-backend-iota.vercel.app/auth/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
         const foundUser = await Customer.findOne({ googleId: profile.id });
