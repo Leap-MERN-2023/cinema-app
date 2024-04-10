@@ -34,7 +34,7 @@ export const DeleteDialog = ({ label, event, title, handleDelete }: any) => {
           onClick={openModal}
           className="rounded-md text-sm font-medium text-red-700 hover:bg-red-400 w-full "
         >
-          Delete
+          Устгах
         </button>
       </div>
 

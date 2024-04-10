@@ -37,8 +37,14 @@ const PasswordRecoverPage = () => {
   //   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
   //     setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   //   };
-  const { activeStep, handleChangeInput, changeSteps, handleNext, user } =
-    usePassword();
+  const {
+    activeStep,
+    handleChangeInput,
+    changeSteps,
+    handleNext,
+    user,
+    loading,
+  } = usePassword();
 
   return (
     <div className="mx-auto bg-slate-200  max-w-[448px] rounded-[32px]">
@@ -48,6 +54,7 @@ const PasswordRecoverPage = () => {
           handleNext={handleNext}
           changeSteps={changeSteps}
           handleChangeInput={handleChangeInput}
+          loading={loading}
         />
       )}
       {activeStep === 2 && (

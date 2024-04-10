@@ -11,7 +11,8 @@ const PasswordRecoverPage = () => {
     usePassword();
 
   return (
-    <div className="mx-auto bg-slate-700  max-w-[448px] rounded-[32px]">
+    <div className="mx-auto bg-slate-700  max-w-[900px] rounded-[32px] md:flex items-center">
+      <img src="forgot-password.svg" className="w-[50%] mx-auto" />
       {activeStep === 1 && (
         <EmailInput
           email={user.email}

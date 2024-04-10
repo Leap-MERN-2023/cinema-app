@@ -17,7 +17,7 @@ export const DialogFile = ({ handleInputChange, movie }: Props) => {
     <div className=" ">
       <InputField
         desc="Трэйлер линк оруулна уу"
-        label="Trailer"
+        label="Трэйлэр"
         defaultValue={movie.movie_trailer}
         name="movie_trailer"
         type={"text"}
@@ -29,7 +29,7 @@ export const DialogFile = ({ handleInputChange, movie }: Props) => {
           <div className="w-[300px]">
             <div className=" flex flex-col gap-3">
               <p className="text-[13px] text-violet12">
-                Poster {"(Vertical img)"}
+                Киноны зураг {"(Хэвтээ зураг)"}
               </p>
               <p className="border text-[15px] overflow-hidden border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
                 {movie.poster.vertical}
@@ -40,7 +40,7 @@ export const DialogFile = ({ handleInputChange, movie }: Props) => {
             </div>
             <div className=" flex flex-col gap-3">
               <p className="text-[13px] mt-3 text-violet12">
-                Poster {"(Landscape 1 img)"}
+                Киноны зураг {"(Хэвтээ зураг 1)"}
               </p>
               <p className="border text-[15px] overflow-hidden border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
                 {movie.poster.lands.land1}
@@ -51,7 +51,7 @@ export const DialogFile = ({ handleInputChange, movie }: Props) => {
             </div>
             <div className=" flex flex-col gap-3">
               <p className="text-[13px] text-violet12">
-                Poster {"(Landscape 2 img)"}
+                Зураг зураг {"(Хэвтээ зураг 2)"}
               </p>
               <p className="border text-[15px] overflow-hidden border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
                 {movie.poster.lands.land2}
@@ -66,7 +66,7 @@ export const DialogFile = ({ handleInputChange, movie }: Props) => {
             {movie.cast.map((cast: any) => (
               <div className="flex flex-col gap-3 mt-3">
                 <p className="text-[13px] text-violet12">
-                  Poster {"(Cast img )"}
+                  Зураг {"(Жүжигчний зураг)"}
                 </p>
 
                 <p className="border text-[15px] overflow-hidden border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
@@ -89,7 +89,7 @@ export const DialogFile = ({ handleInputChange, movie }: Props) => {
           </div>
           <div className="flex flex-col gap-3 mt-3">
             <p className="text-[13px] text-violet12">
-              Poster {"(Landscape img 1)"}
+              Зураг{"(Хэвтээ зураг 1)"}
             </p>
             <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
               {" "}
@@ -98,7 +98,7 @@ export const DialogFile = ({ handleInputChange, movie }: Props) => {
           </div>
           <div className="flex flex-col gap-3 mt-3">
             <p className="text-[13px] text-violet12">
-              Poster {"(Landscape img 2)"}
+              Зураг{"(Хэвтээ зураг 2)"}
             </p>
             <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
               {" "}

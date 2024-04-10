@@ -9,7 +9,7 @@ export const Movies = () => {
   const { movies } = useContext(MovieContext);
   return (
     <>
-      <Breadcrumb pageName="Movies" />
+      <Breadcrumb pageName="Кинонууд" />
       <MovieDialog />
       <div className="flex justify-center items-center">
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">

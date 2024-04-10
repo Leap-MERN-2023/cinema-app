@@ -13,7 +13,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
             htmlFor="name"
           >
-            Name
+            Нэр
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
@@ -27,7 +27,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
             htmlFor="date"
           >
-            date
+            Он сар өдөр
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
@@ -42,7 +42,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
             htmlFor="Event about"
           >
-            About
+            Тухай
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
@@ -59,7 +59,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
             htmlFor="location"
           >
-            Location
+            Байршил
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
@@ -74,7 +74,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
             htmlFor="addition"
           >
-            Addition
+            Нэмэлт
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"

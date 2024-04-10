@@ -21,42 +21,42 @@ export const DialogText = ({ handleInputChange }: Props) => {
       <div>
         <InputField
           desc="Киноны нэр"
-          label="Title"
+          label="Гарчиг"
           name="title"
           type={"text"}
           onChange={handleInputChange}
         />
         <InputField
           desc="Киноны тайлбар"
-          label="Synopsis"
+          label="Киноны тайлбар"
           name="synopsis"
           type={"text"}
           onChange={handleInputChange}
         />
         <InputField
           desc="Киноны Найруулагч"
-          label="Director"
+          label="Найруулагч"
           name="director"
           type={"text"}
           onChange={handleInputChange}
         />
         <InputField
           desc="Киноны үргэлжлэх хугацаа"
-          label="Duration"
+          label="Хугацаа"
           name="duration"
           type={"number"}
           onChange={handleInputChange}
         />
         <InputField
           desc="Киноны төрөл"
-          label="Genre"
+          label="Төрөл"
           name="genre"
           type={"text"}
           onChange={handleInputChange}
         />
         <InputField
           desc="Гарах өдөр"
-          label="Release - date"
+          label="Гарах өдөр"
           name="releaseDate"
           type={"date"}
           onChange={handleInputChange}
@@ -65,21 +65,21 @@ export const DialogText = ({ handleInputChange }: Props) => {
       <div>
         <InputField
           desc="Жүжигчин 1"
-          label="Cast 1"
+          label="Жүжигчин 1"
           name="cast1"
           type={"text"}
           onChange={handleInputChange}
         />
         <InputField
           desc="Жүжигчин 2"
-          label="Cast 2"
+          label="Жүжигчин 2"
           name="cast2"
           type={"text"}
           onChange={handleInputChange}
         />
         <InputField
           desc="Жүжигчин 3"
-          label="Cast 3"
+          label="Жүжигчин 3"
           name="cast3"
           type={"text"}
           onChange={handleInputChange}
@@ -89,13 +89,13 @@ export const DialogText = ({ handleInputChange }: Props) => {
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
             htmlFor="movieType"
           >
-            Movie-type{" (check movie-type)"}
+            Танхимын төрөл
           </label>
           <Flex direction="row">
             {typesMovie.map((type: any, i: any) => (
               <RadioGroup.Root
                 key={i}
-                defaultChecked={"2D" === type.id ? true : false}
+                defaultValue="2D"
                 name="movieType"
                 value={type.id}
                 onChange={handleInputChange}

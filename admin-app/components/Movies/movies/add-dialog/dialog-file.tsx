@@ -15,13 +15,13 @@ export const DialogFile = ({ handleInputChange }: Props) => {
     <div className=" ">
       <InputField
         desc="Трэйлер линк оруулна уу"
-        label="Trailer"
+        label="Трэйлэр"
         name="movie_trailer"
         type={"text"}
         onChange={handleInputChange}
       />
       <div className="flex flex-col gap-3">
-        <p className="text-[13px] text-violet12">Poster {"(Vertical img)"}</p>
+        <p className="text-[13px] text-violet12">Poster {"(Босоо зураг)"}</p>
         <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded ">
           {" "}
           <Cloudinary setFunction={setVertical} />
@@ -29,7 +29,7 @@ export const DialogFile = ({ handleInputChange }: Props) => {
       </div>
       <div className="flex flex-col gap-3 mt-3">
         <p className="text-[13px] text-violet12">
-          Poster {"(Landscape img 1)"}
+          Киноны зураг {"(Хэвтээ зураг 1)"}
         </p>
         <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
           {" "}
@@ -37,74 +37,39 @@ export const DialogFile = ({ handleInputChange }: Props) => {
         </div>
       </div>
       <div className="flex flex-col gap-3 mt-3">
-        <p className="text-[13px] text-violet12">
-          Poster {"(Landscape img 2)"}
-        </p>
+        <p className="text-[13px] text-violet12">Зураг {"(Хэвтээ зураг 2)"}</p>
         <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
           {" "}
           <Cloudinary setFunction={setLandTwo} />
         </div>
       </div>
       <div className="flex flex-col gap-3 mt-3">
-        <p className="text-[13px] text-violet12">Poster {"(Cast img 1)"}</p>
+        <p className="text-[13px] text-violet12">
+          Зураг {"(Жүжигчний зураг 1)"}
+        </p>
         <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
           {" "}
           <Cloudinary setFunction={setCast1} />
         </div>
       </div>
       <div className="flex flex-col gap-3 mt-3">
-        <p className="text-[13px] text-violet12">Poster {"(Cast img 2)"}</p>
+        <p className="text-[13px] text-violet12">
+          Poster {"(Жүжигчний зураг 2)"}
+        </p>
         <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
           {" "}
           <Cloudinary setFunction={setCast2} />
         </div>
       </div>
       <div className="flex flex-col gap-3 mt-3">
-        <p className="text-[13px] text-violet12">Poster {"(Cast img 3)"}</p>
+        <p className="text-[13px] text-violet12">
+          Poster {"(Жүжигчний зураг 3)"}
+        </p>
         <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
           {" "}
           <Cloudinary setFunction={setCast3} />
         </div>
       </div>
-
-      {/* 
-      <InputField
-        label={"Poster (Vertical img)"}
-        name="vertical"
-        type={"file"}
-        onChange={handleMovieImages}
-      /> */}
-      {/* <InputField
-        label={"Poster (Landscape img)"}
-        name="landOne"
-        type={"file"}
-        onChange={handleMovieImages}
-      /> */}
-      {/* <InputField
-        label={"Poster (Landscape img)"}
-        name="landTwo"
-        type={"file"}
-        onChange={handleMovieImages}
-      /> */}
-
-      {/* <InputField
-        label="Cast (cast1)"
-        name="cast1"
-        type="file"
-        onChange={handleCastsImages}
-      /> */}
-      {/* <InputField
-        label="Cast (cast2)"
-        name="cast2"
-        type="file"
-        onChange={handleCastsImages}
-      /> */}
-      {/* <InputField
-        label="Cast (cast3)"
-        name="cast3"
-        type="file"
-        onChange={handleCastsImages}
-      /> */}
     </div>
   );
 };

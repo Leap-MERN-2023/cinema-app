@@ -2,6 +2,7 @@ import React, { ChangeEvent, useContext } from "react";
 import myAxios from "@/components/utils/axios";
 import { toast } from "react-toastify";
 import { PasswordRecoverContext } from "@/context/passwordrecover";
+import { Button } from "@radix-ui/themes";
 
 interface IStepProps {
   email: string;
@@ -20,31 +21,29 @@ const RecoveryCode = ({
   const { handleSendOtp, user } = useContext(PasswordRecoverContext);
 
   return (
-    <div className="my-32">
+    <div className="my-32 text-black">
       <div className="flex items-center flex-col justify-center m-auto p-[32px] gap-8">
-        <p className="text-center text-[28px]">Нууц үг сэргээх</p>
-        <div className="w-full mb-[20px]">
-          <p className="text-[16px] text-slate-500 ">
+        <p className="text-center text-[28px] ">Нууц үг сэргээх</p>
+        <div className="w-full mb-[10px]">
+          <p className="text-[16px]  ">
             Таны <span style={{ color: "orange" }}>{email}</span> хаяг руу
             сэргээх код илгээх болно.
           </p>
           <input
-            className="text-black py-2 px-4 w-full bg-slate-300 mt-4"
+            className="text-black py-2 px-4 w-full bg-slate-300 mt-8 rounded-sm border "
             name="otp"
             placeholder="Код оруулна уу"
             onChange={handleChangeInput}
           />
         </div>
-        <div className="flex w-[80%] rounded-lg">
-          <button
-            className="w-full py-4 bg-slate-700 text-white rounded-lg"
-            onClick={() => {
-              handleSendOtp(user.email, user.otp);
-            }}
-          >
-            Үргэлжлүүлэх
-          </button>
-        </div>
+        <Button
+          onClick={() => {
+            handleSendOtp(user.email, user.otp);
+          }}
+          style={{ width: "full", padding: "20px" }}
+        >
+          Үргэлжлүүлэх
+        </Button>
       </div>
     </div>
   );

@@ -1,11 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui";
-import React, { ChangeEvent } from "react";
-import myAxios from "@/components/utils/axios";
-import { toast } from "@/components/ui/use-toast";
-import { useRouter } from "next/navigation";
+import React, { ChangeEvent, useState } from "react";
 import { usePassword } from "@/components/contexts/passwordrecover";
+import { IoIosEye } from "react-icons/io";
+import { IoIosEyeOff } from "react-icons/io";
 
 interface IStepProps {
   email: string;
@@ -14,29 +13,66 @@ interface IStepProps {
   handleChangeInput: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const ChangeNewPassword = ({
-  email,
-  password,
-  rePassword,
-  handleChangeInput,
-}: IStepProps) => {
+const ChangeNewPassword = ({ handleChangeInput }: IStepProps) => {
   const { handleChangeToNewPassword, user } = usePassword();
+  const [isShowPassword, setIsShowPassword] = useState(false);
+  const [isShowPassword1, setIsShowPassword1] = useState(false);
   return (
     <div className="my-32">
       <div className="flex items-center flex-col justify-center m-auto p-[32px] gap-8">
         <p className="text-center text-[28px] text-bold">Нууц үг өөрчлөх</p>
-        <input
-          placeholder="Шинэ нууц үг оруулах"
-          onChange={handleChangeInput}
-          name="password"
-          className="py-2 px-4 bg-slate-300"
-        />
-        <input
-          placeholder="Шинэ нууц үг оруулах"
-          onChange={handleChangeInput}
-          name="rePassword"
-          className="py-2 px-4 bg-slate-300"
-        />
+        <div className="flex items-center bg-slate-300 relative text-black">
+          <input
+            placeholder="Шинэ нууц үг оруулах"
+            onChange={handleChangeInput}
+            name="password"
+            type={isShowPassword ? "password" : "text"}
+            className="py-2 px-4 bg-slate-300"
+          />
+          {isShowPassword == false ? (
+            <IoIosEye
+              size={20}
+              onClick={() => {
+                setIsShowPassword(!isShowPassword);
+              }}
+              className="absolute right-2"
+            />
+          ) : (
+            <IoIosEyeOff
+              size={20}
+              onClick={() => {
+                setIsShowPassword(!isShowPassword);
+              }}
+              className="absolute right-2"
+            />
+          )}
+        </div>
+        <div className="flex items-center bg-slate-300 relative text-black">
+          <input
+            placeholder="Шинэ нууц үг оруулах"
+            onChange={handleChangeInput}
+            name="rePassword"
+            type={isShowPassword1 ? "password" : "text"}
+            className="py-2 px-4 bg-slate-300"
+          />
+          {isShowPassword == false ? (
+            <IoIosEye
+              size={20}
+              onClick={() => {
+                setIsShowPassword1(!isShowPassword1);
+              }}
+              className="absolute right-2"
+            />
+          ) : (
+            <IoIosEyeOff
+              size={20}
+              onClick={() => {
+                setIsShowPassword1(!isShowPassword1);
+              }}
+              className="absolute right-2"
+            />
+          )}
+        </div>
         <div className="flex w-[50%] ">
           <Button
             onClick={() => {

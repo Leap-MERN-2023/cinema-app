@@ -6,7 +6,7 @@ import * as Tabs from "@radix-ui/react-tabs";
 import { Dialog, Transition } from "@headlessui/react";
 import { DialogText } from "./dialog-text";
 import { DialogFile } from "./dialog-file";
-import { useComingSoon, useMovie } from "@/context";
+import { useAuth, useComingSoon, useMovie } from "@/context";
 
 export const ComingsoonDialog = ({}: any) => {
   const { addComingSoon, isLoading } = useComingSoon();
@@ -47,18 +47,23 @@ export const ComingsoonDialog = ({}: any) => {
   function openModal() {
     setIsOpen(true);
   }
-
+  const { loginuser } = useAuth();
   return (
     <>
-      <div className=" inset-0  ">
+      <div className=" inset-0  "></div>
+      {loginuser ? (
         <button
           type="button"
           onClick={openModal}
-          className="rounded-md bg-white  mb-7 px-4 py-2 text-sm font-medium text-violet11 hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+          className="rounded-md bg-white shadow-blackA4 border mb-7 px-4 py-2 text-sm font-medium text-violet11 hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
         >
-          Add movie
+          Кино нэмэх
         </button>
-      </div>
+      ) : (
+        <p className="py-2 mb-7 text-violet11 text-lg ">
+          Зөвхөн нэвтэрсэн хэрэглэгч кино нэмэх эрхтэй.
+        </p>
+      )}
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -90,7 +95,7 @@ export const ComingsoonDialog = ({}: any) => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Add movie
+                    Кино нэмэх
                   </Dialog.Title>
                   <Tabs.Root
                     className="flex flex-col w-full "
@@ -104,31 +109,25 @@ export const ComingsoonDialog = ({}: any) => {
                         className="bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative data-[state=active]:focus:shadow-[0_0_0_2px] data-[state=active]:focus:shadow-black outline-none cursor-default"
                         value="tab1"
                       >
-                        Movie Text{" (step1)"}
+                        Текст{" (Алхам 1)"}
                       </Tabs.Trigger>
                       <Tabs.Trigger
                         className="bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative data-[state=active]:focus:shadow-[0_0_0_2px] data-[state=active]:focus:shadow-black outline-none cursor-default"
                         value="tab2"
                       >
-                        Movie File{" (step2)"}
+                        Файл{" (Алхам 2)"}
                       </Tabs.Trigger>
                     </Tabs.List>
                     <Tabs.Content
                       className="grow p-5 bg-white rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
                       value="tab1"
                     >
-                      <p className="mb-5 text-mauve11 text-[15px] leading-normal">
-                        Add event name, date, about, location, addition here.
-                      </p>
                       <DialogText handleInputChange={handleInputChange} />
                     </Tabs.Content>
                     <Tabs.Content
                       className="grow p-5 bg-white rounded-b-md outline-none"
                       value="tab2"
                     >
-                      <p className="mb-5 text-mauve11 text-[15px] leading-normal">
-                        Add event image, facebook link here.
-                      </p>
                       <DialogFile handleInputChange={handleInputChange} />
                     </Tabs.Content>
                   </Tabs.Root>
@@ -139,7 +138,7 @@ export const ComingsoonDialog = ({}: any) => {
                       disabled={isLoading}
                       onClick={handleAdd}
                     >
-                      Add Movie
+                      Кино нэмэх
                     </button>
                   </div>
                 </Dialog.Panel>

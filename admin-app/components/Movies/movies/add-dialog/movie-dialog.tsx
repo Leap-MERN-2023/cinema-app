@@ -5,7 +5,7 @@ import * as Tabs from "@radix-ui/react-tabs";
 import { Dialog, Transition } from "@headlessui/react";
 import { DialogText } from "./dialog-text";
 import { DialogFile } from "./dialog-file";
-import { useMovie } from "@/context";
+import { useAuth, useMovie } from "@/context";
 
 export const MovieDialog = ({ movie }: any) => {
   const { addMovie } = useMovie();
@@ -48,17 +48,23 @@ export const MovieDialog = ({ movie }: any) => {
   function openModal() {
     setIsOpen(true);
   }
-
+  const { loginuser } = useAuth();
   return (
     <>
-      <div className=" inset-0  ">
-        <button
-          type="button"
-          onClick={openModal}
-          className="rounded-md bg-white  mb-7 px-4 py-2 text-sm font-medium text-violet11 hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-        >
-          Add movie
-        </button>
+      <div className="inset-0">
+        {loginuser ? (
+          <button
+            type="button"
+            onClick={openModal}
+            className="rounded-md shadow-black/20 bg-white border mb-7 px-4 py-2 text-sm font-medium text-violet11 hover:bg-black/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+          >
+            Кино нэмэх
+          </button>
+        ) : (
+          <p className="py-2 mb-7 text-violet11 text-lg ">
+            Зөвхөн нэвтэрсэн хэрэглэгч кино нэмэх эрхтэй.
+          </p>
+        )}
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -89,9 +95,9 @@ export const MovieDialog = ({ movie }: any) => {
                 <Dialog.Panel className=" max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
+                    className="text-lg font-medium leading-6 text-gray-900 mb-4"
                   >
-                    Add movie
+                    Кино нэмэх
                   </Dialog.Title>
                   <Tabs.Root
                     className="flex flex-col w-full "
@@ -105,41 +111,35 @@ export const MovieDialog = ({ movie }: any) => {
                         className="bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative data-[state=active]:focus:shadow-[0_0_0_2px] data-[state=active]:focus:shadow-black outline-none cursor-default"
                         value="tab1"
                       >
-                        Movie Text{" (step1)"}
+                        Текст{" (Алхам 1)"}
                       </Tabs.Trigger>
                       <Tabs.Trigger
                         className="bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative data-[state=active]:focus:shadow-[0_0_0_2px] data-[state=active]:focus:shadow-black outline-none cursor-default"
                         value="tab2"
                       >
-                        Movie File{" (step2)"}
+                        Файл{" (Алхам 2)"}
                       </Tabs.Trigger>
                     </Tabs.List>
                     <Tabs.Content
                       className="grow p-5 bg-white rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
                       value="tab1"
                     >
-                      <p className="mb-5 text-mauve11 text-[15px] leading-normal">
-                        Add event name, date, about, location, addition here.
-                      </p>
                       <DialogText handleInputChange={handleInputChange} />
                     </Tabs.Content>
                     <Tabs.Content
                       className="grow p-5 bg-white rounded-b-md outline-none"
                       value="tab2"
                     >
-                      <p className="mb-5 text-mauve11 text-[15px] leading-normal">
-                        Add event image, facebook link here.
-                      </p>
                       <DialogFile handleInputChange={handleInputChange} />
                     </Tabs.Content>
                   </Tabs.Root>
                   <div className="mt-4">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
                       onClick={handleAdd}
                     >
-                      Got it, thanks!
+                      Кино нэмэх
                     </button>
                   </div>
                 </Dialog.Panel>

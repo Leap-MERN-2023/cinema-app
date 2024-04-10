@@ -20,6 +20,7 @@ interface IPasswordContext {
     otp: string
   ) => void;
   user: any;
+  loading: boolean;
   handleNext: () => void;
   changeSteps: () => void;
   handleChangeInput: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -48,9 +49,13 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
   const changeSteps = () => {
     setActivestep((prev) => prev + 1);
   };
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setUser((prev: any) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const handleNext = async () => {
     try {
+      console.log(user.email);
       setLoading(true);
       const { data } = await myAxios.post<any>("/verify/send-email", {
         email: user.email,
@@ -62,10 +67,6 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setUser((prev: any) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSendOtp = async (email: string, otp: string) => {
@@ -113,6 +114,7 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
         handleChangeToNewPassword,
         handleSendOtp,
         user,
+        loading,
       }}
     >
       {children}

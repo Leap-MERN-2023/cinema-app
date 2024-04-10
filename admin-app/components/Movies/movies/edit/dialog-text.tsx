@@ -20,7 +20,7 @@ export const DialogText = ({ handleInputChange, movie }: Props) => {
       <div>
         <InputField
           desc="Киноны нэр"
-          label="Title"
+          label="Гарчиг"
           defaultValue={movie.title}
           name="title"
           type={"text"}
@@ -28,7 +28,7 @@ export const DialogText = ({ handleInputChange, movie }: Props) => {
         />
         <InputField
           desc="Киноны тайлбар"
-          label="Synopsis"
+          label="Киноны тайлбар"
           defaultValue={movie.synopsis || ""}
           name="synopsis"
           type={"text"}
@@ -37,14 +37,14 @@ export const DialogText = ({ handleInputChange, movie }: Props) => {
         <InputField
           desc="Киноны Найруулагч"
           defaultValue={movie.director || ""}
-          label="Director"
+          label="Найруулагч"
           name="director"
           type={"text"}
           onChange={handleInputChange}
         />
         <InputField
           desc="Киноны үргэлжлэх хугацаа"
-          label="Duration"
+          label="Хугацаа"
           name="duration"
           defaultValue={movie.duration}
           type={"number"}
@@ -52,7 +52,7 @@ export const DialogText = ({ handleInputChange, movie }: Props) => {
         />
         <InputField
           desc="Киноны төрөл"
-          label="Genre"
+          label="Төрөл"
           defaultValue={movie.genre}
           name="genre"
           type={"text"}
@@ -60,7 +60,7 @@ export const DialogText = ({ handleInputChange, movie }: Props) => {
         />
         <InputField
           desc="Гарах өдөр"
-          label="Release - date"
+          label="Гарах өдөр"
           defaultValue={movie.releaseDate}
           name="releaseDate"
           type={"date"}
@@ -72,7 +72,7 @@ export const DialogText = ({ handleInputChange, movie }: Props) => {
           <div>
             <InputField
               desc="Жүжигчин 1"
-              label="Casts"
+              label="Жүжигчин"
               name="cast1"
               defaultValue={cast.name}
               type={"text"}
@@ -82,7 +82,7 @@ export const DialogText = ({ handleInputChange, movie }: Props) => {
         ))}
         <InputField
           desc="Том хүн тасалбар үнэ"
-          label="Ticket price (adult)"
+          label="Тасалбарын үнэ (Том хүн)"
           defaultValue={movie.ticketPrice.adult}
           name="adult"
           type={"number"}
@@ -90,7 +90,7 @@ export const DialogText = ({ handleInputChange, movie }: Props) => {
         />
         <InputField
           desc="Хүүхдийн тасалбар үнэ"
-          label="Ticket price (child)"
+          label="Тасалбарын үнэ (Хүүхэд)"
           defaultValue={movie.ticketPrice.child}
           name="child"
           type={"number"}
@@ -101,7 +101,7 @@ export const DialogText = ({ handleInputChange, movie }: Props) => {
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
             htmlFor="movieType"
           >
-            Movie-type{" (check movie-type)"}
+            Танхимын төрөл
           </label>
           <Flex direction="row">
             {typesMovie.map((type: any, i: any) => (

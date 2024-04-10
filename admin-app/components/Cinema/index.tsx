@@ -6,21 +6,28 @@ import React, { useContext } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { CinemaCard } from "./CinemaCard";
-import { CinemaContext } from "@/context";
+import { CinemaContext, useAuth } from "@/context";
 import { Divider } from "@tremor/react";
 
 const Cinema = () => {
   const { cinemas } = useContext(CinemaContext);
+  const { loginuser } = useAuth();
   return (
     <>
       <div className="">
-        <Breadcrumb pageName="Cinema" />
+        <Breadcrumb pageName="Кино театрууд" />
         <div className="">
           <Dialog.Root>
             <Dialog.Trigger asChild>
-              <button className="inline-flex h-[35px] items-center justify-center rounded-[4px] bg-red-500 text-white px-[15px] font-medium leading-none focus:shadow-black focus:outline-none">
-                Кино театр нэмэх
-              </button>
+              {loginuser ? (
+                <button className="inline-flex h-[35px] items-center justify-center rounded-[4px] bg-red-500 text-white px-[15px] font-medium leading-none focus:shadow-black focus:outline-none">
+                  Кино театр нэмэх
+                </button>
+              ) : (
+                <p className="py-2 text-violet11 text-lg ">
+                  Зөвхөн нэвтэрсэн хэрэглэгч кино театр нэмэх эрхтэй.
+                </p>
+              )}
             </Dialog.Trigger>
             <Dialog.Portal>
               <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />

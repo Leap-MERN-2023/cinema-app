@@ -15,7 +15,7 @@ export const DialogFile = ({ setFile, handleInputChange }: Props) => {
             className="text-[13px] leading-none mb-2.5 text-violet12 block"
             htmlFor="Facebook link"
           >
-            Link {"(Facebook link format only)"}
+            Холбоос {"(Зөвхөн фэйсбоок линк оруулна уу)"}
           </label>
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
@@ -26,7 +26,7 @@ export const DialogFile = ({ setFile, handleInputChange }: Props) => {
           />
         </fieldset>
         <div className="flex flex-col gap-3 mt-3">
-          <p className="text-[13px] text-violet12">Poster {"(Vertical img)"}</p>
+          <p className="text-[13px] text-violet12">Зураг {"(Хэвтээ зураг)"}</p>
           <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
             {" "}
             <Cloudinary setFunction={setFile} />

@@ -1,14 +1,16 @@
 import { PasswordRecoverContext } from "@/context/passwordrecover";
+import { Button } from "@radix-ui/themes";
 import React, { ChangeEvent, useContext } from "react";
 
 interface IStepProps {
   email: string;
+  loading: boolean;
   handleNext: () => void;
   changeSteps: () => void;
   handleChangeInput: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const EmailInput = ({ handleNext, handleChangeInput }: IStepProps) => {
+const EmailInput = ({ handleNext, handleChangeInput, loading }: IStepProps) => {
   return (
     <div className="my-32">
       <div className="flex items-center flex-col justify-center m-auto p-[32px] gap-8">
@@ -20,18 +22,18 @@ const EmailInput = ({ handleNext, handleChangeInput }: IStepProps) => {
           placeholder="Имэйл хаягаа оруулна уу"
           onChange={handleChangeInput}
           name="email"
-          className="py-2 px-4 bg-slate-300 w-[80%]"
+          className="py-2 px-4 w-[80%] border"
         />
-        <div className="flex w-[50%] ">
-          <button
-            onClick={() => {
-              handleNext();
-            }}
-            className="w-full py-4 bg-slate-700 text-white rounded-lg"
-          >
-            Үргэлжлүүлэх
-          </button>
-        </div>
+
+        <Button
+          onClick={() => {
+            handleNext();
+          }}
+          disabled={loading}
+          style={{ width: "full", padding: "20px" }}
+        >
+          Үргэлжлүүлэх
+        </Button>
       </div>
     </div>
   );

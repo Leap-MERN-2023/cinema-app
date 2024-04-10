@@ -10,7 +10,7 @@ interface IStepProps {
 
 const EmailInput = ({ handleNext, handleChangeInput }: IStepProps) => {
   return (
-    <div className="my-32">
+    <div className=" bg-slate-700">
       <div className="flex items-center flex-col justify-center m-auto p-[32px] gap-8">
         <p className="text-center text-[28px] text-bold">Нууц үг сэргээх</p>
         <p className="text-start text-[14px]">
@@ -20,7 +20,7 @@ const EmailInput = ({ handleNext, handleChangeInput }: IStepProps) => {
           placeholder="Имэйл хаягаа оруулна уу"
           onChange={handleChangeInput}
           name="email"
-          className="py-2 px-4 bg-slate-300"
+          className="py-2 px-4 bg-slate-300 text-black"
         />
         <div className="flex w-[50%] ">
           <Button

@@ -14,7 +14,7 @@ export const TrailerDialog = ({ movie }: any) => {
           }}
           className="text-violet11 mb-5 shadow-blackA4 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center rounded-[4px] bg-white px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none"
         >
-          trailer
+          Трэйлер
         </button>
       </Dialog.Trigger>
       {open && (
@@ -24,7 +24,7 @@ export const TrailerDialog = ({ movie }: any) => {
           <Dialog.Content className="data-[state=open]:animate-contentShow bg-black fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[650px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
             <Flex align={"center"} justify={"between"} direction={"row"}>
               <Dialog.Title className="text-white mb-5 text-[17px] font-medium">
-                Movie tailer
+                Трэйлер
               </Dialog.Title>
               <Button
                 style={{
@@ -41,7 +41,7 @@ export const TrailerDialog = ({ movie }: any) => {
                   setOpen(false);
                 }}
               >
-                close
+                Хаах
               </Button>
             </Flex>
 

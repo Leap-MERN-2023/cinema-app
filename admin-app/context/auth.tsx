@@ -17,6 +17,7 @@ interface IUser {
   password?: string;
   avatarUrl?: string;
   _id?: string;
+  fullName?: string;
 }
 
 interface IAuthContext {
@@ -168,6 +169,7 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
 
   useEffect(() => {
     authLogged();
+    getAllUser();
   }, [refresh]);
 
   return (

@@ -11,7 +11,7 @@ export const Event = (props: Props) => {
   const { events } = useContext(EventContext);
   return (
     <>
-      <Breadcrumb pageName="Events" />
+      <Breadcrumb pageName="Эвент" />
       <EventDialog />
       <div className="flex justify-center items-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">

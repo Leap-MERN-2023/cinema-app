@@ -23,12 +23,14 @@ import { useSidebar } from "./use-sidebar";
 import { cn } from "@/app/libs/utlis";
 import LinkItem from "./LinkItem";
 import ExpandMenu from "./ExpandMenu";
+import { useAuth } from "..";
 
 interface SidebarProps {}
 
 const Sidebar = ({}: SidebarProps) => {
   const pathname = usePathname();
   const { isSidebarOpen, toggleSidebar } = useSidebar((state) => state);
+  const { loginuser } = useAuth();
 
   return (
     <aside
@@ -60,33 +62,28 @@ const Sidebar = ({}: SidebarProps) => {
                 "items-center justify-center ": !isSidebarOpen,
               })}
             >
-              <li>
+              <li className="cursor-pointer ">
                 <ExpandMenu
                   name="Нүүр хуудас"
-                  icon={<HomeIcon className="  h-6 w-6 hover:text-white" />}
+                  icon={<HomeIcon className="  h-6 w-6 hover:text-white " />}
                 >
-                  <LinkItem
-                    icon={<ShoppingBag />}
-                    title="E-commerce"
-                    href="/"
-                  />
-                </ExpandMenu>
-              </li>
-              <li>
-                <ExpandMenu
-                  name="Кинонууд"
-                  icon={<MonitorPlay className="  h-6 w-6 hover:text-white" />}
-                >
-                  <LinkItem
-                    title="Now showing"
-                    href="/movies"
-                    icon={<Clapperboard className="h-6 w-6 " />}
-                  ></LinkItem>
-                  <LinkItem
-                    title="Comingsoon"
-                    href="/comingsoon"
-                    icon={<FileVideo2 className="h-6 w-6" />}
-                  ></LinkItem>
+                  <ExpandMenu
+                    name="Кинонууд"
+                    icon={
+                      <MonitorPlay className="  h-6 w-6 hover:text-white" />
+                    }
+                  >
+                    <LinkItem
+                      title="Дэлгэцнээ"
+                      href="/movies"
+                      icon={<Clapperboard className="h-6 w-6 " />}
+                    ></LinkItem>
+                    <LinkItem
+                      title="Тун удахгүй"
+                      href="/comingsoon"
+                      icon={<FileVideo2 className="h-6 w-6" />}
+                    ></LinkItem>
+                  </ExpandMenu>
                 </ExpandMenu>
               </li>
 
@@ -119,14 +116,8 @@ const Sidebar = ({}: SidebarProps) => {
                   icon={<Table2Icon className="h-6 w-6" />}
                 ></LinkItem>
               </li>
-              <li>
-                <LinkItem
-                  title="Charts"
-                  href="/chart"
-                  icon={<BarChart2 className="h-6 w-6" />}
-                ></LinkItem>
-              </li>
-              <li>
+
+              <li className="cursor-pointer">
                 <ExpandMenu
                   name="Профайл"
                   icon={<User2Icon className="  h-6 w-6 hover:text-white" />}
@@ -143,13 +134,17 @@ const Sidebar = ({}: SidebarProps) => {
                   ></LinkItem>
                 </ExpandMenu>
               </li>
-              <li>
-                <LinkItem
-                  title="Нэвтрэх"
-                  href="/signin"
-                  icon={<LockIcon className="h-5 w-5" />}
-                ></LinkItem>
-              </li>
+              {!loginuser ? (
+                <li>
+                  <LinkItem
+                    title="Нэвтрэх"
+                    href="/signin"
+                    icon={<LockIcon className="h-5 w-5" />}
+                  ></LinkItem>
+                </li>
+              ) : (
+                ""
+              )}
             </ul>
           </div>
         </nav>
