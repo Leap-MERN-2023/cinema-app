@@ -12,9 +12,9 @@ const Cinema = () => {
   const { cinemas } = useContext(CinemaContext);
   return (
     <>
-      <div className="flex">
+      <div className="">
         <Breadcrumb pageName="Cinema" />
-        <Flex gap="5" className="ml-48 mb-5 text-lg">
+        <Flex gap="5" className=" mb-5 text-lg">
           <span className="text-red-400"> Өргөө</span>
 
           <Separator orientation="vertical" />

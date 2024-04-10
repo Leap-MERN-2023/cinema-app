@@ -49,13 +49,18 @@ export const EditDialog = ({ movie }: any) => {
   return (
     <>
       <div className=" inset-0  ">
-        <button
-          type="button"
+        <img
           onClick={openModal}
-          className="rounded-md bg-green-200  mb-7 px-4 py-2 text-sm font-medium text-green-700 hover:bg-green-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-        >
-          Update movie
-        </button>
+          src={movie.poster.vertical}
+          alt="Bold typography"
+          style={{
+            display: "block",
+            objectFit: "cover",
+            width: "100%",
+            height: 350,
+            backgroundColor: "var(--gray-5)",
+          }}
+        />
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>

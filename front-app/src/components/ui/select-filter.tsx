@@ -73,8 +73,8 @@ export const MultiSelect = () => {
     setFilterByScreenType([]);
   };
   return (
-    <div className="flex flex-col sm:flex-row">
-      <div className="flex gap-2">
+    <div className="flex sm:flex-row">
+      <div className="flex gap-2 items-center justify-center">
         <Select
           isMulti
           name="cinema"
@@ -135,13 +135,13 @@ export const MultiSelect = () => {
             option: () => optionStyles,
           }}
         />
+        <button
+          className="underline text-xs sm:text-sm lg:text-base text-[#e5e7eb] sm:ml-6"
+          onClick={handleClear}
+        >
+          Арилгах
+        </button>
       </div>
-      <button
-        className="underline text-[14px] text-[#e5e7eb] mt-4 sm:ml-6 sm:mt-0"
-        onClick={handleClear}
-      >
-        Арилгах
-      </button>
     </div>
   );
 };

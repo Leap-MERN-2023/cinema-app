@@ -11,10 +11,12 @@ export const Movies = () => {
     <>
       <Breadcrumb pageName="Movies" />
       <MovieDialog />
-      <div className="flex flex-wrap gap-5">
-        {movies.map((movie: any) => (
-          <MovieCard movie={movie} key={movie._id} />
-        ))}
+      <div className="flex justify-center items-center">
+        <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+          {movies.map((movie: any) => (
+            <MovieCard movie={movie} key={movie._id} />
+          ))}
+        </div>
       </div>
     </>
   );

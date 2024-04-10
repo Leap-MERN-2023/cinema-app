@@ -85,197 +85,201 @@ export function Checkout({ handleForwardStep, handleBackwardStep }: any) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex justify-between bg-slate-900 px-8 py-12 rounded-xl my-16"
+        className="flex flex-col  justify-between bg-slate-900 py-12 rounded-xl mb-32"
       >
-        <div className="flex flex-col gap-6 h-full text-white">
-          <h1 className="font-semibold ">Checkout</h1>
-          <div>
-            <p>1. Мэдээллээ оруулна уу</p>
-            <div className="flex gap-5 mt-3">
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    {/* <FormLabel className="p-0 text-[10px]">aaa</FormLabel> */}
-                    <FormControl className="w-40 ">
-                      <div>
-                        <Label
-                          className={`text-[10px] transition-opacity ${
-                            field.value ? "opacity-100" : "opacity-0"
-                          }`}
-                        >
-                          И-мэйл хаяг
-                        </Label>
-                        <Input
-                          placeholder="И-мэйл хаяг"
-                          className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
-                          {...field}
-                          value={loginuser?.email}
-                        />
-                      </div>
-                    </FormControl>
-                    <div>
-                      <FormMessage className="text-[10px] absolute" />
-                    </div>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="phone"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl className="w-40">
-                      <div>
-                        <Label
-                          className={`text-[10px] transition-opacity ${
-                            field.value ? "opacity-100" : "opacity-0"
-                          }`}
-                        >
-                          Утасны дугаар
-                        </Label>
-                        <Input
-                          className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
-                          placeholder="Утасны дугаар"
-                          {...field}
-                          value={loginuser?.phone}
-                        />
-                      </div>
-                    </FormControl>
-                    <div>
-                      <FormMessage className="text-[10px] absolute" />
-                    </div>
-                  </FormItem>
-                )}
-              />
+        <h1 className="font-bold text-2xl sm:text-3xl justify-center flex text-white mb-12">
+          Checkout
+        </h1>
+        <div className="flex flex-col md:flex-row md:gap-16">
+          <div className="flex flex-col gap-6 h-full text-white">
+            <div className="">
+              <div className="mb-8">
+                <p className="font-bold">1. Мэдээллээ оруулна уу</p>
+                <div className="flex gap-2 mt-3 flex-col">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl className="w-64 ">
+                          <div>
+                            <Label
+                              className={`text-[10px] transition-opacity ${
+                                field.value ? "opacity-100" : "opacity-0"
+                              }`}
+                            >
+                              И-мэйл хаяг
+                            </Label>
+                            <Input
+                              placeholder="И-мэйл хаяг"
+                              className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
+                              {...field}
+                              value={loginuser?.email}
+                            />
+                          </div>
+                        </FormControl>
+                        <div>
+                          <FormMessage className="text-[10px] absolute" />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl className="w-64">
+                          <div>
+                            <Label
+                              className={`text-[10px] transition-opacity ${
+                                field.value ? "opacity-100" : "opacity-0"
+                              }`}
+                            >
+                              Утасны дугаар
+                            </Label>
+                            <Input
+                              className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
+                              placeholder="Утасны дугаар"
+                              {...field}
+                              value={loginuser?.phone}
+                            />
+                          </div>
+                        </FormControl>
+                        <div>
+                          <FormMessage className="text-[10px] absolute" />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col gap-3">
+                <p>2. Төлбөр төлөх сонголт</p>
+                <div className="grid grid-cols-2">
+                  {banks.map((e, i) => (
+                    <Button key={i} type="button">
+                      <img
+                        src={e.imgsrc}
+                        width={"20px"}
+                        style={{ marginRight: "4px" }}
+                      />
+                      {e.name}
+                    </Button>
+                  ))}
+                </div>
+                <div className="flex flex-col gap-2 mt-[-15px]">
+                  <FormField
+                    control={form.control}
+                    name="banknumber"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl className="w-64">
+                          <div>
+                            {" "}
+                            <Label
+                              className={`text-[10px] transition-opacity ${
+                                field.value ? "opacity-100" : "opacity-0"
+                              }`}
+                            >
+                              Дансны дугаар
+                            </Label>
+                            <Input
+                              className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
+                              placeholder="Дансны дугаар"
+                              {...field}
+                            />
+                          </div>
+                        </FormControl>
+                        <div>
+                          <FormMessage className="text-[10px] absolute" />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="cvv"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl className="w-64">
+                          <div>
+                            <Label
+                              className={`text-[10px] transition-opacity ${
+                                field.value ? "opacity-100" : "opacity-0"
+                              }`}
+                            >
+                              CVV
+                            </Label>
+                            <Input
+                              className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
+                              placeholder="CVV"
+                              {...field}
+                            />
+                          </div>
+                        </FormControl>
+                        <div>
+                          <FormMessage className="text-[10px] absolute" />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="flex flex-col gap-3">
-            <p>2. Төлбөр төлөх сонголт</p>
-            <div className="flex flex-wrap w-[400px]">
-              {banks.map((e, i) => (
-                <Button key={i} type="button">
-                  <img
-                    src={e.imgsrc}
-                    width={"15px"}
-                    style={{ marginRight: "4px" }}
-                  />
-                  {e.name}
-                </Button>
-              ))}
-            </div>
-            <div className="flex gap-5 mt-[-15px]">
-              <FormField
-                control={form.control}
-                name="banknumber"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl className="w-40">
-                      <div>
-                        {" "}
-                        <Label
-                          className={`text-[10px] transition-opacity ${
-                            field.value ? "opacity-100" : "opacity-0"
-                          }`}
-                        >
-                          Дансны дугаар
-                        </Label>
-                        <Input
-                          className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
-                          placeholder="Дансны дугаар"
-                          {...field}
-                        />
-                      </div>
-                    </FormControl>
-                    <div>
-                      <FormMessage className="text-[10px] absolute" />
-                    </div>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="cvv"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl className="w-[80px]">
-                      <div>
-                        <Label
-                          className={`text-[10px] transition-opacity ${
-                            field.value ? "opacity-100" : "opacity-0"
-                          }`}
-                        >
-                          Утасны дугаар
-                        </Label>
-                        <Input
-                          className="outline-none rounded-none mt-[-8px] border-t-0 border-r-0 border-l-0 border-slate-400 hover:border-white"
-                          placeholder="CVV"
-                          {...field}
-                        />
-                      </div>
-                    </FormControl>
-                    <div>
-                      <FormMessage className="text-[10px] absolute" />
-                    </div>
-                  </FormItem>
-                )}
+          <div className="h-full w-full flex justify-center flex-col m-auto mt-12 md:mt-0">
+            <div className="w-56 h-80 bg-red-100 rounded-sm relative text-white shadow-2xl flex justify-center m-auto">
+              <img
+                className="relative object-cover w-full h-full rounded-sm"
+                src={`${selectedMovie?.poster.vertical}`}
               />
             </div>
-            <Button
-              className="text-slate-100 bg-slate-800 z-20 w-40"
-              onClick={() => {
-                goBackAlert();
-              }}
-            >
-              Буцах
-            </Button>
+            <div className="flex flex-col justify-center gap-1 ">
+              <h1 className="text-slate-100 my-2 text-center text-xl font-bold">
+                {selectedMovie?.title}
+              </h1>
+              {ordersDetail.map((e, i) => {
+                return (
+                  <div
+                    key={i}
+                    className="flex justify-between text-slate-100 text-[12px] w-[250px]"
+                  >
+                    <p>
+                      {e.name} <span> x{e.quantity}</span>
+                    </p>
+                    <p>{e.price}₮</p>
+                  </div>
+                );
+              })}
+              <div className="flex justify-between text-slate-100 text-[12px] w-[250px]">
+                <p>Нийт:</p>
+                <p>{totalPrice}₮</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="h-full w-[250px]">
-          <div className="w-[250px] h-[220px] bg-red-100 rounded-sm relative text-white shadow-2xl transition-transform transform hover:scale-110 ">
-            <img
-              className="relative object-cover w-full h-full rounded-sm"
-              src={`${selectedMovie?.poster.vertical}`}
-            />
-          </div>
-          <div className="flex flex-col justify-center gap-1 ">
-            <h1 className="text-slate-100 my-2 text-center">
-              {selectedMovie?.title}
-            </h1>
-            {ordersDetail.map((e, i) => {
-              return (
-                <div
-                  key={i}
-                  className="flex justify-between text-slate-100 text-[12px] w-[250px]"
-                >
-                  <p>
-                    {e.name} <span> x{e.quantity}</span>
-                  </p>
-                  <p>{e.price}₮</p>
-                </div>
-              );
-            })}
-            <div className="flex justify-between text-slate-100 text-[12px] w-[250px]">
-              <p>Нийт:</p>
-              <p>{totalPrice}₮</p>
-            </div>
-            <Button
-              type="submit"
-              className="w-full bg-red-600 mt-2 hover:bg-red-200"
-              onClick={() => {
-                const values = form.getValues();
-                // if (form.formState.isValid) {
-                createOrder(values);
-                updateShowtime();
-                handleForwardStep();
-                // }
-                // console.log("clicked", form.formState.isValid);
-              }}
-            >
-              Төлөх
-            </Button>
-          </div>
+        <div className="flex justify-center m-auto flex-col gap-2 mt-4 md:mt-12">
+          <Button
+            type="submit"
+            className="w-64 bg-red-500 mt-2 hover:bg-slate-700"
+            onClick={() => {
+              const values = form.getValues();
+              createOrder(values);
+              updateShowtime();
+              handleForwardStep();
+            }}
+          >
+            Төлөх
+          </Button>
+          <Button
+            className="text-slate-100 bg-slate-800 z-20 w-64 hover:bg-red-500"
+            onClick={() => {
+              goBackAlert();
+            }}
+          >
+            Буцах
+          </Button>
         </div>
       </form>
     </Form>

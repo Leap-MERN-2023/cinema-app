@@ -6,15 +6,10 @@ import { ImLocation } from "react-icons/im";
 
 const FilterSection = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center mx-auto gap-4 mt-10 md:mt-24 sm:mb-20 justify-center">
-      <div className="flex flex-row items-center gap-4 sm:mr-6">
-        <p className="text-[14px] text-[#e5e7eb] whitespace-nowrap">
-          Шүүлтүүр:
-        </p>
-        <div>
-          <ImLocation className="p-3 bg-[#0089d0] w-9 h-9 text-white rounded-[5px] size-4" />
-        </div>
-      </div>
+    <div className="flex md:flex-row items-center mx-auto mt-10 md:mt-24 sm:mb-20 justify-center">
+      <p className="text-xs sm:text-sm lg:text-base text-[#e5e7eb] whitespace-nowrap mr-2 sm:mr-6">
+        Шүүлтүүр:
+      </p>
       <MultiSelect />
     </div>
   );

@@ -33,47 +33,31 @@ const Sidebar = ({}: SidebarProps) => {
   return (
     <aside
       className={cn(
-        `absolute left-0 top-0 z-9999 flex h-screen w-20 flex-col overflow-y-hidden bg-black duration-300 ease-linear  dark:bg-boxdark lg:static lg:translate-x-0 `,
+        `absolute left-0 top-0 z-1 lg:z-999999 flex h-screen w-20 flex-col overflow-y-hidden bg-black duration-300 ease-linear lg:opacity-100 dark:bg-boxdark lg:static lg:translate-x-0 `,
         {
-          "w-70": isSidebarOpen,
+          "w-56": isSidebarOpen,
+          "opacity-0": !isSidebarOpen,
+          "duration-100": isSidebarOpen,
         }
       )}
     >
       <div className="relative flex w-full items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <Link className="flex items-center" href="/">
-          <div
-            style={{
-              fontSize: 24,
-              background: "red",
-              fontFamily: "600",
-              width: "40px",
-              height: "30px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "white",
-              borderRadius: "50%",
-            }}
-          >
-            C
+        <MenuIcon onClick={toggleSidebar} className="" />
+
+        {/* {isSidebarOpen && (
+          <div className="font-bold text-base absolute left-0 ml-16 text-red-500">
+            <div>CINEMA</div>
+            <div>ADMIN</div>
           </div>
-          {isSidebarOpen && (
-            <h1 className=" ml-2 text-xl font-semibold text-white">
-              Cinema-Admin
-            </h1>
-          )}
-        </Link>
-        {isSidebarOpen && (
-          <MenuIcon onClick={toggleSidebar} className="h-6 w-6" />
-        )}
+        )} */}
       </div>
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-        <nav className="px-4 py-4  lg:px-6">
+        <nav className="px-4 py-4  lg:px-3">
           <div>
             <ul
               className={cn("mb-6 flex flex-col  gap-1.5", {
-                "items-center justify-center": !isSidebarOpen,
+                "items-center justify-center ": !isSidebarOpen,
               })}
             >
               <li>
@@ -96,7 +80,7 @@ const Sidebar = ({}: SidebarProps) => {
                   <LinkItem
                     title="Now showing"
                     href="/movies"
-                    icon={<Clapperboard className="h-6 w-6" />}
+                    icon={<Clapperboard className="h-6 w-6 " />}
                   ></LinkItem>
                   <LinkItem
                     title="Comingsoon"
@@ -166,11 +150,9 @@ const Sidebar = ({}: SidebarProps) => {
                   icon={<LockIcon className="h-5 w-5" />}
                 ></LinkItem>
               </li>
-              {/* <!-- Menu Item Auth Pages --> */}
             </ul>
           </div>
         </nav>
-        {/* <!-- Sidebar Menu --> */}
       </div>
     </aside>
   );

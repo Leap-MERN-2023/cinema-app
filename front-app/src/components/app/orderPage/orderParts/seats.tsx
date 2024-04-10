@@ -22,12 +22,6 @@ export const Seats = ({
     const fndIdx = selectedSeats.findIndex((el: any) => el === seatNumber);
     console.log("F", fndIdx);
     if (fndIdx !== -1) {
-      //   const newSeatNumbers = selectedSeats;
-      //   console.log("CHA", newSeatNumbers);
-      //   newSeatNumbers.splice(fndIdx, 1);
-      //   console.log("CHA", newSeatNumbers);
-      //   setSelectedSeats([...newSeatNumbers]);
-      //   func(selectedSeats.length);
     } else {
       setSelectedSeats([...selectedSeats, seatNumber]);
       func(selectedSeats.length + 1);
@@ -35,40 +29,40 @@ export const Seats = ({
   };
 
   return (
-    <div className="h-screen text-black flex justify-center flex-col items-center">
-      <p className="text-white py-5">{showtimes[0]?.screen}</p>
-      <p className="text-2xl text-white pb-10">Дэлгэц</p>
-      <div className="h-20 w-[500px] border-gray-500 border-l-[25px] border-l-transparent border-r-transparent border-r-[25px] border-t-[80px] rounded-t-md overflow-hidden"></div>
-      <div className="flex gap-6 pt-20">
+    <div className="h-screen text-black flex justify-center flex-col items-center mt-[-80px] lg:mt-[-40px]">
+      <p className="text-white py-5 font-bold">
+        {showtimes[0]?.screen} - Дэлгэц
+      </p>
+      <div className="h-20 w-80 border-gray-500 border-l-[25px] border-l-transparent border-r-transparent border-r-[25px] border-t-[80px] rounded-t-md overflow-hidden "></div>
+      <div className="flex gap-6 pt-10">
         <div className="flex flex-col gap-2">
-          <div className="flex flex-col px-10">
+          <div className="flex flex-col">
             {showtimes[0]?.seats.map((row: any, i: any) => {
               return (
-                <div className="flex" key={i}>
+                <div className="flex justify-center gap-2" key={i}>
                   {row.map((seat: any, i: any) => {
                     return (
                       <div key={i}>
                         {seat.isNull === "false" ? (
-                          <div className={`w-10 hover:cursor-pointer`}>
+                          <div className={`w-4 hover:cursor-pointer`}>
                             <Armchair
                               onClick={() => {
                                 if (seat.status === "available")
                                   handleSelect(seat.seatNumber);
                               }}
-                              size={30}
+                              size={24}
                               color={
                                 selectedSeats.includes(seat.seatNumber)
+                                  ? "lime"
+                                  : seat.status === "unavailable"
                                   ? "red"
                                   : "white"
-                              }
-                              fill={
-                                seat.status === "unavailable" ? "white" : "none"
                               }
                               opacity="70%"
                             />
                           </div>
                         ) : (
-                          <div className="w-10"></div>
+                          <div className="w-3"></div>
                         )}
                       </div>
                     );
@@ -76,9 +70,9 @@ export const Seats = ({
                 </div>
               );
             })}
-            <div className="w-full flex justify-center my-10">
+            <div className="w-full flex justify-center mt-4">
               <Button
-                color="white"
+                className=" bg-slate-700 hover:bg-red-500"
                 onClick={() => {
                   clear();
                 }}

@@ -116,184 +116,198 @@ export const TicketInfo = ({
     setTotal(0);
   };
   return (
-    <div className="flex justify-center">
-      <div className="flex flex-col gap-4 justify-center items-center bg-slate-900 text-white py-20">
-        <div className="flex gap-4">
-          {date.map((date, i) => (
-            <Button
-              key={i}
-              className={`flex flex-col gap-1 h-full ${
-                isActiveDate === date.day ? "bg-[#111729]" : "bg-slate-500"
-              }`}
-              onClick={() => {
-                setIsActiveDate(date.day);
-                setShowtimeByDay(
-                  showtimesByCinema.filter(
-                    (showtime: any) => showtime.startTime.date.day === date.day
-                  )
-                );
-                setIsActiveMonth(date.month);
-                setShowtimeByTime([]);
-                setIsActiveTime("");
-              }}
-            >
-              <p>{date.month + " сар"}</p>
-              <p className={`bg-slate-50 text-black rounded-full p-1 px-2`}>
-                {date.day}
-              </p>
-            </Button>
-          ))}
-        </div>
-        <div className="flex gap-4">
-          {showtimeByDay.length !== 0 &&
-            showtimeByDay
-              .map((showtime: any) => showtime.startTime.time)
-              .sort()
-              .map((time: any, i: number) => {
-                if (
-                  Number(time.slice(0, 2)) < date1.getHours() ||
-                  (Number(time.slice(0, 2)) === date1.getHours() &&
-                    Number(time.slice(3, 5)) <= date1.getMinutes())
-                ) {
-                  return (
-                    <Button className="bg-slate-400" disabled>
-                      {time}
-                    </Button>
-                  );
-                } else {
-                  return (
-                    <Button
-                      key={i}
-                      className={`${
-                        isActiveTime === time ? "bg-[#111729]" : "bg-slate-500"
-                      }`}
-                      onClick={() => {
-                        setIsActiveTime(time);
-                        setShowtimeByTime(
-                          showtimeByDay.filter(
-                            (showtime: any) => showtime.startTime.time === time
-                          )
-                        );
-                        clear();
-                        console.log("abababa", showtimeByDay);
-                      }}
-                    >
-                      {time}
-                    </Button>
-                  );
-                }
-              })}
-        </div>
-        {showtimeByTime.length !== 0 && (
-          <div className="flex flex-col justify-center items-center">
-            <div className="flex flex-col gap-3">
-              <div className="flex gap-5 bg-slate-500 border-2 py-3 px-5 rounded-lg items-center">
-                <p>Том хүн</p>
-                <div className="flex gap-2">
-                  <Button
-                    className="bg-transparent m-o p-0 text-white"
-                    onClick={() => {
-                      setAdultCount(
-                        total - kidsCount > 0 ? total - kidsCount : 0
-                      );
-                    }}
-                  >
-                    -
-                  </Button>
-                  <div className="w-10 bg-transparent text-center border-2 rounded-md">
-                    {total - kidsCount}
-                  </div>
-                  <Button
-                    className="bg-transparent m-o p-0 text-white"
-                    onClick={() => {
-                      setAdultCount(
-                        adultCount + kidsCount < total
-                          ? adultCount + 1
-                          : adultCount
-                      );
-                    }}
-                  >
-                    +
-                  </Button>
-                </div>
-                <p>{selectedMovie?.ticketPrice?.adult}₮</p>
-              </div>
-              <div className="flex gap-5 bg-slate-500 border-2 py-3 px-5 rounded-lg items-center">
-                <p className="mr-2">Хүүхэд</p>
-                <div className="flex gap-2">
-                  <Button
-                    className="bg-transparent m-o p-0 text-white"
-                    onClick={() => {
-                      setKidsCount(kidsCount > 0 ? kidsCount - 1 : 0);
-                    }}
-                  >
-                    -
-                  </Button>
-                  <div className="w-10 text-center bg-transparent border-2 rounded-md">
-                    {kidsCount}
-                  </div>
-                  <Button
-                    className="bg-transparent m-o p-0 text-white"
-                    onClick={() => {
-                      setKidsCount(
-                        kidsCount + adultCount < total
-                          ? kidsCount + 1
-                          : kidsCount
-                      );
-                    }}
-                  >
-                    +
-                  </Button>
-                </div>
-                <p>{selectedMovie?.ticketPrice?.child}₮</p>
-              </div>
-            </div>
-
-            <div className="flex gap-16 py-10">
-              <p>Тасалбарын үнэ</p>
-              <p>
-                {(total - kidsCount) * selectedMovie?.ticketPrice?.adult +
-                  kidsCount * selectedMovie?.ticketPrice?.child}
-                ₮
-              </p>
-            </div>
-            <div className="flex flex-col gap-3">
-              <div className="flex gap-5">
-                <div className="flex gap-4">
-                  <Armchair />
-                  <p>Хоосон</p>
-                </div>
-                <div className="flex gap-4">
-                  <Armchair color="silver" />
-                  <p>Захиалагатай</p>
-                </div>
-                <div className="flex gap-4">
-                  <Armchair color="red" />
-                  <p>Сонгосон</p>
-                </div>
-              </div>
-
+    <div className="flex flex-col justify-center lg:h-[800px] mb-96">
+      <div className="grid lg:grid-cols-2">
+        <div className="flex flex-col gap-4 justify-center items-center bg-slate-900 text-white pt-20 lg:py-20 lg:mr-20">
+          <div className="flex gap-4">
+            {date.map((date, i) => (
               <Button
-                className="bg-red-500 "
+                key={i}
+                className={`flex flex-col gap-1 h-full size-14 ${
+                  isActiveDate === date.day ? "bg-slate-800" : "bg-slate-600"
+                }`}
                 onClick={() => {
-                  send();
+                  setIsActiveDate(date.day);
+                  setShowtimeByDay(
+                    showtimesByCinema.filter(
+                      (showtime: any) =>
+                        showtime.startTime.date.day === date.day
+                    )
+                  );
+                  setIsActiveMonth(date.month);
+                  setShowtimeByTime([]);
+                  setIsActiveTime("");
                 }}
               >
-                Тасалбар захиалах
+                <p>{date.month + " сар"}</p>
+                <p className={`bg-slate-50 text-black size-8 rounded-xl px-2`}>
+                  {date.day}
+                </p>
               </Button>
-              <Button onClick={handleBackwardStep}>Go Back</Button>
-            </div>
+            ))}
           </div>
+          <div className="flex gap-4">
+            {showtimeByDay.length !== 0 &&
+              showtimeByDay
+                .map((showtime: any) => showtime.startTime.time)
+                .sort()
+                .map((time: any, i: number) => {
+                  if (
+                    Number(time.slice(0, 2)) < date1.getHours() ||
+                    (Number(time.slice(0, 2)) === date1.getHours() &&
+                      Number(time.slice(3, 5)) <= date1.getMinutes())
+                  ) {
+                    return (
+                      <Button className="bg-slate-400" disabled>
+                        {time}
+                      </Button>
+                    );
+                  } else {
+                    return (
+                      <Button
+                        key={i}
+                        className={`${
+                          isActiveTime === time
+                            ? "bg-slate-800"
+                            : "bg-slate-600"
+                        }`}
+                        onClick={() => {
+                          setIsActiveTime(time);
+                          setShowtimeByTime(
+                            showtimeByDay.filter(
+                              (showtime: any) =>
+                                showtime.startTime.time === time
+                            )
+                          );
+                          clear();
+                          console.log("abababa", showtimeByDay);
+                        }}
+                      >
+                        {time}
+                      </Button>
+                    );
+                  }
+                })}
+          </div>
+          {showtimeByTime.length !== 0 && (
+            <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col gap-3">
+                <div className="flex gap-5 justify-center bg-slate-600 py-3 px-5 rounded-lg items-center">
+                  <p>Том хүн</p>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      className="bg-transparent size-8 m-o p-0 text-white shadow-none"
+                      onClick={() => {
+                        setAdultCount(
+                          total - kidsCount > 0 ? total - kidsCount : 0
+                        );
+                      }}
+                    >
+                      -
+                    </Button>
+                    <div className="w-10 bg-transparent text-center border-2 rounded-md">
+                      {total - kidsCount}
+                    </div>
+                    <Button
+                      className="bg-transparent size-8 m-o p-0 text-white shadow-none"
+                      onClick={() => {
+                        setAdultCount(
+                          adultCount + kidsCount < total
+                            ? adultCount + 1
+                            : adultCount
+                        );
+                      }}
+                    >
+                      +
+                    </Button>
+                  </div>
+                  <p>{selectedMovie?.ticketPrice?.adult}₮</p>
+                </div>
+                <div className="flex gap-5 w-[340px] justify-center bg-slate-600 py-3 px-5 rounded-lg items-center">
+                  <p className="mr-2">Хүүхэд</p>
+                  <div className="flex gap-2 items-center">
+                    <Button
+                      className="bg-transparent size-8 m-o p-0 text-white shadow-none"
+                      onClick={() => {
+                        setKidsCount(kidsCount > 0 ? kidsCount - 1 : 0);
+                      }}
+                    >
+                      -
+                    </Button>
+                    <div className="w-10 text-center bg-transparent border-2 rounded-md">
+                      {kidsCount}
+                    </div>
+                    <Button
+                      className="bg-transparent size-8 m-o p-0 text-white shadow-none"
+                      onClick={() => {
+                        setKidsCount(
+                          kidsCount + adultCount < total
+                            ? kidsCount + 1
+                            : kidsCount
+                        );
+                      }}
+                    >
+                      +
+                    </Button>
+                  </div>
+                  <p>{selectedMovie?.ticketPrice?.child}₮</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 py-10">
+                <p>Тасалбарын үнэ:</p>
+                <p>
+                  {(total - kidsCount) * selectedMovie?.ticketPrice?.adult +
+                    kidsCount * selectedMovie?.ticketPrice?.child}
+                  ₮
+                </p>
+              </div>
+              <div className="flex flex-col gap-3">
+                <div className="flex gap-5">
+                  <div className="flex gap-2 items-center">
+                    <Armchair />
+                    <p className="text-xs sm:text-sm">Хоосон</p>
+                  </div>
+                  <div className="flex gap-2 items-center">
+                    <Armchair color="red" />
+                    <p className="text-xs sm:text-sm">Захиалагатай</p>
+                  </div>
+                  <div className="flex gap-2 items-center">
+                    <Armchair color="lime" />
+                    <p className="text-xs sm:text-sm">Сонгосон</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        {showtimeByTime.length !== 0 && (
+          <Seats
+            showtimes={showtimeByTime}
+            func={func}
+            selectedSeats={selectedSeats}
+            setSelectedSeats={setSelectedSeats}
+            clear={clear}
+          />
         )}
       </div>
       {showtimeByTime.length !== 0 && (
-        <Seats
-          showtimes={showtimeByTime}
-          func={func}
-          selectedSeats={selectedSeats}
-          setSelectedSeats={setSelectedSeats}
-          clear={clear}
-        />
+        <div className="flex justify-center flex-col m-auto lg:mt-[-100px] mt-[-80px]">
+          <Button
+            className="bg-red-500 w-64 hover:bg-slate-800 mb-2"
+            onClick={() => {
+              send();
+            }}
+          >
+            Тасалбар захиалах
+          </Button>
+          <Button
+            onClick={handleBackwardStep}
+            className="bg-slate-700 w-64 hover:bg-red-500"
+          >
+            Go Back
+          </Button>
+        </div>
       )}
     </div>
   );

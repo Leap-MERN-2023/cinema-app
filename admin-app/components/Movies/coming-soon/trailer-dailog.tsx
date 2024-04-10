@@ -47,8 +47,7 @@ export const TrailerDialog = ({ movie }: any) => {
 
             <div>
               <iframe
-                width="100%"
-                height="648"
+                className="w-72 sm:w-[528px] sm:h-72 flex justify-center m-auto"
                 src={movie.movie_trailer}
               ></iframe>
             </div>

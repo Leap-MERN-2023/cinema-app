@@ -13,10 +13,12 @@ export const Event = (props: Props) => {
     <>
       <Breadcrumb pageName="Events" />
       <EventDialog />
-      <div className="flex flex-wrap gap-5">
-        {events.map((event: any) => (
-          <EventCard event={event} key={event._id} />
-        ))}
+      <div className="flex justify-center items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+          {events.map((event: any) => (
+            <EventCard event={event} key={event._id} />
+          ))}
+        </div>
       </div>
     </>
   );

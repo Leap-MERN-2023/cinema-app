@@ -43,7 +43,7 @@ const DialogText = (props: Props) => {
     setShowtimeData({ ...showtimeData, [name]: value });
   };
   return (
-    <div className="flex justify-evenly w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 justify-evenly w-full">
       <div>
         <fieldset className="mb-[15px] w-[250px] flex flex-col justify-start">
           <label
@@ -149,7 +149,7 @@ const DialogText = (props: Props) => {
         />
         <Dialog.Close asChild>
           <button
-            className="mt-6 bg-violet-200 text-violet12 hover:bg-violet11 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
+            className="sm:mt-6 bg-violet-200 text-violet12 hover:bg-violet11 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
             onClick={() => {
               createShowtime(showtimeData);
             }}

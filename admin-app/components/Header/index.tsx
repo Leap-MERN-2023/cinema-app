@@ -16,16 +16,31 @@ const Header = (props: {
     <header className="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
       <div className="flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
         <div className="flex items-center gap-2 sm:gap-4 ">
+          <div className="font-bold text-base absolute left-0 text-red-500 opacity-0 lg:opacity-100 pointer-events-none">
+            <div>CINEMA</div>
+            <div>ADMIN</div>
+          </div>
           {!isSidebarOpen && (
             <button
               onClick={toggleSidebar}
               aria-hidden={!isSidebarOpen}
               aria-controls="sidebar"
+              className=" lg:pointer-events-none"
             >
-              <MenuIcon className="h-6 w-6 dark:text-white text-slate-400" />
+              <MenuIcon className="h-6 w-6 lg:opacity-0 dark:text-white text-slate-400" />
             </button>
           )}
 
+          {isSidebarOpen && (
+            <button
+              onClick={toggleSidebar}
+              aria-hidden={!isSidebarOpen}
+              aria-controls="sidebar"
+              className="lg:pointer-events-none"
+            >
+              <MenuIcon className="h-6 w-6 lg:opacity-0  text-slate-400" />
+            </button>
+          )}
           <Link className="block flex-shrink-0 lg:hidden" href="/">
             <Image
               width={32}
@@ -34,15 +49,6 @@ const Header = (props: {
               alt="Logo"
             />
           </Link>
-          {isSidebarOpen && (
-            <button
-              onClick={toggleSidebar}
-              aria-hidden={!isSidebarOpen}
-              aria-controls="sidebar"
-            >
-              <MenuIcon className="h-6 w-6 text-slate-400" />
-            </button>
-          )}
         </div>
 
         <div className="hidden sm:block">

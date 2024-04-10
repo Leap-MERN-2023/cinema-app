@@ -13,10 +13,12 @@ export const ComingSoon = (props: Props) => {
     <>
       <Breadcrumb pageName="Coming-soon" />
       <ComingsoonDialog />
-      <div className="flex flex-wrap gap-5">
-        {coMovies.map((movie: any) => (
-          <MovieCard movie={movie} key={movie._id} />
-        ))}
+      <div className="flex justify-center items-center">
+        <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+          {coMovies.map((movie: any) => (
+            <MovieCard movie={movie} key={movie._id} />
+          ))}
+        </div>
       </div>
     </>
   );

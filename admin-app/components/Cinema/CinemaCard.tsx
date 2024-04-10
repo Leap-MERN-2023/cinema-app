@@ -9,18 +9,15 @@ type Props = {
 
 export const CinemaCard = ({ cinemas }: Props) => {
   return (
-    <div className="flex flex-wrap items-center gap-10 my-10 ">
+    <div className="flex justify-center flex-wrap items-center gap-6 my-10 ">
       {cinemas.map((cinema: any) => {
         return (
-          <div className="flex flex-wrap  gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
             {cinema?.branches.map((branch: any, i: any) => (
-              <div
-                className="w-[330px] h-full rounded-lg border-[0.5px]  bg-slate-800 "
-                key={i}
-              >
+              <div className="w-64 h-full rounded-lg   bg-slate-800 " key={i}>
                 <img
                   src={branch.image}
-                  className="h-[450px] w-[380px] rounded-t-lg  object-cover relative"
+                  className="w-64 h-96 rounded-t-lg  object-cover relative"
                 />
                 <div className="mx-5 my-2 flex flex-col gap-2 ">
                   <div className="mb-1 text-slate-50 text-lg ">

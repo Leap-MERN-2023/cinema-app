@@ -21,7 +21,7 @@ export const TrailerDialog = ({ movie }: any) => {
         <Dialog.Portal>
           <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
 
-          <Dialog.Content className="data-[state=open]:animate-contentShow bg-black fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[650px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+          <Dialog.Content className="data-[state=open]:animate-contentShow bg-black fixed top-[45%] left-[50%] max-h-[85vh] w-[90vw] max-w-[650px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
             <Flex align={"center"} justify={"between"} direction={"row"}>
               <Dialog.Title className="text-white mb-5 text-[17px] font-medium">
                 Movie tailer
@@ -47,8 +47,7 @@ export const TrailerDialog = ({ movie }: any) => {
 
             <div>
               <iframe
-                width="100%"
-                height="648"
+                className="w-72 sm:w-[528px] sm:h-72 flex justify-center m-auto"
                 src={movie.movie_trailer}
               ></iframe>
             </div>

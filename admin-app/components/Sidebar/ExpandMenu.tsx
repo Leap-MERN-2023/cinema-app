@@ -31,13 +31,13 @@ const ExpandMenu = (props: Props) => {
             {icon}
             <div
               className={cn(
-                "flex w-full transform items-center justify-between duration-300 ease-in",
+                "flex w-full transform items-center justify-between duration-300 ease-in"
               )}
             >
               <p
                 className={cn(
                   "ml-2 text-lg text-gray-2 group-hover:text-white ",
-                  {},
+                  {}
                 )}
               >
                 {name}
@@ -47,7 +47,7 @@ const ExpandMenu = (props: Props) => {
                   "text-gary-2 ml-2 h-4 w-4  duration-300 ease-in-out group-hover:rotate-90 ",
                   {
                     "rotate-90": open,
-                  },
+                  }
                 )}
               />
             </div>

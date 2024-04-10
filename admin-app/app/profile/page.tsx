@@ -12,7 +12,7 @@ const Profile = () => {
       <Breadcrumb pageName="Бүртгэл" />
 
       <div className="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-        <div className="relative z-20 h-35 md:h-65">
+        <div className="relative z-0 h-35 md:h-65">
           <Image
             src={"/images/cover/cover-01.png"}
             alt="profile cover"
@@ -54,9 +54,11 @@ const Profile = () => {
           </div>
         </div>
         <div className="px-4 pb-6 text-center lg:pb-8 xl:pb-11.5">
-          <div className="relative z-30 mx-auto -mt-22 h-30 w-full max-w-30 rounded-full bg-white/20 p-1 backdrop-blur sm:h-44 sm:max-w-44 sm:p-3">
-            <div className="relative drop-shadow-2">
-              <FaUserCircle className="" size={160} />
+          <div className="relative z-0 mx-auto -mt-22 h-30 w-full max-w-30 rounded-full bg-white/20 p-1 backdrop-blur sm:h-44 sm:max-w-44 sm:p-3">
+            <div className="relative flex drop-shadow-2">
+              <div className="flex items-center gap-2">
+                <FaUserCircle className="w-28 h-28 sm:w-[152px] sm:h-[152px]" />
+              </div>
 
               <label
                 htmlFor="profile"

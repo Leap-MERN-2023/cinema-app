@@ -16,7 +16,7 @@ const typesMovie = [
 
 export const DialogText = ({ handleInputChange, movie }: Props) => {
   return (
-    <div className="flex gap-4 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
       <div>
         <InputField
           desc="Киноны нэр"

@@ -22,7 +22,7 @@ function MenuItem(props: Props) {
         <button
           className={cn(
             "group relative flex items-center justify-center gap-2.5 rounded-md   px-3 py-2    font-medium text-bodydark1 duration-300 ease-in-out  dark:hover:bg-meta-4",
-            {},
+            {}
           )}
         >
           <div className="flex items-center justify-center">
@@ -33,7 +33,7 @@ function MenuItem(props: Props) {
                   "gorup-hover:block  text-lg group-hover:text-white",
                   {
                     hidden: !isSidebarOpen,
-                  },
+                  }
                 )}
               >
                 {title}

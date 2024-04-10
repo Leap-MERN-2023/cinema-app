@@ -26,17 +26,7 @@ export const MovieCard = ({ movie }: Props) => {
     <Box maxWidth="240px">
       <Card size="2" className="relative">
         <Inset clip="padding-box" side="top" pb="current">
-          <img
-            src={movie.poster.vertical}
-            alt="Bold typography"
-            style={{
-              display: "block",
-              objectFit: "cover",
-              width: "100%",
-              height: 350,
-              backgroundColor: "var(--gray-5)",
-            }}
-          />
+          <EditDialog movie={movie} />
         </Inset>
         <Flex
           direction={"column"}
@@ -50,7 +40,6 @@ export const MovieCard = ({ movie }: Props) => {
 
           <Text>{movie.director}</Text>
           <TrailerDialog movie={movie} />
-          <EditDialog movie={movie} />
         </Flex>
       </Card>
     </Box>
