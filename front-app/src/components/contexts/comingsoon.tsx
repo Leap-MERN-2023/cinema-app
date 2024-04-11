@@ -36,12 +36,14 @@ interface IMovies {
 
 interface IComingsoonContext {
   coMovies: IMovies[];
+  loading: boolean;
 }
 
 export const ComingsoonContext = createContext({} as IComingsoonContext);
 
 export const ComingsoonProvider = ({ children }: PropsWithChildren) => {
   const { toast } = useToast();
+  const [loading, setLoading] = useState(true);
   const [coMovies, setCoMovies] = useState([]);
 
   const getMovies = async () => {
@@ -58,6 +60,8 @@ export const ComingsoonProvider = ({ children }: PropsWithChildren) => {
         description: `There was a problem with your request. ${error} `,
         action: <ToastAction altText="Try again">Try again</ToastAction>,
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -69,6 +73,7 @@ export const ComingsoonProvider = ({ children }: PropsWithChildren) => {
     <ComingsoonContext.Provider
       value={{
         coMovies,
+        loading,
       }}
     >
       {children}

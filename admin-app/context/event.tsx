@@ -33,7 +33,7 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  const [file, setFile] = useState<any>(null);
+  const [file, setFile] = useState<string | null>(null);
 
   const addEvent = async (eventData: any) => {
     console.log("IMAGE = ", file);
@@ -73,7 +73,6 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
   const updateEvent = async (dataEvent: any, eventId: string) => {
     try {
       setLoading(true);
-      dataEvent.image = file;
       const {
         data: { newEventData },
       } = await myAxios.put(`/event/${eventId}`, dataEvent, {
@@ -94,7 +93,14 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <EventContext.Provider
-      value={{ events, addEvent, isLoading, setFile, deleteEvent, updateEvent }}
+      value={{
+        events,
+        addEvent,
+        isLoading,
+        setFile,
+        deleteEvent,
+        updateEvent,
+      }}
     >
       {children}
     </EventContext.Provider>

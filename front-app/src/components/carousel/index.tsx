@@ -18,7 +18,7 @@ type Props = {};
 
 export function CarouselCard(props: Props) {
   const router = useRouter();
-  const { movies } = useContext(MovieContext);
+  const { movies, loading } = useContext(MovieContext);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextSlide = () => {
@@ -35,7 +35,7 @@ export function CarouselCard(props: Props) {
   const images = movies.map((movie: any) => movie.horizontalPoster);
   return (
     <>
-      {!images ? (
+      {loading ? (
         <Skeleton className="w-full h-[440px] mt-[20px] sm:mt-[40px] md:mt-[60px] lg:max-w-5xl mx-auto bg-white bg-opacity-10" />
       ) : (
         <div className="w-full mt-[20px]  sm:mt-[40px] md:mt-[60px] lg:max-w-5xl mx-auto">

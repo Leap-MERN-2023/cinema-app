@@ -22,6 +22,7 @@ export const login = async (req: any, res: Response) => {
 
 export const loginSuccess = (req: any, res: Response) => {
   res.redirect(
-    `https://cinema-app-client.vercel.app/?login=success&id=${req.user._id}`
+    // `https://cinema-app-client.vercel.app/?login=success&id=${req.user._id}`
+    `http://localhost:3000/?login=success&id`
   );
 };

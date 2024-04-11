@@ -7,9 +7,17 @@ type Props = {
   setFile: (e: any) => void;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   event: IEvent;
+  image: string;
+  takeImg: (e: string) => void;
 };
 
-export const DialogFile = ({ setFile, handleInputChange, event }: Props) => {
+export const DialogFile = ({
+  setFile,
+  handleInputChange,
+  event,
+  takeImg,
+  image,
+}: Props) => {
   return (
     <div className="flex gap-4">
       <div>
@@ -38,7 +46,12 @@ export const DialogFile = ({ setFile, handleInputChange, event }: Props) => {
               <p className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
                 {event.image}
               </p>
-              <div className="bg-sky-200 text-sky-700 flex items-center rounded-md px-2">
+              <div
+                onClick={() => {
+                  takeImg(image);
+                }}
+                className="bg-sky-200 text-sky-700 flex items-center rounded-md px-2"
+              >
                 <Cloudinary setFunction={setFile} />
               </div>
             </div>
