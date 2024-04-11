@@ -6,6 +6,7 @@ import { DialogText } from "./dialog-text";
 import { DialogFile } from "./dialog-file";
 import { Dialog, Transition } from "@headlessui/react";
 import { useAuth, useEvent } from "@/context";
+import Link from "next/link";
 
 export const EventDialog = () => {
   const { addEvent, setFile, isLoading } = useEvent();
@@ -53,9 +54,12 @@ export const EventDialog = () => {
             Эвент нэмэх
           </button>
         ) : (
-          <p className="py-2 text-violet11 text-lg mb-7">
-            Зөвхөн нэвтэрсэн хэрэглэгч эвент нэмэх эрхтэй.
-          </p>
+          <div className="flex gap-4 text-lg mb-14">
+            <h1>Та нэвтэрээгүй байна. Админ үйлдэл хийх эрхтэй</h1>
+            <Link href="/signin" className="text-blue-500">
+              Нэвтрэх хэсэгрүү шилжих
+            </Link>
+          </div>
         )}
       </div>
 

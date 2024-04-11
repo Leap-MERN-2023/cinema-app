@@ -272,14 +272,6 @@ const SignIn: React.FC = () => {
                       Нэвтрэх
                     </button>
                   </div>
-                  <div className="mt-6 text-center">
-                    <p>
-                      Та бүртгэлгүй юу?
-                      <Link href="/" className="text-primary">
-                        Бүртгүүлэх
-                      </Link>
-                    </p>
-                  </div>
                 </div>
               </div>
             )}

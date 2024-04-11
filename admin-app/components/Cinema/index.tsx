@@ -3,12 +3,13 @@
 import { Separator } from "@radix-ui/themes";
 import React, { Fragment, useContext, useState } from "react";
 import { CinemaCard } from "./CinemaCard";
-import { CinemaContext, useCinema } from "@/context";
+import { CinemaContext, useAuth, useCinema } from "@/context";
 import { Dialog, Transition } from "@headlessui/react";
 import { InputField } from "../utils/input-field";
 import { Cloudinary } from "../utils/cloudinary-next/upload";
 import Breadcrumb from "../Breadcrumbs/Breadcrumb";
 import DialogText from "./dialog-text";
+import Link from "next/link";
 
 const Cinema = () => {
   let [isOpen, setIsOpen] = useState(false);
@@ -19,18 +20,28 @@ const Cinema = () => {
   function openModal() {
     setIsOpen(true);
   }
+  const { loginuser } = useAuth();
 
   return (
     <>
       <Breadcrumb pageName="Cinema" />
-      <div className=" inset-0 flex gap-4">
-        <button
-          type="button"
-          onClick={openModal}
-          className="mx-10 rounded-md bg-white border px-4 py-2 text-sm font-medium text-violet11 hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-        >
-          Салбар нэмэх
-        </button>
+      <div className="inset-0">
+        {loginuser ? (
+          <button
+            type="button"
+            onClick={openModal}
+            className="mx-10 rounded-md bg-white border px-4 py-2 text-sm font-medium text-violet11 hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+          >
+            Салбар нэмэх
+          </button>
+        ) : (
+          <div className="flex gap-4 text-lg">
+            <h1>Та нэвтэрээгүй байна. Админ үйлдэл хийх эрхтэй</h1>
+            <Link href="/signin" className="text-blue-500">
+              Нэвтрэх хэсэгрүү шилжих
+            </Link>
+          </div>
+        )}
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>

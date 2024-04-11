@@ -7,6 +7,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { DialogText } from "./dialog-text";
 import { DialogFile } from "./dialog-file";
 import { useAuth, useComingSoon, useMovie } from "@/context";
+import Link from "next/link";
 
 export const ComingsoonDialog = ({}: any) => {
   const { addComingSoon, isLoading } = useComingSoon();
@@ -60,9 +61,12 @@ export const ComingsoonDialog = ({}: any) => {
           Кино нэмэх
         </button>
       ) : (
-        <p className="py-2 mb-7 text-violet11 text-lg ">
-          Зөвхөн нэвтэрсэн хэрэглэгч кино нэмэх эрхтэй.
-        </p>
+        <div className="flex gap-4 text-lg mb-14">
+          <h1>Та нэвтэрээгүй байна. Админ үйлдэл хийх эрхтэй</h1>
+          <Link href="/signin" className="text-blue-500">
+            Нэвтрэх хэсэгрүү шилжих
+          </Link>
+        </div>
       )}
 
       <Transition appear show={isOpen} as={Fragment}>

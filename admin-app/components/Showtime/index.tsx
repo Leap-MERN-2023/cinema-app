@@ -1,18 +1,28 @@
 "use client";
 import React from "react";
-import { useCinema, useShowtime } from "@/context";
+import { useAuth, useCinema, useShowtime } from "@/context";
 import { Divider } from "@tremor/react";
 import Modal from "./modal";
+import Link from "next/link";
 
 const Showtime = () => {
   const { showtimes } = useShowtime();
   const { cinemas } = useCinema();
   const today = new Date();
   const tomorrow = new Date(+Date() + 24 * 60 * 60 * 1000);
-
+  const { loginuser } = useAuth();
   return (
     <div className="flex flex-col justify-center items-start gap-4 py-6 text-white font-bold px-6">
-      <Modal />
+      {loginuser ? (
+        <Modal />
+      ) : (
+        <div className="flex gap-4 text-lg">
+          <h1>Та нэвтэрээгүй байна.</h1>
+          <Link href="/signin" className="text-blue-500">
+            Нэвтрэх хэсэгрүү шилжих
+          </Link>
+        </div>
+      )}
       <div className="flex justify-start flex-wrap items-center gap-6">
         {cinemas.map((cinema: any) => {
           return (

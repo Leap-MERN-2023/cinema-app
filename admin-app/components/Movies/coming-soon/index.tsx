@@ -12,6 +12,7 @@ export const ComingSoon = (props: Props) => {
   return (
     <>
       <Breadcrumb pageName="Тун удахгүй дэлгэцнээ" />
+
       <ComingsoonDialog />
       <div className="flex justify-center items-center">
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
