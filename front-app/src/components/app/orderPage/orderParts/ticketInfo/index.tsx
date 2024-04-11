@@ -116,9 +116,9 @@ export const TicketInfo = ({
     setTotal(0);
   };
   return (
-    <div className="flex flex-col justify-center lg:h-[800px] mb-96 ">
+    <div className="flex flex-col justify-center lg:h-[800px] mb-96 bg-black sm:px-10 bg-opacity-80 rounded-2xl">
       <div className="grid lg:grid-cols-2">
-        <div className="flex flex-col gap-4 justify-center items-center bg-slate-900 text-white pt-20 lg:py-20 lg:mr-20">
+        <div className="flex flex-col gap-4 justify-center items-center  text-white pt-20 lg:py-20 lg:mr-20">
           <div className="flex gap-4">
             {date.map((date, i) => (
               <Button
