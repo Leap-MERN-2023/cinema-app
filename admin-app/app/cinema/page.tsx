@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
 import Cinema from "@/components/Cinema";
+import React, { useContext } from "react";
 
 const CinemaPage = () => {
   return (

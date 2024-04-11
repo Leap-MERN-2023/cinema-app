@@ -10,7 +10,7 @@ import { Cloudinary } from "../utils/cloudinary-next/upload";
 import Breadcrumb from "../Breadcrumbs/Breadcrumb";
 import DialogText from "./dialog-text";
 
-const Cinema = ({ cinema }: { cinema: any }) => {
+const Cinema = () => {
   let [isOpen, setIsOpen] = useState(false);
   const { cinemas, addCinema, getCinemas } = useCinema();
   function closeModal() {
