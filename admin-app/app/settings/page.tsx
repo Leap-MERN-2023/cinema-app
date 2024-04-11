@@ -7,6 +7,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { Cloudinary } from "@/components/utils/cloudinary-next/upload";
 import { useAuth } from "@/context";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const Settings = () => {
   const { setAvatarImage, updateUserImage, loginuser } = useAuth();
@@ -170,6 +171,7 @@ const Settings = () => {
                       <button
                         className="flex justify-center rounded bg-primary px-6 py-2 font-medium text-gray hover:bg-opacity-95"
                         onClick={() => {
+                          toast.success("Хадгалагдлаа");
                           updateUserImage();
                         }}
                       >

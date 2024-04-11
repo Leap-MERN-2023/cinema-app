@@ -12,11 +12,9 @@ type Props = {
 };
 
 const DialogText = ({ closeModal }: Props) => {
-  const { movies } = useMovie();
   const { cinemas, addCinema, setCinemaImg, cinemaImg } = useCinema();
-  const { createShowtime } = useShowtime();
-
   const [selectedCinema, setSelectedCinema] = useState(cinemas[0]);
+  const [isDemo, setIsDemo] = useState(false);
 
   const [cinemaData, setCinemaData] = useState<any>({
     cinemaId: "",
@@ -26,7 +24,19 @@ const DialogText = ({ closeModal }: Props) => {
     opening: "",
     closing: "",
   });
+  const [demo, setDemo] = useState<any>({
+    cinemaId: "661782294cab6d2e97feecd2",
+    branchName: "Өргөө-8",
+    branchLocation: "3 4-р хороолол",
+    image:
+      "https://res.cloudinary.com/dzricfscv/image/upload/v1712836774/qcov0yudzuz55uc2dr3g.jpg",
+    opening: "9",
+    closing: "23",
+  });
 
+  const fillButton = () => {
+    setIsDemo(true);
+  };
   const func1 = (selectedCinema: any) => {
     setCinemaData({ ...cinemaData, cinemaId: selectedCinema._id });
   };
@@ -34,6 +44,7 @@ const DialogText = ({ closeModal }: Props) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     handleChange(name, value);
+
     console.log("working");
   };
 
@@ -42,12 +53,13 @@ const DialogText = ({ closeModal }: Props) => {
   };
 
   const handleAdd = () => {
-    // setCinemaData({ ...cinemaData, image: cinemaImg });
-    // console.log(cinemaImg, "cinemaImg");
-    addCinema(cinemaData);
+    if (isDemo == false) {
+      addCinema(cinemaData);
+    } else {
+      addCinema(demo);
+    }
     closeModal();
   };
-  //   console.log(cinemaData, "DATATATATA");
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 justify-evenly w-full">
@@ -69,7 +81,7 @@ const DialogText = ({ closeModal }: Props) => {
                 {cinemas.map((cinema) => (
                   <Listbox.Option
                     key={cinema._id}
-                    value={cinema}
+                    value={isDemo ? demo.cinemaId : cinema}
                     onClick={() => {
                       setSelectedCinema(cinema);
                       func1(cinema);
@@ -89,6 +101,7 @@ const DialogText = ({ closeModal }: Props) => {
             onChange={handleInputChange}
             name="branchName"
             type="text"
+            defaultValue={isDemo ? demo.branchName : ""}
           />
           <InputField
             label="Гудамж"
@@ -96,6 +109,7 @@ const DialogText = ({ closeModal }: Props) => {
             onChange={handleInputChange}
             name="branchLocation"
             type="text"
+            defaultValue={isDemo ? demo.branchLocation : ""}
           />
         </div>
       </div>
@@ -105,12 +119,14 @@ const DialogText = ({ closeModal }: Props) => {
           onChange={handleInputChange}
           name="opening"
           type="number"
+          defaultValue={isDemo ? demo.opening : ""}
         />
         <InputField
           label="Хаах цаг"
           onChange={handleInputChange}
           name="closing"
           type="number"
+          defaultValue={isDemo ? demo.closing : ""}
         />
         <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded w-58 mt-6 leading-none mb-2.5  block">
           <Cloudinary setFunction={setCinemaImg} />
@@ -120,27 +136,22 @@ const DialogText = ({ closeModal }: Props) => {
         <button
           className=" py-2 bg-violet-200 text-violet12 hover:bg-violet11 focus:shadow-green7 rounded-[4px] px-[15px] font-medium"
           onClick={() => {
-            if (
-              cinemaData.cinemaId == "" ||
-              cinemaData.branchName == "" ||
-              cinemaData.branchLocation == "" ||
-              cinemaData.opening == "" ||
-              cinemaData.closing == ""
-            ) {
-              toast.warning("Бүх талбарыг бөглөнө үү");
-            } else {
-              console.log("worked");
-              handleAdd();
-            }
+            handleAdd();
           }}
         >
-          нэмэх
+          Нэмэх
         </button>
         <button
           className="px-5 py-2 rounded-md bg-blue-200 text-blue-800"
           onClick={closeModal}
         >
-          болих
+          Болих
+        </button>
+        <button
+          className="px-5 py-1 rounded-md bg-blue-200 text-blue-800"
+          onClick={fillButton}
+        >
+          Дэмо
         </button>
       </div>
     </div>

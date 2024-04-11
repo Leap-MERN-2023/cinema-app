@@ -51,7 +51,7 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
       setRefresh(!refresh);
       toast.success("cinema added successfully!");
     } catch (error) {
-      toast.error(`Failed to add the Cinema! ${error}`);
+      toast.error(`Кино театр нэмэхэд алдаа гарлаа.`);
     } finally {
       setLoading(false);
     }

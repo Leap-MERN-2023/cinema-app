@@ -61,7 +61,7 @@ export const Footer = (props: Props) => {
           <div className="flex items-center xl:flex-col size-64">
             <div>
               <img
-                src="./qr/Untitled.svg"
+                src="./clientqr.png"
                 className="size-[180px] xl:size-[160px]"
               />
             </div>

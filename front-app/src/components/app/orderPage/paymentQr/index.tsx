@@ -17,10 +17,7 @@ export const PaymentQr = () => {
             шууд орох боломжтой. Эсвэл KIOSK төхөөрөмжөөс баримтаа хэвлэж авж
             болно.
           </div>
-          <img
-            src="./qr/Untitled.svg"
-            className="size-48 sm:size-56 mt-8 mb-4"
-          />
+          <img src="./clientqr.png" className="size-48 sm:size-56 mt-8 mb-4" />
         </div>
       </div>
     </div>

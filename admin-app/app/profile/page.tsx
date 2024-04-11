@@ -15,7 +15,7 @@ const Profile = () => {
         <div className="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <div className="relative z-0 h-35 md:h-65">
             <Image
-              src={"/images/cover/cover-01.png"}
+              src={"/images/cover/cover-03.jpeg"}
               alt="profile cover"
               className="h-full w-full rounded-tl-sm rounded-tr-sm object-cover object-center"
               width={970}
