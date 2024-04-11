@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   const getCurrentUser = async () => {
     try {
-      const { data } = await myAxios.get("/auth/login/success", {
+      const { data } = await myAxios.get("/auth/google/success", {
         withCredentials: true,
       });
       setUser(data.user);
@@ -149,7 +149,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     authLogged();
-    // getCurrentUser();
+    getCurrentUser();
   }, []);
 
   return (
