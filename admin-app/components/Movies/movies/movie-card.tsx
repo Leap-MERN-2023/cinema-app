@@ -22,7 +22,7 @@ export const MovieCard = ({ movie }: Props) => {
           align={"center"}
           gap={"2"}
         >
-          <Text as="p" size="2">
+          <Text as="p" size="2" className="whitespace-nowrap">
             <Strong>{movie.title}</Strong>
           </Text>
 

@@ -20,7 +20,7 @@ const EmailInput = ({ handleNext, handleChangeInput }: IStepProps) => {
           placeholder="Имэйл хаягаа оруулна уу"
           onChange={handleChangeInput}
           name="email"
-          className="py-2 px-4 bg-slate-300 text-black"
+          className="py-2 px-4 bg-slate-300 text-black w-[260px]"
         />
         <div className="flex w-[50%] ">
           <Button

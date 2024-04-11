@@ -12,8 +12,31 @@ export const MovieTicket = (ticket: any) => {
           <div className="absolute rounded-full w-5 h-5 bg-slate-700 -mt-2 -left-2"></div>
           <div className="absolute rounded-full w-5 h-5 bg-slate-700 -mt-2 -right-2"></div>
         </div>
-        <div className="w-20 mx-auto mt-2">
-          <CiBarcode className="size-full" />
+        <div className="w-full mx-auto mt-2">
+          <div className="flex justify-between px-1 font-semibold">
+            <div className="text-[14px]"> {ticket?.ticket?.branch}</div>
+            <div className="text-[14px]">
+              {ticket?.ticket?.startTime.date.month} сарын{" "}
+              {ticket?.ticket?.startTime.date.day}{" "}
+              <span className="text-bold">
+                {" "}
+                {ticket?.ticket?.startTime.time}
+              </span>
+            </div>
+          </div>
+          <div className="flex items-center text-sm gap-4 justify-start px-1 mt-2">
+            <div className="text-sm font-bold text-slate-400">Тасалбар:</div>
+            <div className="font-semibold border-2 py-1 px-2 rounded-md text-nowrap text-[12px]">
+              {ticket?.ticket?.adultCount} том хүн
+            </div>
+            {ticket?.ticket?.kidsCount !== 0 ? (
+              <div className="font-semibold border-2 py-1 px-2 rounded-md text-nowrap text-[12px]">
+                {ticket?.ticket?.kidsCount} хүүхэд
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     </div>

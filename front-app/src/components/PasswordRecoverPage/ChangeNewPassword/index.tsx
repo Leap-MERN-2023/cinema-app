@@ -15,19 +15,19 @@ interface IStepProps {
 
 const ChangeNewPassword = ({ handleChangeInput }: IStepProps) => {
   const { handleChangeToNewPassword, user } = usePassword();
-  const [isShowPassword, setIsShowPassword] = useState(false);
-  const [isShowPassword1, setIsShowPassword1] = useState(false);
+  const [isShowPassword, setIsShowPassword] = useState(true);
+  const [isShowPassword1, setIsShowPassword1] = useState(true);
   return (
-    <div className="my-32">
+    <div className="bg-slate-700">
       <div className="flex items-center flex-col justify-center m-auto p-[32px] gap-8">
         <p className="text-center text-[28px] text-bold">Нууц үг өөрчлөх</p>
-        <div className="flex items-center bg-slate-300 relative text-black">
+        <div className="flex items-center bg-slate-300 relative text-black ">
           <input
             placeholder="Шинэ нууц үг оруулах"
             onChange={handleChangeInput}
             name="password"
             type={isShowPassword ? "password" : "text"}
-            className="py-2 px-4 bg-slate-300"
+            className="py-2 px-4 bg-slate-300 w-[260px]"
           />
           {isShowPassword == false ? (
             <IoIosEye
@@ -53,9 +53,9 @@ const ChangeNewPassword = ({ handleChangeInput }: IStepProps) => {
             onChange={handleChangeInput}
             name="rePassword"
             type={isShowPassword1 ? "password" : "text"}
-            className="py-2 px-4 bg-slate-300"
+            className="py-2 px-4 bg-slate-300 w-[260px]"
           />
-          {isShowPassword == false ? (
+          {isShowPassword1 == false ? (
             <IoIosEye
               size={20}
               onClick={() => {

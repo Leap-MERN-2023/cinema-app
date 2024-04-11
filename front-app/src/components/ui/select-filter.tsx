@@ -20,17 +20,17 @@ const cinemaTypeOptions: readonly CinemaTypeOption[] = [
 ];
 
 const controlStyles = {
-  base: "border rounded-[5px] bg-[#020000] hover:cursor-pointer py-1 w-[100px] h-[56px] text-[10px] sm:text-[12px] lg:text-base sm:w-[160px] lg:w-[240px] xl:w-[280px]",
+  base: "border rounded-[5px] bg-[#020000] hover:cursor-pointer py-1 w-[100px] h-[56px] text-[10px] sm:text-[12px] lg:text-base w-[280px] sm:w-[280px] lg:w-[280px] xl:w-[340px]",
   focus: "border-primary-400 ",
   nonFocus: "border-gray-800 hover:border-gray-400 py-1",
 };
 const placeholderStyles = "text-[#adadad]  pl-2 py-1 font-normal ";
-const selectInputStyles = "pl-1 py-0.5";
+const selectInputStyles = "pl-1 py-0.5 ";
 const valueContainerStyles = "p-1 gap-1  text-[#adadad]";
 const singleValueStyles = "leading-7 pl-2 py-0.5";
 const multiValueStyles =
   "rounded items-center px-1.5 py-0.5 gap-1.5 text-[#dddee0] bg-[#707481]";
-const multiValueLabelStyles = "leading-6 py-0.5 ";
+const multiValueLabelStyles = "leading-6 py-0.5 text-nowrap";
 const multiValueRemoveStyles =
   "border border-gray-200 bg-white hover:bg-red-50 hover:text-red-800 text-gray-500 hover:border-red-300 rounded-md";
 const indicatorsContainerStyles = "p-1 gap-1";
@@ -74,7 +74,7 @@ export const MultiSelect = () => {
   };
   return (
     <div className="flex sm:flex-row">
-      <div className="flex gap-2 items-center justify-center">
+      <div className="flex flex-col gap-2 items-center justify-center md:flex-row">
         <Select
           isMulti
           name="cinema"
