@@ -6,7 +6,6 @@ const cinemaSchema = new Schema({
     type: String,
     require: true,
   },
-
   icon: {
     type: String,
   },

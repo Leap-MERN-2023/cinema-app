@@ -82,9 +82,9 @@ export const ComingsoonProvider = ({ children }: PropsWithChildren) => {
         }
       );
       setRefresh(!refresh);
-      toast.success("Movie added successfully!");
+      toast.success("Кино амжилттай нэмэгдсэн!");
     } catch (error) {
-      toast.error("Failed to add the Movie!");
+      toast.error("Киног нэмж чадсангүй!");
     } finally {
       setLoading(false);
     }
@@ -98,9 +98,9 @@ export const ComingsoonProvider = ({ children }: PropsWithChildren) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRefresh(!refresh);
-      toast.success("Movie deleted successfully!");
+      toast.success("Кино амжилттай устгагдлаа!");
     } catch (error) {
-      toast.error("Failed to delete the Movie!");
+      toast.error("Киног устгаж чадсангүй!");
     } finally {
       setLoading(false);
     }
@@ -116,9 +116,9 @@ export const ComingsoonProvider = ({ children }: PropsWithChildren) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRefresh(!refresh);
-      toast.success("Movie updated successfully!", { autoClose: 1500 });
+      toast.success("Кино амжилттай шинэчлэгдсэн!", { autoClose: 1500 });
     } catch (error) {
-      toast.error("Failed to update the movie!", { autoClose: 1500 });
+      toast.error("Киног шинэчилж чадсангүй!", { autoClose: 1500 });
     } finally {
       setLoading(false);
     }

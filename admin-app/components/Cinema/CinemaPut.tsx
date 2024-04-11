@@ -7,13 +7,12 @@ import { Cloudinary } from "../utils/cloudinary-next/upload";
 import { Button, Separator, TextField } from "@radix-ui/themes";
 import { InputField } from "../utils/input-field";
 
-const CinemaPut = (cinema: any, branch: any) => {
+const CinemaPut = ({ branch, cinema }: any) => {
   let [isOpen, setIsOpen] = useState(false);
   const { putCinema } = useCinema();
   const [form, setForm] = useState({
     branch: "",
     location: "",
-    cinemaName: "",
     image: "",
   });
 
@@ -90,19 +89,11 @@ const CinemaPut = (cinema: any, branch: any) => {
                     хийж болкүүдээ хэхэ.
                   </Dialog.Description>
                   <Separator />
-
-                  <InputField
-                    name="cinemaName"
-                    onChange={handleInputChange}
-                    desc="Өргөө"
-                    label="Театрын нэр солих"
-                    type="text"
-                  />
                   <InputField
                     name="branch"
                     onChange={handleInputChange}
                     desc="Өргөө-1"
-                    label="Театрын нэр солих"
+                    label="Салбар"
                     type="text"
                   />
                   <InputField
@@ -127,7 +118,7 @@ const CinemaPut = (cinema: any, branch: any) => {
                     <button
                       className="p-2 bg-green-300 text-green-700 rounded-xl m-2"
                       onClick={() => {
-                        setIsOpen(false), putCinema(form, cinema.cinema);
+                        setIsOpen(false), putCinema(form, branch, cinema);
                       }}
                     >
                       Хадгалах

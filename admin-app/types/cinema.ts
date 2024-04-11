@@ -1,13 +1,21 @@
+import { type } from "os";
+import { Dispatch, SetStateAction } from "react";
+
 export interface ICinemaContext {
   getCinema: () => Promise<void>;
   cinemas: ICinema[];
+  addCinema: (params: Cinema) => Promise<void>;
   setSelectedCinema: (id: any) => void;
   setSelectedBranch: (name: string) => void;
   deleteCinema: (branch: string) => Promise<void>;
-  putCinema: (formData: any, cinemaId: string) => Promise<void>;
+  putCinema: (formData: any, branch: string, cinema: any) => Promise<void>;
   selectedCinema: string;
   selectedBranch: string;
+  cinemaImg: string;
   loading: boolean;
+  getCinemas: Cinema[];
+  setGetCinemas: Dispatch<SetStateAction<Cinema[]>>;
+  setCinemaImg: (url: string) => void;
 }
 
 interface IBranch {
@@ -40,3 +48,7 @@ interface ICinema {
   image: string;
   branches: IBranch[];
 }
+
+export type Cinema = {
+  cinemaName: string;
+};

@@ -61,6 +61,7 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
         email: user.email,
       });
       changeSteps();
+      toast.success("И-мэйл хаяг руу код илгээлээ.");
     } catch (error) {
       console.log(error);
       toast.error("И-мэйл хаяг буруу байна.");
@@ -96,8 +97,7 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
       } else {
       }
     } catch (error) {
-      console.log(error);
-      toast.error("");
+      toast.error("Нууц үг солиход алдаа гарлаа");
     } finally {
       setLoading(false);
     }

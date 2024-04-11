@@ -21,7 +21,7 @@ export const CinemaBranches = ({ cinema, cinemaId }: any) => {
             </div>
           </div>
           <div className="flex gap-3 m-4">
-            <CinemaPut branch={branch} cinema={cinemaId} />
+            {/* <CinemaPut branch={branch._id} cinema={cinema} /> */}
             <CinemaDelete branch={branch} cinema={cinema} />
           </div>
         </div>

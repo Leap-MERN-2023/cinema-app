@@ -1,15 +1,15 @@
 import { Router } from "express";
 import {
-  createCinemas,
+  createCinema,
   getCinemas,
   deleteCinemas,
   putCinema,
 } from "../controller/cinema";
+import { authenticate } from "../middleware/auth";
 
 const router = Router();
 
-router.route("/").post(createCinemas).get(getCinemas);
+router.route("/").post(createCinema).get(getCinemas).put(putCinema);
 router.route("/delete").post(deleteCinemas);
-router.route("/:cinemaId").put(putCinema);
 
 export default router;

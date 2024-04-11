@@ -47,9 +47,9 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRefresh(!refresh);
-      toast.success("Event added successfully!");
+      toast.success("Үйл явдал амжилттай нэмэгдсэн!");
     } catch (error) {
-      toast.error("Failed to add the Event!");
+      toast.error("Үйл явдлыг нэмж чадсангүй!");
     } finally {
       setLoading(false);
     }
@@ -62,9 +62,9 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRefresh(!refresh);
-      toast.success("Event deleted successfully!");
+      toast.success("Үйл явдлыг амжилттай устгалаа!");
     } catch (error) {
-      toast.error("Failed to delete the Event!");
+      toast.error("Үйл явдлыг устгаж чадсангүй!");
     } finally {
       setLoading(false);
     }
@@ -80,9 +80,9 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRefresh(!refresh);
-      toast.success("Event updated successfully!", { autoClose: 1500 });
+      toast.success("Үйл явдал амжилттай шинэчлэгдсэн!", { autoClose: 1500 });
     } catch (error) {
-      toast.error("Failed to update the Event!", { autoClose: 1500 });
+      toast.error("Үйл явдлыг шинэчилж чадсангүй!", { autoClose: 1500 });
     } finally {
       setLoading(false);
     }

@@ -62,6 +62,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             Байршил
           </label>
           <input
+            placeholder="cast"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="cast"
             name="location"
@@ -77,6 +78,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             Нэмэлт
           </label>
           <input
+            placeholder="cast"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="cast"
             name="addition"

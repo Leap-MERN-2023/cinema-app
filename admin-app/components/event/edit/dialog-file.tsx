@@ -21,6 +21,7 @@ export const DialogFile = ({ setFile, handleInputChange, event }: Props) => {
             Link {"(Facebook link format only)"}
           </label>
           <input
+            placeholder="trailer"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="trailer"
             name="link"

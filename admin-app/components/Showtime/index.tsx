@@ -27,6 +27,7 @@ const Showtime = () => {
                     key={i}
                   >
                     <img
+                      alt=""
                       src={branch.image}
                       className="w-full h-96 rounded-t-lg  object-cover relative"
                     />

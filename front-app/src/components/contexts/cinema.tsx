@@ -59,7 +59,6 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  // console.log("cineams", cinemas);
   useEffect(() => {
     getCinema();
   }, []);

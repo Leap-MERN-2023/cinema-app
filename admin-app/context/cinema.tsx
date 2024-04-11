@@ -9,17 +9,22 @@ import {
   useState,
 } from "react";
 import { useRouter } from "next/navigation";
-import { ICinemaContext } from "@/types/cinema";
+import { Cinema, ICinemaContext } from "@/types/cinema";
 import { toast } from "react-toastify";
+import { useAuth } from ".";
 
 export const CinemaContext = createContext({} as ICinemaContext);
 
 export const CinemaProvider = ({ children }: PropsWithChildren) => {
+  const { token } = useAuth();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [refresh, setRefresh] = useState<boolean>(false);
   const [selectedCinema, setSelectedCinema] = useState("");
   const [selectedBranch, setSelectedBranch] = useState("");
   const [cinemas, setCinemas] = useState([]);
+  const [getCinemas, setGetCinemas] = useState<Cinema[]>([]);
+  const [cinemaImg, setCinemaImg] = useState("");
 
   const getCinema = async () => {
     try {
@@ -28,32 +33,42 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
         data: { cinemas },
       } = await myAxios.get("/cinema");
       setCinemas(cinemas);
-      console.log("hi", cinemas);
-      console.log("working");
     } catch (error) {
     } finally {
       setLoading(false);
     }
   };
 
-  const putCinema = async (formData: any, cinemaId: string) => {
-    console.log("CINEMAID === ", cinemaId);
+  const addCinema = async (cinemaData: any) => {
     try {
       setLoading(true);
+      cinemaData.image = cinemaImg;
       const {
         data: { cinemas },
-      } = await myAxios.put(`/cinema/${cinemaId}`, {
-        cinema: formData.cinemaName,
-        branchName: formData.branch,
-        location: formData.location,
-        image: formData.image,
-      });
-      setCinemas(cinemas);
-      console.log("hi", cinemas);
-      toast.success("Cinema updated successfully!");
-      console.log("working");
+      } = await myAxios.post("/cinema", cinemaData);
+
+      // setCinemas(cinemas);
+      setRefresh(!refresh);
+      toast.success("cinema added successfully!");
     } catch (error) {
-      console.log("error", error);
+      toast.error(`Failed to add the Cinema! ${error}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const putCinema = async (formData: any, branch: string, cinema: any) => {
+    try {
+      setLoading(true);
+      console.log("gulug", branch);
+      const {
+        data: { cinemas },
+      } = await myAxios.put(`/cinema`, { formData, branch: branch, cinema });
+      setCinemas(cinemas);
+      setRefresh(!refresh);
+      toast.success("Cinema hehehe successfully!");
+    } catch (error) {
+      toast.warning("Засахад алдаа гарлаа.");
     } finally {
       setLoading(false);
     }
@@ -66,13 +81,13 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
         data: { cinemas },
       } = await myAxios.post("/cinema/delete", {
         branchName: branch,
+        headers: { Authorization: `Bearer ${token}` },
       });
       setCinemas(cinemas);
-      console.log("hi", cinemas);
-      toast.success("Cinema delete successfully!");
-      console.log("working");
+      setRefresh(!refresh);
+      toast.success("Кино театр аммжилттай устлаа!");
     } catch (error) {
-      console.log("error", error);
+      toast.warning("Устхад алдаа гарлаа");
     } finally {
       setLoading(false);
     }
@@ -80,11 +95,12 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     getCinema();
-  }, []);
+  }, [refresh]);
 
   return (
     <CinemaContext.Provider
       value={{
+        addCinema,
         getCinema,
         deleteCinema,
         putCinema,
@@ -94,6 +110,10 @@ export const CinemaProvider = ({ children }: PropsWithChildren) => {
         selectedBranch,
         setSelectedBranch,
         loading,
+        getCinemas,
+        setGetCinemas,
+        setCinemaImg,
+        cinemaImg,
       }}
     >
       {children}

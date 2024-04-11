@@ -11,6 +11,7 @@ import React, {
 
 import myAxios from "@/components/utils/axios";
 import { CinemaContext } from ".";
+import { toast } from "react-toastify";
 
 interface IUser {
   email: string;
@@ -74,8 +75,9 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
       setUserData(data);
       getAllUser();
       handleNext();
+      toast.success("Амжилттай нэвтэрлээ");
     } catch (error) {
-      console.error("Login error:", error);
+      toast.warning("Нэвтэрхэд алдаа гарлаа");
     } finally {
       setLoading(false);
     }
@@ -92,7 +94,7 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
       handleNext();
       setRefresh(!refresh);
     } catch (error) {
-      console.error("Signup error:", error);
+      toast.warning("Бүртгэхэд алдаа гарлаа");
     } finally {
       setLoading(false);
     }
@@ -131,9 +133,9 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
         userId: id,
       });
       setRefresh(!refresh);
-      console.log("User deleted successfully", data);
+      toast("Хэрэглэгч аммжилттай устлаа", data);
     } catch (error) {
-      console.error("Cannot delete user", error);
+      toast("Хэрэглэгч устгахад!");
     } finally {
       setLoading(false);
     }

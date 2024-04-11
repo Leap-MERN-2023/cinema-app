@@ -1,5 +1,7 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import Cinema from "../model/cinema";
+import Customer from "../model/customer";
+import MyError from "../utils/myError";
 
 export const getCinemas = async (
   req: Request,
@@ -14,17 +16,39 @@ export const getCinemas = async (
   }
 };
 
-export const createCinemas = async (
-  req: Request,
+export const createCinema = async (
+  req: any,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const newCinema = req.body;
-    const cinema = await Cinema.create(newCinema);
-    res.status(201).json({ message: "шинэ кино театр үүслээ.", cinema });
+    console.log("------------------->", req.body);
+
+    const cinemas = await Cinema.findOneAndUpdate(
+      { _id: req.body.cinemaId },
+      {
+        $push: {
+          branches: {
+            location: {
+              address: {
+                street: req.body.branchLocation,
+              },
+            },
+            name: req.body.branchName,
+            opening: `${req.body.opening}:00`,
+            closing: `${req.body.closing}:00`,
+            image: req.body.image,
+          },
+        },
+      },
+      { new: true }
+    );
+    console.log("aaabbbbbb-----", cinemas);
+
+    res.status(201).json({ message: "new cinema created" });
+    // }
   } catch (error) {
-    res.status(400).json({ message: "Create cinema error" + error });
+    next(error);
   }
 };
 
@@ -58,43 +82,38 @@ export const deleteCinemas = async (
   }
 };
 
-export const putCinema: RequestHandler = async (
+export const putCinema = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    // const filteredData = Object.entries(updateCinema).reduce(
-    //   (acc, [key, value]) => {
-    //     if (value !== "") {
-    //       acc[key] = value;
-    //     }
-    //     return acc;
+    const body = req.body;
+    console.log("hehe----------------------->", body);
+    const formData = body.formData;
+    const branchId = body.branch;
+    const cinema = await Cinema.findById(req.body.cinema._id);
+    console.log("cinema", cinema?.branches);
+    const branchess = cinema?.branches;
+    const fndIndex = branchess
+      ?.map((branch) => branch._id?.toString())
+      .indexOf(body.branch) as number;
+    // .indexOf(body.branch);
+    console.log("index", fndIndex);
+    console.log("branch", body.branch);
+
+    // const updatedCinema = await Cinema.findOneAndReplace(
+    //   { _id: req.body.cinema._id },
+    //   {
+    //     $set: {
+    //       branchess:
+    //     },
     //   },
-    //   {}
+    //   { returnNewDocument: true }
     // );
+    // console.log("uurchilsun data", updatedCinema);
 
-    // console.log(filteredData);
-
-    const updatedCinema = await Cinema.findOneAndReplace(
-      { _id: req.params.cinemaId },
-      {
-        cinemaName: req.body.cinema,
-        branches: [
-          {
-            name: req.body.branchName,
-            location: req.body.location,
-            image: req.body.image,
-          },
-        ],
-      }
-    );
-    // console.log("cinemaId", cinemaId);
-    console.log("uurchilsun data", updatedCinema);
-
-    res
-      .status(201)
-      .json({ message: "Cinema updated successfully", cinema: updatedCinema });
+    res.status(201).json({ message: "Cinema updated successfully" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error" });

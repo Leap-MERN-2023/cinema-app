@@ -19,6 +19,7 @@ export const DialogText = ({ handleInputChange, event }: Props) => {
             Нэр
           </label>
           <input
+            placeholder="title"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             name="name"
             defaultValue={event.name}
@@ -34,6 +35,7 @@ export const DialogText = ({ handleInputChange, event }: Props) => {
             Өдөр
           </label>
           <input
+            placeholder="date"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             name="date"
             defaultValue={momentChange(event.date)}
@@ -50,6 +52,7 @@ export const DialogText = ({ handleInputChange, event }: Props) => {
             Тухай
           </label>
           <input
+            placeholder="about"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="about"
             name="about"
@@ -84,6 +87,7 @@ export const DialogText = ({ handleInputChange, event }: Props) => {
             Нэмэлт
           </label>
           <input
+            placeholder="cast"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="cast"
             name="addition"

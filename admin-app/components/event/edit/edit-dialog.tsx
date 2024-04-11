@@ -7,6 +7,7 @@ import { DialogFile } from "./dialog-file";
 import { Dialog, Transition } from "@headlessui/react";
 import { useEvent } from "@/context";
 import { DeleteDialog } from "@/components/utils";
+import { Button } from "@radix-ui/themes";
 
 export const EventEdit = ({ event }: any) => {
   const { setFile, isLoading, deleteEvent, updateEvent } = useEvent();
@@ -133,14 +134,14 @@ export const EventEdit = ({ event }: any) => {
                     </Tabs.Content>
                   </Tabs.Root>
                   <div className="mt-4 flex gap-4">
-                    <button className=" text-red-500 bg-red-300 hover:bg-red-400 focus:shadow-red-300 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
+                    <Button className=" text-red-500 bg-red-300 hover:bg-red-400 focus:shadow-red-300 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
                       <DeleteDialog
                         event={event}
                         handleDelete={deleteEvent}
                         title={"Event устгах"}
                         label={"Эвентийг устгахдаа итгэлтэй байна уу?"}
                       />
-                    </button>
+                    </Button>
 
                     <button
                       type="button"

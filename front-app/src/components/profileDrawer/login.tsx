@@ -69,7 +69,10 @@ export const Login = ({ handleLinkClick }: Props) => {
       <div className="">
         <Button
           onClick={() => {
-            window.open("http://localhost:8008/auth/google", "_self");
+            window.open(
+              "https://cinema-app-backend-iota.vercel.app/auth/google",
+              "_self"
+            );
           }}
           className="w-full py-4 mb-2"
         >

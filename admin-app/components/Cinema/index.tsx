@@ -1,77 +1,83 @@
 "use client";
 
-import { Button, Flex, Separator, Text, TextField } from "@radix-ui/themes";
-import Breadcrumb from "../Breadcrumbs/Breadcrumb";
-import React, { useContext } from "react";
-import * as Dialog from "@radix-ui/react-dialog";
-import { Cross2Icon } from "@radix-ui/react-icons";
+import { Separator } from "@radix-ui/themes";
+import React, { Fragment, useContext, useState } from "react";
 import { CinemaCard } from "./CinemaCard";
-import { CinemaContext, useAuth } from "@/context";
-import { Divider } from "@tremor/react";
+import { CinemaContext, useCinema } from "@/context";
+import { Dialog, Transition } from "@headlessui/react";
+import { InputField } from "../utils/input-field";
+import { Cloudinary } from "../utils/cloudinary-next/upload";
+import Breadcrumb from "../Breadcrumbs/Breadcrumb";
+import DialogText from "./dialog-text";
 
-const Cinema = () => {
-  const { cinemas } = useContext(CinemaContext);
-  const { loginuser } = useAuth();
+const Cinema = ({ cinema }: { cinema: any }) => {
+  let [isOpen, setIsOpen] = useState(false);
+  const { cinemas, addCinema, getCinemas } = useCinema();
+  function closeModal() {
+    setIsOpen(false);
+  }
+  function openModal() {
+    setIsOpen(true);
+  }
+
   return (
     <>
-      <div className="">
-        <Breadcrumb pageName="Кино театрууд" />
-        <div className="">
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              {loginuser ? (
-                <button className="inline-flex h-[35px] items-center justify-center rounded-[4px] bg-red-500 text-white px-[15px] font-medium leading-none focus:shadow-black focus:outline-none">
-                  Кино театр нэмэх
-                </button>
-              ) : (
-                <p className="py-2 text-violet11 text-lg ">
-                  Зөвхөн нэвтэрсэн хэрэглэгч кино театр нэмэх эрхтэй.
-                </p>
-              )}
-            </Dialog.Trigger>
-            <Dialog.Portal>
-              <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
-              <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
-                <Dialog.Title className="text-mauve12 m-0 text-[17px] font-medium">
-                  Кино театр нэмэх
-                </Dialog.Title>
-                <Dialog.Description className="text-mauve11 mt-[10px] mb-5 text-[15px] leading-normal">
-                  Кино театрын нэмэхийг хүсвэл нэмэж болно. Гэхдээ ганцхан admin
-                  ууд Үнэнбатаас өөр хүн хийж болкүүдээ хэхэ TvT.
-                </Dialog.Description>
-                <fieldset className="mb-[15px] flex items-center gap-5">
-                  <label
-                    className=" w-[90px] text-right text-[15px]"
-                    htmlFor="name"
-                  >
-                    Кино театрын нэр
-                  </label>
-                  <input
-                    className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-                    id="name"
-                    defaultValue="Өргөө"
-                  />
-                </fieldset>
-                <div className="mt-[25px] flex justify-end">
-                  <Dialog.Close asChild>
-                    <button className="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
-                      Хадгалах
-                    </button>
-                  </Dialog.Close>
-                </div>
-                <Dialog.Close asChild>
-                  <button
-                    className=" hover:bg-violet4 focus: absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
-                    aria-label="Close"
-                  >
-                    <Cross2Icon />
-                  </button>
-                </Dialog.Close>
-              </Dialog.Content>
-            </Dialog.Portal>
-          </Dialog.Root>
-        </div>
+      <Breadcrumb pageName="Cinema" />
+      <div className=" inset-0 flex gap-4">
+        <button
+          type="button"
+          onClick={openModal}
+          className="mx-10 rounded-md bg-white border px-4 py-2 text-sm font-medium text-violet11 hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+        >
+          Салбар нэмэх
+        </button>
       </div>
+
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10 " onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black/25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto ">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className=" max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-semibold leading-6 text-gray-900"
+                  >
+                    Кино театр нэмэх
+                  </Dialog.Title>
+                  <Dialog.Description as="h4" className="text-sm my-3">
+                    Кино театрын нэмэхийг хүсвэл нэмэж болно.
+                    <br /> Гэхдээ ганцхан admin ууд болон Үнэнбатаас өөр хүн
+                    хийж болкүүдээ хэхэ.
+                  </Dialog.Description>
+                  <Separator />
+                  <DialogText closeModal={closeModal} />
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
       <div>
         <div className="flex flex-wrap gap-5">
           <CinemaCard cinemas={cinemas} />

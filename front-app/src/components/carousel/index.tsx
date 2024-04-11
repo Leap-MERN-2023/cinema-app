@@ -34,7 +34,7 @@ export function CarouselCard(props: Props) {
   const images = movies.map((movie: any) => movie.horizontalPoster);
   return (
     <div className="w-full mt-[20px]  sm:mt-[40px] md:mt-[60px] lg:max-w-5xl mx-auto">
-      <Carousel className="relative ">
+      <Carousel className="relative " onChange={nextSlide}>
         <div className="flex justify-center items-center">
           <button
             onClick={prevSlide}
