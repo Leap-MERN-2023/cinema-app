@@ -38,7 +38,7 @@ export const Signup = ({ handleLinkClick }: Props) => {
     // validationSchema,
   });
   return (
-    <div className="w-[254px]">
+    <div className="px-14">
       <SheetHeader>
         <SheetTitle className="text-white mb-2">Бүртгүүлэх</SheetTitle>
       </SheetHeader>
@@ -64,21 +64,21 @@ export const Signup = ({ handleLinkClick }: Props) => {
           name="rePassword"
           value={formik.values.rePassword}
           onChange={formik.handleChange}
-          className=" bg-white"
+          className="bg-slate-400 border-none"
           placeholder="Нууц үг давтах"
         />
       </div>
-      <SheetClose asChild>
-        <Button
-          type="button"
-          onClick={() => {
-            formik.handleSubmit();
-          }}
-          className="w-full py-4 mt-6 bg-[#1f4682]"
-        >
-          Бүртгүүлэх
-        </Button>
-      </SheetClose>
+
+      <Button
+        type="button"
+        onClick={() => {
+          formik.handleSubmit();
+        }}
+        className="w-full py-4 mt-6 bg-[#1f4682]"
+      >
+        Бүртгүүлэх
+      </Button>
+      <SheetClose asChild></SheetClose>
       <div className="mt-14 text-end">
         <a
           className=" text-white text-[13px] cursor-pointer"

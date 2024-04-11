@@ -32,6 +32,7 @@ interface IAuthContext {
   loginuser: IUser | null;
   token: string;
   allUser: any;
+  loading: boolean;
   setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
 }
 
@@ -188,6 +189,7 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
         deleteUser,
         setAvatarImage,
         updateUserImage,
+        loading,
       }}
     >
       {children}

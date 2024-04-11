@@ -4,18 +4,8 @@ import { useAuth } from "..";
 import myAxios from "@/components/utils/axios";
 
 const TableTwo = () => {
-  const { allUser, loginuser } = useAuth();
+  const { allUser, loginuser, deleteUser, loading } = useAuth();
 
-  const deleteUser = async (id: string) => {
-    try {
-      const data = await myAxios.post(`/user/deletecustomer`, {
-        userId: id,
-      });
-      console.log("User deleted successfully", data);
-    } catch (error) {
-      console.error("Cannot delete user", error);
-    }
-  };
   return (
     <>
       {loginuser ? (
@@ -74,6 +64,7 @@ const TableTwo = () => {
               <div className="col-span-1 flex items-center gap-8 ml-28">
                 <p className="text-sm text-meta-3">Хэрэглэгч</p>
                 <button
+                  disabled={loading}
                   className="text-sm text-white cursor-pointer rounded-lg border bg-orange-500 px-4 py-2 transition hover:bg-opacity-90"
                   onClick={() => {
                     deleteUser(user._id);

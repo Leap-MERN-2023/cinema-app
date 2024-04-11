@@ -61,7 +61,7 @@ export const Login = ({ handleLinkClick }: Props) => {
           Нэвтрэх
         </Button>
       </SheetClose>
-      <div className="flex items-center my-4 gap-1 justify-between">
+      {/* <div className="flex items-center my-4 gap-1 justify-between">
         <Separator className="w-[100px]" />
         <p className="text-white">Эсвэл</p>
         <Separator className="w-[100px]" />
@@ -81,8 +81,8 @@ export const Login = ({ handleLinkClick }: Props) => {
           </div>
           Gmail-ээр нэвтрэх
         </Button>
-      </div>
-      <div className="flex justify-between mt-14">
+      </div> */}
+      <div className="flex justify-between mt-8">
         <p className="text-white text-[14px]">Шинэ хэрэглэгч үү?</p>
         <a
           onClick={handleLinkClick}
@@ -90,6 +90,16 @@ export const Login = ({ handleLinkClick }: Props) => {
         >
           Бүртгүүлэх
         </a>
+      </div>
+      <div className="flex justify-between mt-8">
+        <Button
+          className="w-full bg-orange-400"
+          onClick={() => {
+            login("guestpinecone@gmail.com", "123456789");
+          }}
+        >
+          Дэмо
+        </Button>
       </div>
     </div>
   );
