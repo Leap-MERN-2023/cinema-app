@@ -72,9 +72,11 @@ export function DialogOpen({ card }: ICardProps) {
                     );
                   } else {
                     toast({
-                      title: "Алдаа гарлаа!",
-                      description: "Нэвтэрнэ үү ^.^ 🫰",
-                      duration: 1500,
+                      variant: "default",
+                      title: "Анхаарна уу!",
+                      description:
+                        "Уучлаарай та заавал нэвтэрсэн үед кино захиалах боломжтой. ^.^ 🫰",
+                      duration: 2500,
                     });
                     console.log("owrked");
                   }

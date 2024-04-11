@@ -8,6 +8,10 @@ import {
 import { MdOutlineLocalMovies } from "react-icons/md";
 
 export const TicketDialog = (ticketData: any) => {
+  const dayCurrent = new Date().getDate();
+  const hourCurrent = new Date().getHours();
+  const movieStartTime =
+    ticketData?.ticketData?.ticket?.startTime.time.split(":")[0];
   return (
     <Dialog>
       <DialogTrigger>
@@ -17,9 +21,19 @@ export const TicketDialog = (ticketData: any) => {
               <MdOutlineLocalMovies className="h-8 p-1 size-full" />
             </span>
             <h2 className="font-bold text-xl text-white">
-              {ticketData?.ticketData?.ticket?.movieId?.title}
+              {ticketData?.ticketData?.ticket?.movieId?.title}{" "}
             </h2>
           </div>
+          {ticketData?.ticketData?.ticket?.startTime.date.day < dayCurrent &&
+          movieStartTime > hourCurrent ? (
+            <div className="text-sm absolute w-20 right-6 top-28 bg-black rounded-lg text-red-400">
+              Хүчингүй
+            </div>
+          ) : (
+            <div className="text-sm absolute w-20 right-6 top-28 bg-black rounded-lg text-green-400">
+              Хүчинтэй
+            </div>
+          )}
         </div>
         <div className=" border-dashed border-b-2 pt-5">
           <div className="absolute rounded-full w-5 h-5 bg-slate-700 -mt-2 -left-2"></div>

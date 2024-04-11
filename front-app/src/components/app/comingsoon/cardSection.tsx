@@ -26,7 +26,7 @@ export const CardSection = ({ pageCount }: Props) => {
             </Badge>
 
             <CardFooter className="bg-slate-800 flex items-center flex-col gap-2 rounded-b-lg">
-              <p className="text-white font-bold text-sm mt-5 overflow-hidden">
+              <p className="text-white font-bold text-sm mt-5 overflow-hidden whitespace-nowrap">
                 {card.title}
               </p>
             </CardFooter>

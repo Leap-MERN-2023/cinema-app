@@ -45,8 +45,9 @@ export const OrderPage = (props: Props) => {
     }
   };
 
+  //  bg-[url('https://images.adsttc.com/media/images/58d5/3a58/e58e/ce48/a700/003f/large_jpg/002.jpg?1490369108')] bg-cover bg-no-repeat bg-fixed
   return (
-    <div className=" flex flex-col h-full bg-slate-900 pt-20 md:pt-28  items-center justify-center">
+    <div className=" flex flex-col h-full bg-slate-900 pt-20 md:pt-28  items-center justify-center ">
       {StepSwitch()}
       <div>
         {step === 1 && (
