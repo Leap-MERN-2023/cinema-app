@@ -116,9 +116,9 @@ export const TicketInfo = ({
     setTotal(0);
   };
   return (
-    <div className="flex flex-col justify-center lg:h-[800px] mb-96 bg-black sm:px-10 bg-opacity-80 rounded-2xl">
+    <div className="flex flex-col justify-center lg:h-[1000px] mb-96 bg-black sm:px-10 bg-opacity-80 rounded-2xl">
       <div className="grid lg:grid-cols-2">
-        <div className="flex flex-col gap-4 justify-center items-center  text-white pt-20 lg:py-20 lg:mr-20">
+        <div className="flex flex-col gap-4 justify-center items-center  text-white pt-20 lg:pt-20 lg:pb-8 lg:mr-20">
           <div className="flex gap-4">
             {date.map((date, i) => (
               <Button
@@ -305,9 +305,27 @@ export const TicketInfo = ({
           </Button>
           <Button
             onClick={handleBackwardStep}
+            className="bg-slate-700 w-64 hover:bg-red-500 mb-10"
+          >
+            Буцах
+          </Button>
+        </div>
+      )}
+      {showtimeByTime.length == 0 && (
+        <div className="flex justify-center flex-col m-auto ">
+          <Button
+            className="bg-red-500 w-64 hover:bg-slate-800 mb-2"
+            onClick={() => {
+              send();
+            }}
+          >
+            Тасалбар захиалах
+          </Button>
+          <Button
+            onClick={handleBackwardStep}
             className="bg-slate-700 w-64 hover:bg-red-500"
           >
-            Go Back
+            Буцах
           </Button>
         </div>
       )}
