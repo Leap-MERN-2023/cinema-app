@@ -1,12 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { CardSection } from "./cardSection";
+import { ComingsoonContext } from "@/components/contexts";
 
 type Props = {};
 
 export const ComingSoon = (props: Props) => {
   const [pageCount, setPageCount] = useState(6);
+  const { coMovies } = useContext(ComingsoonContext);
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="pb-16 container">
@@ -15,16 +17,18 @@ export const ComingSoon = (props: Props) => {
         </h1>
         <CardSection pageCount={pageCount} />
       </div>
-      <div className="mb-24 p-3 rounded-md text-white bg-red-500 hover:bg-slate-800 duration-75">
-        <button
-          color="white"
-          onClick={() => {
-            setPageCount(pageCount + 6);
-          }}
-        >
-          Show More
-        </button>
-      </div>
+      {pageCount < coMovies.length && (
+        <div className="mb-24 p-3 rounded-md text-white bg-red-500 hover:bg-slate-800 duration-75">
+          <button
+            color="white"
+            onClick={() => {
+              setPageCount(pageCount + 6);
+            }}
+          >
+            Show More
+          </button>
+        </div>
+      )}
     </div>
   );
 };

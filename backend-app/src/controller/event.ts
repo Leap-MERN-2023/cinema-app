@@ -86,7 +86,6 @@ export const updateEvent = async (
       // Find and update the event by ID
       const newEventData = await Event.updateOne(
         { _id: req.params.eventId },
-        updateData,
         { $set: filteredData }
       );
 

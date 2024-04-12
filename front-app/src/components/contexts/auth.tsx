@@ -27,13 +27,14 @@ interface IAuthContext {
   loginuser: any;
   token: any;
   setUser: any;
+  loading: boolean;
 }
 
 export const AuthContext = createContext({} as IAuthContext);
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
   const { toast } = useToast();
 
@@ -118,13 +119,18 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   const [loginuser, setUser] = useState<IUser | null>(null);
   const [token, setToken] = useState("");
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+
   const authLogged = () => {
     if (localStorage.getItem("token")) {
-      setUser(JSON.parse(localStorage.getItem("user")!));
-      setToken(JSON.parse(localStorage.getItem("token")!));
+      const user = localStorage.getItem("user");
+      const token = localStorage.getItem("token");
+
+      if (user && token) {
+        setUser(JSON.parse(user));
+        setToken(JSON.parse(token));
+      }
     }
   };
-
   const logout = () => {
     setIsLoggingOut(true);
     localStorage.removeItem("user");
@@ -154,7 +160,16 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <AuthContext.Provider
-      value={{ login, signup, logout, loginuser, token, setUser, getUser }}
+      value={{
+        login,
+        signup,
+        logout,
+        loginuser,
+        token,
+        setUser,
+        getUser,
+        loading,
+      }}
     >
       {children}
     </AuthContext.Provider>

@@ -10,7 +10,8 @@ import { DeleteDialog } from "@/components/utils";
 import { Button } from "@radix-ui/themes";
 
 export const EventEdit = ({ event }: any) => {
-  const { setFile, isLoading, deleteEvent, updateEvent } = useEvent();
+  const { isLoading, deleteEvent, updateEvent } = useEvent();
+  const [eventImage, setImage] = useState("");
   const [dataEvent, setEventData] = useState({
     name: "",
     date: "",
@@ -42,6 +43,10 @@ export const EventEdit = ({ event }: any) => {
   function openModal() {
     setIsOpen(true);
   }
+
+  const takeImg = (e: string) => {
+    setEventData({ ...dataEvent, image: e });
+  };
 
   return (
     <>
@@ -128,13 +133,15 @@ export const EventEdit = ({ event }: any) => {
                     >
                       <DialogFile
                         handleInputChange={handleInputChange}
-                        setFile={setFile}
+                        setFile={setImage}
                         event={event}
+                        takeImg={takeImg}
+                        image={eventImage}
                       />
                     </Tabs.Content>
                   </Tabs.Root>
                   <div className="mt-4 flex gap-4">
-                    <Button className=" text-red-500 bg-red-300 hover:bg-red-400 focus:shadow-red-300 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
+                    <Button>
                       <DeleteDialog
                         event={event}
                         handleDelete={deleteEvent}
@@ -145,7 +152,7 @@ export const EventEdit = ({ event }: any) => {
 
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       disabled={isLoading}
                       onClick={handleAdd}
                     >

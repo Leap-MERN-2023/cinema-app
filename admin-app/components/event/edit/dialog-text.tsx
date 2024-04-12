@@ -38,7 +38,7 @@ export const DialogText = ({ handleInputChange, event }: Props) => {
             placeholder="date"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             name="date"
-            defaultValue={momentChange(event.date)}
+            defaultValue={event.date}
             onChange={handleInputChange}
             type="Date"
             id="synopsis"

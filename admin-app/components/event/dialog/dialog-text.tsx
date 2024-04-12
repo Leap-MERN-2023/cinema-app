@@ -20,6 +20,7 @@ export const DialogText = ({ handleInputChange, demo, isDemo }: Props) => {
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             name="name"
+            placeholder="Нэр..."
             value={isDemo ? demo.name : ""}
             onChange={handleInputChange}
             id="title"
@@ -51,6 +52,7 @@ export const DialogText = ({ handleInputChange, demo, isDemo }: Props) => {
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="director"
+            placeholder="Тухай..."
             name="about"
             value={isDemo ? demo.about : ""}
             onChange={handleInputChange}
@@ -67,7 +69,7 @@ export const DialogText = ({ handleInputChange, demo, isDemo }: Props) => {
             Байршил
           </label>
           <input
-            placeholder="cast"
+            placeholder="Байршил"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="cast"
             value={isDemo ? demo.location : ""}
@@ -84,7 +86,7 @@ export const DialogText = ({ handleInputChange, demo, isDemo }: Props) => {
             Нэмэлт
           </label>
           <input
-            placeholder="cast"
+            placeholder="Нэмэлт мэдээлэл оруулна уу"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="cast"
             name="addition"

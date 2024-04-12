@@ -2,6 +2,7 @@
 import React, {
   PropsWithChildren,
   createContext,
+  useContext,
   useEffect,
   useState,
 } from "react";
@@ -58,6 +59,8 @@ interface IMovieContext {
   selectedMovieId: string;
   filterByScreenType: any;
   filteredMovies: any;
+  loading: boolean;
+  error: string;
 }
 
 export const MovieContext = createContext({} as IMovieContext);
@@ -70,6 +73,8 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
   const [filteredMovies, setFilteredMovies] = useState<any>([]);
   const [filterByScreenType, setFilterByScreenType] = useState([]);
   const [filterByCinema, setFilterByCinema] = useState<any>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const getMovies = async () => {
     try {
@@ -86,6 +91,9 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
         description: `There was a problem with your request. ${error} `,
         action: <ToastAction altText="Try again">Try again</ToastAction>,
       });
+      setError("An error occurred while fetching the movie list.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -138,9 +146,13 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
         filteredMovies,
         allFilteredMovies,
         setSelectedMovie,
+        loading,
+        error,
       }}
     >
       {children}
     </MovieContext.Provider>
   );
 };
+
+export const useMovie = () => useContext(MovieContext);
