@@ -12,6 +12,7 @@ import React, {
 import myAxios from "@/components/utils/axios";
 import { CinemaContext } from ".";
 import { toast } from "react-toastify";
+import { AxiosError } from "axios";
 
 interface IUser {
   email: string;
@@ -22,7 +23,6 @@ interface IUser {
 }
 
 interface IAuthContext {
-  signup: (password: string, email: string) => Promise<void>;
   login: (password: string, email: string) => Promise<void>;
   updateUserImage: () => Promise<void>;
   setAvatarImage: (img: any) => void;
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
   const login = async (email: string, password: string) => {
     try {
       setLoading(true);
-      const { data } = await myAxios.post("/user/login", {
+      const { data } = await myAxios.post("/admin/login", {
         userEmail: email,
         userPassword: password,
       });
@@ -78,24 +78,9 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
       handleNext();
       toast.success("Амжилттай нэвтэрлээ");
     } catch (error) {
-      toast.warning("Нэвтэрхэд алдаа гарлаа");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const signup = async (email: string, password: string) => {
-    try {
-      setLoading(true);
-      const { data } = await myAxios.post("/user/signup", {
-        email: email,
-        password: password,
-      });
-      setUserData(data);
-      handleNext();
-      setRefresh(!refresh);
-    } catch (error) {
-      toast.warning("Бүртгэхэд алдаа гарлаа");
+      if (error instanceof AxiosError) {
+        toast.error(error.response?.data.message);
+      }
     } finally {
       setLoading(false);
     }
@@ -179,7 +164,6 @@ export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
     <AuthContext.Provider
       value={{
         login,
-        signup,
         logout,
         loginuser,
         token,

@@ -31,6 +31,11 @@ const customerSchema = new Schema({
       ref: "Ticket",
     },
   ],
+  role: {
+    type: String,
+    enum: ["customer", "admin"],
+    default: "customer",
+  },
 });
 
 customerSchema.pre("save", async function (next) {

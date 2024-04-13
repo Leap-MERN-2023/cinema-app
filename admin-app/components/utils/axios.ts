@@ -7,3 +7,5 @@ const instanceAxios = axios.create({
 });
 
 export default instanceAxios;
+
+export const admin = process.env.ADMIN_ID;

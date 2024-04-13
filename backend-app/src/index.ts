@@ -16,6 +16,8 @@ import comingsoon from "./router/comingsoon";
 import verify from "./router/verify";
 import events from "./router/event";
 import user from "./router/user";
+import admin from "./router/loginAdmin";
+
 import setupPassport from "./config/passport";
 import passport from "passport";
 import session from "express-session";
@@ -59,6 +61,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/auth", auth);
+app.use("/admin", admin);
 app.use("/user", user);
 app.use("/seats", seats);
 app.use("/movie", movie);

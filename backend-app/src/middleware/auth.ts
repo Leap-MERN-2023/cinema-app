@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import Customer from "../model/customer";
 import verifyToken from "../utils/verifyToken";
+import MyError from "../utils/myError";
+import { IReq } from "../utils/interface";
 
 export const authenticate = async (
   req: Request,
@@ -41,4 +43,22 @@ export const isAuth = async (
   }
   res.status(200).json({ message: "success", user: req.user });
   next();
+};
+
+export const authorize = (...roles: string[]) => {
+  return async (req: any, res: Response, next: NextFunction) => {
+    try {
+      console.log(req.body, "admin");
+      const admin = await Customer.findOne({ email: req.body.userEmail });
+      if (!roles.includes(admin.role)) {
+        throw new MyError(
+          `Таны ${admin.role} эрх энэ үйлдлийг хийх боломжгүй байна`,
+          403
+        );
+      }
+      next();
+    } catch (error) {
+      next(error);
+    }
+  };
 };
