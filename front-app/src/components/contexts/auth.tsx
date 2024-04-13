@@ -62,6 +62,9 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         description: "Enjoy your journey ^.^ 🫰",
         duration: 1500,
       });
+      setTimeout(() => {
+        logout();
+      }, 6000 * 10000);
       console.log(data, "alsjkdsaljdk");
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -98,10 +101,10 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       });
       toast({
         title: "Амжилттай бүртгүүллээ",
-        description: "Enjoy your journey ^.^ 🫰",
+        description:
+          "Та нэвтрэх хэсгээр нэвтэрч орно уу! Enjoy your journey ^.^ 🫰",
       });
       console.log("agagagahahhaahhahahahaahhaahahhahaah", data);
-      setUserData(data);
       handleNext();
       setRefresh(!refresh);
     } catch (error) {
